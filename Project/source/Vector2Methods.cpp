@@ -1,4 +1,4 @@
-#include "../Headers/Vector2.h"
+#include "Vector2.h"
 #include <cmath>
 
 Vector2::Vector2()
