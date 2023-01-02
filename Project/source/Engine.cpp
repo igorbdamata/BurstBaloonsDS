@@ -26,8 +26,3 @@ void Engine::UpdateScreens()
 	oamUpdate(&oamSub);
 }
 
-void Engine::RenderInLowerScreen(Entity entity)
-{
-	 oamSet(&oamSub, 0, entity.position.x, entity.position.y, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, 
-			entity.sprite[0], -1, false, false, false, false, false);
-}

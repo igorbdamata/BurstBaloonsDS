@@ -4,6 +4,8 @@
 
 #include <Square.h>
 #include <woman.h>
+#include <BackGround.h>
+#include <Ground.h>
 #include "Engine.h"
 #include "Game.h"
 #include "Entity.h"
@@ -93,6 +95,7 @@ int main(void) {
 	Woman woman = {100,0};
 	touchPosition touchXY;
 
+consoleDemoInit();
 	Engine engine = Engine();
 	engine.InitializeVideo();
 
@@ -104,19 +107,25 @@ int main(void) {
 	dmaCopy(SquarePal, SPRITE_PALETTE_SUB, 512);
 	dmaCopy(womanPal, SPRITE_PALETTE_SUB, 512);
 
-	Entity entity = Entity(Vector2(0,0), (u8*)womanTiles, (void*)womanPal);
+	Entity ground = Entity(Vector2(0,0), (u8*) GroundTiles,  GroundPal, 32*32, 1);
+
+	Entity entity = Entity(Vector2(0,0), (u8*)womanTiles, womanPal,  32*32, 12);
 
 	while(1) {
 	
 		scanKeys();
 
-		touchRead(&touchXY);
-		engine.RenderInLowerScreen(entity);
 		entity.position+= Vector2(1,0);
 		if(entity.position.x > SCREEN_RIGHT)
 		{
 			entity.position=Vector2(0,0);
 		}
+
+		touchRead(&touchXY);
+
+		entity.RenderInLowerScreen((void*)womanPal,0);
+		ground.RenderInLowerScreen((void*)GroundPal,1);
+
 		game.Update();
 		engine.UpdateScreens();
 	}
