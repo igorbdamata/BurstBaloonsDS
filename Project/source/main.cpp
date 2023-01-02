@@ -6,6 +6,8 @@
 #include <woman.h>
 #include "Engine.h"
 #include "Game.h"
+#include "Entity.h"
+#include "Vector2.h"
 
 volatile int frame = 0;
 
@@ -102,17 +104,19 @@ int main(void) {
 	dmaCopy(SquarePal, SPRITE_PALETTE_SUB, 512);
 	dmaCopy(womanPal, SPRITE_PALETTE_SUB, 512);
 
+	Entity entity = Entity(Vector2(0,0), (u8*)womanTiles, (void*)womanPal);
+
 	while(1) {
 	
 		scanKeys();
 
 		touchRead(&touchXY);
-
-		 oamSet(&oamSub, 0, square.x, square.y, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, 
-			square.sprite_gfx_mem[square.gfx_frame], -1, false, false, false, false, false);
-
-		oamSet(&oamSub, 0, woman.x, woman.y, 0, 0, SpriteSize_32x32, SpriteColorFormat_256Color, 
-			woman.sprite_gfx_mem[woman.gfx_frame], -1, false, false, false, false, false);
+		engine.RenderInLowerScreen(entity);
+		entity.position+= Vector2(1,0);
+		if(entity.position.x > SCREEN_RIGHT)
+		{
+			entity.position=Vector2(0,0);
+		}
 		game.Update();
 		engine.UpdateScreens();
 	}

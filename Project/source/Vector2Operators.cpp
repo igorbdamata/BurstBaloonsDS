@@ -1,4 +1,4 @@
-#include "../Headers/Vector2.h"
+#include "Vector2.h"
 
 const Vector2 Vector2::operator + (Vector2 const& object)
 {
