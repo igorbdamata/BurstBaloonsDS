@@ -6,7 +6,17 @@ Entity::Entity(Vector2 position, u8* tiles,const void* pal, uint32 size, int til
 {
     this->position = position;
     sprite[0] = oamAllocateGfx(&oamSub, SpriteSize_32x32, SpriteColorFormat_256Color);
-    dmaCopy(tiles, sprite[0], SpriteSize_32x32);
+		if(position.y == 0)
+		{
+			for(int i=0; i< SpriteSize_32x32;i++)
+				{
+					sprite[0][i] += 36;
+					sprite[0][i] |= 1<<8;
+
+				}
+		}
+	
+	
 }
 
 
