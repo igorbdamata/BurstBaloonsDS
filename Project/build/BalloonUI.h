@@ -3,12 +3,12 @@
 
 //======================================================================
 //
-//	BalloonUI, 32x32@8, 
+//	BalloonUI, 32x32@4, 
 //	+ palette 256 entries, not compressed
-//	+ 16 tiles Metatiled by 4x4 not compressed
-//	Total size: 512 + 1024 = 1536
+//	+ 16 tiles not compressed
+//	Total size: 512 + 512 = 1024
 //
-//	Time-stamp: 2023-01-02, 18:08:43
+//	Time-stamp: 2023-05-04, 14:17:32
 //	Exported by Cearn's GBA Image Transmogrifier, v0.9.1
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -17,8 +17,8 @@
 #ifndef GRIT_BALLOONUI_H
 #define GRIT_BALLOONUI_H
 
-#define BalloonUITilesLen 1024
-extern const unsigned int BalloonUITiles[256];
+#define BalloonUITilesLen 512
+extern const unsigned int BalloonUITiles[128];
 
 #define BalloonUIPalLen 512
 extern const unsigned short BalloonUIPal[256];
