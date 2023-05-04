@@ -12,6 +12,8 @@
 #include "Background.h"
 #include "Background1.h"
 
+#include "Balloon.h"
+
 int main()
 {
     HardwareManager::InitAndSetEverything();
@@ -19,9 +21,13 @@ int main()
     OamEngine main = OamEngine(UPPER);
     OamEngine sub = OamEngine(BOTTOM);
 
-    AnimatedEntity balloon = sub.GetNewAnimatedEntity(Vector2(100, 100), BalloonSpriteTiles, BalloonSpriteTilesLen, BalloonSpritePal, SpriteSize_64x64, "fly");
-    Animation flyAnimation = Animation(0.2, 0, 3, balloon.GetSpriteAddress(), SpriteSize_64x64, (void *)BalloonSpriteTiles, 2048, true);
-    Animation burstAnimation = Animation(0.2, 4, 7, balloon.GetSpriteAddress(), SpriteSize_64x64, (void *)BalloonSpriteTiles, 2048, false);
+    sub.AddPallete(BalloonSpritePal, "balloon");
+    Balloon balloon = Balloon(Vector2(100, 100), SpriteSize_64x64, "fly", BalloonSpriteTiles);
+    sub.InitEntity(&balloon);
+    balloon.ChangePalleteTo(sub.GetPallete("balloon"));
+
+    Animation flyAnimation = Animation(0.2, 0, 3, balloon.GetSpriteAddress(), SpriteSize_64x64, (void *)&BalloonSpriteTiles, 2048, true);
+    Animation burstAnimation = Animation(0.2, 4, 7, balloon.GetSpriteAddress(), SpriteSize_64x64, (void *)&BalloonSpriteTiles, 2048, false);
     balloon.AddAnimation("fly", &flyAnimation);
     balloon.AddAnimation("burst", &burstAnimation);
 

@@ -14,9 +14,10 @@ OamEngine::OamEngine(Screen screen)
     oamState = screen == UPPER ? &oamMain : &oamSub;
     oamAddress = screen == UPPER ? OAM : OAM_SUB;
     sprites = screen == UPPER ? SPRITE_GFX : SPRITE_GFX_SUB;
-    palletes = screen == UPPER ? SPRITE_PALETTE : SPRITE_PALETTE_SUB;
+    palletesAddress = screen == UPPER ? SPRITE_PALETTE : SPRITE_PALETTE_SUB;
     backgroundRam = (uint16 *)(screen == UPPER ? BG_BMP_RAM(0) : BG_BMP_RAM_SUB(0));
     availableOamIndex = 0;
+    availablePalleteIndex= 0;
     InitOam();
     SetPrintConsole();
 }
@@ -53,23 +54,25 @@ void OamEngine::SetTextFont(void *fontTiles, void *fontPallete, u16 fontPalleteL
     consoleSetFont(printConsole, &font);
 }
 
-AnimatedEntity OamEngine::GetNewAnimatedEntity(Vector2 position, const void *tiles, uint32 tilesSize, const void *pallete, SpriteSize spriteSize, const char *defaultAnimation)
+void OamEngine::AddPallete(const void *pallete, const char *palleteName)
 {
-    Entity entity = GetNewEntity(position, tiles, tilesSize, pallete, spriteSize);
-    AnimatedEntity animatedEntity = AnimatedEntity(entity.GetOamID(), entity.GetSpriteAddress(), position, oamState, spriteSize, defaultAnimation);
-    return animatedEntity;
+    int palleteIndex = GetAvailablePalleteIndex();
+    palletes.insert(std::make_pair(palleteName, palleteIndex));
+    DC_FlushAll();
+    dmaCopy(pallete, palletesAddress + COLORS_PER_PALETTE * palleteIndex, COLORS_PER_PALETTE);
 }
 
-Entity OamEngine::GetNewEntity(Vector2 position, const void *tiles, uint32 tilesSize, const void *pallete, SpriteSize spriteSize)
+int OamEngine::GetPallete(const char *palleteName)
+{
+    return palletes[palleteName];
+}
+
+void OamEngine::InitEntity(Entity *entity)
 {
     int oamID = GetAvailableOamIndex();
-    void *graphicMemory = oamAllocateGfx(oamState, spriteSize, SpriteColorFormat_16Color);
+    void *spriteAddress = oamAllocateGfx(oamState, entity->GetSpriteSize(), SpriteColorFormat_16Color);
 
-    CopyPalleteOnMemory(pallete, oamID);
-    CopyGraphicsOnMemory(tiles, graphicMemory, spriteSize);
-
-    Entity entity = Entity(oamID, graphicMemory, position, oamState, spriteSize);
-    return entity;
+    entity->Init(oamID, spriteAddress, oamState);
 }
 
 int OamEngine::GetAvailableOamIndex()
@@ -77,12 +80,12 @@ int OamEngine::GetAvailableOamIndex()
     assert(availableOamIndex < SPRITE_COUNT);
     return availableOamIndex++;
 }
-
-void OamEngine::CopyPalleteOnMemory(const void *pallete, int oamID)
+int OamEngine::GetAvailablePalleteIndex()
 {
-    DC_FlushAll();
-    dmaCopy(pallete, palletes + COLORS_PER_PALETTE * oamID, COLORS_PER_PALETTE);
+    assert(availablePalleteIndex < 16);
+    return availablePalleteIndex++;
 }
+
 void OamEngine::CopyGraphicsOnMemory(const void *tiles, void *graphicMemory, SpriteSize spriteSize)
 {
     DC_FlushAll();
