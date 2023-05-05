@@ -21,8 +21,11 @@ int main()
     OamEngine main = OamEngine(UPPER);
     OamEngine sub = OamEngine(BOTTOM);
 
+    touchPosition touch;
+    Vector2 touchVector2 = Vector2(0, 0);
+
     sub.AddPallete(BalloonSpritePal, "balloon");
-    Balloon balloon = Balloon(Vector2(100, 100), SpriteSize_64x64, "fly", BalloonSpriteTiles);
+    Balloon balloon = Balloon(Vector2(100, 100), SpriteSize_64x64, "fly", BalloonSpriteTiles, 2, 22, 27, 20, 5);
     sub.InitEntity(&balloon);
     balloon.ChangePalleteTo(sub.GetPallete("balloon"));
 
@@ -37,7 +40,14 @@ int main()
     while (true)
     {
         HardwareManager::ClearScreens();
+
+        touchRead(&touch);
+        touchVector2.x = touch.px;
+        touchVector2.y = touch.py;
+
         scanKeys();
+        balloon.Move();
+        balloon.CheckCollision(touchVector2);
 
         balloon.Render();
         balloon.UpdateAnimation();
