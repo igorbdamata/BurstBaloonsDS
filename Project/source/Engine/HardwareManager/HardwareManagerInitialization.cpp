@@ -1,4 +1,4 @@
-#include "Engine\HardwareManager.h"
+#include "Engine/HardwareManager.h"
 #include <nds.h>
 #include <maxmod9.h>
 #include <soundbank.h>

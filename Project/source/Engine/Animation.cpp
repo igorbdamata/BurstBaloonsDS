@@ -1,5 +1,5 @@
-#include "Engine\Animation.h"
-#include "Engine\HardwareManager.h"
+#include "Engine/Animation.h"
+#include "Engine/HardwareManager.h"
 
 Animation::Animation(float framesInterval, int firstFrame, int lastFrame, void *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop)
 {

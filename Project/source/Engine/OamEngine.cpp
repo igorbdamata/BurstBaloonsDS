@@ -1,5 +1,5 @@
 #include <nds.h>
-#include "Engine\OamEngine.h"
+#include "Engine/OamEngine.h"
 
 const int COLORS_PER_PALETTE = 16;
 const int DEFAULT_BACKGROUND_ID = 3;

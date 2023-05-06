@@ -1,4 +1,4 @@
-#include "Engine\HardwareManager.h"
+#include "Engine/HardwareManager.h"
 #include <nds.h>
 
 const double CPU_CLOCK = 33.514;

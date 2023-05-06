@@ -1,11 +1,11 @@
 #include <nds.h>
 #include <soundbank.h>
 
-#include "Engine\OamEngine.h"
-#include "Engine\Entity.h"
-#include "Engine\HardwareManager.h"
-#include "Engine\SoundManager.h"
-#include "Engine\Vector2.h"
+#include "Engine/OamEngine.h"
+#include "Engine/Entity.h"
+#include "Engine/HardwareManager.h"
+#include "Engine/SoundManager.h"
+#include "Engine/Vector2.h"
 
 #include <soundbank_bin.h>
 #include "BalloonSprite.h"
@@ -40,7 +40,6 @@ int main()
     while (true)
     {
         HardwareManager::ClearScreens();
-
         touchRead(&touch);
         touchVector2.x = touch.px;
         touchVector2.y = touch.py;

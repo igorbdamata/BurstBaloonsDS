@@ -1,5 +1,5 @@
-#include "Engine\Entity.h"
-#include "Engine\Vector2.h"
+#include "Engine/Entity.h"
+#include "Engine/Vector2.h"
 #include <nds.h>
 
 Entity::Entity(){};
