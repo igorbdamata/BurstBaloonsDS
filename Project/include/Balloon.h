@@ -24,4 +24,5 @@ private:
     void Move();
     void ApplyGravity();
     void OnBurst();
+    void RevertBurst();
 };

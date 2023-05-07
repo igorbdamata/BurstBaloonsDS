@@ -23,10 +23,8 @@ void  Balloon::Update()
 {
     if(!wasBursted)
         Move();
-    else if(position.y>192)
-    {
-        //Revert burst
-    }
+    else if(position.y > SCREEN_HEIGHT || position.y < -height)
+        RevertBurst();
     ApplyGravity();
     position += velocity;
 }
@@ -49,4 +47,14 @@ void Balloon::OnBurst()
 {
     wasBursted = true;
     ChangeAnimationTo("burst");
+}
+
+void Balloon::RevertBurst()
+{
+    wasBursted = false;
+    ChangeAnimationTo("Fly");
+    int randomPositionX = width+rand()%(SCREEN_WIDTH-width);
+    position.x = randomPositionX;
+    position.y = 192-height;
+
 }

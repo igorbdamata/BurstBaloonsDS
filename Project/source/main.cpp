@@ -14,9 +14,13 @@
 
 #include "Balloon.h"
 
+#include <time.h>
+
 int main()
 {
     HardwareManager::InitAndSetEverything();
+
+    srand(time(NULL));
 
     OamEngine main = OamEngine(UPPER);
     OamEngine sub = OamEngine(BOTTOM);
@@ -45,7 +49,7 @@ int main()
         touchVector2.y = touch.py;
 
         scanKeys();
-        balloon.Move();
+        balloon.Update();
         balloon.CheckCollision(touchVector2);
 
         balloon.Render();
