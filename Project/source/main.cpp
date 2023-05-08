@@ -11,6 +11,7 @@
 #include "BalloonSprite.h"
 #include "Background.h"
 #include "Background1.h"
+#include "Font.h"
 
 #include "Balloon.h"
 
@@ -41,6 +42,8 @@ int main()
     main.SetBackgroundTo(Background1Bitmap, Background1BitmapLen);
     sub.SetBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
+    main.SetTextFont((void *)fontTiles, (void *)fontPal, fontPalLen);
+
     while (true)
     {
         HardwareManager::ClearScreens();
@@ -49,8 +52,9 @@ int main()
         touchVector2.y = touch.py;
 
         scanKeys();
+        if(keysDown() & KEY_TOUCH)
+            balloon.CheckCollision(touchVector2);
         balloon.Update();
-        balloon.CheckCollision(touchVector2);
 
         balloon.Render();
         balloon.UpdateAnimation();

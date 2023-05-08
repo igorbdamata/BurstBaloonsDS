@@ -1,4 +1,6 @@
 #include "Balloon.h"
+#include <nds.h>
+#include <iostream>
 
 Balloon::Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY)
     : AnimatedEntity(position, spriteSize, defaultAnimation, tiles)
@@ -19,27 +21,31 @@ void Balloon::Init()
     moveAmount.y = verticalDirection * speed;
 }
 
-void  Balloon::Update()
+void Balloon::Update()
 {
-    if(!wasBursted)
+    if (!wasBursted)
+    {
+        if (position.y + height < 0)
+            RemoveLife();
         Move();
-    else if(position.y > SCREEN_HEIGHT || position.y < -height)
-        RevertBurst();
+    }
+    else if (position.y > SCREEN_HEIGHT)
+        Respawn();
     ApplyGravity();
     position += velocity;
 }
 void Balloon::Move()
 {
-    velocity += moveAmount;
+    velocity = moveAmount;
 }
 void Balloon::ApplyGravity()
 {
-    velocity.y += 1; 
+    velocity.y += 0.1;
 }
 
 void Balloon::CheckCollision(Vector2 touchPosition)
 {
-    if (touchPosition.x > position.x+offsetX && touchPosition.y > position.y+offsetY && touchPosition.x < position.x + width +offsetX&& touchPosition.y < position.y + height+offsetY && !wasBursted)
+    if (touchPosition.x > position.x + offsetX && touchPosition.y > position.y + offsetY && touchPosition.x < position.x + width + offsetX && touchPosition.y < position.y + height + offsetY && !wasBursted)
         OnBurst();
 }
 
@@ -49,12 +55,16 @@ void Balloon::OnBurst()
     ChangeAnimationTo("burst");
 }
 
-void Balloon::RevertBurst()
+void Balloon::Respawn()
 {
     wasBursted = false;
-    ChangeAnimationTo("Fly");
-    int randomPositionX = width+rand()%(SCREEN_WIDTH-width);
+    ChangeAnimationTo("fly");
+    int randomPositionX = rand() % (SCREEN_WIDTH - width*2);
     position.x = randomPositionX;
-    position.y = 192-height;
+    position.y = SCREEN_HEIGHT - height;
+}
 
+void Balloon::RemoveLife()
+{
+    Respawn();
 }

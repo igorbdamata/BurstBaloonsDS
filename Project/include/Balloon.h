@@ -4,10 +4,8 @@
 class Balloon : public AnimatedEntity
 {
 public:
-    Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY);
-    void Update();
+    Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY);    void Update();
     void CheckCollision(Vector2 touchPosition);
-
 private:
     int verticalDirection;
     int speed;
@@ -24,5 +22,8 @@ private:
     void Move();
     void ApplyGravity();
     void OnBurst();
-    void RevertBurst();
+    void Respawn();
+    void RemoveLife();
+
+  
 };
