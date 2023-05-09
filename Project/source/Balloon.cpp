@@ -2,7 +2,7 @@
 #include <nds.h>
 #include <iostream>
 
-Balloon::Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY)
+Balloon::Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager)
     : AnimatedEntity(position, spriteSize, defaultAnimation, tiles)
 {
     this->speed = speed;
@@ -10,8 +10,10 @@ Balloon::Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAni
     this->height = height;
     this->offsetX = offsetX;
     this->offsetY = offsetY;
+    this->gameManager = gameManager;
     moveAmount = Vector2(0, 0);
     velocity = Vector2(0, 0);
+    wasBursted = false;
     Init();
 }
 
@@ -53,18 +55,20 @@ void Balloon::OnBurst()
 {
     wasBursted = true;
     ChangeAnimationTo("burst");
+    gameManager->AddToScore(1);
 }
 
 void Balloon::Respawn()
 {
     wasBursted = false;
     ChangeAnimationTo("fly");
-    int randomPositionX = rand() % (SCREEN_WIDTH - width*2);
+    int randomPositionX = rand() % (SCREEN_WIDTH - width * 2);
     position.x = randomPositionX;
     position.y = SCREEN_HEIGHT - height;
 }
 
 void Balloon::RemoveLife()
 {
+    gameManager->RemoveLife();
     Respawn();
 }
