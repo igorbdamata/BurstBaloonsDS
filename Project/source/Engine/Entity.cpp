@@ -3,7 +3,6 @@
 #include <nds.h>
 
 Entity::Entity(){};
-
 Entity::Entity(Vector2 position, SpriteSize spriteSize,const  void *tiles)
 {
     this->tiles = (void*)tiles;

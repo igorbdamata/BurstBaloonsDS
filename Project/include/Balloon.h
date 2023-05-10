@@ -5,7 +5,8 @@
 class Balloon : public AnimatedEntity
 {
 public:
-    Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager);
+    Balloon();
+    Balloon(SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager);
     void Update();
     void CheckCollision(Vector2 touchPosition);
 
@@ -29,4 +30,5 @@ private:
     void OnBurst();
     void Respawn();
     void RemoveLife();
+    void SetPositionToRandomPoint();
 };

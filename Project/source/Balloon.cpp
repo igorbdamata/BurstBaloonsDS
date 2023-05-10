@@ -2,8 +2,9 @@
 #include <nds.h>
 #include <iostream>
 
-Balloon::Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager)
-    : AnimatedEntity(position, spriteSize, defaultAnimation, tiles)
+Balloon::Balloon() : AnimatedEntity() {}
+Balloon::Balloon(SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager)
+    : AnimatedEntity(Vector2(0, 0), spriteSize, defaultAnimation, tiles)
 {
     this->speed = speed;
     this->width = width;
@@ -15,6 +16,7 @@ Balloon::Balloon(Vector2 position, SpriteSize spriteSize, const char *defaultAni
     velocity = Vector2(0, 0);
     wasBursted = false;
     Init();
+    SetPositionToRandomPoint();
 }
 
 void Balloon::Init()
@@ -27,7 +29,7 @@ void Balloon::Update()
 {
     if (!wasBursted)
     {
-        if (position.y + height < 0)
+        if (position.y + 64 < 0)
             RemoveLife();
         Move();
     }
@@ -62,9 +64,14 @@ void Balloon::Respawn()
 {
     wasBursted = false;
     ChangeAnimationTo("fly");
+    SetPositionToRandomPoint();
+}
+
+void Balloon::SetPositionToRandomPoint()
+{
     int randomPositionX = rand() % (SCREEN_WIDTH - width * 2);
     position.x = randomPositionX;
-    position.y = SCREEN_HEIGHT - height;
+    position.y = SCREEN_HEIGHT;
 }
 
 void Balloon::RemoveLife()
