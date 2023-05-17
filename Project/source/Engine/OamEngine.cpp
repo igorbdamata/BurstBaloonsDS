@@ -70,7 +70,7 @@ int OamEngine::GetPallete(const char *palleteName)
 void OamEngine::InitEntity(Entity *entity)
 {
     int oamID = GetAvailableOamIndex();
-    void *spriteAddress = oamAllocateGfx(oamState, entity->GetSpriteSize(), SpriteColorFormat_16Color);
+    u16 *spriteAddress = oamAllocateGfx(oamState, entity->GetSpriteSize(), SpriteColorFormat_16Color);
 
     entity->Init(oamID, spriteAddress, oamState);
 }

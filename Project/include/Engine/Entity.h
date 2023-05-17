@@ -8,21 +8,21 @@
 class Entity
 {
 public:
-    Vector2 position;
+    Vector2* position;
 
     Entity();
-    Entity(Vector2 position, SpriteSize spriteSize, const void *tiles);
-    void Init(int oamID, void *spriteAddress, OamState *engine);
+    Entity(Vector2* position, SpriteSize spriteSize, const void *tiles);
+    void Init(int oamID, u16 *spriteAddress, OamState *engine);
     void Render(bool horizontalFlip = false, bool verticalFlip = false);
 
-    void *GetSpriteAddress();
+    u16 *GetSpriteAddress();
     int GetOamID();
     SpriteSize GetSpriteSize();
 
     void ChangePalleteTo(int newPalleteID);
 
 protected:
-    void *spriteAddress;
+    u16 *spriteAddress;
     void *tiles;
     OamState *engine;
     int palleteID;

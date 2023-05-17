@@ -7,7 +7,7 @@
 class Animation
 {
 public:
-    Animation(float framesInterval, int firstFrame, int lastFrame, void *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop);
+    Animation(float framesInterval, int firstFrame, int lastFrame, u16 *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop);
 
     void Start();
     void Update();

@@ -49,9 +49,9 @@ int main()
         balloons[i].AddAnimation("burst", &burstAnimation);
     }
 
-    Entity balloonsUI[] = {Entity(Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0, 0), SpriteSize_32x32, BalloonUITiles),
-                           Entity(Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1, 0), SpriteSize_32x32, BalloonUITiles),
-                           Entity(Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2, 0), SpriteSize_32x32, BalloonUITiles)};
+    Entity balloonsUI[] = {Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0, 0), SpriteSize_32x32, BalloonUITiles),
+                           Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1, 0), SpriteSize_32x32, BalloonUITiles),
+                           Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2, 0), SpriteSize_32x32, BalloonUITiles)};
 
     main.AddPallete(BalloonUIPal, "balloonUI");
     for (int i = 0; i < 3; i++)
@@ -85,7 +85,7 @@ int main()
         if (keysDown() & KEY_TOUCH)
         {
             for (int i = 0; i < BALLOONS_COUNT; i++)
-                 balloons[i].CheckCollision(touchVector2);
+                 balloons[i].CheckCollision(&touchVector2);
         }
         for (int i = 0; i < 3; i++)
         {

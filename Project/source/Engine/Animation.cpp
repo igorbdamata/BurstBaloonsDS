@@ -1,7 +1,7 @@
 #include "Engine/Animation.h"
 #include "Engine/HardwareManager.h"
 
-Animation::Animation(float framesInterval, int firstFrame, int lastFrame, void *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop)
+Animation::Animation(float framesInterval, int firstFrame, int lastFrame, u16 *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop)
 {
     this->framesInterval = framesInterval;
     this->firstFrame = firstFrame;
