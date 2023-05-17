@@ -3,8 +3,8 @@
 #include <iostream>
 
 Balloon::Balloon() : AnimatedEntity() {}
-Balloon::Balloon(SpriteSize spriteSize, const char *defaultAnimation, const void *tiles, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager)
-    : AnimatedEntity(nullptr, spriteSize, defaultAnimation, tiles)
+Balloon::Balloon(SpriteSize spriteSize, const char *defaultAnimation, int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager)
+    : AnimatedEntity(nullptr, spriteSize, defaultAnimation)
 {
     this->speed = speed;
     this->width = width;

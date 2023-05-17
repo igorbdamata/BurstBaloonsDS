@@ -3,11 +3,13 @@
 #pragma once
 
 #include <nds.h>
+#include "Entity.h"
+#include<vector>
 
 class Animation
 {
 public:
-    Animation(float framesInterval, int firstFrame, int lastFrame, u16 *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop);
+    Animation(float framesInterval, int framesCount, void *sprite, bool haveLoop, std::vector<void*> frames);
 
     void Start();
     void Update();
@@ -19,26 +21,21 @@ private:
     bool haveLoop;
 
     int currentFrame;
-
-    int firstFrame;
-    int lastFrame;
+    int framesCount;
 
     float framesInterval;
     float lastFrameChangeTime;
 
     bool finishedExecution;
 
-    void *sprite;
-    void *spriteSheet;
-
-    int spriteSheetWidth;
-    SpriteSize spritesSize;
+    std::vector<void*> frames;
+    void* sprite;
 
     bool IsTimeToChangeFrame();
     void ChangeFrame();
     void ResetCurrentFrame();
     void FinishAnimation();
-    void CopySpriteIntoMemory();
+    void ChangeSpriteOnEntity();
 };
 
 #endif

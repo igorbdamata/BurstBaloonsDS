@@ -1,16 +1,13 @@
 #include "Engine/Animation.h"
 #include "Engine/HardwareManager.h"
 
-Animation::Animation(float framesInterval, int firstFrame, int lastFrame, u16 *sprite, SpriteSize spritesSize, void *spriteSheet, int spriteSheetWidth, bool haveLoop)
+Animation::Animation(float framesInterval, int framesCount, void *sprite, bool haveLoop, std::vector<void*> frames)
 {
     this->framesInterval = framesInterval;
-    this->firstFrame = firstFrame;
-    this->lastFrame = lastFrame;
+    this-> framesCount =  framesCount;
     this->sprite = sprite;
-    this->spriteSheet = spriteSheet;
-    this->spriteSheetWidth = spriteSheetWidth;
-    this->spritesSize = spritesSize;
     this->haveLoop = haveLoop;
+    this->frames = frames;
     this->finishedExecution = false;
 }
 
@@ -21,7 +18,7 @@ bool Animation::IsPlaying()
 
 void Animation::Start()
 {
-    currentFrame = firstFrame;
+    currentFrame = 0;
     finishedExecution = false;
 }
 
@@ -31,7 +28,7 @@ void Animation::Update()
         return;
 
     ChangeFrame();
-    CopySpriteIntoMemory();
+    ChangeSpriteOnEntity();
 }
 bool Animation::IsTimeToChangeFrame()
 {
@@ -43,7 +40,7 @@ void Animation::ChangeFrame()
 {
     currentFrame++;
     lastFrameChangeTime = HardwareManager::GetCurrentMilliseconds() / 1000;
-    if (currentFrame <= lastFrame)
+    if (currentFrame < framesCount)
         return;
     ResetCurrentFrame();
 }
@@ -51,7 +48,7 @@ void Animation::ResetCurrentFrame()
 {
     if (haveLoop)
     {
-        currentFrame = firstFrame;
+        currentFrame = 0;
         return;
     }
     FinishAnimation();
@@ -59,14 +56,10 @@ void Animation::ResetCurrentFrame()
 void Animation::FinishAnimation()
 {
     finishedExecution = true;
-    currentFrame = lastFrame;
+    currentFrame = framesCount-1;
 }
 
-void Animation::CopySpriteIntoMemory()
+void Animation::ChangeSpriteOnEntity()
 {
-    DC_FlushAll();
-    dmaCopy(
-        spriteSheet + (spriteSheetWidth)*currentFrame,
-        sprite,
-        SpriteSize_64x64);
+    sprite = frames[currentFrame];
 }

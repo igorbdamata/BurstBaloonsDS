@@ -13,11 +13,10 @@ OamEngine::OamEngine(Screen screen)
     this->screen = screen;
     oamState = screen == UPPER ? &oamMain : &oamSub;
     oamAddress = screen == UPPER ? OAM : OAM_SUB;
-    sprites = screen == UPPER ? SPRITE_GFX : SPRITE_GFX_SUB;
     palletesAddress = screen == UPPER ? SPRITE_PALETTE : SPRITE_PALETTE_SUB;
     backgroundRam = (uint16 *)(screen == UPPER ? BG_BMP_RAM(0) : BG_BMP_RAM_SUB(0));
     availableOamIndex = 0;
-    availablePalleteIndex= 0;
+    availablePalleteIndex = 0;
     InitOam();
     SetPrintConsole();
 }
@@ -70,9 +69,7 @@ int OamEngine::GetPallete(const char *palleteName)
 void OamEngine::InitEntity(Entity *entity)
 {
     int oamID = GetAvailableOamIndex();
-    u16 *spriteAddress = oamAllocateGfx(oamState, entity->GetSpriteSize(), SpriteColorFormat_16Color);
-
-    entity->Init(oamID, spriteAddress, oamState);
+    entity->Init(oamID, oamState);
 }
 
 int OamEngine::GetAvailableOamIndex()
@@ -95,4 +92,15 @@ void OamEngine::CopyGraphicsOnMemory(const void *tiles, void *graphicMemory, Spr
 void OamEngine::UpdateOam()
 {
     oamUpdate(oamState);
+}
+
+void OamEngine::AddSprite(const char *spriteName, const void *tiles, SpriteSize spriteSize)
+{
+    void *spriteAddress = oamAllocateGfx(oamState, spriteSize, SpriteColorFormat_16Color);
+    sprites.insert(std::make_pair(spriteName, spriteAddress));
+    CopyGraphicsOnMemory(tiles, spriteAddress, spriteSize);
+}
+void *OamEngine::GetSprite(const char* spriteName)
+{
+    return sprites[spriteName];
 }

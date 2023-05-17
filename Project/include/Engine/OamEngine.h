@@ -28,19 +28,23 @@ public:
     void SetTextFont(void *fontTiles, void *fontPallete, u16 fontPalleteLength);
 
     void InitEntity(Entity *entity);
-    void AddPallete(const void* pallete, const char* pallateName);
+    void AddPallete(const void *pallete, const char *pallateName);
     int GetPallete(const char *palleteName);
+
+    void AddSprite(const char *spriteName, const void *tiles, SpriteSize spriteSize);
+    void *GetSprite(const char *spriteName);
+
     void UpdateOam();
 
 private:
     int availableOamIndex;
     int availablePalleteIndex;
-    
+
     std::map<const char *, int> palletes;
+    std::map<const char *, void *> sprites;
 
     u16 *oamAddress;
     u16 *palletesAddress;
-    u16 *sprites;
     u16 *backgroundRam;
     OamState *oamState;
 

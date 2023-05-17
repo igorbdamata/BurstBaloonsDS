@@ -1,8 +1,8 @@
 #include "Engine/AnimatedEntity.h"
 
 AnimatedEntity::AnimatedEntity() : Entity() {}
-AnimatedEntity::AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles)
-    : Entity(position, spriteSize, tiles)
+AnimatedEntity::AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char *defaultAnimation)
+    : Entity(position, spriteSize)
 {
     currentAnimation = defaultAnimation;
 }

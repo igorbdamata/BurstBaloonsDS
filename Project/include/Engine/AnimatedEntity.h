@@ -10,7 +10,7 @@ class AnimatedEntity : public Entity
 {
 public:
     AnimatedEntity();  
-    AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char *defaultAnimation, const void *tiles);
+    AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char *defaultAnimation);
     void AddAnimation(const char *animationName, Animation *animation);
     void UpdateAnimation();
     void ChangeAnimationTo(const char *newAnimation);

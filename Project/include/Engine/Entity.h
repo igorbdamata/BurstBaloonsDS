@@ -11,19 +11,18 @@ public:
     Vector2* position;
 
     Entity();
-    Entity(Vector2* position, SpriteSize spriteSize, const void *tiles);
-    void Init(int oamID, u16 *spriteAddress, OamState *engine);
+    Entity(Vector2* position, SpriteSize spriteSize);
+    void Init(int oamID,  OamState *engine);
     void Render(bool horizontalFlip = false, bool verticalFlip = false);
 
-    u16 *GetSpriteAddress();
+    void *GetSpriteAddress();
+    void *spriteAddress;
     int GetOamID();
     SpriteSize GetSpriteSize();
 
     void ChangePalleteTo(int newPalleteID);
 
 protected:
-    u16 *spriteAddress;
-    void *tiles;
     OamState *engine;
     int palleteID;
 

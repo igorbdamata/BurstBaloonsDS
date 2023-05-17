@@ -3,20 +3,16 @@
 #include <nds.h>
 
 Entity::Entity(){};
-Entity::Entity(Vector2* position, SpriteSize spriteSize,const  void *tiles)
+Entity::Entity(Vector2* position, SpriteSize spriteSize)
 {
-    this->tiles = (void*)tiles;
     this->position = position;
     this->spriteSize = spriteSize;
 }
 
-void Entity::Init(int oamID, u16 *spriteAddress, OamState* engine)
+void Entity::Init(int oamID, OamState* engine)
 {
     this->oamID = oamID;
-    this->spriteAddress = spriteAddress;
     this->engine=engine;
-    DC_FlushAll();
-    dmaCopy(tiles, spriteAddress, spriteSize);
 }
 
 void Entity::Render(bool horizontalFlip, bool verticalFlip)
@@ -26,7 +22,7 @@ void Entity::Render(bool horizontalFlip, bool verticalFlip)
            spriteAddress, -1, false, hide, horizontalFlip, verticalFlip, false);
 }
 
-u16 *Entity::GetSpriteAddress()
+void *Entity::GetSpriteAddress()
 {
     return spriteAddress;
 }
