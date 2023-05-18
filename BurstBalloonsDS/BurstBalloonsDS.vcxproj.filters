@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Arquivos de Origem">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Engine">
+      <UniqueIdentifier>{9c562720-c1e0-44d8-b984-5e0b1e5a8cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Engine">
+      <UniqueIdentifier>{80aba4a9-063e-4253-8091-5abdc6e6efdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Engine\HardwareManager">
+      <UniqueIdentifier>{78021739-bcea-4ccb-a742-f38967c7c8af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Engine\Vector2">
+      <UniqueIdentifier>{b3527621-95ab-457f-a34f-3405c309c5ed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Balloon.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\GameManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\AnimatedEntity.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\Animation.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\Entity.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\HardwareManager.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\OamEngine.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\SoundManager.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\Vector2.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Balloon.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\GameManager.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\main.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Vector2\Vector2Methods.cpp">
+      <Filter>Arquivos de Origem\Engine\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Vector2\Vector2Operators.cpp">
+      <Filter>Arquivos de Origem\Engine\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\HardwareManager\HardwareManagerInitialization.cpp">
+      <Filter>Arquivos de Origem\Engine\HardwareManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\HardwareManager\HardwareManagerUtilities.cpp">
+      <Filter>Arquivos de Origem\Engine\HardwareManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\AnimatedEntity.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Animation.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Entity.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\OamEngine.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\SoundManager.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

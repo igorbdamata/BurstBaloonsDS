@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{423E2095-6E6B-411A-BB3C-A6B07D4A3B82}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeBuildCommandLine>make -r 2&gt;&amp;1</NMakeBuildCommandLine>
+    <NMakeOutput>BurstBalloonsDS.nds</NMakeOutput>
+    <NMakeCleanCommandLine>clear</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>make -r 2&gt;&amp;1</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\build;C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\include;C:\devkitPro\libnds\include\sys;C:\devkitPro\libnds\include\netinet;C:\devkitPro\libnds\include\nds\arm7;C:\devkitPro\libnds\include\nds\arm9;C:\devkitPro\libnds\include\nds;C:\devkitPro\libnds\include\arpa;C:\devkitPro\libnds\include;C:\devkitPro\devkitARM\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <AllProjectBMIsArePublic>true</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>make -r 2&gt;&amp;1</NMakeBuildCommandLine>
+    <NMakeOutput>BurstBalloonsDS.nds</NMakeOutput>
+    <NMakeCleanCommandLine>clear</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>make -r 2&gt;&amp;1</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\build;C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\include;C:\devkitPro\libnds\include\sys;C:\devkitPro\libnds\include\netinet;C:\devkitPro\libnds\include\nds\arm7;C:\devkitPro\libnds\include\nds\arm9;C:\devkitPro\libnds\include\nds;C:\devkitPro\libnds\include\arpa;C:\devkitPro\libnds\include;C:\devkitPro\devkitARM\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <AllProjectBMIsArePublic>true</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>make -r 2&gt;&amp;1</NMakeBuildCommandLine>
+    <NMakeOutput>BurstBalloonsDS.nds</NMakeOutput>
+    <NMakeCleanCommandLine>clear</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>make -r 2&gt;&amp;1</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\build;C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\include;C:\devkitPro\libnds\include\sys;C:\devkitPro\libnds\include\netinet;C:\devkitPro\libnds\include\nds\arm7;C:\devkitPro\libnds\include\nds\arm9;C:\devkitPro\libnds\include\nds;C:\devkitPro\libnds\include\arpa;C:\devkitPro\libnds\include;C:\devkitPro\devkitARM\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <AllProjectBMIsArePublic>true</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NMakeBuildCommandLine>make -r 2&gt;&amp;1</NMakeBuildCommandLine>
+    <NMakeOutput>BurstBalloonsDS.nds</NMakeOutput>
+    <NMakeCleanCommandLine>clear</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>make -r 2&gt;&amp;1</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\build;C:\Users\igorb\OneDrive\Documentos\GitHub\BurstBaloonsDS\BurstBalloonsDS\include;C:\devkitPro\libnds\include\sys;C:\devkitPro\libnds\include\netinet;C:\devkitPro\libnds\include\nds\arm7;C:\devkitPro\libnds\include\nds\arm9;C:\devkitPro\libnds\include\nds;C:\devkitPro\libnds\include\arpa;C:\devkitPro\libnds\include;C:\devkitPro\devkitARM\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <AllProjectBMIsArePublic>true</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Balloon.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\AnimatedEntity.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\Animation.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\Entity.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\HardwareManager.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\OamEngine.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\SoundManager.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\Engine\Vector2.h" />
+    <ClInclude Include="..\..\..\BurstBalloonsDS\include\GameManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Balloon.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\AnimatedEntity.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Animation.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Entity.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\HardwareManager\HardwareManagerInitialization.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\HardwareManager\HardwareManagerUtilities.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\OamEngine.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\SoundManager.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Vector2\Vector2Methods.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\Engine\Vector2\Vector2Operators.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\GameManager.cpp" />
+    <ClCompile Include="..\..\..\BurstBalloonsDS\source\main.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
