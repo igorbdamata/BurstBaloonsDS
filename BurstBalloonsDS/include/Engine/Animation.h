@@ -9,33 +9,33 @@
 class Animation
 {
 public:
-    Animation(float framesInterval, int framesCount, void *sprite, bool haveLoop, std::vector<void*> frames);
+	Animation(float framesInterval, int framesCount, Entity* entity, bool haveLoop, std::vector<void*> frames);
 
-    void Start();
-    void Update();
+	void Start();
+	void Update();
 
-    bool IsPlaying();
+	bool IsPlaying();
 
 private:
-    bool isPlaying;
-    bool haveLoop;
+	bool isPlaying;
+	bool haveLoop;
 
-    int currentFrame;
-    int framesCount;
+	int currentFrame;
+	int framesCount;
 
-    float framesInterval;
-    float lastFrameChangeTime;
+	float framesInterval;
+	float lastFrameChangeTime;
 
-    bool finishedExecution;
+	bool finishedExecution;
 
-    std::vector<void*> frames;
-    void* sprite;
+	std::vector<void*> frames;
+	Entity* entity;
 
-    bool IsTimeToChangeFrame();
-    void ChangeFrame();
-    void ResetCurrentFrame();
-    void FinishAnimation();
-    void ChangeSpriteOnEntity();
+	bool IsTimeToChangeFrame();
+	void ChangeFrame();
+	void ResetCurrentFrame();
+	void FinishAnimation();
+	void ChangeSpriteOnEntity();
 };
 
 #endif

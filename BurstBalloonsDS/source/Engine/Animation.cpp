@@ -1,65 +1,66 @@
 #include "Engine/Animation.h"
 #include "Engine/HardwareManager.h"
+#include<string>
 
-Animation::Animation(float framesInterval, int framesCount, void *sprite, bool haveLoop, std::vector<void*> frames)
+Animation::Animation(float framesInterval, int framesCount, Entity* entity, bool haveLoop, std::vector<void*> frames)
 {
-    this->framesInterval = framesInterval;
-    this-> framesCount =  framesCount;
-    this->sprite = sprite;
-    this->haveLoop = haveLoop;
-    this->frames = frames;
-    this->finishedExecution = false;
+	this->framesInterval = framesInterval;
+	this->framesCount = framesCount;
+	this->entity = entity;
+	this->haveLoop = haveLoop;
+	this->frames = frames;
+	this->finishedExecution = false;
 }
 
 bool Animation::IsPlaying()
 {
-    return isPlaying;
+	return isPlaying;
 }
 
 void Animation::Start()
 {
-    currentFrame = 0;
-    finishedExecution = false;
+	currentFrame = 0;
+	finishedExecution = false;
 }
 
 void Animation::Update()
 {
-    if (!IsTimeToChangeFrame() || (!haveLoop && finishedExecution))
-        return;
+	if (!IsTimeToChangeFrame() || (!haveLoop && finishedExecution))
+		return;
 
-    ChangeFrame();
-    ChangeSpriteOnEntity();
+	ChangeFrame();
+	ChangeSpriteOnEntity();
 }
 bool Animation::IsTimeToChangeFrame()
 {
-    float currentTime = HardwareManager::GetCurrentMilliseconds() / 1000;
-    return currentTime - lastFrameChangeTime >= framesInterval;
+	float currentTime = HardwareManager::GetCurrentMilliseconds() / 1000;
+	return currentTime - lastFrameChangeTime >= framesInterval;
 }
 
 void Animation::ChangeFrame()
 {
-    currentFrame++;
-    lastFrameChangeTime = HardwareManager::GetCurrentMilliseconds() / 1000;
-    if (currentFrame < framesCount)
-        return;
-    ResetCurrentFrame();
+	currentFrame++;
+	lastFrameChangeTime = HardwareManager::GetCurrentMilliseconds() / 1000;
+	if (currentFrame < framesCount)
+		return;
+	ResetCurrentFrame();
 }
 void Animation::ResetCurrentFrame()
 {
-    if (haveLoop)
-    {
-        currentFrame = 0;
-        return;
-    }
-    FinishAnimation();
+	if (haveLoop)
+	{
+		currentFrame = 0;
+		return;
+	}
+	FinishAnimation();
 }
 void Animation::FinishAnimation()
 {
-    finishedExecution = true;
-    currentFrame = framesCount-1;
+	finishedExecution = true;
+	currentFrame = framesCount - 1;
 }
 
 void Animation::ChangeSpriteOnEntity()
 {
-    sprite = frames[currentFrame];
+	entity->spriteAddress= frames[currentFrame];
 }
