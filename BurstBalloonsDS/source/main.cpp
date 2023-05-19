@@ -26,7 +26,7 @@
 int main()
 {
 	const int DISTANCE_BETWEEN_UI_BALLOONS = 20;
-	const int BALLOONS_COUNT = 1;
+	const int BALLOONS_COUNT = 5;
 
 	HardwareManager::InitAndSetEverything();
 	srand(time(NULL));
@@ -63,7 +63,25 @@ int main()
 	touchPosition touch;
 	Vector2 touchVector2 = Vector2(0, 0);
 
+
 	sub.AddPallete(BalloonSpritePal, "balloon");
+
+	Balloon* balloons[BALLOONS_COUNT] = { new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, &gameManager),
+						  new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, &gameManager),
+						  new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, &gameManager),
+						  new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, &gameManager),
+						  new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, &gameManager) };
+
+	Animation* flyAnimations[BALLOONS_COUNT] = { new Animation(0.2, 3, balloons[0], true, balloonFlyFrames),
+									new Animation(0.2, 3, balloons[1], true, balloonFlyFrames),
+									new Animation(0.2, 3, balloons[2], true, balloonFlyFrames),
+									new Animation(0.2, 3, balloons[3], true, balloonFlyFrames),
+									new Animation(0.2, 3, balloons[4], true, balloonFlyFrames) };
+	Animation* burstAnimations[BALLOONS_COUNT] = { new Animation(0.2, 3, balloons[0],false, balloonBurstFrames),
+									   new Animation(0.2, 3, balloons[1],false, balloonBurstFrames),
+									   new Animation(0.2, 3, balloons[2],false, balloonBurstFrames),
+									   new Animation(0.2, 3, balloons[3],false, balloonBurstFrames),
+									   new Animation(0.2, 3, balloons[4],false, balloonBurstFrames) };
 
 	Balloon balloon = Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, &gameManager);
 	sub.InitEntity(&balloon);
@@ -73,6 +91,15 @@ int main()
 	Animation burstAnimation = Animation(0.2, 3, &balloon, false, balloonBurstFrames);
 	balloon.AddAnimation("fly", &flyAnimation);
 	balloon.AddAnimation("burst", &burstAnimation);
+
+	for (int i = 0; i < BALLOONS_COUNT; i++)
+	{
+		sub.InitEntity(balloons[i]);
+		balloons[i]->ChangePalleteTo(sub.GetPallete("balloon"));
+
+		balloons[i]->AddAnimation("fly", flyAnimations[i]);
+		balloons[i]->AddAnimation("burst", burstAnimations[i]);
+	}
 
 
 	Entity balloonsUI[] = { Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0, 0), SpriteSize_32x32),
@@ -107,17 +134,22 @@ int main()
 		printf("\n   Score: ");
 		printf(std::to_string(gameManager.GetScore()).c_str());
 
-		balloon.Update();
-		balloon.Render();
-
-		balloon.UpdateAnimation();
+		for (int i = 0; i < BALLOONS_COUNT; i++)
+		{
+			balloons[i]->Update();
+			balloons[i]->Render();
+			balloons[i]->UpdateAnimation();
+		}
 
 		if (keysDown() & KEY_TOUCH)
 		{
 			d++;
-			balloon.CheckCollision(&touchVector2);
+			for (int i = 0; i < BALLOONS_COUNT; i++)
+			{
+				balloons[i]->CheckCollision(&touchVector2);
+			}
 		}
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < BALLOONS_COUNT; i++)
 		{
 			if (i < gameManager.GetCurrentLife())
 				balloonsUI[i].Render();
