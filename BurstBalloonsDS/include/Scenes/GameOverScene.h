@@ -15,6 +15,6 @@ public:
 private:
 	GameManager* gameManager;
 
-	Entity* pressAnyKeyText;
-	Entity* gameOverText;
+	Entity* pressAnyKeyText[4];
+	Entity* gameOverText[4];
 };

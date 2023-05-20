@@ -44,7 +44,7 @@ int main()
 
 	GameOverScene gameOverScene = GameOverScene(&main, &sub, &gameManager);
 	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
-	gameOverScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
+	gameOverScene.SetSubBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
 
 	GameplayScene gameplayScene = GameplayScene(&main, &sub, &gameManager);
 	gameplayScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
