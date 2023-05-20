@@ -43,23 +43,25 @@ int main()
 
 
 	sub.AddSprite("balloonFly0", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 0, SpriteSize_64x64);
-	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly0"));
-
 	sub.AddSprite("balloonFly1", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 1, SpriteSize_64x64);
-	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly1"));
-
 	sub.AddSprite("balloonFly2", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 2, SpriteSize_64x64);
-	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly2"));
-
 	sub.AddSprite("balloonFly3", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 3, SpriteSize_64x64);
+
+	sub.AddSprite("balloonBurst0", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 4, SpriteSize_64x64);
+	sub.AddSprite("balloonBurst1", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 5, SpriteSize_64x64);
+	sub.AddSprite("balloonBurst2", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 6, SpriteSize_64x64);
+	sub.AddSprite("balloonBurst3", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 7, SpriteSize_64x64);
+	
+	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly0"));
+	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly1"));
+	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly2"));
 	balloonFlyFrames.insert(balloonFlyFrames.end(), sub.GetSprite("balloonFly3"));
 
-	for (int i = 0; i <= 3; i++)
-	{
-		const char* frameName = strcat("balloonBurst", std::to_string(i).c_str());
-		sub.AddSprite(frameName, BalloonSpriteTiles + (balloonSpriteSheetWidth) * (i + 4), SpriteSize_64x64);
-		balloonBurstFrames.insert(balloonBurstFrames.end(), sub.GetSprite(frameName));
-	}
+	balloonBurstFrames.insert(balloonBurstFrames.end(), sub.GetSprite("balloonBurst0")); 
+	balloonBurstFrames.insert(balloonBurstFrames.end(), sub.GetSprite("balloonBurst1")); 
+	balloonBurstFrames.insert(balloonBurstFrames.end(), sub.GetSprite("balloonBurst2")); 
+	balloonBurstFrames.insert(balloonBurstFrames.end(), sub.GetSprite("balloonBurst3")); 
+
 	touchPosition touch;
 	Vector2 touchVector2 = Vector2(0, 0);
 
