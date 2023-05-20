@@ -25,6 +25,12 @@
     <Filter Include="Arquivos de Origem\Engine\Vector2">
       <UniqueIdentifier>{b3527621-95ab-457f-a34f-3405c309c5ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Origem\Scenes">
+      <UniqueIdentifier>{e42f1f21-b73e-4c7e-bd85-641a1a337456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Scenes">
+      <UniqueIdentifier>{3e53b542-0819-45b5-87d4-da9f02fd54d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Balloon.cpp">
@@ -63,6 +69,15 @@
     <ClCompile Include="source\Engine\SoundManager.cpp">
       <Filter>Arquivos de Origem\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="source\Scenes\Scene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\SceneManager.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\GameplayScene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -90,6 +105,18 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="include\GameManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\GameplayScene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\Scene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\SceneManager.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

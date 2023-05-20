@@ -27,3 +27,8 @@ void GameManager::RemoveLife()
 {
     currentLife--;
 }
+
+void GameManager::Restart()
+{
+    currentLife=totalLife;
+}

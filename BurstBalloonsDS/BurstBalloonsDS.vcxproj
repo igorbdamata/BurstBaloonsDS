@@ -113,9 +113,13 @@
     <ClCompile Include="source\Engine\Vector2\Vector2Operators.cpp" />
     <ClCompile Include="source\GameManager.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Scenes\GameplayScene.cpp" />
+    <ClCompile Include="source\Scenes\Scene.cpp" />
+    <ClCompile Include="source\Scenes\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Balloon.h" />
+    <ClInclude Include="include\Data.h" />
     <ClInclude Include="include\Engine\AnimatedEntity.h" />
     <ClInclude Include="include\Engine\Animation.h" />
     <ClInclude Include="include\Engine\Entity.h" />
@@ -124,6 +128,9 @@
     <ClInclude Include="include\Engine\SoundManager.h" />
     <ClInclude Include="include\Engine\Vector2.h" />
     <ClInclude Include="include\GameManager.h" />
+    <ClInclude Include="include\Scenes\GameplayScene.h" />
+    <ClInclude Include="include\Scenes\Scene.h" />
+    <ClInclude Include="include\Scenes\SceneManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

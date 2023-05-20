@@ -21,8 +21,8 @@ include $(DEVKITARM)/ds_rules
 #---------------------------------------------------------------------------------
 TARGET   := $(shell basename $(CURDIR))
 BUILD    := build
-SOURCES  := source source/Engine source/Engine/Vector2 source/Engine/HardwareManager
-INCLUDES := include include/Engine
+SOURCES  := source source/Engine source/Engine/Vector2 source/Engine/HardwareManager source/Scenes
+INCLUDES := include include/Engine source/Scenes
 DATA     :=
 GRAPHICS := gfx
 AUDIO    := audio
