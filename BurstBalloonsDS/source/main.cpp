@@ -21,13 +21,14 @@
 #include "Balloon.h"
 #include "GameManager.h"
 #include "Scenes/GameplayScene.h"
+#include "Scenes/GameOverScene.h"
 
 #include <time.h>
 #include<string>
 
 int main()
 {
-	
+
 	const int BALLOONS_COUNT = 5;
 
 	HardwareManager::InitAndSetEverything();
@@ -38,16 +39,12 @@ int main()
 
 	GameManager gameManager = GameManager(3);
 
-	
-
-
-
-
-	
-
-
 	main.SetTextFont((void*) fontTiles, (void*) fontPal, fontPalLen);
 	bool inGameOver = false;
+
+	GameOverScene gameOverScene = GameOverScene(&main, &sub, &gameManager);
+	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
+	gameOverScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
 	GameplayScene gameplayScene = GameplayScene(&main, &sub, &gameManager);
 	gameplayScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
@@ -56,29 +53,24 @@ int main()
 	while (true)
 	{
 		HardwareManager::ClearScreens();
-		
+
 
 		if (gameManager.GetCurrentLife() <= 0)
 		{
 			if (!inGameOver)
 			{
 				inGameOver = true;
-				main.SetBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
+				gameOverScene.Load();
 			}
-			if (keysDown())
-			{
-				inGameOver = false;
-				gameManager.Restart();
-				main.SetBackgroundTo(Background1Bitmap, Background1BitmapLen);
-			}
-			main.UpdateOam();
-			sub.UpdateOam();
-			continue;
+			gameOverScene.InputLoop();
+			gameOverScene.GameLoop();
 		}
-		
-		gameplayScene.InputLoop();
-		gameplayScene.GameLoop();
-		
+		else
+		{
+			inGameOver = false;
+			gameplayScene.InputLoop();
+			gameplayScene.GameLoop();
+		}
 
 		main.UpdateOam();
 		sub.UpdateOam();

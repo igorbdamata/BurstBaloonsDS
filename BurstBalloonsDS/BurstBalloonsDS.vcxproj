@@ -101,6 +101,7 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\Scenes\GameOverScene.h" />
     <ClCompile Include="source\Balloon.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
     <ClCompile Include="source\Engine\Animation.cpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="source\Engine\Vector2\Vector2Operators.cpp" />
     <ClCompile Include="source\GameManager.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Scenes\GameOverScene.cpp" />
     <ClCompile Include="source\Scenes\GameplayScene.cpp" />
     <ClCompile Include="source\Scenes\Scene.cpp" />
     <ClCompile Include="source\Scenes\SceneManager.cpp" />

@@ -14,10 +14,10 @@ public:
 	void SetMainBackgroundTo(const unsigned int* backgroundTiles, uint32 backgroundTilesLen);
 	void SetSubBackgroundTo(const unsigned int* backgroundTiles, uint32 backgroundTilesLen);
 
-private:
+protected:
 	OamEngine* mainEngine;
 	OamEngine* subEngine;
-
+private:
 	const unsigned int* mainBackgroundTiles;
 	uint32 mainBackgroundTilesLen;
 

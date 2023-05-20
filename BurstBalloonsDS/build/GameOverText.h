@@ -1,25 +1,25 @@
 
-//{{BLOCK(Background1)
+//{{BLOCK(GameOverText)
 
 //======================================================================
 //
-//	Background1, 256x224@16, 
+//	GameOverText, 204x43@16, 
 //	Transparent color : 00,00,00
 //	+ bitmap not compressed
-//	Total size: 114688 = 114688
+//	Total size: 17544 = 17544
 //
-//	Time-stamp: 2023-05-20, 17:15:49
+//	Time-stamp: 2023-05-20, 17:15:51
 //	Exported by Cearn's GBA Image Transmogrifier, v0.9.2
 //	( http://www.coranac.com/projects/#grit )
 //
 //======================================================================
 
-#ifndef GRIT_BACKGROUND1_H
-#define GRIT_BACKGROUND1_H
+#ifndef GRIT_GAMEOVERTEXT_H
+#define GRIT_GAMEOVERTEXT_H
 
-#define Background1BitmapLen 114688
-extern const unsigned int Background1Bitmap[28672];
+#define GameOverTextBitmapLen 17544
+extern const unsigned int GameOverTextBitmap[4386];
 
-#endif // GRIT_BACKGROUND1_H
+#endif // GRIT_GAMEOVERTEXT_H
 
-//}}BLOCK(Background1)
+//}}BLOCK(GameOverText)
