@@ -31,9 +31,8 @@ void GameManager::RemoveLife()
 		sceneManager->ChangeSceneTo("GameOver");
 }
 
-void GameManager::Restart()
+void GameManager::ResetGameplayData()
 {
 	currentLife = totalLife;
 	score = 0;
-	sceneManager->ChangeSceneTo("Gameplay");
 }

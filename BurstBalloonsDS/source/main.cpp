@@ -60,8 +60,8 @@ int main()
 
 	sceneManager.AddScene("Gameplay", &gameplayScene);
 	sceneManager.AddScene("GameOver", &gameOverScene);
-	sceneManager.AddScene("TitleScreenScene", &titleScreenScene);
-	sceneManager.ChangeSceneTo("TitleScreenScene");
+	sceneManager.AddScene("TitleScreen", &titleScreenScene);
+	sceneManager.ChangeSceneTo("TitleScreen");
 
 	while (true)
 	{

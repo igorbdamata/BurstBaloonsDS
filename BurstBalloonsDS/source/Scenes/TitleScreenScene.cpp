@@ -14,13 +14,13 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 {
 	this->sceneManager = sceneManager;
 
-	float textPositionX = SCREEN_WIDTH / 2-64*2+24;
+	float textPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float textPositionY = SCREEN_HEIGHT / 2;
 
-	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(textPositionX , textPositionY), SpriteSize_64x64),
-		new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64),
-		new Entity(new Vector2(textPositionX + 64 * 2,textPositionY), SpriteSize_64x64),
-		new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64) };
+	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(textPositionX , textPositionY), SpriteSize_64x64,64,64),
+		new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64),
+		new Entity(new Vector2(textPositionX + 64 * 2,textPositionY), SpriteSize_64x64,64,64),
+		new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64) };
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -47,7 +47,7 @@ void TitleScreenScene::InputLoop()
 		sceneManager->ChangeSceneTo("Gameplay");
 }
 void TitleScreenScene::GameLoop()
-{ 
+{
 	for (int i = 0; i < 4; i++)
 	{
 		this->pressAnyKeyText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;

@@ -9,12 +9,10 @@ public:
     Balloon(SpriteSize spriteSize, const char *defaultAnimation,int speed, int width, int height, int offsetX, int offsetY, GameManager *gameManager);
     void Update();
     void CheckCollision(Vector2* touchPosition);
-
+    void Respawn();
 private:
     int verticalDirection;
     int speed;
-    int width;
-    int height;
     int offsetX;
     int offsetY;
     Vector2* moveAmount;
@@ -28,7 +26,6 @@ private:
     void Move();
     void ApplyGravity();
     void OnBurst();
-    void Respawn();
     void RemoveLife();
     void SetPositionToRandomPoint();
 };

@@ -10,7 +10,7 @@ public:
 
 	int GetCurrentLife();
 	void RemoveLife();
-	void Restart();
+	void ResetGameplayData();
 private:
 	int score;
 	int highScore;

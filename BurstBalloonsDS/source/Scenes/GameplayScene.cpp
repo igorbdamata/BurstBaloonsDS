@@ -39,10 +39,10 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 	touchVector2 = Vector2(0, 0);
 
 	Balloon* balloons[BALLOONS_COUNT] = { new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, gameManager),
-									new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
-									new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
-									new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
-									new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager) };
+										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager) };
 
 	Animation* flyAnimations[BALLOONS_COUNT] = { new Animation(0.2, 3, balloons[0], true, balloonFlyFrames),
 		new Animation(0.2, 3, balloons[1], true, balloonFlyFrames),
@@ -67,9 +67,9 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 		balloons[i]->AddAnimation("burst", burstAnimations[i]);
 	}
 
-	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0, 0), SpriteSize_32x32),
-							new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1, 0), SpriteSize_32x32),
-							new	Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2, 0), SpriteSize_32x32) };
+	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0, 0), SpriteSize_32x32,32,32),
+							new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1, 0), SpriteSize_32x32,32,32),
+							new	Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2, 0), SpriteSize_32x32,32,32) };
 	mainEngine->AddPallete(BalloonUIPal, "balloonUI");
 	for (int i = 0; i < 3; i++)
 	{
@@ -84,6 +84,9 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 void GameplayScene::Load()
 {
 	Scene::Load();
+	gameManager->ResetGameplayData();
+	for (int i = 0; i < BALLOONS_COUNT; i++)
+		balloons[i]->Respawn();
 }
 
 void GameplayScene::InputLoop()

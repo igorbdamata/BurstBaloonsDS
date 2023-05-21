@@ -11,7 +11,7 @@ public:
     Vector2* position;
 
     Entity();
-    Entity(Vector2* position, SpriteSize spriteSize);
+    Entity(Vector2* position, SpriteSize spriteSize, int width, int height);
     void Init(int oamID,  OamState *engine);
     void Render(bool horizontalFlip = false, bool verticalFlip = false);
 
@@ -21,10 +21,13 @@ public:
     SpriteSize GetSpriteSize();
 
     void ChangePalleteTo(int newPalleteID);
+    bool IsOutOfScreen();
 
 protected:
     OamState *engine;
     int palleteID;
+    int width;
+    int height;
 
 private:
     int oamID;
