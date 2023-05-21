@@ -1,34 +1,39 @@
 #include "GameManager.h"
 
-GameManager::GameManager(int totalLife)
+GameManager::GameManager(int totalLife, SceneManager* sceneManager)
 {
-    this->totalLife = totalLife;
-    currentLife=totalLife;
+	this->totalLife = totalLife;
+	currentLife = totalLife;
+	this->sceneManager = sceneManager;
 }
 
 void GameManager::AddToScore(int value)
 {
-    score += value;
-    if (score > highScore)
-        highScore = score;
+	score += value;
+	if (score > highScore)
+		highScore = score;
 }
 
 int GameManager::GetScore()
 {
-    return score;
+	return score;
 }
 
 int GameManager::GetCurrentLife()
 {
-    return currentLife;
+	return currentLife;
 }
 
 void GameManager::RemoveLife()
 {
-    currentLife--;
+	currentLife--;
+	if (currentLife <= 0)
+		sceneManager->ChangeSceneTo("GameOver");
 }
 
 void GameManager::Restart()
 {
-    currentLife=totalLife;
+	currentLife = totalLife;
+	score = 0;
+	sceneManager->ChangeSceneTo("Gameplay");
 }

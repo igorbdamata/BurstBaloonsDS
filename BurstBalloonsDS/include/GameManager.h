@@ -1,9 +1,10 @@
 #pragma once
+#include "Scenes/SceneManager.h"
 
 class GameManager
 {
 public:
-	GameManager(int totalLife);
+	GameManager(int totalLife, SceneManager* sceneManager);
 	void AddToScore(int value);
 	int GetScore();
 
@@ -16,4 +17,6 @@ private:
 
 	int totalLife;
 	int currentLife;
+
+	SceneManager* sceneManager;
 };

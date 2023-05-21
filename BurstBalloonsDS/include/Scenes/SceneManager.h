@@ -7,7 +7,7 @@ class SceneManager
 public:
 	void AddScene(const char* sceneName, Scene* scene);
 	void ChangeSceneTo(const char* newScene);
-	const char* GetCurrentScene();
+	Scene* GetCurrentScene();
 private:
 	std::map<const char*, Scene*> scenes;
 	const char* currentScene;

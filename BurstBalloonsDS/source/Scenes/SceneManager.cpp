@@ -1,8 +1,8 @@
 #include "Scenes/SceneManager.h"
 
-const char* SceneManager::GetCurrentScene()
+Scene* SceneManager::GetCurrentScene()
 {
-	return currentScene;
+	return scenes[currentScene];
 }
 void SceneManager::AddScene(const char* sceneName, Scene* scene)
 {

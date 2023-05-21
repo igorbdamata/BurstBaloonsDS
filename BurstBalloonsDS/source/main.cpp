@@ -37,10 +37,13 @@ int main()
 	OamEngine main = OamEngine(UPPER);
 	OamEngine sub = OamEngine(BOTTOM);
 
-	GameManager gameManager = GameManager(3);
+	SceneManager sceneManager = SceneManager();
+
+	GameManager gameManager = GameManager(3, &sceneManager);
 
 	main.SetTextFont((void*) fontTiles, (void*) fontPal, fontPalLen);
 	bool inGameOver = false;
+
 
 	GameOverScene gameOverScene = GameOverScene(&main, &sub, &gameManager);
 	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
@@ -49,28 +52,17 @@ int main()
 	GameplayScene gameplayScene = GameplayScene(&main, &sub, &gameManager);
 	gameplayScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
 	gameplayScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
-	gameplayScene.Load();
+
+	sceneManager.AddScene("Gameplay", &gameplayScene);
+	sceneManager.AddScene("GameOver", &gameOverScene);
+	sceneManager.ChangeSceneTo("Gameplay");
+
 	while (true)
 	{
 		HardwareManager::ClearScreens();
 
-
-		if (gameManager.GetCurrentLife() <= 0)
-		{
-			if (!inGameOver)
-			{
-				inGameOver = true;
-				gameOverScene.Load();
-			}
-			gameOverScene.InputLoop();
-			gameOverScene.GameLoop();
-		}
-		else
-		{
-			inGameOver = false;
-			gameplayScene.InputLoop();
-			gameplayScene.GameLoop();
-		}
+		sceneManager.GetCurrentScene()->InputLoop();
+		sceneManager.GetCurrentScene()->GameLoop();
 
 		main.UpdateOam();
 		sub.UpdateOam();

@@ -68,10 +68,7 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 	this->gameOverText[2]->spriteAddress = mainEngine->GetSprite("GameOverText2");
 	this->gameOverText[3]->spriteAddress = mainEngine->GetSprite("GameOverText3");
 
-	//mainEngine->InitEntity(gameOverText);
-//	gameOverText->ChangePalleteTo(subEngine->GetPallete("GameOverText"));
-//	gameOverText->spriteAddress = subEngine->GetSprite("GameOverText");
-
+	this->gameManager = gameManager;
 }
 
 void GameOverScene::Load()
@@ -82,6 +79,7 @@ void GameOverScene::Load()
 void GameOverScene::InputLoop()
 {
 	Scene::InputLoop();
+
 	if (keysDown())
 		gameManager->Restart();
 }
