@@ -84,6 +84,9 @@
     <ClCompile Include="include\Scenes\GameOverScene.h">
       <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="source\Scenes\TitleScreenScene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -124,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="include\Data.h">
       <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\TitleScreenScene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

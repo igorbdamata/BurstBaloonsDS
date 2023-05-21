@@ -118,6 +118,7 @@
     <ClCompile Include="source\Scenes\GameplayScene.cpp" />
     <ClCompile Include="source\Scenes\Scene.cpp" />
     <ClCompile Include="source\Scenes\SceneManager.cpp" />
+    <ClCompile Include="source\Scenes\TitleScreenScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Balloon.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="include\Scenes\GameplayScene.h" />
     <ClInclude Include="include\Scenes\Scene.h" />
     <ClInclude Include="include\Scenes\SceneManager.h" />
+    <ClInclude Include="include\Scenes\TitleScreenScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

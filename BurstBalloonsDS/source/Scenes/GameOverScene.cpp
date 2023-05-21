@@ -20,7 +20,7 @@
 #include "BackgroundGameOver.h"
 #include<math.h>
 
-GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, GameManager* gameManager) : Scene(mainEngine, subEngine)
+GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	mainEngine->AddSprite("GameOverText0", GameOverText0Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("GameOverText1", GameOverText1Tiles, SpriteSize_64x64);
@@ -68,7 +68,7 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 	this->gameOverText[2]->spriteAddress = mainEngine->GetSprite("GameOverText2");
 	this->gameOverText[3]->spriteAddress = mainEngine->GetSprite("GameOverText3");
 
-	this->gameManager = gameManager;
+	this->sceneManager = sceneManager;
 }
 
 void GameOverScene::Load()
@@ -81,7 +81,7 @@ void GameOverScene::InputLoop()
 	Scene::InputLoop();
 
 	if (keysDown())
-		gameManager->Restart();
+		sceneManager->ChangeSceneTo("Gameplay");
 }
 void GameOverScene::GameLoop()
 {

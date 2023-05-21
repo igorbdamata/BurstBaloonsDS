@@ -22,6 +22,7 @@
 #include "GameManager.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/GameOverScene.h"
+#include "Scenes/TitleScreenScene.h"
 
 #include <time.h>
 #include<string>
@@ -45,7 +46,7 @@ int main()
 	bool inGameOver = false;
 
 
-	GameOverScene gameOverScene = GameOverScene(&main, &sub, &gameManager);
+	GameOverScene gameOverScene = GameOverScene(&main, &sub, &sceneManager);
 	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
 	gameOverScene.SetSubBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
 
@@ -53,9 +54,14 @@ int main()
 	gameplayScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
 	gameplayScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
+	TitleScreenScene titleScreenScene = TitleScreenScene(&main, &sub, &sceneManager);
+	titleScreenScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
+	titleScreenScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
+
 	sceneManager.AddScene("Gameplay", &gameplayScene);
 	sceneManager.AddScene("GameOver", &gameOverScene);
-	sceneManager.ChangeSceneTo("Gameplay");
+	sceneManager.AddScene("TitleScreenScene", &titleScreenScene);
+	sceneManager.ChangeSceneTo("TitleScreenScene");
 
 	while (true)
 	{
