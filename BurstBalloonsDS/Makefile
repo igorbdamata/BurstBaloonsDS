@@ -51,11 +51,11 @@ LDFLAGS   = -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project (order is important)
 #---------------------------------------------------------------------------------
-LIBS := -lnds9
+LIBS := -lfat -lnds9 
 
 # automatigically add libraries for NitroFS
 ifneq ($(strip $(NITRO)),)
-LIBS := -lfilesystem -lfat $(LIBS)
+LIBS	:= 	-lfat -lnds9
 endif
 # automagically add maxmod library
 ifneq ($(strip $(AUDIO)),)

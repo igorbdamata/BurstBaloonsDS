@@ -1,4 +1,8 @@
 #define SFX_BURSTBALLOON	0
+#define SFX_CASUAL8BIT	1
+#define SFX_GAMEOVER	2
+#define SFX_LOSELIFE	3
+#define SFX_PASSRECORD	4
 #define MSL_NSONGS	0
-#define MSL_NSAMPS	1
-#define MSL_BANKSIZE	1
+#define MSL_NSAMPS	5
+#define MSL_BANKSIZE	5

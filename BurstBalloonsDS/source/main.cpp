@@ -42,10 +42,6 @@ int main()
 
 	GameManager gameManager = GameManager(3, &sceneManager);
 
-	main.SetTextFont((void*) fontTiles, (void*) fontPal, fontPalLen);
-	bool inGameOver = false;
-
-
 	GameOverScene gameOverScene = GameOverScene(&main, &sub, &sceneManager);
 	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
 	gameOverScene.SetSubBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
@@ -69,7 +65,6 @@ int main()
 
 		sceneManager.GetCurrentScene()->InputLoop();
 		sceneManager.GetCurrentScene()->GameLoop();
-
 		main.UpdateOam();
 		sub.UpdateOam();
 		HardwareManager::WaitForNextFrame();

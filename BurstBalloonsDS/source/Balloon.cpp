@@ -1,4 +1,7 @@
 #include "Balloon.h"
+#include "Engine/SoundManager.h"
+#include <soundbank.h>
+#include <soundbank_bin.h>
 #include <nds.h>
 #include <iostream>
 
@@ -55,6 +58,7 @@ void Balloon::CheckCollision(Vector2* touchPosition)
 void Balloon::OnBurst()
 {
 	wasBursted = true;
+	SoundManager::PlaySFX(SFX_BURSTBALLOON);
 	ChangeAnimationTo("burst");
 	gameManager->AddToScore(1);
 }

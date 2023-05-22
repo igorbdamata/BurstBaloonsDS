@@ -3,7 +3,9 @@
 #include <nds\arm9\sprite.h>
 #include <string>
 #include "BalloonSprite.h"
+#include "Engine/SoundManager.h"
 #include "BalloonUI.h"
+#include<soundbank.h>
 
 GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameManager* gameManager) : Scene(mainEngine, subEngine)
 {
@@ -84,6 +86,7 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 void GameplayScene::Load()
 {
 	Scene::Load();
+	SoundManager::PlaySFX(SFX_CASUAL8BIT);
 	gameManager->ResetGameplayData();
 	for (int i = 0; i < BALLOONS_COUNT; i++)
 		balloons[i]->Respawn();

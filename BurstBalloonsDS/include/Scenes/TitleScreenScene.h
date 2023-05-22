@@ -15,4 +15,5 @@ public:
 private:
 	 SceneManager* sceneManager;
 	 Entity* pressAnyKeyText[4];
+	 Entity* burstBalloonsText[2];
 };

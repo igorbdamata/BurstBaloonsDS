@@ -1,4 +1,7 @@
 #include "GameManager.h"
+#include "Engine/SoundManager.h"
+#include <soundbank.h>
+#include <soundbank_bin.h>
 
 GameManager::GameManager(int totalLife, SceneManager* sceneManager)
 {
@@ -28,7 +31,12 @@ void GameManager::RemoveLife()
 {
 	currentLife--;
 	if (currentLife <= 0)
+	{
+		SoundManager::PlaySFX(SFX_GAMEOVER);
 		sceneManager->ChangeSceneTo("GameOver");
+	}
+	else
+		SoundManager::PlaySFX(SFX_LOSELIFE);
 }
 
 void GameManager::ResetGameplayData()

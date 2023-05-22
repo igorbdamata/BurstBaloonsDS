@@ -5,8 +5,6 @@
 #include <string>
 #include<nds.h>
 #include<nds\arm9\sprite.h>
-#include<nds/memory.h>
-#include<nds\arm9\background.h>
 
 
 #include"GameOverText0.h"

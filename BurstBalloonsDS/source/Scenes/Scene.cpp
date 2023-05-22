@@ -1,5 +1,6 @@
 #include "Scenes\Scene.h"
 #include <nds/arm9/input.h>
+#include "font.h"
 
 Scene::Scene(OamEngine* mainEngine, OamEngine* subEngine)
 {
@@ -11,6 +12,7 @@ void Scene::Load()
 {
 	mainEngine->SetBackgroundTo(mainBackgroundTiles, mainBackgroundTilesLen);
 	subEngine->SetBackgroundTo(subBackgroundTiles, subBackgroundTilesLen);
+	subEngine->SetTextFont((void*) fontTiles, (void*) fontPal, fontPalLen);
 }
 
 void Scene::InputLoop() 
