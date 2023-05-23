@@ -40,7 +40,7 @@ int main()
 
 	SceneManager sceneManager = SceneManager();
 
-	GameManager gameManager = GameManager(3, &sceneManager);
+	GameManager gameManager = GameManager(3, &sceneManager, 120.0f);
 
 	GameOverScene gameOverScene = GameOverScene(&main, &sub, &sceneManager);
 	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);

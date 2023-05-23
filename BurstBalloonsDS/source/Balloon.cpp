@@ -6,10 +6,11 @@
 #include <iostream>
 
 Balloon::Balloon() : AnimatedEntity() {}
-Balloon::Balloon(SpriteSize spriteSize, const char* defaultAnimation, int speed, int width, int height, int offsetX, int offsetY, GameManager* gameManager)
+Balloon::Balloon(SpriteSize spriteSize, const char* defaultAnimation, float maxSpeed, int width, int height, int offsetX, int offsetY, GameManager* gameManager)
 	: AnimatedEntity(nullptr, spriteSize, defaultAnimation, width, height)
 {
-	this->speed = speed;
+	this->speed = 0;
+	this->maxSpeed = maxSpeed;
 	this->offsetX = offsetX;
 	this->offsetY = offsetY;
 	this->gameManager = gameManager;
@@ -24,11 +25,12 @@ Balloon::Balloon(SpriteSize spriteSize, const char* defaultAnimation, int speed,
 void Balloon::Init()
 {
 	verticalDirection = -1;
-	moveAmount->y = verticalDirection * speed;
 }
 
 void Balloon::Update()
 {
+	speed =  gameManager->GetDifficultFactor()* maxSpeed;
+	moveAmount->y = verticalDirection * speed;
 	if (!wasBursted)
 	{
 		if (position->y + 64 < 0)
@@ -46,7 +48,7 @@ void Balloon::Move()
 }
 void Balloon::ApplyGravity()
 {
-	velocity->y += 0.1;
+	velocity->y += 0.1f;
 }
 
 void Balloon::CheckCollision(Vector2* touchPosition)

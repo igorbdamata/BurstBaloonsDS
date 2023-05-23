@@ -40,11 +40,11 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 	touch;
 	touchVector2 = Vector2(0, 0);
 
-	Balloon* balloons[BALLOONS_COUNT] = { new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5, gameManager),
-										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
-										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
-										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager),
-										new Balloon(SpriteSize_64x64, "fly", 2, 22, 27, 20, 5,  gameManager) };
+	Balloon* balloons[BALLOONS_COUNT] = { new Balloon(SpriteSize_64x64, "fly", 1.8f, 22, 27, 20, 5, gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 1.8f, 22, 27, 20, 5,  gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 1.8f, 22, 27, 20, 5,  gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 1.8f, 22, 27, 20, 5,  gameManager),
+										new Balloon(SpriteSize_64x64, "fly", 1.8f, 22, 27, 20, 5,  gameManager) };
 
 	Animation* flyAnimations[BALLOONS_COUNT] = { new Animation(0.2, 3, balloons[0], true, balloonFlyFrames),
 		new Animation(0.2, 3, balloons[1], true, balloonFlyFrames),
