@@ -2,7 +2,11 @@
 
 Scene* SceneManager::GetCurrentScene()
 {
-	return scenes[currentScene];
+	return GetScene(currentScene);
+}
+Scene* SceneManager::GetScene(const char* scene)
+{
+	return scenes[scene];
 }
 void SceneManager::AddScene(const char* sceneName, Scene* scene)
 {
