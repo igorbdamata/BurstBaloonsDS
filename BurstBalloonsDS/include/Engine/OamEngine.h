@@ -25,6 +25,8 @@ public:
     OamEngine(Screen screen);
 
     void SetBackgroundTo(const unsigned int *backgroundBitmap, uint32 backgroundSize);
+    
+    void SetPrintConsole();
     void SetTextFont(void *fontTiles, void *fontPallete, u16 fontPalleteLength);
 
     void InitEntity(Entity *entity);
@@ -49,7 +51,6 @@ private:
     OamState *oamState;
 
     void InitOam();
-    void SetPrintConsole();
 
     int GetAvailableOamIndex();
     int GetAvailablePalleteIndex();

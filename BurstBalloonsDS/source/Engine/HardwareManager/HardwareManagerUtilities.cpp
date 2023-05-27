@@ -2,20 +2,26 @@
 #include <nds.h>
 
 const double CPU_CLOCK = 33.514;
+const int MILLISECONDS_PER_CYCLE = 125000;
+int timeCycles = 0;
+float lastMilliseconds = 0;
 
 float HardwareManager::GetCurrentMilliseconds()
 {
-    return cpuGetTiming() / CPU_CLOCK / 1024;
+	float currentMilliseconds = cpuGetTiming() / CPU_CLOCK / 1024;
+	if (currentMilliseconds < lastMilliseconds) timeCycles++;
+	lastMilliseconds = currentMilliseconds;
+	return currentMilliseconds + MILLISECONDS_PER_CYCLE * timeCycles;
 }
 
 void HardwareManager::WaitForNextFrame()
 {
-    swiWaitForVBlank();
+	swiWaitForVBlank();
 }
 
 void HardwareManager::ClearScreens()
 {
-    oamClear(&oamSub, 0, 0);
-    oamClear(&oamMain, 0, 0);
-    consoleClear();
+	oamClear(&oamSub, 0, 0);
+	oamClear(&oamMain, 0, 0);
+	consoleClear();
 }

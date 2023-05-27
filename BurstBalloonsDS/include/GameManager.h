@@ -7,6 +7,7 @@ public:
 	GameManager(int totalLife, SceneManager* sceneManager, float secondsToReachMaxDifficult);
 	void AddToScore(int value);
 	int GetScore();
+	int GetHighScore();
 
 	int GetCurrentLife();
 	void RemoveLife();

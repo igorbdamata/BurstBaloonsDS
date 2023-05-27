@@ -29,7 +29,6 @@
 
 int main()
 {
-
 	const int BALLOONS_COUNT = 5;
 
 	HardwareManager::InitAndSetEverything();
@@ -37,6 +36,8 @@ int main()
 
 	OamEngine main = OamEngine(UPPER);
 	OamEngine sub = OamEngine(BOTTOM);
+
+	main.SetPrintConsole();
 
 	SceneManager sceneManager = SceneManager();
 

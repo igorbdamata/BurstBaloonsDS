@@ -29,7 +29,7 @@ void Balloon::Init()
 
 void Balloon::Update()
 {
-	speed =  gameManager->GetDifficultFactor()* maxSpeed;
+	speed = gameManager->GetDifficultFactor() * maxSpeed;
 	moveAmount->y = verticalDirection * speed;
 	if (!wasBursted)
 	{

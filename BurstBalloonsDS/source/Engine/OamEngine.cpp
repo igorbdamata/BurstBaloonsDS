@@ -18,7 +18,6 @@ OamEngine::OamEngine(Screen screen)
     availableOamIndex = 0;
     availablePalleteIndex = 0;
     InitOam();
-    SetPrintConsole();
 }
 void OamEngine::InitOam()
 {

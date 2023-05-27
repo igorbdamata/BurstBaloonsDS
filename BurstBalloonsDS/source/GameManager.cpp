@@ -26,6 +26,10 @@ int GameManager::GetScore()
 {
 	return score;
 }
+int GameManager::GetHighScore()
+{
+	return highScore;
+}
 
 int GameManager::GetCurrentLife()
 {
@@ -74,8 +78,10 @@ void GameManager::ResetGameplayData()
 float GameManager::GetDifficultFactor()
 {
 	float currentSeconds = HardwareManager::GetCurrentMilliseconds() / 1000;
-	float t = (currentSeconds - gameplayStartTime) / secondsToReachMaxDifficult;
-	if (t >= 1) return 1;
-	float difficult = pow((1 - t), 3) * (-0.47) + 3 * pow((1 - t), 2) * 0.19 + 3 * (1 - t) * pow(t, 2) * 0.86 + pow(t, 3);
+	if (currentSeconds - gameplayStartTime > secondsToReachMaxDifficult) return 1;
+	float timePercent = (currentSeconds - gameplayStartTime) / secondsToReachMaxDifficult;
+	float initialDifficult = 0.4f;
+	float angularCoefficient = atan2(1 - initialDifficult, 1);
+	float difficult = angularCoefficient * timePercent + initialDifficult;
 	return difficult;
 }
