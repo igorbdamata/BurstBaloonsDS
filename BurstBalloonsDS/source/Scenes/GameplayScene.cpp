@@ -87,7 +87,7 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 void GameplayScene::Load()
 {
 	Scene::Load();
-	SoundManager::PlaySFX(SFX_CASUAL8BIT);
+	SoundManager::PlaySong(MOD_THEME);
 	gameManager->ResetGameplayData();
 	for (int i = 0; i < BALLOONS_COUNT; i++)
 		balloons[i]->Respawn();

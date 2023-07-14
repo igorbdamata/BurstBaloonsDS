@@ -33,7 +33,7 @@ ICON     := icon.bmp
 NITRO    :=
 
 # These set the information text in the nds file
-GAME_TITLE     := Advanced ARM9 template
+GAME_TITLE     := Burst Balloons
 GAME_SUBTITLE1 := built with devkitARM
 GAME_SUBTITLE2 := http://devitpro.org
 

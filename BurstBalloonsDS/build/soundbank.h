@@ -3,6 +3,7 @@
 #define SFX_GAMEOVER	2
 #define SFX_LOSELIFE	3
 #define SFX_PASSRECORD	4
-#define MSL_NSONGS	0
-#define MSL_NSAMPS	5
-#define MSL_BANKSIZE	5
+#define MOD_THEME	0
+#define MSL_NSONGS	1
+#define MSL_NSAMPS	11
+#define MSL_BANKSIZE	12
