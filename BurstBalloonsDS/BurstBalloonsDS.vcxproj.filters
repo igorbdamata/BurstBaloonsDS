@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Arquivos de Origem">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Engine">
+      <UniqueIdentifier>{9c562720-c1e0-44d8-b984-5e0b1e5a8cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Engine">
+      <UniqueIdentifier>{80aba4a9-063e-4253-8091-5abdc6e6efdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Engine\HardwareManager">
+      <UniqueIdentifier>{78021739-bcea-4ccb-a742-f38967c7c8af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Engine\Vector2">
+      <UniqueIdentifier>{b3527621-95ab-457f-a34f-3405c309c5ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Scenes">
+      <UniqueIdentifier>{e42f1f21-b73e-4c7e-bd85-641a1a337456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Scenes">
+      <UniqueIdentifier>{3e53b542-0819-45b5-87d4-da9f02fd54d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Balloon.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GameManager.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Vector2\Vector2Methods.cpp">
+      <Filter>Arquivos de Origem\Engine\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Vector2\Vector2Operators.cpp">
+      <Filter>Arquivos de Origem\Engine\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\HardwareManager\HardwareManagerInitialization.cpp">
+      <Filter>Arquivos de Origem\Engine\HardwareManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\HardwareManager\HardwareManagerUtilities.cpp">
+      <Filter>Arquivos de Origem\Engine\HardwareManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\AnimatedEntity.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Animation.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Entity.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\OamEngine.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\SoundManager.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\Scene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\SceneManager.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\GameplayScene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\GameOverScene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="include\Scenes\GameOverScene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scenes\TitleScreenScene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Engine\AnimatedEntity.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Animation.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Entity.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\HardwareManager.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\OamEngine.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\SoundManager.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\Vector2.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Balloon.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\GameplayScene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\Scene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\SceneManager.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\TitleScreenScene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
