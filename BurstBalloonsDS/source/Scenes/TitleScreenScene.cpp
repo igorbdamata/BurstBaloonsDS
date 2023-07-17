@@ -65,36 +65,13 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 void TitleScreenScene::Load()
 {
 	Scene::Load();
-	dmaCopyHalfWords(2,
-					 BackgroundGameOverBitmap,
-					 BG_BMP_RAM(0),
-					 BackgroundGameOverBitmapLen);
-	dmaCopyHalfWords(3,
-					 Background1Bitmap,
-					 BG_BMP_RAM(7),
-					 Background1BitmapLen);
 }
 
 void TitleScreenScene::InputLoop()
 {
 	Scene::InputLoop();
-	int x = 0;
-	int y = 0;
-	//if (keysDown())
-		//sceneManager->ChangeSceneTo("Gameplay");
-
-	scanKeys();
-	if (keysHeld() & KEY_LEFT)
-		x = -1;
-	if (keysHeld() & KEY_RIGHT)
-		x = 1;
-	if (keysHeld() & KEY_UP)
-		y = -1;
-	if (keysHeld() & KEY_DOWN)
-		y = 1;
-	bgScroll(2, -x, -y);
-	bgUpdate();
-
+	if (keysDown())
+		sceneManager->ChangeSceneTo("Gameplay");
 }
 void TitleScreenScene::GameLoop()
 {
@@ -108,6 +85,4 @@ void TitleScreenScene::GameLoop()
 		this->burstBalloonsText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;
 		burstBalloonsText[i]->Render();
 	}
-
-
 }
