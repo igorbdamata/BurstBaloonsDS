@@ -1,0 +1,16 @@
+# Symbol name
+-s BalloonSprite
+
+# Set the warning/log level to 3
+-W3
+
+# Tell grit to include a palette (the first index in it will be transparent)
+-p
+
+# Tile the image (Mw8 because 8 is equal to ImageWidth/8. The same logic applies for Mh8)
+-gt
+-Mh8
+-Mw8
+
+# Set the bit depth to 4 (16 colors)
+-gB4

@@ -1,3 +1,0 @@
-clear
-make
-Project.nds
