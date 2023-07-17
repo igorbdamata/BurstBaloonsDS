@@ -45,27 +45,16 @@ void GameManager::RemoveLife()
 		{
 			highScore = score;
 			SoundManager::PlaySFX(SFX_PASSRECORD);
-			SetNewRecordGameOver();
+			sceneManager->ChangeSceneTo("NewRecord");
 		}
 		else
 		{
 			SoundManager::PlaySFX(SFX_GAMEOVER);
-			SetDefaultGameOverScene();
+			sceneManager->ChangeSceneTo("GameOver");
 		}
-		sceneManager->ChangeSceneTo("GameOver");
 	}
 	else
 		SoundManager::PlaySFX(SFX_LOSELIFE);
-}
-void GameManager::SetNewRecordGameOver()
-{
-	sceneManager->GetScene("GameOver")->SetMainBackgroundTo(BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
-	sceneManager->GetScene("GameOver")->SetSubBackgroundTo(BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
-}
-void GameManager::SetDefaultGameOverScene()
-{
-	sceneManager->GetScene("GameOver")->SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
-	sceneManager->GetScene("GameOver")->SetSubBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
 }
 
 void GameManager::ResetGameplayData()
