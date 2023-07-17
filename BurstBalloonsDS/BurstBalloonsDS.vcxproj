@@ -116,6 +116,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Scenes\GameOverScene.cpp" />
     <ClCompile Include="source\Scenes\GameplayScene.cpp" />
+    <ClCompile Include="source\Scenes\NewRecordScene.cpp" />
     <ClCompile Include="source\Scenes\Scene.cpp" />
     <ClCompile Include="source\Scenes\SceneManager.cpp" />
     <ClCompile Include="source\Scenes\TitleScreenScene.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="include\Engine\Vector2.h" />
     <ClInclude Include="include\GameManager.h" />
     <ClInclude Include="include\Scenes\GameplayScene.h" />
+    <ClInclude Include="include\Scenes\NewRecordScene.h" />
     <ClInclude Include="include\Scenes\Scene.h" />
     <ClInclude Include="include\Scenes\SceneManager.h" />
     <ClInclude Include="include\Scenes\TitleScreenScene.h" />

@@ -24,7 +24,4 @@ private:
 	float secondsToReachMaxDifficult;
 
 	SceneManager* sceneManager;
-
-	void SetNewRecordGameOver();
-	void SetDefaultGameOverScene();
 };
