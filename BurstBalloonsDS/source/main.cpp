@@ -17,9 +17,13 @@
 #include "Background1.h"
 #include "BackgroundGameOver.h"
 #include "BackgroundPassRecord.h"
+#include "BackgroundPassRecord1.h"
+#include "BackgroundPassRecord2.h"
 #include "Font.h"
 
+#include "BitmapImage.h"
 #include "Balloon.h"
+#include "BackgroundAnimationTest.h"
 #include "GameManager.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/NewRecordScene.h"
@@ -67,12 +71,24 @@ int main()
 	sceneManager.AddScene("TitleScreen", &titleScreenScene);
 	sceneManager.ChangeSceneTo("TitleScreen");
 
+	const unsigned int* backgrounds[] = { Background1Bitmap, BackgroundBitmap, BackgroundGameOverBitmap, BackgroundPassRecordBitmap, BackgroundPassRecord1Bitmap , BackgroundPassRecord2Bitmap };
+
+	int i = 0;
+	float t = HardwareManager::GetCurrentMilliseconds();
 	while (true)
 	{
 		HardwareManager::ClearScreens();
-
+		if (HardwareManager::GetCurrentMilliseconds() - t >= 500)
+		{
+			i++;
+			t = HardwareManager::GetCurrentMilliseconds();
+		}
+		if (i > 5)
+			i = 0;
+		main.SetBackgroundTo(backgrounds[i], Background1BitmapLen);
 		sceneManager.GetCurrentScene()->InputLoop();
 		sceneManager.GetCurrentScene()->GameLoop();
+
 		main.UpdateOam();
 		sub.UpdateOam();
 		HardwareManager::WaitForNextFrame();

@@ -1,4 +1,6 @@
 #include <nds.h>
+#include <nds\arm9\sprite.h>
+#include <nds\arm9\background.h>
 #include "Engine/OamEngine.h"
 
 const int COLORS_PER_PALETTE = 16;

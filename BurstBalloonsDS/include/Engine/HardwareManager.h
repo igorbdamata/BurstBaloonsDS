@@ -17,6 +17,11 @@ public:
 
     static void WaitForNextFrame();
     static void ClearScreens();
+
+    static int background2SubID;
+    static int background3SubID;
+    static int background2MainID;
+    static int background3MainID;
 };
 
 #endif  

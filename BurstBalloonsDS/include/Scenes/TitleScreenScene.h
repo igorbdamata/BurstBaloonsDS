@@ -16,4 +16,8 @@ private:
 	 SceneManager* sceneManager;
 	 Entity* pressAnyKeyText[4];
 	 Entity* burstBalloonsText[2];
+
+	 int backgroundPositionX=0;
+	 int backgroundPositionY=0;
+	 float gameStartTime;
 };
