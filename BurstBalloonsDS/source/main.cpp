@@ -71,21 +71,10 @@ int main()
 	sceneManager.AddScene("TitleScreen", &titleScreenScene);
 	sceneManager.ChangeSceneTo("TitleScreen");
 
-	const unsigned int* backgrounds[] = { Background1Bitmap, BackgroundBitmap, BackgroundGameOverBitmap, BackgroundPassRecordBitmap, BackgroundPassRecord1Bitmap , BackgroundPassRecord2Bitmap };
-
-	int i = 0;
-	float t = HardwareManager::GetCurrentMilliseconds();
 	while (true)
 	{
 		HardwareManager::ClearScreens();
-		if (HardwareManager::GetCurrentMilliseconds() - t >= 500)
-		{
-			i++;
-			t = HardwareManager::GetCurrentMilliseconds();
-		}
-		if (i > 5)
-			i = 0;
-		main.SetBackgroundTo(backgrounds[i], Background1BitmapLen);
+		
 		sceneManager.GetCurrentScene()->InputLoop();
 		sceneManager.GetCurrentScene()->GameLoop();
 

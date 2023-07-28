@@ -16,7 +16,7 @@ OamEngine::OamEngine(Screen screen)
     oamState = screen == UPPER ? &oamMain : &oamSub;
     oamAddress = screen == UPPER ? OAM : OAM_SUB;
     palletesAddress = screen == UPPER ? SPRITE_PALETTE : SPRITE_PALETTE_SUB;
-    backgroundRam = (uint16 *)(screen == UPPER ? BG_BMP_RAM(1) : BG_BMP_RAM_SUB(1));
+    backgroundRam = (uint16 *)(screen == UPPER ? BG_BMP_RAM(1) : BG_BMP_RAM_SUB(8));
     availableOamIndex = 0;
     availablePalleteIndex = 0;
     InitOam();

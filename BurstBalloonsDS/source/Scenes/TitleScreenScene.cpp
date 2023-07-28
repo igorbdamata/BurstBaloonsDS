@@ -10,8 +10,10 @@
 
 #include<math.h>
 
-#include "BurstBalloonsText0.h";
-#include "BurstBalloonsText1.h";
+
+#include "BurstBalloonsTextT0.h";
+#include "BurstBalloonsTextT1.h";
+
 #include "BackgroundGameOver.h";
 #include "LogotipoLudosAurum.h";
 #include "BackgroundPassRecord.h";
@@ -47,9 +49,9 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	float burstBalloonsTextPositionY = SCREEN_HEIGHT / 2;
 	Entity* burstBalloonsText[2] = { new Entity(new Vector2(burstBalloonsTextPositionX , burstBalloonsTextPositionY), SpriteSize_64x64,64,64),
 		new Entity(new Vector2(burstBalloonsTextPositionX + 64, burstBalloonsTextPositionY), SpriteSize_64x64,64,64) };
-	mainEngine->AddPallete(BurstBalloonsText0Pal, "BurstBalloonsText");
-	mainEngine->AddSprite("BurstBalloonsText0", BurstBalloonsText0Tiles, SpriteSize_64x64);
-	mainEngine->AddSprite("BurstBalloonsText1", BurstBalloonsText1Tiles, SpriteSize_64x64);
+	mainEngine->AddPallete(BurstBalloonsTextT0Pal, "BurstBalloonsText");
+	mainEngine->AddSprite("BurstBalloonsTextT0", BurstBalloonsTextT0Tiles, SpriteSize_64x64);
+	mainEngine->AddSprite("BurstBalloonsTextT1", BurstBalloonsTextT1Tiles, SpriteSize_64x64);
 	for (int i = 0; i < 2; i++)
 	{
 		this->burstBalloonsText[i] = burstBalloonsText[i];
@@ -57,8 +59,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 		this->burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete("BurstBalloonsText"));
 	}
 
-	this->burstBalloonsText[0]->spriteAddress = mainEngine->GetSprite("BurstBalloonsText0");
-	this->burstBalloonsText[1]->spriteAddress = mainEngine->GetSprite("BurstBalloonsText1");
+	this->burstBalloonsText[0]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT0");
+	this->burstBalloonsText[1]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT1");
 
 }
 
@@ -66,8 +68,6 @@ void TitleScreenScene::Load()
 {
 	Scene::Load();
 	gameStartTime = HardwareManager::GetCurrentMilliseconds();
-	dmaCopyHalfWords(2, LogotipoLudosAurumBitmap, BG_BMP_RAM(8), LogotipoLudosAurumBitmapLen);
-	dmaCopyHalfWords(3, BackgroundPassRecordBitmap, BG_BMP_RAM_SUB(8), BackgroundPassRecordBitmapLen);
 }
 
 void TitleScreenScene::InputLoop()
@@ -78,14 +78,6 @@ void TitleScreenScene::InputLoop()
 }
 void TitleScreenScene::GameLoop()
 {
-	if (HardwareManager::GetCurrentMilliseconds() - gameStartTime > 3000 && backgroundPositionY<192)
-	{
-		bgSetScroll(HardwareManager::background2MainID, 0, backgroundPositionY);
-		bgSetScroll(HardwareManager::background3SubID, 0, backgroundPositionY);
-		bgUpdate();
-		dmaCopyHalfWords(3, Background1Bitmap, BG_BMP_RAM_SUB(0), BackgroundPassRecordBitmapLen);
-		backgroundPositionY++;
-	}
 	for (int i = 0; i < 4; i++)
 	{
 		this->pressAnyKeyText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;

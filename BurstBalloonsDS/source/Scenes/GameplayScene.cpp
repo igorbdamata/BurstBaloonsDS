@@ -116,10 +116,6 @@ void GameplayScene::GameLoop()
 	printf(std::to_string(gameManager->GetScore()).c_str());
 	printf("\n High Score: ");
 	printf(std::to_string(gameManager->GetHighScore()).c_str());
-	printf("\n Difficult: ");
-	printf(std::to_string(gameManager->GetDifficultFactor()).c_str());
-	printf("\n Time: ");
-	printf(std::to_string(HardwareManager::GetCurrentMilliseconds()).c_str());
 		
 	for (int i = 0; i < BALLOONS_COUNT; i++)
 	{

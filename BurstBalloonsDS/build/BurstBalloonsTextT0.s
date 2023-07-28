@@ -1,14 +1,14 @@
 
-@{{BLOCK(BurstBalloonsText0)
+@{{BLOCK(BurstBalloonsTextT0)
 
 @=======================================================================
 @
-@	BurstBalloonsText0, 64x64@4, 
+@	BurstBalloonsTextT0, 64x64@4, 
 @	+ palette 256 entries, not compressed
 @	+ 64 tiles not compressed
 @	Total size: 512 + 2048 = 2560
 @
-@	Time-stamp: 2023-07-28, 09:16:49
+@	Time-stamp: 2023-07-28, 09:18:11
 @	Exported by Cearn's GBA Image Transmogrifier, v0.9.2
 @	( http://www.coranac.com/projects/#grit )
 @
@@ -16,9 +16,9 @@
 
 	.section .rodata
 	.align	2
-	.global BurstBalloonsText0Tiles		@ 2048 unsigned chars
-	.hidden BurstBalloonsText0Tiles
-BurstBalloonsText0Tiles:
+	.global BurstBalloonsTextT0Tiles		@ 2048 unsigned chars
+	.hidden BurstBalloonsTextT0Tiles
+BurstBalloonsTextT0Tiles:
 	.word 0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000
 	.word 0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x22200000
 	.word 0x00000000,0x00000000,0x00000000,0x00000000,0x22222000,0x42222220,0x44222222,0x44222222
@@ -93,9 +93,9 @@ BurstBalloonsText0Tiles:
 
 	.section .rodata
 	.align	2
-	.global BurstBalloonsText0Pal		@ 512 unsigned chars
-	.hidden BurstBalloonsText0Pal
-BurstBalloonsText0Pal:
+	.global BurstBalloonsTextT0Pal		@ 512 unsigned chars
+	.hidden BurstBalloonsTextT0Pal
+BurstBalloonsTextT0Pal:
 	.hword 0x0000,0x7D04,0x6ABF,0x4D3F,0x7FFF,0x0000,0x0000,0x0000
 	.hword 0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
 	.hword 0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
@@ -132,4 +132,4 @@ BurstBalloonsText0Pal:
 	.hword 0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
 	.hword 0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
 
-@}}BLOCK(BurstBalloonsText0)
+@}}BLOCK(BurstBalloonsTextT0)
