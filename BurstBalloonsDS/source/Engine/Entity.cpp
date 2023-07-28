@@ -50,3 +50,8 @@ void Entity::ChangePalleteTo(int newPalleteID)
 {
 	palleteID = newPalleteID;
 }
+
+void Entity::SetSpriteAddressTo(void* newSprite)
+{
+	spriteAddress = newSprite;
+}

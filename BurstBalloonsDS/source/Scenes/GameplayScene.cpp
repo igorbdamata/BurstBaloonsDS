@@ -46,17 +46,18 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 										new Balloon(SpriteSize_64x64, "fly", BALLOON_SPEED, 22, 27, 20, 5,  gameManager),
 										new Balloon(SpriteSize_64x64, "fly",BALLOON_SPEED, 22, 27, 20, 5,  gameManager),
 										new Balloon(SpriteSize_64x64, "fly", BALLOON_SPEED, 22, 27, 20, 5,  gameManager) };
-
-	Animation* flyAnimations[BALLOONS_COUNT] = { new Animation(0.2, 3, balloons[0], true, balloonFlyFrames),
-		new Animation(0.2, 3, balloons[1], true, balloonFlyFrames),
-		new Animation(0.2, 3, balloons[2], true, balloonFlyFrames),
-		new Animation(0.2, 3, balloons[3], true, balloonFlyFrames),
-		new Animation(0.2, 3, balloons[4], true, balloonFlyFrames) };
-	Animation* burstAnimations[BALLOONS_COUNT] = { new Animation(0.2, 3, balloons[0],false, balloonBurstFrames),
-		new Animation(0.2, 3, balloons[1],false, balloonBurstFrames),
-		new Animation(0.2, 3, balloons[2],false, balloonBurstFrames),
-		new Animation(0.2, 3, balloons[3],false, balloonBurstFrames),
-		new Animation(0.2, 3, balloons[4],false, balloonBurstFrames) };
+	Animation* flyAnimations[BALLOONS_COUNT] = { 
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteAddressTo(newSprite);}, true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteAddressTo(newSprite);} , true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[2]->SetSpriteAddressTo(newSprite);}, true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[3]->SetSpriteAddressTo(newSprite);}, true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[4]->SetSpriteAddressTo(newSprite);}, true, balloonFlyFrames) };
+	Animation* burstAnimations[BALLOONS_COUNT] = { 
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteAddressTo(newSprite);},false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteAddressTo(newSprite);},false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[2]->SetSpriteAddressTo(newSprite);},false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[3]->SetSpriteAddressTo(newSprite);},false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[4]->SetSpriteAddressTo(newSprite);},false, balloonBurstFrames) };
 
 
 	for (int i = 0; i < BALLOONS_COUNT; i++)
@@ -116,7 +117,7 @@ void GameplayScene::GameLoop()
 	printf(std::to_string(gameManager->GetScore()).c_str());
 	printf("\n High Score: ");
 	printf(std::to_string(gameManager->GetHighScore()).c_str());
-		
+
 	for (int i = 0; i < BALLOONS_COUNT; i++)
 	{
 		balloons[i]->Update();

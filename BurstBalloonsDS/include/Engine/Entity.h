@@ -22,6 +22,7 @@ public:
 
     void ChangePalleteTo(int newPalleteID);
     bool IsOutOfScreen();
+    void SetSpriteAddressTo(void* newSprite);
 
 protected:
     OamState *engine;

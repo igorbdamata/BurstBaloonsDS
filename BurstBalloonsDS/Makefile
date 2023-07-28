@@ -24,7 +24,7 @@ BUILD    := build
 SOURCES  := source source/Engine source/Engine/Vector2 source/Engine/HardwareManager source/Scenes
 INCLUDES := include include/Engine source/Scenes
 DATA     :=
-GRAPHICS := gfx gfx/backgrounds gfx/texts
+GRAPHICS := gfx/sprites gfx/backgrounds gfx/backgrounds/TitleScreenBackgroundAnimation gfx/texts gfx/texts/TextPassRecord gfx/texts/PressAnyKeyText gfx/texts/GameOverText gfx/texts/BurstBalloonsText gfx/texts/BurstBalloonsTextT
 AUDIO    := audio
 ICON     := icon.bmp
 

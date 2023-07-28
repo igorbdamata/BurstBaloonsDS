@@ -61,7 +61,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 
 	this->burstBalloonsText[0]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT0");
 	this->burstBalloonsText[1]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT1");
-
+	splashScreenWasFinished = false;
 }
 
 void TitleScreenScene::Load()
@@ -72,12 +72,18 @@ void TitleScreenScene::Load()
 
 void TitleScreenScene::InputLoop()
 {
+	//if (!splashScreenWasFinished) return;
 	Scene::InputLoop();
 	if (keysDown())
 		sceneManager->ChangeSceneTo("Gameplay");
 }
 void TitleScreenScene::GameLoop()
 {
+	if (!splashScreenWasFinished)
+	{
+		UpdateSplashScreen();
+		return;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		this->pressAnyKeyText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;
@@ -88,4 +94,9 @@ void TitleScreenScene::GameLoop()
 		this->burstBalloonsText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;
 		burstBalloonsText[i]->Render();
 	}
+}
+
+void TitleScreenScene::UpdateSplashScreen()
+{
+
 }

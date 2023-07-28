@@ -2,11 +2,11 @@
 #include "Engine/HardwareManager.h"
 #include<string>
 
-Animation::Animation(float framesInterval, int framesCount, Entity* entity, bool haveLoop, std::vector<void*> frames)
+Animation::Animation(float framesInterval, int framesCount, std::function<void(void* newSprite)> setSpriteAddressTo, bool haveLoop, std::vector<void*> frames)
 {
 	this->framesInterval = framesInterval;
 	this->framesCount = framesCount;
-	this->entity = entity;
+	this->setSpriteAddressTo = setSpriteAddressTo;
 	this->haveLoop = haveLoop;
 	this->frames = frames;
 	this->finishedExecution = false;
@@ -62,5 +62,5 @@ void Animation::FinishAnimation()
 
 void Animation::ChangeSpriteOnEntity()
 {
-	entity->spriteAddress= frames[currentFrame];
+	setSpriteAddressTo(frames[currentFrame]);
 }

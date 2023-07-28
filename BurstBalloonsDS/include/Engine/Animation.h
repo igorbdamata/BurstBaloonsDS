@@ -5,11 +5,12 @@
 #include <nds.h>
 #include "Entity.h"
 #include<vector>
+#include <functional>
 
 class Animation
 {
 public:
-	Animation(float framesInterval, int framesCount, Entity* entity, bool haveLoop, std::vector<void*> frames);
+	Animation(float framesInterval, int framesCount, std::function<void(void* newSprite)> setSpriteAddressTo, bool haveLoop, std::vector<void*> frames);
 
 	void Start();
 	void Update();
@@ -27,9 +28,8 @@ private:
 	float lastFrameChangeTime;
 
 	bool finishedExecution;
-
 	std::vector<void*> frames;
-	Entity* entity;
+	std::function<void(void* newSprite)> setSpriteAddressTo;
 
 	bool IsTimeToChangeFrame();
 	void ChangeFrame();
