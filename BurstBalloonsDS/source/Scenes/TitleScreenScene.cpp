@@ -1,5 +1,7 @@
 #include "Scenes/TitleScreenScene.h"
 #include "Engine/HardwareManager.h"
+#include "Engine\SoundManager.h"
+#include<soundbank.h>
 #include <nds\arm9\input.h>
 #include <nds\arm9\sprite.h>
 #include <string>
@@ -87,6 +89,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 void TitleScreenScene::Load()
 {
 	Scene::Load();
+	SoundManager::PlaySong(MOD_THEME);
 	gameStartTime = HardwareManager::GetCurrentMilliseconds();
 }
 
