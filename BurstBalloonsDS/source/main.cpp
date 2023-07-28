@@ -17,18 +17,15 @@
 #include "Background1.h"
 #include "BackgroundGameOver.h"
 #include "BackgroundPassRecord.h"
-#include "BackgroundPassRecord1.h"
-#include "BackgroundPassRecord2.h"
 #include "Font.h"
 
-#include "BitmapImage.h"
 #include "Balloon.h"
-#include "BackgroundAnimationTest.h"
 #include "GameManager.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/NewRecordScene.h"
 #include "Scenes/GameOverScene.h"
 #include "Scenes/TitleScreenScene.h"
+#include "BackgroundAnimation2.h";
 
 #include <time.h>
 #include<string>
@@ -62,7 +59,7 @@ int main()
 	gameplayScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
 	TitleScreenScene titleScreenScene = TitleScreenScene(&main, &sub, &sceneManager);
-	titleScreenScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
+	titleScreenScene.SetMainBackgroundTo(BackgroundAnimation2Bitmap, BackgroundAnimation2BitmapLen);
 	titleScreenScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
 	sceneManager.AddScene("Gameplay", &gameplayScene);

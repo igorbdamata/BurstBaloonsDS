@@ -14,11 +14,8 @@ public:
 
 	void Start();
 	void Update();
-
-	bool IsPlaying();
-
+	bool GetFinishedExecution();
 private:
-	bool isPlaying;
 	bool haveLoop;
 
 	int currentFrame;

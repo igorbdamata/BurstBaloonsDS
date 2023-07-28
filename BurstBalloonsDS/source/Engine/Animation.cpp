@@ -12,11 +12,6 @@ Animation::Animation(float framesInterval, int framesCount, std::function<void(v
 	this->finishedExecution = false;
 }
 
-bool Animation::IsPlaying()
-{
-	return isPlaying;
-}
-
 void Animation::Start()
 {
 	currentFrame = 0;
@@ -63,4 +58,9 @@ void Animation::FinishAnimation()
 void Animation::ChangeSpriteOnEntity()
 {
 	setSpriteAddressTo(frames[currentFrame]);
+}
+
+bool Animation::GetFinishedExecution()
+{
+	return finishedExecution;
 }

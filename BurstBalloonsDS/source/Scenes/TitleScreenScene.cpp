@@ -18,6 +18,12 @@
 #include "LogotipoLudosAurum.h";
 #include "BackgroundPassRecord.h";
 #include "Background1.h";
+#include "BackgroundAnimation2.h";
+#include "BackgroundAnimation3.h";
+#include "BackgroundAnimation4.h";
+#include "BackgroundAnimation5.h";
+#include "BackgroundAnimation6.h";
+#include "BackgroundAnimation7.h";
 
 TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
@@ -45,8 +51,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	this->pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
 
 
-	float burstBalloonsTextPositionX = SCREEN_WIDTH / 2 - 50;
-	float burstBalloonsTextPositionY = SCREEN_HEIGHT / 2;
+	float burstBalloonsTextPositionX = SCREEN_WIDTH / 2 - 53;
+	float burstBalloonsTextPositionY = SCREEN_HEIGHT / 2 - 21;
 	Entity* burstBalloonsText[2] = { new Entity(new Vector2(burstBalloonsTextPositionX , burstBalloonsTextPositionY), SpriteSize_64x64,64,64),
 		new Entity(new Vector2(burstBalloonsTextPositionX + 64, burstBalloonsTextPositionY), SpriteSize_64x64,64,64) };
 	mainEngine->AddPallete(BurstBalloonsTextT0Pal, "BurstBalloonsText");
@@ -62,6 +68,17 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	this->burstBalloonsText[0]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT0");
 	this->burstBalloonsText[1]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT1");
 	splashScreenWasFinished = false;
+
+	std::vector<void*> splashScreenFrames;
+	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation3Bitmap);
+	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation4Bitmap);
+	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation5Bitmap);
+	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation6Bitmap);
+	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation7Bitmap);
+	splashScreenAnimation = new Animation(0.3f, 5, [](void* newSprite) { dmaCopy(newSprite, BG_BMP_RAM(8), Background1BitmapLen); }, false, splashScreenFrames);
+	splashScreenAnimation->Start();
+	splashScreenTime = 3;
+	startedAnimation = false;
 }
 
 void TitleScreenScene::Load()
@@ -72,7 +89,10 @@ void TitleScreenScene::Load()
 
 void TitleScreenScene::InputLoop()
 {
-	//if (!splashScreenWasFinished) return;
+	if (!splashScreenWasFinished)
+	{
+		return;
+	}
 	Scene::InputLoop();
 	if (keysDown())
 		sceneManager->ChangeSceneTo("Gameplay");
@@ -91,12 +111,26 @@ void TitleScreenScene::GameLoop()
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		this->burstBalloonsText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;
+		this->burstBalloonsText[i]->position->y = sin((HardwareManager::GetCurrentMilliseconds()-4500) / 930) * 15 + SCREEN_HEIGHT / 2 - 21;
 		burstBalloonsText[i]->Render();
 	}
 }
 
 void TitleScreenScene::UpdateSplashScreen()
 {
+	if (HardwareManager::GetCurrentMilliseconds() - gameStartTime >= splashScreenTime * 1000)
+	{
+		if (!startedAnimation)
+		{
+			splashScreenAnimation->Start();
+			startedAnimation = true;
+		}
+		splashScreenAnimation->Update();
 
+		if (splashScreenAnimation->GetFinishedExecution())
+		{
+			splashScreenWasFinished = true;
+			dmaCopy(Background1Bitmap, BG_BMP_RAM(8), Background1BitmapLen);
+		}
+	}
 }

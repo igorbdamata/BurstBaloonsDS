@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "..\Engine\Animation.h"
 #include "SceneManager.h"
 #include "..\GameManager.h"
 
@@ -19,5 +20,8 @@ private:
 
 	 bool splashScreenWasFinished;
 	 float gameStartTime;
+	 float splashScreenTime = 3;
+	 bool startedAnimation;
 	 void UpdateSplashScreen();
+	 Animation* splashScreenAnimation;
 };
