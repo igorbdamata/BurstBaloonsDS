@@ -24,4 +24,7 @@ private:
 	 bool startedAnimation;
 	 void UpdateSplashScreen();
 	 Animation* splashScreenAnimation;
+	 Vector2* pressAnyKeyInitialPosition;
+	 Vector2* pressAnyKeyFinalPosition;
+	 float animationStartTime;
 };

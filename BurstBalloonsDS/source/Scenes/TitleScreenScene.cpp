@@ -31,6 +31,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 
 	float pressAnyKeyTextPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2;
+	pressAnyKeyInitialPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY * 2);
+	pressAnyKeyFinalPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY);
 
 	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(pressAnyKeyTextPositionX , pressAnyKeyTextPositionY), SpriteSize_64x64,64,64),
 		new Entity(new Vector2(pressAnyKeyTextPositionX + 64, pressAnyKeyTextPositionY), SpriteSize_64x64,64,64),
@@ -79,6 +81,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	splashScreenAnimation->Start();
 	splashScreenTime = 3;
 	startedAnimation = false;
+
 }
 
 void TitleScreenScene::Load()
@@ -106,12 +109,12 @@ void TitleScreenScene::GameLoop()
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		this->pressAnyKeyText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930) * 15 + SCREEN_HEIGHT / 2;
+		this->pressAnyKeyText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930- 4500) * 15 + SCREEN_HEIGHT / 2;
 		pressAnyKeyText[i]->Render();
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		this->burstBalloonsText[i]->position->y = sin((HardwareManager::GetCurrentMilliseconds()-4500) / 930) * 15 + SCREEN_HEIGHT / 2 - 21;
+		this->burstBalloonsText[i]->position->y = sin((HardwareManager::GetCurrentMilliseconds() - 4500) / 930) * 15 + SCREEN_HEIGHT / 2 - 21;
 		burstBalloonsText[i]->Render();
 	}
 }
@@ -122,11 +125,17 @@ void TitleScreenScene::UpdateSplashScreen()
 	{
 		if (!startedAnimation)
 		{
+			animationStartTime = HardwareManager::GetCurrentMilliseconds();
 			splashScreenAnimation->Start();
 			startedAnimation = true;
 		}
 		splashScreenAnimation->Update();
-
+		for (int i = 0; i < 4; i++)
+		{
+			this->pressAnyKeyText[i]->position->Lerp(pressAnyKeyInitialPosition, pressAnyKeyFinalPosition, ( HardwareManager::GetCurrentMilliseconds()-animationStartTime)/(0.3f * 5*1000));
+			this->pressAnyKeyText[i]->position->x += 64*i;
+			pressAnyKeyText[i]->Render();
+		}
 		if (splashScreenAnimation->GetFinishedExecution())
 		{
 			splashScreenWasFinished = true;

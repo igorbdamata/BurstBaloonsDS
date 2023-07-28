@@ -12,9 +12,12 @@ Vector2::Vector2(float x, float y)
 	this->y = y;
 }
 
-float Vector2::Lerp(Vector2 point, float percent)
+void Vector2::Lerp(Vector2* pointA, Vector2* pointB, float percent)
 {
-	return GetMagnitude() + DistanceTo(point) * percent;
+	float x = pointA->x + (pointB->x - pointA->x) * percent;
+	float y =pointA->y + (pointB->x- pointA->y) * percent;
+	this->x = x;
+	this->y = y;
 }
 float Vector2::DistanceTo(Vector2 point)
 {
