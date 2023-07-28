@@ -24,7 +24,7 @@ BUILD    := build
 SOURCES  := source source/Engine source/Engine/Vector2 source/Engine/HardwareManager source/Scenes
 INCLUDES := include include/Engine source/Scenes
 DATA     :=
-GRAPHICS := gfx
+GRAPHICS := gfx gfx/backgrounds gfx/texts
 AUDIO    := audio
 ICON     := icon.bmp
 
