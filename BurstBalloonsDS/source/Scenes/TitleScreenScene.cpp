@@ -30,7 +30,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	this->sceneManager = sceneManager;
 
 	float pressAnyKeyTextPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
-	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2;
+	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2+80;
 	pressAnyKeyInitialPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY * 2);
 	pressAnyKeyFinalPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY);
 
@@ -109,12 +109,12 @@ void TitleScreenScene::GameLoop()
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		this->pressAnyKeyText[i]->position->y = sin(HardwareManager::GetCurrentMilliseconds() / 930- 4500) * 15 + SCREEN_HEIGHT / 2;
+		this->pressAnyKeyText[i]->position->y += sin(HardwareManager::GetCurrentMilliseconds() / 930)/2;
 		pressAnyKeyText[i]->Render();
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		this->burstBalloonsText[i]->position->y = sin((HardwareManager::GetCurrentMilliseconds() - 4500) / 930) * 15 + SCREEN_HEIGHT / 2 - 21;
+		this->burstBalloonsText[i]->position->y += sin((HardwareManager::GetCurrentMilliseconds()) / 930)/2;
 		burstBalloonsText[i]->Render();
 	}
 }
@@ -132,8 +132,8 @@ void TitleScreenScene::UpdateSplashScreen()
 		splashScreenAnimation->Update();
 		for (int i = 0; i < 4; i++)
 		{
-			this->pressAnyKeyText[i]->position->Lerp(pressAnyKeyInitialPosition, pressAnyKeyFinalPosition, ( HardwareManager::GetCurrentMilliseconds()-animationStartTime)/(0.3f * 5*1000));
-			this->pressAnyKeyText[i]->position->x += 64*i;
+			this->pressAnyKeyText[i]->position->Lerp(pressAnyKeyInitialPosition, pressAnyKeyFinalPosition, (HardwareManager::GetCurrentMilliseconds() - animationStartTime) / (0.3f * 5 * 1000));
+			this->pressAnyKeyText[i]->position->x += 64 * i;
 			pressAnyKeyText[i]->Render();
 		}
 		if (splashScreenAnimation->GetFinishedExecution())
