@@ -1,10 +1,10 @@
 #include "Scenes/GameOverScene.h"
 #include "Engine/HardwareManager.h"
-#include <nds\arm9\input.h>
-#include <nds\arm9\sprite.h>
+#include <nds/arm9/input.h>
+#include <nds/arm9/sprite.h>
 #include <string>
 #include<nds.h>
-#include<nds\arm9\sprite.h>
+#include<nds/arm9/sprite.h>
 
 
 #include"GameOverText0.h"

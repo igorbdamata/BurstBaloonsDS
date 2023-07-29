@@ -14,7 +14,7 @@ public:
 
 	void Start();
 	void Update();
-	bool GetFinishedExecution();
+	bool FinishedExecution();
 private:
 	bool haveLoop;
 

@@ -1,4 +1,4 @@
-#include "Scenes\Scene.h"
+#include "Scenes/Scene.h"
 #include <nds/arm9/input.h>
 #include "font.h"
 

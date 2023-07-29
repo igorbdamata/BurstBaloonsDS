@@ -1,6 +1,6 @@
 #include "Scenes/GameplayScene.h"
-#include <nds\arm9\input.h>
-#include <nds\arm9\sprite.h>
+#include <nds/arm9/input.h>
+#include <nds/arm9/sprite.h>
 #include <string>
 #include "BalloonSprite.h"
 #include "Engine/SoundManager.h"

@@ -1,10 +1,10 @@
 #include "Engine/HardwareManager.h"
 #include <nds.h>
-#include <nds\arm9\sprite.h>
+#include <nds/arm9/sprite.h>
 #include <maxmod9.h>
 #include <soundbank.h>
 #include <soundbank_bin.h>
-#include<nds\arm9\background.h>
+#include<nds/arm9/background.h>
 
 int HardwareManager::background2SubID = -1;
 int HardwareManager::background3SubID = -1;
@@ -47,7 +47,7 @@ void HardwareManager::SetVRAM()
 void HardwareManager::SetBackgrounds()
 {
 	HardwareManager::background3MainID = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 1, 0);
-	HardwareManager::background2MainID = bgInit(2, BgType_Bmp16, BgSize_B16_256x256, 8, 0);
+	HardwareManager::background2MainID = bgInit(2, BgType_Bmp16, BgSize_B16_128x128, 8, 0);
 	HardwareManager::background3SubID = bgInitSub(3, BgType_Bmp16, BgSize_B16_256x256, 0, 0);
 }
 

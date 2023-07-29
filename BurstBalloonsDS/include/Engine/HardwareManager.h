@@ -14,6 +14,7 @@ public:
     static void StartMillisecondsTimer();
 
     static float GetCurrentMilliseconds();
+    static float GetCurrentSeconds();
 
     static void WaitForNextFrame();
     static void ClearScreens();

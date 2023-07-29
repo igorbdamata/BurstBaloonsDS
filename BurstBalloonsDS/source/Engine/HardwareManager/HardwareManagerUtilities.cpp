@@ -6,6 +6,12 @@ const int MILLISECONDS_PER_CYCLE = 125000;
 int timeCycles = 0;
 float lastMilliseconds = 0;
 
+
+float HardwareManager::GetCurrentSeconds()
+{
+	return HardwareManager::GetCurrentMilliseconds() / 1000;
+}
+
 float HardwareManager::GetCurrentMilliseconds()
 {
 	float currentMilliseconds = cpuGetTiming() / CPU_CLOCK / 1024;

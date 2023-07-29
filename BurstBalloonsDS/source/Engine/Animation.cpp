@@ -60,7 +60,7 @@ void Animation::ChangeSpriteOnEntity()
 	setSpriteAddressTo(frames[currentFrame]);
 }
 
-bool Animation::GetFinishedExecution()
+bool Animation::FinishedExecution()
 {
 	return finishedExecution;
 }

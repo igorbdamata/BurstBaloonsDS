@@ -1,6 +1,6 @@
 #include "Engine/Vector2.h"
 
-#include <cmath>
+#include <math.h>
 
 Vector2::Vector2()
 {
@@ -19,9 +19,9 @@ void Vector2::Lerp(Vector2* pointA, Vector2* pointB, float percent)
 	this->x = x;
 	this->y = y;
 }
-float Vector2::DistanceTo(Vector2 point)
+float Vector2::DistanceTo(Vector2* point)
 {
-	return sqrt(pow((x - point.x), 2) + pow((y - point.y), 2));
+	return sqrt(pow((x - point->x), 2) + pow((y - point->y), 2));
 }
 
 float Vector2::GetMagnitude()

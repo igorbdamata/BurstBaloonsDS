@@ -1,9 +1,9 @@
 #pragma once
 #include "Scene.h"
 #include "SceneManager.h"
-#include "..\Balloon.h"
-#include "..\GameManager.h"
-#include "..\Data.h"
+#include "../Balloon.h"
+#include "../GameManager.h"
+#include "../Data.h"
 
 class GameplayScene : public Scene
 {

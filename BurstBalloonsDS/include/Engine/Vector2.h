@@ -10,7 +10,7 @@ struct Vector2
 	Vector2(float x, float y);
 
 	void Lerp(Vector2* pointA, Vector2* pointB, float percent);
-	float DistanceTo(Vector2 point);
+	float DistanceTo(Vector2* point);
 
 	float GetMagnitude();
 	void SetMagnitudeTo(float value);
