@@ -9,6 +9,7 @@
 #include <map>
 #include <iostream>
 #include <map>
+#include <string>
 
 enum Screen
 {
@@ -33,8 +34,8 @@ public:
     void AddPallete(const void *pallete, const char *pallateName);
     int GetPallete(const char *palleteName);
 
-    void AddSprite(const char *spriteName, const void *tiles, SpriteSize spriteSize);
-    void *GetSprite(const char *spriteName);
+    void AddSprite(std::string spriteName, const void *tiles, SpriteSize spriteSize);
+    void *GetSprite(std::string spriteName);
 
     void UpdateOam();
 
@@ -43,7 +44,7 @@ private:
     int availablePalleteIndex;
 
     std::map<const char *, int> palletes;
-    std::map<const char *, void *> sprites;
+    std::map<std::string, void *> sprites;
 
     u16 *oamAddress;
     u16 *palletesAddress;

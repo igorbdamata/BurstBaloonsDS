@@ -17,7 +17,7 @@ public:
 	void GameLoop() override;
 private:
 	SceneManager* sceneManager;
-	const char* name = "";
+
 	SplashScreenCodedAnimation* splashScreenCodedAnimation;
 	TitleScreenIdleCodedAnimation* titleScreenIdleCodedAnimation;
 };

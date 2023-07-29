@@ -55,16 +55,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	{
 		mainEngine->InitEntity(burstBalloonsText[i]);
 		burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete("BurstBalloonsText"));
-		std::string spriteName = "BurstBalloonsText";
-		name = (spriteName + std::to_string(i)).c_str();
-		if (i == 0)
-		{
-			char* nameChar = "BurstBalloonsText";
-			//nameChar += i;
-			strcat(nameChar, std::to_string(i).c_str());
-			sassert(nameChar == "BurstBalloonsText0", nameChar );
-		}
-		burstBalloonsText[i]->spriteAddress = mainEngine->GetSprite(name);
+		std::string spriteName = "BurstBalloonsText" + std::to_string(i);
+		burstBalloonsText[i]->spriteAddress = mainEngine->GetSprite(spriteName);
 	}
 
 	#pragma endregion
@@ -90,11 +82,6 @@ void TitleScreenScene::InputLoop()
 }
 void TitleScreenScene::GameLoop()
 {
-
-	//strcat(spriteName, std::to_string(i).c_str());
-	printf(name);
-	std::string spriteName = "BurstBalloonsText";
-	printf((spriteName + std::to_string(1)).c_str());
 	if (!splashScreenCodedAnimation->HaveFinished())
 	{
 		splashScreenCodedAnimation->Update();
