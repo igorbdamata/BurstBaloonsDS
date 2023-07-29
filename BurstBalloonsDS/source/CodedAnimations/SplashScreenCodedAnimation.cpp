@@ -38,6 +38,7 @@ SplashScreenCodedAnimation::SplashScreenCodedAnimation(Entity* pressAnyKeyText[4
 
 void SplashScreenCodedAnimation::Start()
 {
+	CodedAnimation::Start();
 	splashScreenStartTime = HardwareManager::GetCurrentSeconds();
 }
 
@@ -78,6 +79,7 @@ void SplashScreenCodedAnimation::LerpPressAnyKeyText()
 
 void SplashScreenCodedAnimation::FinishSplashScreenAnimation()
 {
+	this->Stop();
 	splashScreenWasFinished = true;
 	dmaCopyHalfWords(3, Background1Bitmap, BG_BMP_RAM(1), Background1BitmapLen);
 }

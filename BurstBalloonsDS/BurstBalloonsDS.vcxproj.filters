@@ -37,6 +37,9 @@
     <Filter Include="Arquivos de Cabeçalho\CodedAnimations">
       <UniqueIdentifier>{3c303d6d-9983-4169-9a74-0c65cb17b543}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Data">
+      <UniqueIdentifier>{66f19f75-b67d-43fa-8c98-16f9e3cbb325}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Balloon.cpp">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h">
       <Filter>Arquivos de Cabeçalho\CodedAnimations</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data\BurstBalloonsTextData.h">
+      <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

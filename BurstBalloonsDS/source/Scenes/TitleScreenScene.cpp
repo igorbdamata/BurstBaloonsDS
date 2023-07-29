@@ -1,30 +1,15 @@
+#include<soundbank.h>
+#include<nds/arm9/sprite.h>
+#include<nds.h>
+#include<string>
+
 #include "Scenes/TitleScreenScene.h"
 #include "Engine/HardwareManager.h"
 #include "Engine/SoundManager.h"
-#include<soundbank.h>
-#include<nds/arm9/input.h>
-#include<nds/arm9/sprite.h>
-#include<string>
-#include<nds.h>
-#include<nds/arm9/sprite.h>
-#include<nds/memory.h>
-#include<nds/arm9/background.h>
 
-#include<math.h>
-
-#include "BurstBalloonsTextT0.h";
-#include "BurstBalloonsTextT1.h";
-
-#include "BackgroundGameOver.h";
-#include "LogotipoLudosAurum.h";
-#include "BackgroundPassRecord.h";
-#include "Background1.h";
-#include "BackgroundAnimation2.h";
-#include "BackgroundAnimation3.h";
-#include "BackgroundAnimation4.h";
-#include "BackgroundAnimation5.h";
-#include "BackgroundAnimation6.h";
-#include "BackgroundAnimation7.h";
+#include "Data/BurstBalloonsTextData.h"
+#include "BurstBalloonsText0.h";
+#include "BurstBalloonsText1.h";
 
 TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
@@ -33,7 +18,6 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	#pragma region PressAnyKeyTextInit
 	float pressAnyKeyTextPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2 + 80;
-
 	Entity* pressAnyKeyText[4] =
 	{
 		new Entity(new Vector2(pressAnyKeyTextPositionX , pressAnyKeyTextPositionY), SpriteSize_64x64,64,64),
@@ -44,15 +28,14 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 
 	for (int i = 0; i < 4; i++)
 	{
-		this->pressAnyKeyText[i] = pressAnyKeyText[i];
-		subEngine->InitEntity(this->pressAnyKeyText[i]);
-		this->pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("PressAnyKeyText"));
+		subEngine->InitEntity(pressAnyKeyText[i]);
+		pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("PressAnyKeyText"));
 	}
 
-	this->pressAnyKeyText[0]->spriteAddress = subEngine->GetSprite("PressAnyKeyText0");
-	this->pressAnyKeyText[1]->spriteAddress = subEngine->GetSprite("PressAnyKeyText1");
-	this->pressAnyKeyText[2]->spriteAddress = subEngine->GetSprite("PressAnyKeyText2");
-	this->pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
+	pressAnyKeyText[0]->spriteAddress = subEngine->GetSprite("PressAnyKeyText0");
+	pressAnyKeyText[1]->spriteAddress = subEngine->GetSprite("PressAnyKeyText1");
+	pressAnyKeyText[2]->spriteAddress = subEngine->GetSprite("PressAnyKeyText2");
+	pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
 	#pragma endregion
 
 	#pragma region BurstBalloonsTextInit
@@ -64,23 +47,30 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 		new Entity(new Vector2(burstBalloonsTextPositionX + 64, burstBalloonsTextPositionY), SpriteSize_64x64,64,64)
 	};
 
-	mainEngine->AddPallete(BurstBalloonsTextT0Pal, "BurstBalloonsText");
-	mainEngine->AddSprite("BurstBalloonsTextT0", BurstBalloonsTextT0Tiles, SpriteSize_64x64);
-	mainEngine->AddSprite("BurstBalloonsTextT1", BurstBalloonsTextT1Tiles, SpriteSize_64x64);
+	mainEngine->AddPallete(BurstBalloonsText0Pal, "BurstBalloonsText");
+	mainEngine->AddSprite("BurstBalloonsText0", BurstBalloonsText0Tiles, SpriteSize_64x64);
+	mainEngine->AddSprite("BurstBalloonsText1", BurstBalloonsText1Tiles, SpriteSize_64x64);
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < BurstBalloonsText::tilesCount; i++)
 	{
-		this->burstBalloonsText[i] = burstBalloonsText[i];
-		mainEngine->InitEntity(this->burstBalloonsText[i]);
-		this->burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete("BurstBalloonsText"));
+		mainEngine->InitEntity(burstBalloonsText[i]);
+		burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete("BurstBalloonsText"));
+		std::string spriteName = "BurstBalloonsText";
+		name = (spriteName + std::to_string(i)).c_str();
+		if (i == 0)
+		{
+			char* nameChar = "BurstBalloonsText";
+			//nameChar += i;
+			strcat(nameChar, std::to_string(i).c_str());
+			sassert(nameChar == "BurstBalloonsText0", nameChar );
+		}
+		burstBalloonsText[i]->spriteAddress = mainEngine->GetSprite(name);
 	}
 
-	this->burstBalloonsText[0]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT0");
-	this->burstBalloonsText[1]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT1");
 	#pragma endregion
 
-	splashScreenCodedAnimation = new SplashScreenCodedAnimation(this->pressAnyKeyText);
-	titleScreenIdleCodedAnimation = new TitleScreenIdleCodedAnimation(this->pressAnyKeyText, this->burstBalloonsText);
+	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText);
+	titleScreenIdleCodedAnimation = new TitleScreenIdleCodedAnimation(pressAnyKeyText, burstBalloonsText);
 }
 
 void TitleScreenScene::Load()
@@ -100,10 +90,18 @@ void TitleScreenScene::InputLoop()
 }
 void TitleScreenScene::GameLoop()
 {
+
+	//strcat(spriteName, std::to_string(i).c_str());
+	printf(name);
+	std::string spriteName = "BurstBalloonsText";
+	printf((spriteName + std::to_string(1)).c_str());
 	if (!splashScreenCodedAnimation->HaveFinished())
 	{
 		splashScreenCodedAnimation->Update();
 		return;
 	}
+	else if (!titleScreenIdleCodedAnimation->IsPlaying())
+		titleScreenIdleCodedAnimation->Start();
+
 	titleScreenIdleCodedAnimation->Update();
 }

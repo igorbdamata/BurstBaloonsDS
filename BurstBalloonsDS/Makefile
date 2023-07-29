@@ -22,7 +22,7 @@ include $(DEVKITARM)/ds_rules
 TARGET   := $(shell basename $(CURDIR))
 BUILD    := build
 SOURCES  := source source/Engine source/Engine/Vector2 source/Engine/HardwareManager source/Scenes source/CodedAnimations
-INCLUDES := include include/Engine source/Scenes include/CodedAnimations
+INCLUDES := include include/Engine source/Scenes include/CodedAnimations include/Data
 DATA     :=
 GRAPHICS := gfx/sprites gfx/backgrounds gfx/backgrounds/TitleScreenBackgroundAnimation gfx/texts gfx/texts/TextPassRecord gfx/texts/PressAnyKeyText gfx/texts/GameOverText gfx/texts/BurstBalloonsText gfx/texts/BurstBalloonsTextT
 AUDIO    := audio

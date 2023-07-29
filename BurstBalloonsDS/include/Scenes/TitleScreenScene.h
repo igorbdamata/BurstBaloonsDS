@@ -17,9 +17,7 @@ public:
 	void GameLoop() override;
 private:
 	SceneManager* sceneManager;
-	Entity* pressAnyKeyText[4];
-	Entity* burstBalloonsText[2];
-
+	const char* name = "";
 	SplashScreenCodedAnimation* splashScreenCodedAnimation;
 	TitleScreenIdleCodedAnimation* titleScreenIdleCodedAnimation;
 };
