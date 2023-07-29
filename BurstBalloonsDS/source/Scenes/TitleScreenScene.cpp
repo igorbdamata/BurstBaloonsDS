@@ -33,8 +33,6 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	#pragma region PressAnyKeyTextInit
 	float pressAnyKeyTextPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2 + 80;
-	pressAnyKeyInitialPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY * 2);
-	pressAnyKeyFinalPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY);
 
 	Entity* pressAnyKeyText[4] =
 	{
@@ -60,10 +58,10 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	#pragma region BurstBalloonsTextInit
 	float burstBalloonsTextPositionX = SCREEN_WIDTH / 2 - 53;
 	float burstBalloonsTextPositionY = SCREEN_HEIGHT / 2 - 21;
-	Entity* burstBalloonsText[2] = 
-	{ 
+	Entity* burstBalloonsText[2] =
+	{
 		new Entity(new Vector2(burstBalloonsTextPositionX , burstBalloonsTextPositionY), SpriteSize_64x64,64,64),
-		new Entity(new Vector2(burstBalloonsTextPositionX + 64, burstBalloonsTextPositionY), SpriteSize_64x64,64,64) 
+		new Entity(new Vector2(burstBalloonsTextPositionX + 64, burstBalloonsTextPositionY), SpriteSize_64x64,64,64)
 	};
 
 	mainEngine->AddPallete(BurstBalloonsTextT0Pal, "BurstBalloonsText");
@@ -80,33 +78,21 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	this->burstBalloonsText[0]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT0");
 	this->burstBalloonsText[1]->spriteAddress = mainEngine->GetSprite("BurstBalloonsTextT1");
 	#pragma endregion
-	
-	#pragma region SplashScreenInit
-	splashScreenWasFinished = false;
 
-	std::vector<void*> splashScreenFrames;
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation3Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation4Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation5Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation6Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation7Bitmap);
-	splashScreenFadeOutAnimation = new Animation(0.3f, 5, [](void* newSprite) { dmaCopyHalfWords(3, newSprite, BG_BMP_RAM(1), Background1BitmapLen); }, false, splashScreenFrames);
-	splashScreenFadeOutAnimation->Start();
-	splashScreenSeconds = 3;
-	startedSplashScreenFadeOut = false;
-	#pragma endregion
+	splashScreenCodedAnimation = new SplashScreenCodedAnimation(this->pressAnyKeyText);
+	titleScreenIdleCodedAnimation = new TitleScreenIdleCodedAnimation(this->pressAnyKeyText, this->burstBalloonsText);
 }
 
 void TitleScreenScene::Load()
 {
 	Scene::Load();
 	SoundManager::PlaySong(MOD_THEME);
-	splashScreenStartTime = HardwareManager::GetCurrentSeconds();
+	splashScreenCodedAnimation->Start();
 }
 
 void TitleScreenScene::InputLoop()
 {
-	if (!splashScreenWasFinished) return;
+	if (!splashScreenCodedAnimation->HaveFinished()) return;
 
 	Scene::InputLoop();
 	if (keysDown())
@@ -114,69 +100,10 @@ void TitleScreenScene::InputLoop()
 }
 void TitleScreenScene::GameLoop()
 {
-	if (!splashScreenWasFinished)
+	if (!splashScreenCodedAnimation->HaveFinished())
 	{
-		UpdateSplashScreen();
+		splashScreenCodedAnimation->Update();
 		return;
 	}
-
-	UpdatePressAnyKey();
-	UpdateBurstBalloonsText();
-}
-void TitleScreenScene::UpdatePressAnyKey()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		this->pressAnyKeyText[i]->position->y += sin(HardwareManager::GetCurrentMilliseconds() / 930) / 2;
-		pressAnyKeyText[i]->Render();
-	}
-}
-void TitleScreenScene::UpdateBurstBalloonsText()
-{
-	for (int i = 0; i < 2; i++)
-	{
-		this->burstBalloonsText[i]->position->y += sin((HardwareManager::GetCurrentMilliseconds()) / 930) / 2;
-		burstBalloonsText[i]->Render();
-	}
-}
-
-void TitleScreenScene::UpdateSplashScreen()
-{
-	bool isTimeToStartFadeOut = HardwareManager::GetCurrentSeconds() - splashScreenStartTime >= splashScreenSeconds;
-	if (!isTimeToStartFadeOut) return;
-	UpdateFadeOut();
-	if (splashScreenFadeOutAnimation->FinishedExecution())FinishSplashScreenAnimation();
-}
-
-void TitleScreenScene::UpdateFadeOut()
-{
-	if (!startedSplashScreenFadeOut) StartFadeOut();
-	splashScreenFadeOutAnimation->Update();
-	LerpPressAnyKeyText();
-}
-
-void TitleScreenScene::StartFadeOut()
-{
-	splashScreenFadeOutStartSeconds = HardwareManager::GetCurrentSeconds();
-	splashScreenFadeOutAnimation->Start();
-	startedSplashScreenFadeOut = true;
-}
-
-void TitleScreenScene::LerpPressAnyKeyText()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		float timeSinceFadeOutStarted = HardwareManager::GetCurrentSeconds() - splashScreenFadeOutStartSeconds;
-		float fadeOutTotalTime = 0.3f * 5;
-		float fadeOutPercent = timeSinceFadeOutStarted / fadeOutTotalTime;
-		this->pressAnyKeyText[i]->position->Lerp(pressAnyKeyInitialPosition, pressAnyKeyFinalPosition, fadeOutPercent);
-		this->pressAnyKeyText[i]->position->x += 64 * i;
-		pressAnyKeyText[i]->Render();
-	}
-}
-
-void TitleScreenScene::FinishSplashScreenAnimation()
-{
-	splashScreenWasFinished = true;
-	dmaCopyHalfWords(3, Background1Bitmap, BG_BMP_RAM(1), Background1BitmapLen);
+	titleScreenIdleCodedAnimation->Update();
 }

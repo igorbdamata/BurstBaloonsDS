@@ -103,8 +103,11 @@
   <ItemGroup>
     <ClCompile Include="include\Scenes\GameOverScene.h" />
     <ClCompile Include="source\Balloon.cpp" />
+    <ClCompile Include="source\CodedAnimations\SplashScreenCodedAnimation.cpp" />
+    <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
     <ClCompile Include="source\Engine\Animation.cpp" />
+    <ClCompile Include="source\Engine\CodedAnimation.cpp" />
     <ClCompile Include="source\Engine\Entity.cpp" />
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerInitialization.cpp" />
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerUtilities.cpp" />
@@ -123,9 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Balloon.h" />
+    <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h" />
+    <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h" />
     <ClInclude Include="include\Data.h" />
     <ClInclude Include="include\Engine\AnimatedEntity.h" />
     <ClInclude Include="include\Engine\Animation.h" />
+    <ClInclude Include="include\Engine\CodedAnimation.h" />
     <ClInclude Include="include\Engine\Entity.h" />
     <ClInclude Include="include\Engine\HardwareManager.h" />
     <ClInclude Include="include\Engine\OamEngine.h" />

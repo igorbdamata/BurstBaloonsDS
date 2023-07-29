@@ -31,6 +31,12 @@
     <Filter Include="Arquivos de Cabeçalho\Scenes">
       <UniqueIdentifier>{3e53b542-0819-45b5-87d4-da9f02fd54d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Origem\CodedAnimations">
+      <UniqueIdentifier>{4cce1e52-75d5-45c0-b7f4-77c38eef50b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\CodedAnimations">
+      <UniqueIdentifier>{3c303d6d-9983-4169-9a74-0c65cb17b543}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Balloon.cpp">
@@ -90,6 +96,15 @@
     <ClCompile Include="source\Scenes\NewRecordScene.cpp">
       <Filter>Arquivos de Origem\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="source\Engine\CodedAnimation.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CodedAnimations\SplashScreenCodedAnimation.cpp">
+      <Filter>Arquivos de Origem\CodedAnimations</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp">
+      <Filter>Arquivos de Origem\CodedAnimations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -136,6 +151,15 @@
     </ClInclude>
     <ClInclude Include="include\Scenes\NewRecordScene.h">
       <Filter>Arquivos de Cabeçalho\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\CodedAnimation.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h">
+      <Filter>Arquivos de Cabeçalho\CodedAnimations</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h">
+      <Filter>Arquivos de Cabeçalho\CodedAnimations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
