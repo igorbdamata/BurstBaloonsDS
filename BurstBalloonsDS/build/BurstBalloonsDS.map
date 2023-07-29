@@ -9237,7 +9237,7 @@ ARM.exidx       0x0234bf8c      0x258
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0xac00f
+.debug_info     0x00000000    0xac02f
  *(.debug_info)
  .debug_info    0x00000000     0xa1ff Balloon.o
  .debug_info    0x0000a1ff     0x4f7f GameManager.o
@@ -9256,31 +9256,31 @@ ARM.exidx       0x0234bf8c      0x258
  .debug_info    0x00070a5a     0xbaf1 NewRecordScene.o
  .debug_info    0x0007c54b     0x7abf Scene.o
  .debug_info    0x0008400a     0xab42 SceneManager.o
- .debug_info    0x0008eb4c    0x11fad TitleScreenScene.o
- .debug_info    0x000a0af9      0xa9c C:/devkitPro/libnds/lib\libnds9.a(background.o)
- .debug_info    0x000a1595      0x793 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
- .debug_info    0x000a1d28      0x790 C:/devkitPro/libnds/lib\libnds9.a(video.o)
- .debug_info    0x000a24b8      0x329 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
- .debug_info    0x000a27e1     0x1cb1 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
- .debug_info    0x000a4492      0xa76 C:/devkitPro/libnds/lib\libnds9.a(system.o)
- .debug_info    0x000a4f08     0x26ac C:/devkitPro/libnds/lib\libnds9.a(console.o)
- .debug_info    0x000a75b4      0xd00 C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
- .debug_info    0x000a82b4      0x43b C:/devkitPro/libnds/lib\libnds9.a(keys.o)
- .debug_info    0x000a86ef     0x113e C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
- .debug_info    0x000a982d       0x5a C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
- .debug_info    0x000a9887      0x45c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
- .debug_info    0x000a9ce3      0x68d C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
- .debug_info    0x000aa370      0x367 C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
- .debug_info    0x000aa6d7     0x183f C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
- .debug_info    0x000abf16       0x23 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
- .debug_info    0x000abf39       0x23 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
- .debug_info    0x000abf5c       0x23 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
- .debug_info    0x000abf7f       0x24 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
- .debug_info    0x000abfa3       0x25 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
- .debug_info    0x000abfc8       0x23 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
- .debug_info    0x000abfeb       0x24 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
+ .debug_info    0x0008eb4c    0x11fcd TitleScreenScene.o
+ .debug_info    0x000a0b19      0xa9c C:/devkitPro/libnds/lib\libnds9.a(background.o)
+ .debug_info    0x000a15b5      0x793 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+ .debug_info    0x000a1d48      0x790 C:/devkitPro/libnds/lib\libnds9.a(video.o)
+ .debug_info    0x000a24d8      0x329 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+ .debug_info    0x000a2801     0x1cb1 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+ .debug_info    0x000a44b2      0xa76 C:/devkitPro/libnds/lib\libnds9.a(system.o)
+ .debug_info    0x000a4f28     0x26ac C:/devkitPro/libnds/lib\libnds9.a(console.o)
+ .debug_info    0x000a75d4      0xd00 C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+ .debug_info    0x000a82d4      0x43b C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+ .debug_info    0x000a870f     0x113e C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+ .debug_info    0x000a984d       0x5a C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
+ .debug_info    0x000a98a7      0x45c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+ .debug_info    0x000a9d03      0x68d C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+ .debug_info    0x000aa390      0x367 C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+ .debug_info    0x000aa6f7     0x183f C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+ .debug_info    0x000abf36       0x23 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
+ .debug_info    0x000abf59       0x23 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
+ .debug_info    0x000abf7c       0x23 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
+ .debug_info    0x000abf9f       0x24 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
+ .debug_info    0x000abfc3       0x25 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
+ .debug_info    0x000abfe8       0x23 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
+ .debug_info    0x000ac00b       0x24 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
 
-.debug_abbrev   0x00000000     0xce27
+.debug_abbrev   0x00000000     0xce31
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb22 Balloon.o
  .debug_abbrev  0x00000b22      0x8cd GameManager.o
@@ -9299,31 +9299,31 @@ ARM.exidx       0x0234bf8c      0x258
  .debug_abbrev  0x0000722e      0xb24 NewRecordScene.o
  .debug_abbrev  0x00007d52      0x99a Scene.o
  .debug_abbrev  0x000086ec      0xc4b SceneManager.o
- .debug_abbrev  0x00009337      0xf61 TitleScreenScene.o
- .debug_abbrev  0x0000a298      0x366 C:/devkitPro/libnds/lib\libnds9.a(background.o)
- .debug_abbrev  0x0000a5fe      0x26e C:/devkitPro/libnds/lib\libnds9.a(trig.o)
- .debug_abbrev  0x0000a86c      0x24c C:/devkitPro/libnds/lib\libnds9.a(video.o)
- .debug_abbrev  0x0000aab8      0x157 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
- .debug_abbrev  0x0000ac0f      0x3b5 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
- .debug_abbrev  0x0000afc4      0x31f C:/devkitPro/libnds/lib\libnds9.a(system.o)
- .debug_abbrev  0x0000b2e3      0x5b3 C:/devkitPro/libnds/lib\libnds9.a(console.o)
- .debug_abbrev  0x0000b896      0x3de C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
- .debug_abbrev  0x0000bc74      0x1a7 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
- .debug_abbrev  0x0000be1b      0x3e1 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
- .debug_abbrev  0x0000c1fc       0x47 C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
- .debug_abbrev  0x0000c243      0x21e C:/devkitPro/libnds/lib\libnds9.a(timers.o)
- .debug_abbrev  0x0000c461      0x2da C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
- .debug_abbrev  0x0000c73b      0x1ad C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
- .debug_abbrev  0x0000c8e8      0x4bb C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
- .debug_abbrev  0x0000cda3       0x12 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
- .debug_abbrev  0x0000cdb5       0x12 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
- .debug_abbrev  0x0000cdc7       0x12 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
- .debug_abbrev  0x0000cdd9       0x14 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
- .debug_abbrev  0x0000cded       0x14 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
- .debug_abbrev  0x0000ce01       0x12 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
- .debug_abbrev  0x0000ce13       0x14 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
+ .debug_abbrev  0x00009337      0xf6b TitleScreenScene.o
+ .debug_abbrev  0x0000a2a2      0x366 C:/devkitPro/libnds/lib\libnds9.a(background.o)
+ .debug_abbrev  0x0000a608      0x26e C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+ .debug_abbrev  0x0000a876      0x24c C:/devkitPro/libnds/lib\libnds9.a(video.o)
+ .debug_abbrev  0x0000aac2      0x157 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+ .debug_abbrev  0x0000ac19      0x3b5 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+ .debug_abbrev  0x0000afce      0x31f C:/devkitPro/libnds/lib\libnds9.a(system.o)
+ .debug_abbrev  0x0000b2ed      0x5b3 C:/devkitPro/libnds/lib\libnds9.a(console.o)
+ .debug_abbrev  0x0000b8a0      0x3de C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+ .debug_abbrev  0x0000bc7e      0x1a7 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+ .debug_abbrev  0x0000be25      0x3e1 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+ .debug_abbrev  0x0000c206       0x47 C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
+ .debug_abbrev  0x0000c24d      0x21e C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+ .debug_abbrev  0x0000c46b      0x2da C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+ .debug_abbrev  0x0000c745      0x1ad C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+ .debug_abbrev  0x0000c8f2      0x4bb C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+ .debug_abbrev  0x0000cdad       0x12 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
+ .debug_abbrev  0x0000cdbf       0x12 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
+ .debug_abbrev  0x0000cdd1       0x12 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
+ .debug_abbrev  0x0000cde3       0x14 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
+ .debug_abbrev  0x0000cdf7       0x14 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
+ .debug_abbrev  0x0000ce0b       0x12 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
+ .debug_abbrev  0x0000ce1d       0x14 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
 
-.debug_line     0x00000000    0x1839f
+.debug_line     0x00000000    0x183a0
  *(.debug_line)
  .debug_line    0x00000000      0xc6d Balloon.o
  .debug_line    0x00000c6d      0x82f GameManager.o
@@ -9342,29 +9342,29 @@ ARM.exidx       0x0234bf8c      0x258
  .debug_line    0x0000c580      0xbbf NewRecordScene.o
  .debug_line    0x0000d13f      0x713 Scene.o
  .debug_line    0x0000d852     0x152f SceneManager.o
- .debug_line    0x0000ed81     0x1849 TitleScreenScene.o
- .debug_line    0x000105ca      0x725 C:/devkitPro/libnds/lib\libnds9.a(background.o)
- .debug_line    0x00010cef      0x837 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
- .debug_line    0x00011526      0x4b5 C:/devkitPro/libnds/lib\libnds9.a(video.o)
- .debug_line    0x000119db      0x2d4 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
- .debug_line    0x00011caf     0x1736 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
- .debug_line    0x000133e5      0x4dc C:/devkitPro/libnds/lib\libnds9.a(system.o)
- .debug_line    0x000138c1     0x1414 C:/devkitPro/libnds/lib\libnds9.a(console.o)
- .debug_line    0x00014cd5      0x74e C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
- .debug_line    0x00015423      0x399 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
- .debug_line    0x000157bc      0x597 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
- .debug_line    0x00015d53       0x8f C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
- .debug_line    0x00015de2      0x46c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
- .debug_line    0x0001624e      0x54c C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
- .debug_line    0x0001679a      0x23b C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
- .debug_line    0x000169d5     0x14f5 C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
- .debug_line    0x00017eca       0x96 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
- .debug_line    0x00017f60       0xe8 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
- .debug_line    0x00018048       0x74 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
- .debug_line    0x000180bc       0x5c C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
- .debug_line    0x00018118       0x80 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
- .debug_line    0x00018198      0x1b0 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
- .debug_line    0x00018348       0x57 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
+ .debug_line    0x0000ed81     0x184a TitleScreenScene.o
+ .debug_line    0x000105cb      0x725 C:/devkitPro/libnds/lib\libnds9.a(background.o)
+ .debug_line    0x00010cf0      0x837 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+ .debug_line    0x00011527      0x4b5 C:/devkitPro/libnds/lib\libnds9.a(video.o)
+ .debug_line    0x000119dc      0x2d4 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+ .debug_line    0x00011cb0     0x1736 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+ .debug_line    0x000133e6      0x4dc C:/devkitPro/libnds/lib\libnds9.a(system.o)
+ .debug_line    0x000138c2     0x1414 C:/devkitPro/libnds/lib\libnds9.a(console.o)
+ .debug_line    0x00014cd6      0x74e C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+ .debug_line    0x00015424      0x399 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+ .debug_line    0x000157bd      0x597 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+ .debug_line    0x00015d54       0x8f C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
+ .debug_line    0x00015de3      0x46c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+ .debug_line    0x0001624f      0x54c C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+ .debug_line    0x0001679b      0x23b C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+ .debug_line    0x000169d6     0x14f5 C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+ .debug_line    0x00017ecb       0x96 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
+ .debug_line    0x00017f61       0xe8 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
+ .debug_line    0x00018049       0x74 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
+ .debug_line    0x000180bd       0x5c C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
+ .debug_line    0x00018119       0x80 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
+ .debug_line    0x00018199      0x1b0 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
+ .debug_line    0x00018349       0x57 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
 
 .debug_frame    0x00000000     0x1d10
  *(.debug_frame)
@@ -9438,7 +9438,7 @@ ARM.exidx       0x0234bf8c      0x258
  .debug_str     0x0002d762     0x2dbd SceneManager.o
                                0xacbf (size before relaxing)
  .debug_str     0x0003051f      0x845 TitleScreenScene.o
-                              0x16396 (size before relaxing)
+                              0x163a0 (size before relaxing)
  .debug_str     0x00030d64      0x447 C:/devkitPro/libnds/lib\libnds9.a(background.o)
                                 0x7a2 (size before relaxing)
  .debug_str     0x000311ab      0x100 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
@@ -9578,7 +9578,7 @@ OUTPUT(C:/Users/igorb/OneDrive/Documentos/GitHub/BurstBaloonsDS/BurstBalloonsDS/
 LOAD linker stubs
 
 .debug_loclists
-                0x00000000    0x150a4
+                0x00000000    0x150b0
  .debug_loclists
                 0x00000000      0x412 Balloon.o
  .debug_loclists
@@ -9614,35 +9614,35 @@ LOAD linker stubs
  .debug_loclists
                 0x0000d48b     0x1c2a SceneManager.o
  .debug_loclists
-                0x0000f0b5     0x1823 TitleScreenScene.o
+                0x0000f0b5     0x182f TitleScreenScene.o
  .debug_loclists
-                0x000108d8      0x2a3 C:/devkitPro/libnds/lib\libnds9.a(background.o)
+                0x000108e4      0x2a3 C:/devkitPro/libnds/lib\libnds9.a(background.o)
  .debug_loclists
-                0x00010b7b      0x779 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+                0x00010b87      0x779 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
  .debug_loclists
-                0x000112f4      0x1da C:/devkitPro/libnds/lib\libnds9.a(video.o)
+                0x00011300      0x1da C:/devkitPro/libnds/lib\libnds9.a(video.o)
  .debug_loclists
-                0x000114ce       0x8f C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+                0x000114da       0x8f C:/devkitPro/libnds/lib\libnds9.a(touch.o)
  .debug_loclists
-                0x0001155d     0x121a C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+                0x00011569     0x121a C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
  .debug_loclists
-                0x00012777      0x140 C:/devkitPro/libnds/lib\libnds9.a(system.o)
+                0x00012783      0x140 C:/devkitPro/libnds/lib\libnds9.a(system.o)
  .debug_loclists
-                0x000128b7      0xf6c C:/devkitPro/libnds/lib\libnds9.a(console.o)
+                0x000128c3      0xf6c C:/devkitPro/libnds/lib\libnds9.a(console.o)
  .debug_loclists
-                0x00013823      0x5a6 C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+                0x0001382f      0x5a6 C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
  .debug_loclists
-                0x00013dc9       0x17 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+                0x00013dd5       0x17 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
  .debug_loclists
-                0x00013de0       0xc5 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+                0x00013dec       0xc5 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
  .debug_loclists
-                0x00013ea5      0x1f8 C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+                0x00013eb1      0x1f8 C:/devkitPro/libnds/lib\libnds9.a(timers.o)
  .debug_loclists
-                0x0001409d      0x1a5 C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+                0x000140a9      0x1a5 C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
  .debug_loclists
-                0x00014242       0x48 C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+                0x0001424e       0x48 C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
  .debug_loclists
-                0x0001428a      0xe1a C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+                0x00014296      0xe1a C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
 
 .debug_rnglists
                 0x00000000     0x3bf4

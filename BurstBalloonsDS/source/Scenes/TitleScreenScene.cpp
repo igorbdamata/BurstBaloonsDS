@@ -79,7 +79,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation5Bitmap);
 	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation6Bitmap);
 	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation7Bitmap);
-	splashScreenAnimation = new Animation(0.3f, 5, [](void* newSprite) { dmaCopy(newSprite, BG_BMP_RAM(8), Background1BitmapLen); }, false, splashScreenFrames);
+	splashScreenAnimation = new Animation(0.3f, 5, [](void* newSprite) { dmaCopyHalfWords(3,newSprite, BG_BMP_RAM(1), Background1BitmapLen); }, false, splashScreenFrames);
 	splashScreenAnimation->Start();
 	splashScreenTime = 3;
 	startedAnimation = false;
@@ -142,7 +142,7 @@ void TitleScreenScene::UpdateSplashScreen()
 		if (splashScreenAnimation->GetFinishedExecution())
 		{
 			splashScreenWasFinished = true;
-			dmaCopy(Background1Bitmap, BG_BMP_RAM(8), Background1BitmapLen);
+			dmaCopyHalfWords(3,Background1Bitmap, BG_BMP_RAM(1), Background1BitmapLen);
 		}
 	}
 }
