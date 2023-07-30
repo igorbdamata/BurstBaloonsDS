@@ -117,6 +117,9 @@
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
+    <ClCompile Include="source\Data\PressAnyKeyTextData.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -178,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="include\Engine\MetaTileAssembler.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data\PressAnyKeyTextData.h">
+      <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

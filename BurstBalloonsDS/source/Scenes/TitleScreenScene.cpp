@@ -8,34 +8,29 @@
 #include "Engine/SoundManager.h"
 
 #include "Data/BurstBalloonsTextData.h"
-#include "BurstBalloonsText0.h";
-#include "BurstBalloonsText1.h";
+#include "BurstBalloonsText0.h"
+
+#include "Data/PressAnyKeyTextData.h"
 
 TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	this->sceneManager = sceneManager;
 
 	#pragma region PressAnyKeyTextInit
-	float pressAnyKeyTextPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
-	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2 + 80;
 	Entity* pressAnyKeyText[4] =
 	{
-		new Entity(new Vector2(pressAnyKeyTextPositionX , pressAnyKeyTextPositionY), SpriteSize_64x64,64,64),
-		new Entity(new Vector2(pressAnyKeyTextPositionX + 64, pressAnyKeyTextPositionY), SpriteSize_64x64,64,64),
-		new Entity(new Vector2(pressAnyKeyTextPositionX + 64 * 2,pressAnyKeyTextPositionY), SpriteSize_64x64,64,64),
-		new Entity(new Vector2(pressAnyKeyTextPositionX + 64 * 3, pressAnyKeyTextPositionY), SpriteSize_64x64,64,64)
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(0), SpriteSize_64x64,64,64),
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(1), SpriteSize_64x64,64,64),
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(2), SpriteSize_64x64,64,64),
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(3), SpriteSize_64x64,64,64)
 	};
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
 	{
 		subEngine->InitEntity(pressAnyKeyText[i]);
-		pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("PressAnyKeyText"));
+		pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete(PressAnyKeyTextData::GetName().c_str()));
+		pressAnyKeyText[i]->spriteAddress = subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i));
 	}
-
-	pressAnyKeyText[0]->spriteAddress = subEngine->GetSprite("PressAnyKeyText0");
-	pressAnyKeyText[1]->spriteAddress = subEngine->GetSprite("PressAnyKeyText1");
-	pressAnyKeyText[2]->spriteAddress = subEngine->GetSprite("PressAnyKeyText2");
-	pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
 	#pragma endregion
 
 	#pragma region BurstBalloonsTextInit
@@ -48,7 +43,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 
 	mainEngine->AddPallete(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName().c_str());
 
-	for (int i = 0; i < BurstBalloonsTextData::tilesCount; i++)
+	for (int i = 0; i < BurstBalloonsTextData::TILES_LENGTH; i++)
 	{
 		std::string spriteName = BurstBalloonsTextData::GetName() + std::to_string(i);
 

@@ -8,19 +8,19 @@
 class BurstBalloonsTextData
 {
 public:
-	static const int tilesCount = 2;
+	static const int TILES_LENGTH = 2;
 
-	static const int tileWidth = 64;
-	static const int tileHeight = 64;
+	static const int TILE_WIDTH = 64;
+	static const int TILE_HEIGHT = 64;
 
-	static const int centeredPositionX = SCREEN_WIDTH / 2 - 53;
-	static const int centeredPositionY = SCREEN_HEIGHT / 2 - 21;
+	static const int CENTERED_POSITION_X = SCREEN_WIDTH / 2 - 53;
+	static const int CENTERED_POSITION_Y = SCREEN_HEIGHT / 2 - 21;
 
 	static const void* GetTile(int tileID);
 
 	static const std::string GetName();
 	static Vector2* GetCenteredPositionForTile(int id);
 private:
-	static const void* tiles[2];
+	static const void* TILES[2];
 };
 #endif
