@@ -40,6 +40,9 @@
     <Filter Include="Arquivos de Cabeçalho\Data">
       <UniqueIdentifier>{66f19f75-b67d-43fa-8c98-16f9e3cbb325}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Origem\Data">
+      <UniqueIdentifier>{77005431-1cf5-4570-b1af-1baee2d16205}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Balloon.cpp">
@@ -108,6 +111,12 @@
     <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp">
       <Filter>Arquivos de Origem\CodedAnimations</Filter>
     </ClCompile>
+    <ClCompile Include="source\Engine\MetaTileAssembler.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Data\BurstBalloonsTextData.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -166,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="include\Data\BurstBalloonsTextData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\MetaTileAssembler.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

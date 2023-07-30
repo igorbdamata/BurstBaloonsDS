@@ -39,26 +39,25 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	#pragma endregion
 
 	#pragma region BurstBalloonsTextInit
-	float burstBalloonsTextPositionX = SCREEN_WIDTH / 2 - 53;
-	float burstBalloonsTextPositionY = SCREEN_HEIGHT / 2 - 21;
 	Entity* burstBalloonsText[2] =
 	{
-		new Entity(new Vector2(burstBalloonsTextPositionX , burstBalloonsTextPositionY), SpriteSize_64x64,64,64),
-		new Entity(new Vector2(burstBalloonsTextPositionX + 64, burstBalloonsTextPositionY), SpriteSize_64x64,64,64)
+		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(0), SpriteSize_64x64,64,64),
+		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(1), SpriteSize_64x64,64,64)
 	};
 
-	mainEngine->AddPallete(BurstBalloonsText0Pal, "BurstBalloonsText");
-	mainEngine->AddSprite("BurstBalloonsText0", BurstBalloonsText0Tiles, SpriteSize_64x64);
-	mainEngine->AddSprite("BurstBalloonsText1", BurstBalloonsText1Tiles, SpriteSize_64x64);
 
-	for (int i = 0; i < BurstBalloonsText::tilesCount; i++)
+	mainEngine->AddPallete(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName().c_str());
+
+	for (int i = 0; i < BurstBalloonsTextData::tilesCount; i++)
 	{
+		std::string spriteName = BurstBalloonsTextData::GetName() + std::to_string(i);
+
+		mainEngine->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
 		mainEngine->InitEntity(burstBalloonsText[i]);
-		burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete("BurstBalloonsText"));
-		std::string spriteName = "BurstBalloonsText" + std::to_string(i);
+
+		burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete(BurstBalloonsTextData::GetName().c_str()));
 		burstBalloonsText[i]->spriteAddress = mainEngine->GetSprite(spriteName);
 	}
-
 	#pragma endregion
 
 	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText);
