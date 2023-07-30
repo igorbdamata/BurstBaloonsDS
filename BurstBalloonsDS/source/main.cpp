@@ -44,7 +44,7 @@ int main()
 
 	SceneManager sceneManager = SceneManager();
 
-	GameManager gameManager = GameManager(3, &sceneManager, 120.0f);
+	GameManager gameManager = GameManager(3, 120.0f, &sceneManager);
 
 	GameOverScene gameOverScene = GameOverScene(&main, &sub, &sceneManager);
 	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
@@ -71,7 +71,7 @@ int main()
 	while (true)
 	{
 		HardwareManager::ClearScreens();
-		
+
 		sceneManager.GetCurrentScene()->InputLoop();
 		sceneManager.GetCurrentScene()->GameLoop();
 

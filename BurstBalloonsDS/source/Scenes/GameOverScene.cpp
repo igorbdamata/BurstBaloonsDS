@@ -15,7 +15,8 @@
 #include"PressAnyKeyText1.h"
 #include"PressAnyKeyText2.h"
 #include"PressAnyKeyText3.h"
-
+#include "Engine/SoundManager.h"
+#include<soundbank.h>
 #include "BackgroundGameOver.h"
 #include<math.h>
 
@@ -73,6 +74,7 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 void GameOverScene::Load()
 {
 	Scene::Load();
+	SoundManager::PlaySFX(SFX_GAMEOVER);
 }
 
 void GameOverScene::InputLoop()

@@ -18,6 +18,8 @@
 #include"TextPassRecord3.h"
 
 #include "BackgroundGameOver.h"
+#include "Engine/SoundManager.h"
+#include<soundbank.h>
 #include<math.h>
 
 NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
@@ -73,6 +75,7 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 void NewRecordScene::Load()
 {
 	Scene::Load();
+	SoundManager::PlaySFX(SFX_PASSRECORD);
 }
 
 void NewRecordScene::InputLoop()
