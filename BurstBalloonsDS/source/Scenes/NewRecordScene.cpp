@@ -17,7 +17,7 @@
 #include"TextPassRecord2.h"
 #include"TextPassRecord3.h"
 
-#include "BackgroundGameOver.h"
+#include "BackgroundPassRecord.h"
 #include "Engine/SoundManager.h"
 #include<soundbank.h>
 #include<math.h>
@@ -70,6 +70,9 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	this->passRecordText[3]->spriteAddress = mainEngine->GetSprite("TextPassRecord3");
 
 	this->sceneManager = sceneManager;
+
+	SetMainBackgroundTo(BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
+	SetSubBackgroundTo(BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
 }
 
 void NewRecordScene::Load()

@@ -1,82 +1,69 @@
-#include <nds.h>
 #include<nds/arm9/sprite.h>
-#include<nds/touch.h>
-#include<nds/arm9/input.h>
-#include <soundbank.h>
 
 #include "Engine/OamEngine.h"
-#include "Engine/Entity.h"
 #include "Engine/HardwareManager.h"
-#include "Engine/SoundManager.h"
-#include "Engine/Vector2.h"
 
-#include <soundbank_bin.h>
-#include "BalloonSprite.h"
-#include "BalloonUI.h"
-#include "Background.h"
-#include "Background1.h"
-#include "BackgroundGameOver.h"
-#include "BackgroundPassRecord.h"
-#include "Font.h"
-
-#include "Balloon.h"
 #include "GameManager.h"
+
+#include "Scenes/SceneManager.h"
+#include "Scenes/TitleScreenScene.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/NewRecordScene.h"
 #include "Scenes/GameOverScene.h"
-#include "Scenes/TitleScreenScene.h"
-#include "BackgroundAnimation2.h";
 
-#include <time.h>
-#include<string>
+#include"Data.h"
+
+#include"PressAnyKeyText0.h"
+#include"PressAnyKeyText1.h"
+#include"PressAnyKeyText2.h"
+#include"PressAnyKeyText3.h"
+
+void InitPressAnyKeyText(OamEngine* engine)
+{
+	engine->AddSprite("PressAnyKeyText0", PressAnyKeyText0Tiles, SpriteSize_64x64);
+	engine->AddSprite("PressAnyKeyText1", PressAnyKeyText1Tiles, SpriteSize_64x64);
+	engine->AddSprite("PressAnyKeyText2", PressAnyKeyText2Tiles, SpriteSize_64x64);
+	engine->AddSprite("PressAnyKeyText3", PressAnyKeyText3Tiles, SpriteSize_64x64);
+	engine->AddPallete(PressAnyKeyText0Pal, "PressAnyKeyText");
+}
 
 int main()
 {
-	const int BALLOONS_COUNT = 5;
-
 	HardwareManager::InitAndSetEverything();
-	srand(time(NULL));
 
-	OamEngine main = OamEngine(UPPER);
-	OamEngine sub = OamEngine(BOTTOM);
+	OamEngine* main = new OamEngine(Screen::UPPER);
+	OamEngine* sub = new OamEngine(Screen::BOTTOM);
 
-	main.SetPrintConsole();
+	main->SetPrintConsole();
 
-	SceneManager sceneManager = SceneManager();
+	InitPressAnyKeyText(sub);
 
-	GameManager gameManager = GameManager(3, 120.0f, &sceneManager);
+	SceneManager* sceneManager = new SceneManager();
 
-	GameOverScene gameOverScene = GameOverScene(&main, &sub, &sceneManager);
-	gameOverScene.SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
-	gameOverScene.SetSubBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
+	GameManager* gameManager = new GameManager(TOTAL_LIFE, SECONDS_TO_REACH_MAX_SPEED, sceneManager);
 
-	NewRecordScene newRecordScene = NewRecordScene(&main, &sub, &sceneManager);
-	newRecordScene.SetMainBackgroundTo(BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
-	newRecordScene.SetSubBackgroundTo(BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
+	TitleScreenScene* titleScreenScene = new TitleScreenScene(main, sub, sceneManager);
+	GameplayScene* gameplayScene = new GameplayScene(main, sub, gameManager);
+	NewRecordScene* newRecordScene = new NewRecordScene(main, sub, sceneManager);
+	GameOverScene* gameOverScene = new GameOverScene(main, sub, sceneManager);
 
-	GameplayScene gameplayScene = GameplayScene(&main, &sub, &gameManager);
-	gameplayScene.SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
-	gameplayScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
+	sceneManager->AddScene("TitleScreen", titleScreenScene);
+	sceneManager->AddScene("Gameplay", gameplayScene);
+	sceneManager->AddScene("NewRecord", newRecordScene);
+	sceneManager->AddScene("GameOver", gameOverScene);
 
-	TitleScreenScene titleScreenScene = TitleScreenScene(&main, &sub, &sceneManager);
-	titleScreenScene.SetMainBackgroundTo(BackgroundAnimation2Bitmap, BackgroundAnimation2BitmapLen);
-	titleScreenScene.SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
-
-	sceneManager.AddScene("Gameplay", &gameplayScene);
-	sceneManager.AddScene("GameOver", &gameOverScene);
-	sceneManager.AddScene("NewRecord", &newRecordScene);
-	sceneManager.AddScene("TitleScreen", &titleScreenScene);
-	sceneManager.ChangeSceneTo("TitleScreen");
+	sceneManager->ChangeSceneTo("TitleScreen");
 
 	while (true)
 	{
 		HardwareManager::ClearScreens();
 
-		sceneManager.GetCurrentScene()->InputLoop();
-		sceneManager.GetCurrentScene()->GameLoop();
+		sceneManager->GetCurrentScene()->InputLoop();
+		sceneManager->GetCurrentScene()->GameLoop();
 
-		main.UpdateOam();
-		sub.UpdateOam();
+		main->UpdateOam();
+		sub->UpdateOam();
+
 		HardwareManager::WaitForNextFrame();
 	}
 	return 0;

@@ -1,7 +1,8 @@
-#include<soundbank.h>
-#include<nds/arm9/sprite.h>
-#include<nds.h>
 #include<string>
+#include<nds.h>
+#include<nds/arm9/sprite.h>
+#include<soundbank.h>
+
 
 #include "Scenes/TitleScreenScene.h"
 #include "Engine/HardwareManager.h"
@@ -12,9 +13,15 @@
 
 #include "Data/PressAnyKeyTextData.h"
 
+#include "BackgroundAnimation2.h"
+#include "Background.h"
+
 TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	this->sceneManager = sceneManager;
+
+	SetMainBackgroundTo(BackgroundAnimation2Bitmap, BackgroundAnimation2BitmapLen);
+	SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
 	#pragma region PressAnyKeyTextInit
 	Entity* pressAnyKeyText[4] =

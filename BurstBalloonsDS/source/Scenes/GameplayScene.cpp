@@ -6,6 +6,8 @@
 #include "Engine/SoundManager.h"
 #include "Engine/HardwareManager.h"
 #include "BalloonUI.h"
+#include "Background.h"
+#include "Background1.h"
 #include<soundbank.h>
 
 GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameManager* gameManager) : Scene(mainEngine, subEngine)
@@ -83,6 +85,9 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 		balloonsUI[i]->spriteAddress = mainEngine->GetSprite("balloonUI");
 		balloonsUI[i]->ChangePalleteTo(mainEngine->GetPallete("balloonUI"));
 	}
+
+	SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
+	SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 }
 
 void GameplayScene::Load()

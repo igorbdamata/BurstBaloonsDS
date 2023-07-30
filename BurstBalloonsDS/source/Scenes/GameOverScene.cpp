@@ -11,10 +11,7 @@
 #include"GameOverText1.h"
 #include"GameOverText2.h"
 #include"GameOverText3.h"
-#include"PressAnyKeyText0.h"
-#include"PressAnyKeyText1.h"
-#include"PressAnyKeyText2.h"
-#include"PressAnyKeyText3.h"
+
 #include "Engine/SoundManager.h"
 #include<soundbank.h>
 #include "BackgroundGameOver.h"
@@ -27,12 +24,6 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	mainEngine->AddSprite("GameOverText2", GameOverText2Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("GameOverText3", GameOverText3Tiles, SpriteSize_64x64);
 	mainEngine->AddPallete(GameOverText0Pal, "GameOverText");
-
-	subEngine->AddSprite("PressAnyKeyText0", PressAnyKeyText0Tiles, SpriteSize_64x64);
-	subEngine->AddSprite("PressAnyKeyText1", PressAnyKeyText1Tiles, SpriteSize_64x64);
-	subEngine->AddSprite("PressAnyKeyText2", PressAnyKeyText2Tiles, SpriteSize_64x64);
-	subEngine->AddSprite("PressAnyKeyText3", PressAnyKeyText3Tiles, SpriteSize_64x64);
-	subEngine->AddPallete(PressAnyKeyText0Pal, "PressAnyKeyText");
 
 	float textPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float textPositionY = SCREEN_HEIGHT / 2;
@@ -69,6 +60,9 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	this->gameOverText[3]->spriteAddress = mainEngine->GetSprite("GameOverText3");
 
 	this->sceneManager = sceneManager;
+
+	SetMainBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
+	SetSubBackgroundTo(BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
 }
 
 void GameOverScene::Load()
