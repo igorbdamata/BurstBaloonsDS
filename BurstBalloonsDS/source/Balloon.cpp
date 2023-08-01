@@ -74,9 +74,11 @@ void Balloon::Respawn()
 
 void Balloon::SetPositionToRandomPoint()
 {
-	position->x = RandomInRange(colliderRect->GetUnpositionedLeftEdge(), SCREEN_WIDTH - colliderRect->GetUnpositionedRightEdge());
-	position->y = RandomInRange(colliderRect->GetUnpositionedTopEdge(), colliderRect->GetUnpositionedBottomEdge());
-	position->y += SCREEN_HEIGHT;
+	position->x = RandomInRange(colliderRect->GetUnpositionedLeftEdge(), 
+								SCREEN_WIDTH - colliderRect->GetUnpositionedRightEdge());
+
+	position->y = SCREEN_HEIGHT + colliderRect->GetUnpositionedTopEdge();
+	position->y += RandomInRange(0, BalloonData::POSITION_Y_VARIATION_ON_SPAWN);
 }
 int Balloon::RandomInRange(int lowestInclusiveValue, int highestExclusiveValue)
 {

@@ -20,5 +20,7 @@ public:
 	
 	static const float SPEED_ON_MAX_DIFFICULT;
 	static const char* INITIAL_ANIMATION ;
+
+	static const int POSITION_Y_VARIATION_ON_SPAWN= 100;
 };
 #endif

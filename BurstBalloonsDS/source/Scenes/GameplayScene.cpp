@@ -122,11 +122,6 @@ void GameplayScene::GameLoop()
 	printf("\n High Score: ");
 	printf(std::to_string(gameManager->GetHighScore()).c_str());
 
-	printf("\n");
-	printf(std::to_string(HardwareManager::screenRect->GetBottomEdge()).c_str());
-	printf(std::to_string(HardwareManager::screenRect->GetTopEdge()).c_str());
-	printf("x");
-
 	for (int i = 0; i < BALLOONS_COUNT; i++)
 	{
 		balloons[i]->Update();
