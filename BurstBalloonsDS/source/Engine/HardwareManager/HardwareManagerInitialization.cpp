@@ -1,4 +1,5 @@
 #include "Engine/HardwareManager.h"
+#include "Engine/SoundManager.h"
 #include <nds.h>
 #include <nds/arm9/sprite.h>
 #include <maxmod9.h>
@@ -28,6 +29,8 @@ void HardwareManager::PowerOnConsole()
 void HardwareManager::InitAudio()
 {
 	mmInitDefaultMem((mm_addr) soundbank_bin);
+	mmSelectMode(MM_MODE_A);
+	SoundManager::LoadAllSoundsFromSoundbank();
 }
 
 void HardwareManager::InitVideo()

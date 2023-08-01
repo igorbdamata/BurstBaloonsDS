@@ -28,7 +28,7 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	mainEngine->AddSprite("TextPassRecord1", TextPassRecord1Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("TextPassRecord2", TextPassRecord2Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("TextPassRecord3", TextPassRecord3Tiles, SpriteSize_64x64);
-	mainEngine->AddPallete(TextPassRecord0Pal, "TextPassRecord");
+	mainEngine->AddPallete(PressAnyKeyText0Pal, "PressAnyKeyText");
 
 	subEngine->AddSprite("PressAnyKeyText0", PressAnyKeyText0Tiles, SpriteSize_64x64);
 	subEngine->AddSprite("PressAnyKeyText1", PressAnyKeyText1Tiles, SpriteSize_64x64);
@@ -46,7 +46,7 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
 		subEngine->InitEntity(this->pressAnyKeyText[i]);
-		this->pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("TextPassRecord"));
+		this->pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("PressAnyKeyText"));
 	}
 	this->pressAnyKeyText[0]->spriteAddress = subEngine->GetSprite("PressAnyKeyText0");
 	this->pressAnyKeyText[1]->spriteAddress = subEngine->GetSprite("PressAnyKeyText1");
@@ -62,7 +62,7 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	{
 		this->passRecordText[i] = passRecordText[i];
 		mainEngine->InitEntity(this->passRecordText[i]);
-		this->passRecordText[i]->ChangePalleteTo(mainEngine->GetPallete("TextPassRecord"));
+		this->passRecordText[i]->ChangePalleteTo(mainEngine->GetPallete("PressAnyKeyText"));
 	}
 	this->passRecordText[0]->spriteAddress = mainEngine->GetSprite("TextPassRecord0");
 	this->passRecordText[1]->spriteAddress = mainEngine->GetSprite("TextPassRecord1");
@@ -79,6 +79,7 @@ void NewRecordScene::Load()
 {
 	Scene::Load();
 	SoundManager::PlaySFX(SFX_PASSRECORD);
+	SoundManager::StopCurrentSong();
 }
 
 void NewRecordScene::InputLoop()

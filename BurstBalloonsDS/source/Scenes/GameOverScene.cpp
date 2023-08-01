@@ -69,6 +69,7 @@ void GameOverScene::Load()
 {
 	Scene::Load();
 	SoundManager::PlaySFX(SFX_GAMEOVER);
+	SoundManager::StopCurrentSong();
 }
 
 void GameOverScene::InputLoop()
