@@ -1,28 +1,30 @@
+#pragma once
 #if !defined(HARDWARE_MANAGER_H) 
 #define HARDWARE_MANAGER_H 1
-#pragma once
+#include "Rect.h"
 
 class HardwareManager
 {
 public:
-    static void InitAndSetEverything();
-    static void PowerOnConsole();
-    static void InitVideo();
-    static void InitAudio();
-    static void SetVRAM();
-    static void SetBackgrounds();
-    static void StartMillisecondsTimer();
+	static void InitAndSetEverything();
+	static void PowerOnConsole();
+	static void InitVideo();
+	static void InitAudio();
+	static void SetVRAM();
+	static void SetBackgrounds();
+	static void StartMillisecondsTimer();
 
-    static float GetCurrentMilliseconds();
-    static float GetCurrentSeconds();
+	static float GetCurrentMilliseconds();
+	static float GetCurrentSeconds();
 
-    static void WaitForNextFrame();
-    static void ClearScreens();
+	static void WaitForNextFrame();
+	static void ClearScreens();
 
-    static int background2SubID;
-    static int background3SubID;
-    static int background2MainID;
-    static int background3MainID;
+	static int background2SubID;
+	static int background3SubID;
+	static int background2MainID;
+	static int background3MainID;
+	static Rect* screenRect;
 };
 
 #endif  

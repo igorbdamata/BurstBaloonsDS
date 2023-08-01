@@ -1,14 +1,20 @@
 #include "Engine/Entity.h"
+#include "Engine/HardwareManager.h"
 #include "Engine/Vector2.h"
 #include <nds.h>
+#include <string>
 
 Entity::Entity() {};
-Entity::Entity(Vector2* position, SpriteSize spriteSize, int width, int height)
+Entity::Entity(Vector2* position, SpriteSize spriteSize, int width, int height, Vector2* spriteOffset)
 {
 	this->position = position;
 	this->spriteSize = spriteSize;
-	this->width = width;
-	this->height = height;
+	spriteRect = new Rect(this->position, spriteOffset, width, height);
+}
+Entity::Entity(SpriteSize spriteSize)
+{
+	this->spriteSize = spriteSize;
+	spriteRect = new Rect(nullptr, nullptr, 0, 0);
 }
 
 void Entity::Init(int oamID, OamState* engine)
@@ -20,16 +26,14 @@ void Entity::Init(int oamID, OamState* engine)
 void Entity::Render(bool horizontalFlip, bool verticalFlip)
 {
 	bool hide = IsOutOfScreen();
-	oamSet(engine, oamID, position->x, position->y, OBJPRIORITY_0, palleteID, spriteSize, SpriteColorFormat_16Color,
+	oamSet(engine, oamID, 
+		   this->position->x, this->position->y, 
+		   OBJPRIORITY_0, palleteID, spriteSize, SpriteColorFormat_16Color,
 		   spriteAddress, -1, false, hide, horizontalFlip, verticalFlip, false);
 }
 bool Entity::IsOutOfScreen()
 {
-	if (position->x + width < 0) return true;
-	if (position->x > SCREEN_WIDTH)return true;
-	if (position->y + height < 0) return true;
-	if (position->y > SCREEN_HEIGHT) return true;
-	return false;
+	return !spriteRect->IsCollidingWith(HardwareManager::screenRect);
 }
 
 void* Entity::GetSpriteAddress()

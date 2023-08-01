@@ -1,32 +1,31 @@
 #pragma once
-#include "AnimatedEntity.h"
+#include "Engine/Rect.h"
+#include "Engine/AnimatedEntity.h"
 #include "GameManager.h"
 
 class Balloon : public AnimatedEntity
 {
 public:
-    Balloon();
-    Balloon(SpriteSize spriteSize, const char *defaultAnimation,float maxSpeed, int width, int height, int offsetX, int offsetY, GameManager *gameManager);
-    void Update();
-    void CheckCollision(Vector2* touchPosition);
-    void Respawn();
+	Balloon(GameManager* gameManager);
+	void Update();
+	bool IsCollidingWith(Vector2* touchPosition);
+	void Respawn();
+	void Burst();
 private:
-    float verticalDirection;
-    float speed;
-    float maxSpeed;
-    int offsetX;
-    int offsetY;
-    Vector2* moveAmount;
-    Vector2* velocity;
+	Rect* colliderRect;
+	float speed;
+	float speedOnMaxDifficult;
+	Vector2* velocity;
 
-    GameManager *gameManager;
+	GameManager* gameManager;
 
-    bool wasBursted;
+	bool wasBursted;
 
-    void Init();
-    void Move();
-    void ApplyGravity();
-    void OnBurst();
-    void RemoveLife();
-    void SetPositionToRandomPoint();
+	void Init();
+	void ApplyVelocity();
+	void MoveUpwards();
+	void RemoveLife();
+	void SetPositionToRandomPoint();
+
+	int  RandomInRange(int lowestInclusiveValue, int highestExclusiveValue);
 };

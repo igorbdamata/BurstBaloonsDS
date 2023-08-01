@@ -9,16 +9,17 @@
 class AnimatedEntity : public Entity
 {
 public:
-    AnimatedEntity();  
-    AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char *defaultAnimation, int width, int height);
-    void AddAnimation(const char *animationName, Animation *animation);
-    void UpdateAnimation();
-    void ChangeAnimationTo(const char *newAnimation);
-    const char *GetCurrentAnimation();
+	AnimatedEntity();
+	AnimatedEntity(SpriteSize spriteSize, const char* defaultAnimation);
+	AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char* defaultAnimation, int width, int height, Vector2* spriteOffset);
+	void AddAnimation(const char* animationName, Animation* animation);
+	void UpdateAnimation();
+	void ChangeAnimationTo(const char* newAnimation);
+	const char* GetCurrentAnimation();
 
 private:
-    std::map<const char *, Animation *> animations;
-    const char *currentAnimation;
+	std::map<const char*, Animation*> animations;
+	const char* currentAnimation;
 };
 
 #endif

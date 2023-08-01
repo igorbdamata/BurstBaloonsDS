@@ -42,12 +42,11 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 
 	touch;
 	touchVector2 = Vector2(0, 0);
-
-	Balloon* balloons[BALLOONS_COUNT] = { new Balloon(SpriteSize_64x64, "fly",BALLOON_SPEED, 22, 27, 20, 5, gameManager),
-										new Balloon(SpriteSize_64x64, "fly", BALLOON_SPEED, 22, 27, 20, 5,  gameManager),
-										new Balloon(SpriteSize_64x64, "fly", BALLOON_SPEED, 22, 27, 20, 5,  gameManager),
-										new Balloon(SpriteSize_64x64, "fly",BALLOON_SPEED, 22, 27, 20, 5,  gameManager),
-										new Balloon(SpriteSize_64x64, "fly", BALLOON_SPEED, 22, 27, 20, 5,  gameManager) };
+	Balloon* balloons[BALLOONS_COUNT] = { new Balloon(gameManager),
+										  new Balloon(gameManager),
+										  new Balloon(gameManager),
+										  new Balloon(gameManager),
+										  new Balloon(gameManager) };
 	Animation* flyAnimations[BALLOONS_COUNT] = {
 		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteAddressTo(newSprite); }, true, balloonFlyFrames),
 		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteAddressTo(newSprite); } , true, balloonFlyFrames),
@@ -73,9 +72,9 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 		balloons[i]->AddAnimation("burst", burstAnimations[i]);
 	}
 
-	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32),
-							new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32),
-							new	Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32) };
+	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32, new Vector2(0,0)),
+							 new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32, new Vector2(0,0)),
+							 new	Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32, new Vector2(0,0)) };
 	mainEngine->AddPallete(BalloonUIPal, "balloonUI");
 	for (int i = 0; i < 3; i++)
 	{
@@ -110,7 +109,8 @@ void GameplayScene::InputLoop()
 	{
 		for (int i = 0; i < BALLOONS_COUNT; i++)
 		{
-			balloons[i]->CheckCollision(&touchVector2);
+			if (balloons[i]->IsCollidingWith(&touchVector2))
+				balloons[i]->Burst();
 		}
 	}
 }
@@ -121,6 +121,11 @@ void GameplayScene::GameLoop()
 	printf(std::to_string(gameManager->GetScore()).c_str());
 	printf("\n High Score: ");
 	printf(std::to_string(gameManager->GetHighScore()).c_str());
+
+	printf("\n");
+	printf(std::to_string(HardwareManager::screenRect->GetBottomEdge()).c_str());
+	printf(std::to_string(HardwareManager::screenRect->GetTopEdge()).c_str());
+	printf("x");
 
 	for (int i = 0; i < BALLOONS_COUNT; i++)
 	{

@@ -1,10 +1,15 @@
 #include "Engine/AnimatedEntity.h"
 
 AnimatedEntity::AnimatedEntity() : Entity() {}
-AnimatedEntity::AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char* defaultAnimation, int width, int height)
-	: Entity(position, spriteSize, width, height)
+AnimatedEntity::AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char* initialAnimation, int width, int height,Vector2* spriteOffset)
+	: Entity(position, spriteSize, width, height,spriteOffset)
 {
-	currentAnimation = defaultAnimation;
+	currentAnimation = initialAnimation;
+}
+AnimatedEntity::AnimatedEntity(SpriteSize spriteSize, const char* initialAnimation)
+	: Entity(spriteSize)
+{
+	currentAnimation = initialAnimation;
 }
 
 void AnimatedEntity::AddAnimation(const char* animationName, Animation* animation)

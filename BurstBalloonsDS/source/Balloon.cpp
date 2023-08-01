@@ -1,64 +1,64 @@
 #include "Balloon.h"
+#include "Data.h"
+#include "Data/BalloonData.h"
 #include "Engine/SoundManager.h"
 #include <soundbank.h>
-#include <soundbank_bin.h>
 #include <nds.h>
 #include <iostream>
+#include <string>
 
-Balloon::Balloon() : AnimatedEntity() {}
-Balloon::Balloon(SpriteSize spriteSize, const char* defaultAnimation, float maxSpeed, int width, int height, int offsetX, int offsetY, GameManager* gameManager)
-	: AnimatedEntity(nullptr, spriteSize, defaultAnimation, width, height)
+Balloon::Balloon(GameManager* gameManager) : AnimatedEntity(BalloonData::SPRITE_SIZE, BalloonData::INITIAL_ANIMATION)
 {
-	this->speed = 0;
-	this->maxSpeed = maxSpeed;
-	this->offsetX = offsetX;
-	this->offsetY = offsetY;
+	speed = 0;
+	speedOnMaxDifficult = BalloonData::SPEED_ON_MAX_DIFFICULT;
 	this->gameManager = gameManager;
-	moveAmount = new Vector2(0, 0);
+
 	velocity = new Vector2(0, 0);
 	position = new Vector2(0, 0);
 	wasBursted = false;
-	Init();
-	SetPositionToRandomPoint();
-}
 
-void Balloon::Init()
-{
-	verticalDirection = -1;
+	Vector2* colliderOffset = new Vector2(BalloonData::COLLIDER_OFFSET_X, BalloonData::COLLIDER_OFFSET_Y);
+	colliderRect = new Rect(this->position, colliderOffset, BalloonData::COLLIDER_WIDTH, BalloonData::COLLIDER_HEIGHT);
+
+	delete spriteRect;
+	Vector2* spriteOffset = new Vector2(BalloonData::SPRITE_OFFSET_X, BalloonData::SPRITE_OFFSET_Y);
+	spriteRect = new Rect(this->position, spriteOffset, BalloonData::SPRITE_WIDTH, BalloonData::SPRITE_HEIGHT);
+
+	SetPositionToRandomPoint();
 }
 
 void Balloon::Update()
 {
-	speed = gameManager->GetDifficultFactor() * maxSpeed;
-	moveAmount->y = verticalDirection * speed;
 	if (!wasBursted)
 	{
-		if (position->y + 64 < 0)
+		if (position->y + BALLOON_SPRITE_HEIGHT < 0)
 			RemoveLife();
-		Move();
+		else
+			MoveUpwards();
 	}
-	else if (position->y > SCREEN_HEIGHT)
+	else if (colliderRect->GetTopEdge() > SCREEN_HEIGHT)
 		Respawn();
-	ApplyGravity();
+	velocity->y += GRAVITY_FORCE;
+	ApplyVelocity();
+}
+void Balloon::ApplyVelocity()
+{
 	*position += *velocity;
 }
-void Balloon::Move()
+void Balloon::MoveUpwards()
 {
-	*velocity = *moveAmount;
-}
-void Balloon::ApplyGravity()
-{
-	velocity->y += 0.1f;
+	speed = gameManager->GetDifficultFactor() * speedOnMaxDifficult;
+	velocity->y = UP_DIRECTION * speed;
 }
 
-void Balloon::CheckCollision(Vector2* touchPosition)
+bool Balloon::IsCollidingWith(Vector2* point)
 {
-	if (touchPosition->x > position->x + offsetX && touchPosition->y > position->y + offsetY && touchPosition->x < position->x + width + offsetX && touchPosition->y < position->y + height + offsetY && !wasBursted)
-		OnBurst();
+	return colliderRect->IsCollidingWith(point);
 }
 
-void Balloon::OnBurst()
+void Balloon::Burst()
 {
+	if (wasBursted) return;
 	wasBursted = true;
 	SoundManager::PlaySFX(SFX_BURSTBALLOON);
 	ChangeAnimationTo("burst");
@@ -74,10 +74,13 @@ void Balloon::Respawn()
 
 void Balloon::SetPositionToRandomPoint()
 {
-	int randomPositionX = rand() % (SCREEN_WIDTH - width * 2);
-	int randomPositionY = SCREEN_HEIGHT + rand() % 100;
-	position->x = randomPositionX;
-	position->y = randomPositionY;
+	position->x = RandomInRange(colliderRect->GetUnpositionedLeftEdge(), SCREEN_WIDTH - colliderRect->GetUnpositionedRightEdge());
+	position->y = RandomInRange(colliderRect->GetUnpositionedTopEdge(), colliderRect->GetUnpositionedBottomEdge());
+	position->y += SCREEN_HEIGHT;
+}
+int Balloon::RandomInRange(int lowestInclusiveValue, int highestExclusiveValue)
+{
+	return lowestInclusiveValue + rand() % (highestExclusiveValue - lowestInclusiveValue);
 }
 
 void Balloon::RemoveLife()

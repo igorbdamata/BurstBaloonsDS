@@ -38,10 +38,10 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	float textPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float textPositionY = SCREEN_HEIGHT / 2;
 
-	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(textPositionX , textPositionY), SpriteSize_64x64,64,64),
-								   new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64),
-								   new Entity(new Vector2(textPositionX + 64 * 2,textPositionY), SpriteSize_64x64,64,64),
-								   new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64)};
+	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(textPositionX , textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
+								   new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
+								   new Entity(new Vector2(textPositionX + 64 * 2,textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
+								   new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)) };
 	for (int i = 0; i < 4; i++)
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
@@ -54,10 +54,10 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	this->pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
 
 
-	Entity* passRecordText[4] = { new Entity(new Vector2(textPositionX, textPositionY), SpriteSize_64x64,64,64),
-								  new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64),
-								  new Entity(new Vector2(textPositionX + 64 * 2, textPositionY), SpriteSize_64x64,64,64),
-								  new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64) };
+	Entity* passRecordText[4] = { new Entity(new Vector2(textPositionX, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
+								  new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
+								  new Entity(new Vector2(textPositionX + 64 * 2, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
+								  new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)) };
 	for (int i = 0; i < 4; i++)
 	{
 		this->passRecordText[i] = passRecordText[i];

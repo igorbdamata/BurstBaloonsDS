@@ -105,6 +105,7 @@
     <ClCompile Include="source\Balloon.cpp" />
     <ClCompile Include="source\CodedAnimations\SplashScreenCodedAnimation.cpp" />
     <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp" />
+    <ClCompile Include="source\Data\BalloonData.cpp" />
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp" />
     <ClCompile Include="source\Data\PressAnyKeyTextData.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
@@ -115,6 +116,7 @@
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerUtilities.cpp" />
     <ClCompile Include="source\Engine\MetaTileAssembler.cpp" />
     <ClCompile Include="source\Engine\OamEngine.cpp" />
+    <ClCompile Include="source\Engine\Rect.cpp" />
     <ClCompile Include="source\Engine\SoundManager.cpp" />
     <ClCompile Include="source\Engine\Vector2\Vector2Methods.cpp" />
     <ClCompile Include="source\Engine\Vector2\Vector2Operators.cpp" />
@@ -132,6 +134,7 @@
     <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h" />
     <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h" />
     <ClInclude Include="include\Data.h" />
+    <ClInclude Include="include\Data\BalloonData.h" />
     <ClInclude Include="include\Data\BurstBalloonsTextData.h" />
     <ClInclude Include="include\Data\PressAnyKeyTextData.h" />
     <ClInclude Include="include\Engine\AnimatedEntity.h" />
@@ -141,6 +144,7 @@
     <ClInclude Include="include\Engine\HardwareManager.h" />
     <ClInclude Include="include\Engine\MetaTileAssembler.h" />
     <ClInclude Include="include\Engine\OamEngine.h" />
+    <ClInclude Include="include\Engine\Rect.h" />
     <ClInclude Include="include\Engine\SoundManager.h" />
     <ClInclude Include="include\Engine\Vector2.h" />
     <ClInclude Include="include\GameManager.h" />

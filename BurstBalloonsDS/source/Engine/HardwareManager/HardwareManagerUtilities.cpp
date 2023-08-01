@@ -6,6 +6,7 @@ const int MILLISECONDS_PER_CYCLE = 125000;
 int timeCycles = 0;
 float lastMilliseconds = 0;
 
+Rect* HardwareManager::screenRect = new Rect(new Vector2(0, 0), new Vector2(0, 0), SCREEN_WIDTH, SCREEN_HEIGHT);
 
 float HardwareManager::GetCurrentSeconds()
 {
