@@ -12,9 +12,9 @@ public:
 	Vector2* position;
 
 	Entity();
-	Entity(Vector2* position, SpriteSize spriteSize, int width, int height, Vector2* spriteOffset);
+	Entity(Vector2* position, int width, int height, Vector2* spriteOffset, SpriteSize spriteSize);
 	Entity(SpriteSize spriteSize);
-	
+
 	void Init(int oamID, OamState* engine);
 
 	void Render(bool horizontalFlip = false, bool verticalFlip = false);

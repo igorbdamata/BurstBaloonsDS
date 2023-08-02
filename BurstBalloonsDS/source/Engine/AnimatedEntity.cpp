@@ -1,18 +1,18 @@
 #include "Engine/AnimatedEntity.h"
 
 AnimatedEntity::AnimatedEntity() : Entity() {}
-AnimatedEntity::AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char* initialAnimation, int width, int height,Vector2* spriteOffset)
-	: Entity(position, spriteSize, width, height,spriteOffset)
+AnimatedEntity::AnimatedEntity(Vector2* position, int width, int height, Vector2* spriteOffset, SpriteSize spriteSize, std::string initialAnimation)
+	: Entity(position, width, height, spriteOffset, spriteSize)
 {
 	currentAnimation = initialAnimation;
 }
-AnimatedEntity::AnimatedEntity(SpriteSize spriteSize, const char* initialAnimation)
+AnimatedEntity::AnimatedEntity(SpriteSize spriteSize, std::string initialAnimation)
 	: Entity(spriteSize)
 {
 	currentAnimation = initialAnimation;
 }
 
-void AnimatedEntity::AddAnimation(const char* animationName, Animation* animation)
+void AnimatedEntity::AddAnimation(std::string animationName, Animation* animation)
 {
 	animations.insert(std::make_pair(animationName, animation));
 }
@@ -22,13 +22,12 @@ void AnimatedEntity::UpdateAnimation()
 	animations[currentAnimation]->Update();
 }
 
-void AnimatedEntity::ChangeAnimationTo(const char* newAnimation)
+std::string AnimatedEntity::GetCurrentAnimation()
+{
+	return currentAnimation;
+}
+void AnimatedEntity::ChangeAnimationTo(std::string newAnimation)
 {
 	currentAnimation = newAnimation;
 	animations[currentAnimation]->Start();
-}
-
-const char* AnimatedEntity::GetCurrentAnimation()
-{
-	return currentAnimation;
 }

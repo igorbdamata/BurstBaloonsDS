@@ -5,11 +5,12 @@
 #include <string>
 
 Entity::Entity() {};
-Entity::Entity(Vector2* position, SpriteSize spriteSize, int width, int height, Vector2* spriteOffset)
+Entity::Entity(Vector2* position, int width, int height, Vector2* spriteOffset, SpriteSize spriteSize)
 {
 	this->position = position;
-	this->spriteSize = spriteSize;
 	spriteRect = new Rect(this->position, spriteOffset, width, height);
+
+	this->spriteSize = spriteSize;
 }
 Entity::Entity(SpriteSize spriteSize)
 {
@@ -27,7 +28,7 @@ void Entity::Render(bool horizontalFlip, bool verticalFlip)
 {
 	bool hide = spriteRect->IsOutOfScreen();
 	oamSet(engine, GetOamID(),
-		   this->position->x, this->position->y, 
+		   this->position->x, this->position->y,
 		   OBJPRIORITY_0, GetCurrentPalette(), GetSpriteSize(), SpriteColorFormat_16Color,
 		   GetSprite(), -1, false, hide, horizontalFlip, verticalFlip, false);
 }

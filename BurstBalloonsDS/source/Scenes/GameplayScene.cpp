@@ -72,9 +72,9 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 		balloons[i]->AddAnimation("burst", burstAnimations[i]);
 	}
 
-	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32, new Vector2(0,0)),
-							 new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32, new Vector2(0,0)),
-							 new	Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2 + UI_BALLOON_ALIGNMENT, 0), SpriteSize_32x32,32,32, new Vector2(0,0)) };
+	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0 + UI_BALLOON_ALIGNMENT, 0),32,32, new Vector2(0,0), SpriteSize_32x32),
+							 new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1 + UI_BALLOON_ALIGNMENT, 0),32,32, new Vector2(0,0), SpriteSize_32x32),
+							 new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2 + UI_BALLOON_ALIGNMENT, 0),32,32, new Vector2(0,0), SpriteSize_32x32)};
 	mainEngine->AddPallete(BalloonUIPal, "balloonUI");
 	for (int i = 0; i < 3; i++)
 	{

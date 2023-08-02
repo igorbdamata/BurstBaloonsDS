@@ -28,10 +28,10 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	float textPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float textPositionY = SCREEN_HEIGHT / 2;
 
-	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(textPositionX , textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
-								   new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
-								   new Entity(new Vector2(textPositionX + 64 * 2,textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
-								   new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)) };
+	Entity* pressAnyKeyText[4] = { new Entity(new Vector2(textPositionX , textPositionY), 64,64, new Vector2(0,0), SpriteSize_64x64),
+								   new Entity(new Vector2(textPositionX + 64, textPositionY), 64,64, new Vector2(0,0), SpriteSize_64x64),
+								   new Entity(new Vector2(textPositionX + 64 * 2,textPositionY), 64,64, new Vector2(0,0), SpriteSize_64x64),
+								   new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), 64,64, new Vector2(0,0), SpriteSize_64x64) };
 	for (int i = 0; i < 4; i++)
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
@@ -44,10 +44,10 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	this->pressAnyKeyText[3]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText3"));
 
 
-	Entity* gameOverText[4] = { new Entity(new Vector2(textPositionX, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
-							new Entity(new Vector2(textPositionX + 64, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
-							new Entity(new Vector2(textPositionX + 64 * 2, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
-							new Entity(new Vector2(textPositionX + 64 * 3, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)) };
+	Entity* gameOverText[4] = { new Entity(new Vector2(textPositionX, textPositionY),64,64, new Vector2(0,0), SpriteSize_64x64),
+							new Entity(new Vector2(textPositionX + 64, textPositionY),64,64, new Vector2(0,0), SpriteSize_64x64),
+							new Entity(new Vector2(textPositionX + 64 * 2, textPositionY),64,64, new Vector2(0,0), SpriteSize_64x64),
+							new Entity(new Vector2(textPositionX + 64 * 3, textPositionY),64,64, new Vector2(0,0), SpriteSize_64x64) };
 	for (int i = 0; i < 4; i++)
 	{
 		this->gameOverText[i] = gameOverText[i];

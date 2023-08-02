@@ -26,10 +26,10 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	#pragma region PressAnyKeyTextInit
 	Entity* pressAnyKeyText[4] =
 	{
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(0), SpriteSize_64x64,64,64, new Vector2(0,0)),
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(1), SpriteSize_64x64,64,64, new Vector2(0,0)),
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(2), SpriteSize_64x64,64,64, new Vector2(0,0)),
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(3), SpriteSize_64x64,64,64, new Vector2(0,0))
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(0), 64,64, new Vector2(0,0), SpriteSize_64x64),
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(1), 64,64, new Vector2(0,0), SpriteSize_64x64),
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(2), 64,64, new Vector2(0,0), SpriteSize_64x64),
+		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(3), 64,64, new Vector2(0,0), SpriteSize_64x64)
 	};
 
 	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
@@ -43,8 +43,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	#pragma region BurstBalloonsTextInit
 	Entity* burstBalloonsText[2] =
 	{
-		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(0), SpriteSize_64x64,64,64, new Vector2(0,0)),
-		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(1), SpriteSize_64x64,64,64, new Vector2(0,0))
+		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(0), 64,64, new Vector2(0,0), SpriteSize_64x64),
+		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(1), 64,64, new Vector2(0,0), SpriteSize_64x64)
 	};
 
 

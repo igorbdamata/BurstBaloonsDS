@@ -1,25 +1,30 @@
 #if !defined(ANIMATED_ENTITY_H)
-#define ANIMATED_ENTITY_H 1
+#define ANIMATED_ENTITY_H true
 #pragma once
+
+#include <map>
+#include <string>
 
 #include "Entity.h"
 #include "Animation.h"
-#include <map>
 
 class AnimatedEntity : public Entity
 {
 public:
 	AnimatedEntity();
-	AnimatedEntity(SpriteSize spriteSize, const char* defaultAnimation);
-	AnimatedEntity(Vector2* position, SpriteSize spriteSize, const char* defaultAnimation, int width, int height, Vector2* spriteOffset);
-	void AddAnimation(const char* animationName, Animation* animation);
+	AnimatedEntity(SpriteSize spriteSize, std::string initialAnimation);
+	AnimatedEntity(Vector2* position, int width, int height, Vector2* spriteOffset, SpriteSize spriteSize, std::string initialAnimation);
+
+	void AddAnimation(std::string animationName, Animation* animation);
+
 	void UpdateAnimation();
-	void ChangeAnimationTo(const char* newAnimation);
-	const char* GetCurrentAnimation();
+
+	std::string GetCurrentAnimation();
+	void ChangeAnimationTo(std::string newAnimation);
 
 private:
-	std::map<const char*, Animation*> animations;
-	const char* currentAnimation;
+	std::map<std::string, Animation*> animations;
+	std::string currentAnimation;
 };
 
 #endif
