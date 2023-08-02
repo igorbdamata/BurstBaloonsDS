@@ -48,17 +48,17 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 										  new Balloon(gameManager),
 										  new Balloon(gameManager) };
 	Animation* flyAnimations[BALLOONS_COUNT] = {
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteAddressTo(newSprite); }, true, balloonFlyFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteAddressTo(newSprite); } , true, balloonFlyFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[2]->SetSpriteAddressTo(newSprite); }, true, balloonFlyFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[3]->SetSpriteAddressTo(newSprite); }, true, balloonFlyFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[4]->SetSpriteAddressTo(newSprite); }, true, balloonFlyFrames) };
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteTo(newSprite); }, true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteTo(newSprite); } , true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[2]->SetSpriteTo(newSprite); }, true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[3]->SetSpriteTo(newSprite); }, true, balloonFlyFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[4]->SetSpriteTo(newSprite); }, true, balloonFlyFrames) };
 	Animation* burstAnimations[BALLOONS_COUNT] = {
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteAddressTo(newSprite); },false, balloonBurstFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteAddressTo(newSprite); },false, balloonBurstFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[2]->SetSpriteAddressTo(newSprite); },false, balloonBurstFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[3]->SetSpriteAddressTo(newSprite); },false, balloonBurstFrames),
-		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[4]->SetSpriteAddressTo(newSprite); },false, balloonBurstFrames) };
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[0]->SetSpriteTo(newSprite); },false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[1]->SetSpriteTo(newSprite); },false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[2]->SetSpriteTo(newSprite); },false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[3]->SetSpriteTo(newSprite); },false, balloonBurstFrames),
+		new Animation(0.2, 3, [balloons](void* newSprite) {balloons[4]->SetSpriteTo(newSprite); },false, balloonBurstFrames) };
 
 
 	for (int i = 0; i < BALLOONS_COUNT; i++)
@@ -66,7 +66,7 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 		this->balloons[i] = balloons[i];
 
 		subEngine->InitEntity(balloons[i]);
-		balloons[i]->ChangePalleteTo(subEngine->GetPallete("balloon"));
+		balloons[i]->SetPaletteTo(subEngine->GetPallete("balloon"));
 
 		balloons[i]->AddAnimation("fly", flyAnimations[i]);
 		balloons[i]->AddAnimation("burst", burstAnimations[i]);
@@ -81,8 +81,8 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 
 		this->balloonsUI[i] = balloonsUI[i];
 		mainEngine->InitEntity(balloonsUI[i]);
-		balloonsUI[i]->spriteAddress = mainEngine->GetSprite("balloonUI");
-		balloonsUI[i]->ChangePalleteTo(mainEngine->GetPallete("balloonUI"));
+		balloonsUI[i]->SetSpriteTo(mainEngine->GetSprite("balloonUI"));
+		balloonsUI[i]->SetPaletteTo(mainEngine->GetPallete("balloonUI"));
 	}
 
 	SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);

@@ -46,12 +46,12 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
 		subEngine->InitEntity(this->pressAnyKeyText[i]);
-		this->pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("PressAnyKeyText"));
+		this->pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPallete("PressAnyKeyText"));
 	}
-	this->pressAnyKeyText[0]->spriteAddress = subEngine->GetSprite("PressAnyKeyText0");
-	this->pressAnyKeyText[1]->spriteAddress = subEngine->GetSprite("PressAnyKeyText1");
-	this->pressAnyKeyText[2]->spriteAddress = subEngine->GetSprite("PressAnyKeyText2");
-	this->pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
+	this->pressAnyKeyText[0]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText0"));
+	this->pressAnyKeyText[1]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText1"));
+	this->pressAnyKeyText[2]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText2"));
+	this->pressAnyKeyText[3]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText3"));
 
 
 	Entity* passRecordText[4] = { new Entity(new Vector2(textPositionX, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
@@ -62,12 +62,12 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	{
 		this->passRecordText[i] = passRecordText[i];
 		mainEngine->InitEntity(this->passRecordText[i]);
-		this->passRecordText[i]->ChangePalleteTo(mainEngine->GetPallete("PressAnyKeyText"));
+		this->passRecordText[i]->SetPaletteTo(mainEngine->GetPallete("PressAnyKeyText"));
 	}
-	this->passRecordText[0]->spriteAddress = mainEngine->GetSprite("TextPassRecord0");
-	this->passRecordText[1]->spriteAddress = mainEngine->GetSprite("TextPassRecord1");
-	this->passRecordText[2]->spriteAddress = mainEngine->GetSprite("TextPassRecord2");
-	this->passRecordText[3]->spriteAddress = mainEngine->GetSprite("TextPassRecord3");
+	this->passRecordText[0]->SetSpriteTo(mainEngine->GetSprite("TextPassRecord0"));
+	this->passRecordText[1]->SetSpriteTo(mainEngine->GetSprite("TextPassRecord1"));
+	this->passRecordText[2]->SetSpriteTo(mainEngine->GetSprite("TextPassRecord2"));
+	this->passRecordText[3]->SetSpriteTo(mainEngine->GetSprite("TextPassRecord3"));
 
 	this->sceneManager = sceneManager;
 

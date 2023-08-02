@@ -1,8 +1,8 @@
 #if !defined(ENTITY_H)
-#define ENTITY_H 1
+#define ENTITY_H true
 #pragma once
 
-#include <nds.h>
+#include <nds/arm9/sprite.h>
 #include "Vector2.h"
 #include "Rect.h"
 
@@ -14,24 +14,29 @@ public:
 	Entity();
 	Entity(Vector2* position, SpriteSize spriteSize, int width, int height, Vector2* spriteOffset);
 	Entity(SpriteSize spriteSize);
+	
 	void Init(int oamID, OamState* engine);
+
 	void Render(bool horizontalFlip = false, bool verticalFlip = false);
 
-	void* GetSpriteAddress();
-	void* spriteAddress;
-	int GetOamID();
-	SpriteSize GetSpriteSize();
+	void* GetSprite();
+	void SetSpriteTo(void* newSprite);
 
-	void ChangePalleteTo(int newPalleteID);
-	void SetSpriteAddressTo(void* newSprite);
+	int GetCurrentPalette();
+	void SetPaletteTo(int newPaletteID);
+
+	int GetOamID();
+
+	SpriteSize GetSpriteSize();
 
 protected:
 	OamState* engine;
-	int palleteID;
 	Rect* spriteRect;
 
 private:
 	int oamID;
+	int paletteID;
+	void* spriteAddress;
 	SpriteSize spriteSize;
 };
 

@@ -1,8 +1,8 @@
 #include<string>
 #include<nds.h>
 #include<nds/arm9/sprite.h>
+#include<nds/arm9/input.h>
 #include<soundbank.h>
-
 
 #include "Scenes/TitleScreenScene.h"
 #include "Engine/HardwareManager.h"
@@ -35,8 +35,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
 	{
 		subEngine->InitEntity(pressAnyKeyText[i]);
-		pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete(PressAnyKeyTextData::GetName().c_str()));
-		pressAnyKeyText[i]->spriteAddress = subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i));
+		pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPallete(PressAnyKeyTextData::GetName().c_str()));
+		pressAnyKeyText[i]->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 	}
 	#pragma endregion
 
@@ -57,8 +57,8 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 		mainEngine->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
 		mainEngine->InitEntity(burstBalloonsText[i]);
 
-		burstBalloonsText[i]->ChangePalleteTo(mainEngine->GetPallete(BurstBalloonsTextData::GetName().c_str()));
-		burstBalloonsText[i]->spriteAddress = mainEngine->GetSprite(spriteName);
+		burstBalloonsText[i]->SetPaletteTo(mainEngine->GetPallete(BurstBalloonsTextData::GetName().c_str()));
+		burstBalloonsText[i]->SetSpriteTo(mainEngine->GetSprite(spriteName));
 	}
 	#pragma endregion
 

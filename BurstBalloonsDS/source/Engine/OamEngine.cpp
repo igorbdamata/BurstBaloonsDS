@@ -54,12 +54,12 @@ void OamEngine::SetTextFont(void* fontTiles, void* fontPallete, u16 fontPalleteL
 	consoleSetFont(printConsole, &font);
 }
 
-void OamEngine::AddPallete(const void* pallete, const char* palleteName)
+void OamEngine::AddPallete(const void* palette, const char* palleteName)
 {
 	int palleteIndex = GetAvailablePalleteIndex();
 	palletes.insert(std::make_pair(palleteName, palleteIndex));
 	DC_FlushAll();
-	dmaCopy(pallete, palletesAddress + COLORS_PER_PALETTE * palleteIndex, COLORS_PER_PALETTE);
+	dmaCopy(palette, palletesAddress + COLORS_PER_PALETTE * palleteIndex, COLORS_PER_PALETTE);
 }
 
 int OamEngine::GetPallete(const char* palleteName)

@@ -36,12 +36,12 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
 		subEngine->InitEntity(this->pressAnyKeyText[i]);
-		this->pressAnyKeyText[i]->ChangePalleteTo(subEngine->GetPallete("PressAnyKeyText"));
+		this->pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPallete("PressAnyKeyText"));
 	}
-	this->pressAnyKeyText[0]->spriteAddress = subEngine->GetSprite("PressAnyKeyText0");
-	this->pressAnyKeyText[1]->spriteAddress = subEngine->GetSprite("PressAnyKeyText1");
-	this->pressAnyKeyText[2]->spriteAddress = subEngine->GetSprite("PressAnyKeyText2");
-	this->pressAnyKeyText[3]->spriteAddress = subEngine->GetSprite("PressAnyKeyText3");
+	this->pressAnyKeyText[0]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText0"));
+	this->pressAnyKeyText[1]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText1"));
+	this->pressAnyKeyText[2]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText2"));
+	this->pressAnyKeyText[3]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText3"));
 
 
 	Entity* gameOverText[4] = { new Entity(new Vector2(textPositionX, textPositionY), SpriteSize_64x64,64,64, new Vector2(0,0)),
@@ -52,12 +52,12 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	{
 		this->gameOverText[i] = gameOverText[i];
 		mainEngine->InitEntity(this->gameOverText[i]);
-		this->gameOverText[i]->ChangePalleteTo(mainEngine->GetPallete("GameOverText"));
+		this->gameOverText[i]->SetPaletteTo(mainEngine->GetPallete("GameOverText"));
 	}
-	this->gameOverText[0]->spriteAddress = mainEngine->GetSprite("GameOverText0");
-	this->gameOverText[1]->spriteAddress = mainEngine->GetSprite("GameOverText1");
-	this->gameOverText[2]->spriteAddress = mainEngine->GetSprite("GameOverText2");
-	this->gameOverText[3]->spriteAddress = mainEngine->GetSprite("GameOverText3");
+	this->gameOverText[0]->SetSpriteTo(mainEngine->GetSprite("GameOverText0"));
+	this->gameOverText[1]->SetSpriteTo(mainEngine->GetSprite("GameOverText1"));
+	this->gameOverText[2]->SetSpriteTo(mainEngine->GetSprite("GameOverText2"));
+	this->gameOverText[3]->SetSpriteTo(mainEngine->GetSprite("GameOverText3"));
 
 	this->sceneManager = sceneManager;
 

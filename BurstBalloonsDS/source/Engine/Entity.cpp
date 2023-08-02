@@ -26,32 +26,36 @@ void Entity::Init(int oamID, OamState* engine)
 void Entity::Render(bool horizontalFlip, bool verticalFlip)
 {
 	bool hide = spriteRect->IsOutOfScreen();
-	oamSet(engine, oamID, 
+	oamSet(engine, GetOamID(),
 		   this->position->x, this->position->y, 
-		   OBJPRIORITY_0, palleteID, spriteSize, SpriteColorFormat_16Color,
-		   spriteAddress, -1, false, hide, horizontalFlip, verticalFlip, false);
+		   OBJPRIORITY_0, GetCurrentPalette(), GetSpriteSize(), SpriteColorFormat_16Color,
+		   GetSprite(), -1, false, hide, horizontalFlip, verticalFlip, false);
 }
 
-void* Entity::GetSpriteAddress()
+void* Entity::GetSprite()
 {
 	return spriteAddress;
 }
+void Entity::SetSpriteTo(void* newSpriteAddress)
+{
+	spriteAddress = newSpriteAddress;
+}
+
+int Entity::GetCurrentPalette()
+{
+	return paletteID;
+}
+void Entity::SetPaletteTo(int newPaletteID)
+{
+	paletteID = newPaletteID;
+}
+
 int Entity::GetOamID()
 {
 	return oamID;
 }
+
 SpriteSize Entity::GetSpriteSize()
 {
 	return spriteSize;
-}
-
-
-void Entity::ChangePalleteTo(int newPalleteID)
-{
-	palleteID = newPalleteID;
-}
-
-void Entity::SetSpriteAddressTo(void* newSprite)
-{
-	spriteAddress = newSprite;
 }
