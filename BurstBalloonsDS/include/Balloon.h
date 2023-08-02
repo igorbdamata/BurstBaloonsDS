@@ -7,25 +7,29 @@ class Balloon : public AnimatedEntity
 {
 public:
 	Balloon(GameManager* gameManager);
-	void Update();
+	
 	bool IsCollidingWith(Vector2* touchPosition);
-	void Respawn();
-	void Burst();
-private:
-	Rect* colliderRect;
-	float speed;
-	float speedOnMaxDifficult;
-	Vector2* velocity;
 
+	void Update();
+	
+	void Burst();
+	void Respawn();
+
+private:
 	GameManager* gameManager;
+	
+	Rect* colliderRect;
+	Vector2* velocity;
 
 	bool wasBursted;
 
-	void Init();
-	void ApplyVelocity();
+	void BalloonIdleUpdate();
 	void MoveUpwards();
-	void RemoveLife();
-	void SetPositionToRandomPoint();
+	void OnGetAboveScreen();
 
-	int  RandomInRange(int lowestInclusiveValue, int highestExclusiveValue);
+	void BalloonBurstedUpdate();
+
+	void ApplyPhysics();
+
+	void SetPositionToRandomPoint();
 };

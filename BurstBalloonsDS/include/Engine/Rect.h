@@ -17,6 +17,12 @@ public:
 	float GetUnpositionedTopEdge();
 	float GetUnpositionedBottomEdge();
 
+	bool IsBelow(Rect* rect);
+	bool IsAbove(Rect* rect);
+	bool IsOnTheRigth(Rect* rect);
+	bool IsOnTheLeft(Rect* rect);
+
+	bool IsOutOfScreen();
 	bool IsCollidingWith(Vector2* point);
 	bool IsCollidingWith(Rect* rect);
 

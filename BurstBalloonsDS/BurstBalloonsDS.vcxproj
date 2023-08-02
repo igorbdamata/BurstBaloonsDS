@@ -114,6 +114,7 @@
     <ClCompile Include="source\Engine\Entity.cpp" />
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerInitialization.cpp" />
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerUtilities.cpp" />
+    <ClCompile Include="source\Engine\MathDS.cpp" />
     <ClCompile Include="source\Engine\MetaTileAssembler.cpp" />
     <ClCompile Include="source\Engine\OamEngine.cpp" />
     <ClCompile Include="source\Engine\Rect.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="include\Engine\CodedAnimation.h" />
     <ClInclude Include="include\Engine\Entity.h" />
     <ClInclude Include="include\Engine\HardwareManager.h" />
+    <ClInclude Include="include\Engine\MathDS.h" />
     <ClInclude Include="include\Engine\MetaTileAssembler.h" />
     <ClInclude Include="include\Engine\OamEngine.h" />
     <ClInclude Include="include\Engine\Rect.h" />

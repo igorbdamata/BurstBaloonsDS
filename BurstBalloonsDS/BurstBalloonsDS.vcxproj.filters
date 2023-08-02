@@ -126,6 +126,9 @@
     <ClCompile Include="source\Data\BalloonData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
+    <ClCompile Include="source\Engine\MathDS.cpp">
+      <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -195,6 +198,9 @@
       <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
     <ClInclude Include="include\Engine\Rect.h">
+      <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Engine\MathDS.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
   </ItemGroup>

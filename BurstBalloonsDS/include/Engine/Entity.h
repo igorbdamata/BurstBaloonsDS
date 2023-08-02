@@ -23,7 +23,6 @@ public:
 	SpriteSize GetSpriteSize();
 
 	void ChangePalleteTo(int newPalleteID);
-	bool IsOutOfScreen();
 	void SetSpriteAddressTo(void* newSprite);
 
 protected:

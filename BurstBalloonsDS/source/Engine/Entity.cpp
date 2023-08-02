@@ -25,15 +25,11 @@ void Entity::Init(int oamID, OamState* engine)
 
 void Entity::Render(bool horizontalFlip, bool verticalFlip)
 {
-	bool hide = IsOutOfScreen();
+	bool hide = spriteRect->IsOutOfScreen();
 	oamSet(engine, oamID, 
 		   this->position->x, this->position->y, 
 		   OBJPRIORITY_0, palleteID, spriteSize, SpriteColorFormat_16Color,
 		   spriteAddress, -1, false, hide, horizontalFlip, verticalFlip, false);
-}
-bool Entity::IsOutOfScreen()
-{
-	return !spriteRect->IsCollidingWith(HardwareManager::screenRect);
 }
 
 void* Entity::GetSpriteAddress()

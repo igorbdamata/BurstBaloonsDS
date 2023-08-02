@@ -1,4 +1,5 @@
 #include "Engine/Rect.h"
+#include "Engine/HardwareManager.h"
 
 Rect::Rect(Vector2* position, Vector2* offset, float width, float height)
 {
@@ -44,12 +45,21 @@ float Rect::GetUnpositionedBottomEdge()
 	return  offset->y + height;
 }
 
+bool Rect::IsOutOfScreen()
+{
+	return !IsCollidingWith(HardwareManager::screenRect);
+}
 bool Rect::IsCollidingWith(Vector2* point)
 {
 	bool isBetweenHorizontalEdges = InRange(GetLeftEdge(), GetRightEdge(), point->x);
 	bool isBetweenVerticalEdges = InRange(GetTopEdge(), GetBottomEdge(), point->y);
 	return  isBetweenHorizontalEdges && isBetweenVerticalEdges;
 }
+bool Rect::InRange(float lowestValue, float highestValue, float valueToCheck)
+{
+	return (valueToCheck - highestValue) * (valueToCheck - lowestValue) <= 0;
+}
+
 bool Rect::IsCollidingWith(Rect* rect)
 {
 	bool isCollidingHorizontally = GetLeftEdge() < rect->GetRightEdge() && GetRightEdge() > rect->GetLeftEdge();
@@ -57,7 +67,19 @@ bool Rect::IsCollidingWith(Rect* rect)
 	return isCollidingHorizontally && isCollidingVertically;
 }
 
-bool Rect::InRange(float lowestValue, float highestValue, float valueToCheck)
+bool Rect::IsBelow(Rect* rect)
 {
-	return (valueToCheck - highestValue) * (valueToCheck - lowestValue) <= 0;
+	return GetTopEdge() > rect->GetBottomEdge();
+}
+bool Rect::IsAbove(Rect* rect)
+{
+	return GetBottomEdge() < rect->GetTopEdge();
+}
+bool Rect::IsOnTheRigth(Rect* rect)
+{
+	return GetLeftEdge() > rect->GetRightEdge();
+}
+bool Rect::IsOnTheLeft(Rect* rect)
+{
+	return GetRightEdge() < rect->GetLeftEdge();
 }
