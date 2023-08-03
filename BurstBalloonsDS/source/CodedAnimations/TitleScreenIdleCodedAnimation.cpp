@@ -1,6 +1,7 @@
+#include<cmath>
+
 #include "CodedAnimations/TitleScreenIdleCodedAnimation.h"
 #include "Engine/HardwareManager.h"
-#include<math.h>
 
 TitleScreenIdleCodedAnimation::TitleScreenIdleCodedAnimation(Entity* pressAnyKeyText[4], Entity* burstBalloonsText[2])
 {

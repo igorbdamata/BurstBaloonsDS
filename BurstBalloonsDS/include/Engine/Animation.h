@@ -1,38 +1,38 @@
 #if !defined(ANIMATION_H)
-#define ANIMATION_H 1
+#define ANIMATION_H true
 #pragma once
 
-#include <nds.h>
-#include "Entity.h"
+#include<nds.h>
 #include<vector>
-#include <functional>
+#include<functional>
+#include "Entity.h"
 
 class Animation
 {
 public:
-	Animation(float framesInterval, int framesCount, std::function<void(void* newSprite)> setSpriteAddressTo, bool haveLoop, std::vector<void*> frames);
+	Animation(float intervalBetweenFrames, int framesCount, bool haveLoop, std::vector<void*> frames, std::function<void(void* newSprite)> setSpriteTo);
 
 	void Start();
 	void Update();
-	bool FinishedExecution();
+	bool HaveFinishedExecution();
 private:
-	bool haveLoop;
-
 	int currentFrame;
 	int framesCount;
 
-	float framesInterval;
+	float intervalBetweenFrames;
 	float lastFrameChangeTime;
 
-	bool finishedExecution;
+	bool haveLoop;
+
+	std::function<void(void* newSprite)> setSpriteTo;
 	std::vector<void*> frames;
-	std::function<void(void* newSprite)> setSpriteAddressTo;
+
+	bool haveFinishedExecution;
 
 	bool IsTimeToChangeFrame();
-	void ChangeFrame();
+
+	void ChangeCurrentFrame();
 	void ResetCurrentFrame();
 	void FinishAnimation();
-	void ChangeSpriteOnEntity();
 };
-
 #endif

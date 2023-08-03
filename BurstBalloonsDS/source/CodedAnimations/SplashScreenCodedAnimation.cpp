@@ -30,7 +30,7 @@ SplashScreenCodedAnimation::SplashScreenCodedAnimation(Entity* pressAnyKeyText[4
 	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation5Bitmap);
 	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation6Bitmap);
 	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation7Bitmap);
-	splashScreenFadeOutAnimation = new Animation(0.3f, 5, [](void* newSprite) { dmaCopyHalfWords(3, newSprite, BG_BMP_RAM(1), Background1BitmapLen); }, false, splashScreenFrames);
+	splashScreenFadeOutAnimation = new Animation(0.3f, 5, false, splashScreenFrames, [](void* newSprite) { dmaCopyHalfWords(3, newSprite, BG_BMP_RAM(1), Background1BitmapLen); });
 	splashScreenFadeOutAnimation->Start();
 	splashScreenSeconds = 3;
 	startedSplashScreenFadeOut = false;
@@ -47,7 +47,7 @@ void SplashScreenCodedAnimation::Update()
 	bool isTimeToStartFadeOut = HardwareManager::GetCurrentSeconds() - splashScreenStartTime >= splashScreenSeconds;
 	if (!isTimeToStartFadeOut) return;
 	UpdateFadeOut();
-	if (splashScreenFadeOutAnimation->FinishedExecution())FinishSplashScreenAnimation();
+	if (splashScreenFadeOutAnimation->HaveFinishedExecution())FinishSplashScreenAnimation();
 }
 
 void SplashScreenCodedAnimation::UpdateFadeOut()

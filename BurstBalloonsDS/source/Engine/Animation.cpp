@@ -1,66 +1,59 @@
-#include "Engine/Animation.h"
-#include "Engine/HardwareManager.h"
 #include<string>
 
-Animation::Animation(float framesInterval, int framesCount, std::function<void(void* newSprite)> setSpriteAddressTo, bool haveLoop, std::vector<void*> frames)
+#include "Engine/Animation.h"
+#include "Engine/HardwareManager.h"
+
+Animation::Animation(float intervalBetweenFrames, int framesCount, bool haveLoop, std::vector<void*> frames, std::function<void(void* newSprite)> setSpriteTo)
 {
-	this->framesInterval = framesInterval;
+	this->intervalBetweenFrames = intervalBetweenFrames;
 	this->framesCount = framesCount;
-	this->setSpriteAddressTo = setSpriteAddressTo;
 	this->haveLoop = haveLoop;
 	this->frames = frames;
-	this->finishedExecution = false;
+	this->setSpriteTo = setSpriteTo;
+	this->haveFinishedExecution = false;
 }
 
 void Animation::Start()
 {
 	currentFrame = 0;
-	finishedExecution = false;
+	haveFinishedExecution = false;
 }
 
 void Animation::Update()
 {
-	if (!IsTimeToChangeFrame() || (!haveLoop && finishedExecution))
+	if (!IsTimeToChangeFrame() || (!haveLoop && haveFinishedExecution))
 		return;
 
-	ChangeFrame();
-	ChangeSpriteOnEntity();
+	ChangeCurrentFrame();
+	setSpriteTo(frames[currentFrame]);
 }
 bool Animation::IsTimeToChangeFrame()
 {
-	float currentTime = HardwareManager::GetCurrentMilliseconds() / 1000;
-	return currentTime - lastFrameChangeTime >= framesInterval;
+	float currentTime = HardwareManager::GetCurrentSeconds();
+	return currentTime - lastFrameChangeTime >= intervalBetweenFrames;
 }
 
-void Animation::ChangeFrame()
+void Animation::ChangeCurrentFrame()
 {
+	lastFrameChangeTime = HardwareManager::GetCurrentSeconds();
+
 	currentFrame++;
-	lastFrameChangeTime = HardwareManager::GetCurrentMilliseconds() / 1000;
-	if (currentFrame < framesCount)
-		return;
-	ResetCurrentFrame();
+	if (currentFrame >= framesCount) ResetCurrentFrame();
 }
 void Animation::ResetCurrentFrame()
 {
 	if (haveLoop)
-	{
 		currentFrame = 0;
-		return;
-	}
-	FinishAnimation();
+	else
+		FinishAnimation();
 }
 void Animation::FinishAnimation()
 {
-	finishedExecution = true;
+	haveFinishedExecution = true;
 	currentFrame = framesCount - 1;
 }
 
-void Animation::ChangeSpriteOnEntity()
+bool Animation::HaveFinishedExecution()
 {
-	setSpriteAddressTo(frames[currentFrame]);
-}
-
-bool Animation::FinishedExecution()
-{
-	return finishedExecution;
+	return haveFinishedExecution;
 }
