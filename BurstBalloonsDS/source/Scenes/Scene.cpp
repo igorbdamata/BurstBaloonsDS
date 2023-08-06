@@ -3,7 +3,7 @@
 #include "font.h"
 #include "Engine/SoundManager.h"
 
-Scene::Scene(OamEngine* mainEngine, OamEngine* subEngine)
+Scene::Scene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine)
 {
 	this->mainEngine = mainEngine;
 	this->subEngine = subEngine;
@@ -13,7 +13,7 @@ void Scene::Load()
 {
 	mainEngine->SetBackgroundTo(mainBackgroundTiles, mainBackgroundTilesLen);
 	subEngine->SetBackgroundTo(subBackgroundTiles, subBackgroundTilesLen);
-	subEngine->SetTextFont((void*) fontTiles, (void*) fontPal, fontPalLen);
+	subEngine->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
 	SoundManager::StopAllSFXs();
 }
 
@@ -23,13 +23,13 @@ void Scene::InputLoop()
 }
 void Scene::GameLoop() {}
 
-void Scene::SetMainBackgroundTo(const unsigned int* backgroundTiles, uint32 backgroundTilesLen)
+void Scene::SetMainBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen)
 {
-	mainBackgroundTiles = backgroundTiles;
+	mainBackgroundTiles = (void*)backgroundTiles;
 	mainBackgroundTilesLen = backgroundTilesLen;
 }
-void Scene::SetSubBackgroundTo(const unsigned int* backgroundTiles, uint32 backgroundTilesLen)
+void Scene::SetSubBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen)
 {
-	subBackgroundTiles = backgroundTiles;
+	subBackgroundTiles = (void*)backgroundTiles;
 	subBackgroundTilesLen = backgroundTilesLen;
 }

@@ -9,7 +9,7 @@
 class TitleScreenScene : public Scene
 {
 public:
-	TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager);
+	TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager);
 
 	void Load() override;
 

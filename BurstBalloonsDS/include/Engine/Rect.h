@@ -1,6 +1,6 @@
 #pragma once
 #if !defined(RECT_H)
-#define RECT_H 1
+#define RECT_H true
 #include"Vector2.h"
 struct Rect
 {
@@ -19,7 +19,7 @@ public:
 
 	bool IsBelow(Rect* rect);
 	bool IsAbove(Rect* rect);
-	bool IsOnTheRigth(Rect* rect);
+	bool IsOnTheRight(Rect* rect);
 	bool IsOnTheLeft(Rect* rect);
 
 	bool IsOutOfScreen();
@@ -31,7 +31,5 @@ private:
 	Vector2* offset;
 	float width;
 	float height;
-
-	bool InRange(float lowestValue, float highestValue, float valueToCheck);
 };
 #endif

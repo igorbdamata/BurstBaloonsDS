@@ -43,6 +43,9 @@
     <Filter Include="Arquivos de Origem\Data">
       <UniqueIdentifier>{77005431-1cf5-4570-b1af-1baee2d16205}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Origem\Engine\Rect">
+      <UniqueIdentifier>{400cc261-9e09-44fa-b553-a58319d8e40a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Balloon.cpp">
@@ -75,7 +78,7 @@
     <ClCompile Include="source\Engine\Entity.cpp">
       <Filter>Arquivos de Origem\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="source\Engine\OamEngine.cpp">
+    <ClCompile Include="source\Engine\GraphicsHandler.cpp">
       <Filter>Arquivos de Origem\Engine</Filter>
     </ClCompile>
     <ClCompile Include="source\Engine\SoundManager.cpp">
@@ -120,14 +123,20 @@
     <ClCompile Include="source\Data\PressAnyKeyTextData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
-    <ClCompile Include="source\Engine\Rect.cpp">
-      <Filter>Arquivos de Origem\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="source\Data\BalloonData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
     <ClCompile Include="source\Engine\MathDS.cpp">
       <Filter>Arquivos de Origem\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Rect\RectEdges.cpp">
+      <Filter>Arquivos de Origem\Engine\Rect</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Rect\RectFunctions.cpp">
+      <Filter>Arquivos de Origem\Engine\Rect</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Data\BackgroundSettings.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +152,7 @@
     <ClInclude Include="include\Engine\HardwareManager.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="include\Engine\OamEngine.h">
+    <ClInclude Include="include\Engine\GraphicsHandler.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\Engine\SoundManager.h">
@@ -202,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="include\Engine\MathDS.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data\BackgroundSettings.h">
+      <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

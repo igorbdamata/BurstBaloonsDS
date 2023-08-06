@@ -21,7 +21,7 @@ include $(DEVKITARM)/ds_rules
 #---------------------------------------------------------------------------------
 TARGET   := $(shell basename $(CURDIR))
 BUILD    := build
-SOURCES  := source source/Data source/Engine source/Engine/Vector2 source/Engine/HardwareManager source/Scenes source/CodedAnimations
+SOURCES  := source source/Data source/Engine source/Engine/Vector2 source/Engine/Rect source/Engine/HardwareManager source/Scenes source/CodedAnimations
 INCLUDES := include include/Data include/Engine source/Scenes include/CodedAnimations 
 DATA     :=
 GRAPHICS := gfx/sprites gfx/backgrounds gfx/backgrounds/TitleScreenBackgroundAnimation gfx/texts gfx/texts/TextPassRecord gfx/texts/PressAnyKeyText gfx/texts/GameOverText gfx/texts/BurstBalloonsText gfx/texts/BurstBalloonsTextT

@@ -1,6 +1,6 @@
 #include<nds/arm9/sprite.h>
 
-#include "Engine/OamEngine.h"
+#include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"
 
 #include "GameManager.h"
@@ -18,23 +18,21 @@
 #include"PressAnyKeyText2.h"
 #include"PressAnyKeyText3.h"
 
-void InitPressAnyKeyText(OamEngine* engine)
+void InitPressAnyKeyText(GraphicsHandler* engine)
 {
 	engine->AddSprite("PressAnyKeyText0", PressAnyKeyText0Tiles, SpriteSize_64x64);
 	engine->AddSprite("PressAnyKeyText1", PressAnyKeyText1Tiles, SpriteSize_64x64);
 	engine->AddSprite("PressAnyKeyText2", PressAnyKeyText2Tiles, SpriteSize_64x64);
 	engine->AddSprite("PressAnyKeyText3", PressAnyKeyText3Tiles, SpriteSize_64x64);
-	engine->AddPallete(PressAnyKeyText0Pal, "PressAnyKeyText");
+	engine->AddPalette(PressAnyKeyText0Pal, "PressAnyKeyText");
 }
 
 int main()
 {
 	HardwareManager::InitAndSetEverything();
 
-	OamEngine* main = new OamEngine(Screen::UPPER);
-	OamEngine* sub = new OamEngine(Screen::BOTTOM);
-
-	main->SetPrintConsole();
+	GraphicsHandler* main = new GraphicsHandler(Screen::TOP);
+	GraphicsHandler* sub = new GraphicsHandler(Screen::BOTTOM);
 
 	InitPressAnyKeyText(sub);
 
@@ -61,8 +59,8 @@ int main()
 		sceneManager->GetCurrentScene()->InputLoop();
 		sceneManager->GetCurrentScene()->GameLoop();
 
-		main->UpdateOam();
-		sub->UpdateOam();
+		main->Update();
+		sub->Update();
 
 		HardwareManager::WaitForNextFrame();
 	}

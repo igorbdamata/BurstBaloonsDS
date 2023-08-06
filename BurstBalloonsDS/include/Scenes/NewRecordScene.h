@@ -6,7 +6,7 @@
 class NewRecordScene: public Scene
 {
 public:
-	NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager);
+	NewRecordScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager);
 
 	void Load() override;
 

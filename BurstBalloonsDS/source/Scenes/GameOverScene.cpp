@@ -17,13 +17,13 @@
 #include "BackgroundGameOver.h"
 #include<math.h>
 
-GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
+GameOverScene::GameOverScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	mainEngine->AddSprite("GameOverText0", GameOverText0Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("GameOverText1", GameOverText1Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("GameOverText2", GameOverText2Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("GameOverText3", GameOverText3Tiles, SpriteSize_64x64);
-	mainEngine->AddPallete(GameOverText0Pal, "GameOverText");
+	mainEngine->AddPalette(GameOverText0Pal, "GameOverText");
 
 	float textPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
 	float textPositionY = SCREEN_HEIGHT / 2;
@@ -36,7 +36,7 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
 		subEngine->InitEntity(this->pressAnyKeyText[i]);
-		this->pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPallete("PressAnyKeyText"));
+		this->pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPalette("PressAnyKeyText"));
 	}
 	this->pressAnyKeyText[0]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText0"));
 	this->pressAnyKeyText[1]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText1"));
@@ -52,7 +52,7 @@ GameOverScene::GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneM
 	{
 		this->gameOverText[i] = gameOverText[i];
 		mainEngine->InitEntity(this->gameOverText[i]);
-		this->gameOverText[i]->SetPaletteTo(mainEngine->GetPallete("GameOverText"));
+		this->gameOverText[i]->SetPaletteTo(mainEngine->GetPalette("GameOverText"));
 	}
 	this->gameOverText[0]->SetSpriteTo(mainEngine->GetSprite("GameOverText0"));
 	this->gameOverText[1]->SetSpriteTo(mainEngine->GetSprite("GameOverText1"));

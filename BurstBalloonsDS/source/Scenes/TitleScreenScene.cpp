@@ -16,7 +16,7 @@
 #include "BackgroundAnimation2.h"
 #include "Background.h"
 
-TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
+TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	this->sceneManager = sceneManager;
 
@@ -35,7 +35,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
 	{
 		subEngine->InitEntity(pressAnyKeyText[i]);
-		pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPallete(PressAnyKeyTextData::GetName().c_str()));
+		pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPalette(PressAnyKeyTextData::GetName().c_str()));
 		pressAnyKeyText[i]->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 	}
 	#pragma endregion
@@ -48,7 +48,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 	};
 
 
-	mainEngine->AddPallete(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName().c_str());
+	mainEngine->AddPalette(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName().c_str());
 
 	for (int i = 0; i < BurstBalloonsTextData::TILES_LENGTH; i++)
 	{
@@ -57,7 +57,7 @@ TitleScreenScene::TitleScreenScene(OamEngine* mainEngine, OamEngine* subEngine, 
 		mainEngine->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
 		mainEngine->InitEntity(burstBalloonsText[i]);
 
-		burstBalloonsText[i]->SetPaletteTo(mainEngine->GetPallete(BurstBalloonsTextData::GetName().c_str()));
+		burstBalloonsText[i]->SetPaletteTo(mainEngine->GetPalette(BurstBalloonsTextData::GetName().c_str()));
 		burstBalloonsText[i]->SetSpriteTo(mainEngine->GetSprite(spriteName));
 	}
 	#pragma endregion

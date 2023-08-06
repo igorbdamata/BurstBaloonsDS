@@ -22,13 +22,13 @@
 #include<soundbank.h>
 #include<math.h>
 
-NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
+NewRecordScene::NewRecordScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	mainEngine->AddSprite("TextPassRecord0", TextPassRecord0Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("TextPassRecord1", TextPassRecord1Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("TextPassRecord2", TextPassRecord2Tiles, SpriteSize_64x64);
 	mainEngine->AddSprite("TextPassRecord3", TextPassRecord3Tiles, SpriteSize_64x64);
-	mainEngine->AddPallete(PressAnyKeyText0Pal, "PressAnyKeyText");
+	mainEngine->AddPalette(PressAnyKeyText0Pal, "PressAnyKeyText");
 
 	subEngine->AddSprite("PressAnyKeyText0", PressAnyKeyText0Tiles, SpriteSize_64x64);
 	subEngine->AddSprite("PressAnyKeyText1", PressAnyKeyText1Tiles, SpriteSize_64x64);
@@ -46,7 +46,7 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
 		subEngine->InitEntity(this->pressAnyKeyText[i]);
-		this->pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPallete("PressAnyKeyText"));
+		this->pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPalette("PressAnyKeyText"));
 	}
 	this->pressAnyKeyText[0]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText0"));
 	this->pressAnyKeyText[1]->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText1"));
@@ -62,7 +62,7 @@ NewRecordScene::NewRecordScene(OamEngine* mainEngine, OamEngine* subEngine, Scen
 	{
 		this->passRecordText[i] = passRecordText[i];
 		mainEngine->InitEntity(this->passRecordText[i]);
-		this->passRecordText[i]->SetPaletteTo(mainEngine->GetPallete("PressAnyKeyText"));
+		this->passRecordText[i]->SetPaletteTo(mainEngine->GetPalette("PressAnyKeyText"));
 	}
 	this->passRecordText[0]->SetSpriteTo(mainEngine->GetSprite("TextPassRecord0"));
 	this->passRecordText[1]->SetSpriteTo(mainEngine->GetSprite("TextPassRecord1"));

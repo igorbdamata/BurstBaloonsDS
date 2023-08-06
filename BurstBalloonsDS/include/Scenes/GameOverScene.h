@@ -6,7 +6,7 @@
 class GameOverScene: public Scene
 {
 public:
-	GameOverScene(OamEngine* mainEngine, OamEngine* subEngine, SceneManager* sceneManager);
+	GameOverScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager);
 
 	void Load() override;
 

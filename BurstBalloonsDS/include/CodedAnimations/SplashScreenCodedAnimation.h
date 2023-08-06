@@ -1,4 +1,5 @@
 #pragma once
+#include "../Engine/Entity.h"
 #include "../Engine/CodedAnimation.h"
 #include "../Engine/Vector2.h"
 #include "../Engine/Animation.h"

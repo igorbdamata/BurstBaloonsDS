@@ -2,6 +2,7 @@
 #include "../Engine/CodedAnimation.h"
 #include "../Engine/Vector2.h"
 #include "../Engine/Animation.h"
+#include "../Engine/Entity.h"
 
 class TitleScreenIdleCodedAnimation : public CodedAnimation
 {

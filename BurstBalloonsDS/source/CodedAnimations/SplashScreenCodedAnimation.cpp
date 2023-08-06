@@ -2,6 +2,7 @@
 #include "Engine/HardwareManager.h"
 #include "Background1.h"
 #include "Engine/Vector2.h"
+#include "Engine/Entity.h"
 #include<nds/arm9/background.h>
 #include "BackgroundAnimation2.h";
 #include "BackgroundAnimation3.h";

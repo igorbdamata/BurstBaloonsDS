@@ -5,7 +5,6 @@
 #include<nds.h>
 #include<vector>
 #include<functional>
-#include "Entity.h"
 
 class Animation
 {

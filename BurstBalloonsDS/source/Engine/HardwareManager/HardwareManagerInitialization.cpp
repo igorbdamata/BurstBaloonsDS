@@ -1,16 +1,20 @@
 #include "Engine/HardwareManager.h"
 #include "Engine/SoundManager.h"
+#include "Data/BackgroundSettings.h"
 #include <nds.h>
 #include <nds/arm9/sprite.h>
 #include <maxmod9.h>
 #include <soundbank.h>
 #include <soundbank_bin.h>
 #include<nds/arm9/background.h>
+#include<nds/arm9/console.h>
 
 int HardwareManager::background2SubID = -1;
 int HardwareManager::background3SubID = -1;
 int HardwareManager::background2MainID = -1;
 int HardwareManager::background3MainID = -1;
+
+PrintConsole* HardwareManager::printConsole = NULL;
 
 void HardwareManager::InitAndSetEverything()
 {
@@ -18,6 +22,7 @@ void HardwareManager::InitAndSetEverything()
 	HardwareManager::InitVideo();
 	HardwareManager::InitAudio();
 	HardwareManager::SetBackgrounds();
+	HardwareManager::SetPrintConsole();
 	HardwareManager::StartMillisecondsTimer();
 }
 
@@ -52,6 +57,14 @@ void HardwareManager::SetBackgrounds()
 	HardwareManager::background3MainID = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 1, 0);
 	HardwareManager::background2MainID = bgInit(2, BgType_Bmp16, BgSize_B16_128x128, 8, 0);
 	HardwareManager::background3SubID = bgInitSub(3, BgType_Bmp16, BgSize_B16_256x256, 0, 0);
+}
+void HardwareManager::SetPrintConsole()
+{
+	delete printConsole;
+	printConsole = consoleInit(NULL, BackgroundSettings::FONT_LAYER,
+							   BgType_Text4bpp, BgSize_T_256x256,
+							   BackgroundSettings::FONT_MAP_BASE, 0,
+							   true, false);
 }
 
 void HardwareManager::StartMillisecondsTimer()

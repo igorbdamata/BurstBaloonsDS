@@ -8,7 +8,7 @@
 class GameplayScene : public Scene
 {
 public:
-	GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameManager* gameManager);
+	GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, GameManager* gameManager);
 
 	void Load() override;
 

@@ -1,26 +1,26 @@
 #pragma once
 #include<nds.h>
-#include"../Engine/OamEngine.h"
+#include"../Engine/GraphicsHandler.h"
 
 class Scene
 {
 public:
-	Scene(OamEngine* mainEngine, OamEngine* subEngine);
+	Scene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine);
 
 	virtual void Load();
 
 	virtual void InputLoop();
 	virtual void GameLoop();
-	void SetMainBackgroundTo(const unsigned int* backgroundTiles, uint32 backgroundTilesLen);
-	void SetSubBackgroundTo(const unsigned int* backgroundTiles, uint32 backgroundTilesLen);
+	void SetMainBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen);
+	void SetSubBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen);
 
 protected:
-	OamEngine* mainEngine;
-	OamEngine* subEngine;
+	GraphicsHandler* mainEngine;
+	GraphicsHandler* subEngine;
 private:
-	const unsigned int* mainBackgroundTiles;
+	void* mainBackgroundTiles;
 	uint32 mainBackgroundTilesLen;
 
-	const unsigned int* subBackgroundTiles;
+	void* subBackgroundTiles;
 	uint32 subBackgroundTilesLen;
 };

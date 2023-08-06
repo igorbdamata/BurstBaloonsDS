@@ -10,14 +10,14 @@
 #include "Background1.h"
 #include<soundbank.h>
 
-GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameManager* gameManager) : Scene(mainEngine, subEngine)
+GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, GameManager* gameManager) : Scene(mainEngine, subEngine)
 {
 	this->gameManager = gameManager;
 	std::vector<void*> balloonFlyFrames;
 	std::vector<void*> balloonBurstFrames;
 	int balloonSpriteSheetWidth = 2048 / 4;
 	mainEngine->AddSprite("balloonUI", BalloonUITiles, SpriteSize_32x32);
-	subEngine->AddPallete(BalloonSpritePal, "balloon");
+	subEngine->AddPalette(BalloonSpritePal, "balloon");
 
 	subEngine->AddSprite("balloonFly0", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 0, SpriteSize_64x64);
 	subEngine->AddSprite("balloonFly1", BalloonSpriteTiles + (balloonSpriteSheetWidth) * 1, SpriteSize_64x64);
@@ -66,7 +66,7 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 		this->balloons[i] = balloons[i];
 
 		subEngine->InitEntity(balloons[i]);
-		balloons[i]->SetPaletteTo(subEngine->GetPallete("balloon"));
+		balloons[i]->SetPaletteTo(subEngine->GetPalette("balloon"));
 
 		balloons[i]->AddAnimation("fly", flyAnimations[i]);
 		balloons[i]->AddAnimation("burst", burstAnimations[i]);
@@ -75,14 +75,14 @@ GameplayScene::GameplayScene(OamEngine* mainEngine, OamEngine* subEngine, GameMa
 	Entity* balloonsUI[] = { new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 0 + UI_BALLOON_ALIGNMENT, 0),32,32, new Vector2(0,0), SpriteSize_32x32),
 							 new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 1 + UI_BALLOON_ALIGNMENT, 0),32,32, new Vector2(0,0), SpriteSize_32x32),
 							 new Entity(new Vector2(DISTANCE_BETWEEN_UI_BALLOONS * 2 + UI_BALLOON_ALIGNMENT, 0),32,32, new Vector2(0,0), SpriteSize_32x32) };
-	mainEngine->AddPallete(BalloonUIPal, "balloonUI");
+	mainEngine->AddPalette(BalloonUIPal, "balloonUI");
 	for (int i = 0; i < 3; i++)
 	{
 
 		this->balloonsUI[i] = balloonsUI[i];
 		mainEngine->InitEntity(balloonsUI[i]);
 		balloonsUI[i]->SetSpriteTo(mainEngine->GetSprite("balloonUI"));
-		balloonsUI[i]->SetPaletteTo(mainEngine->GetPallete("balloonUI"));
+		balloonsUI[i]->SetPaletteTo(mainEngine->GetPalette("balloonUI"));
 	}
 
 	SetMainBackgroundTo(Background1Bitmap, Background1BitmapLen);
