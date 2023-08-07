@@ -3,7 +3,6 @@
 #define HARDWARE_MANAGER_H true
 
 #include <nds/arm9/console.h>
-#include "Rect.h"
 
 class HardwareManager
 {
@@ -28,7 +27,6 @@ public:
 	static int GetMainBackground3ID();
 	static int GetMainBackground2ID();
 
-	static Rect* screenRect;
 	static PrintConsole *printConsole;
 
 private:

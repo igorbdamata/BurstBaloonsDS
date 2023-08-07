@@ -12,7 +12,6 @@ int HardwareManager::subBackground3ID = -1;
 int HardwareManager::mainBackground2ID = -1;
 int HardwareManager::mainBackground3ID = -1;
 
-Rect* HardwareManager::screenRect = new Rect(new Vector2(0, 0), new Vector2(0, 0), SCREEN_WIDTH, SCREEN_HEIGHT);
 PrintConsole* HardwareManager::printConsole = NULL;
 
 void HardwareManager::InitAndSetEverything()

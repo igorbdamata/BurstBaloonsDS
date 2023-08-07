@@ -6,11 +6,11 @@
 #include <soundbank.h>
 
 #include "Engine/SoundManager.h"
-#include "Engine/HardwareManager.h"
 #include "Engine/MathDS.h"
 
 #include "Data/BalloonData.h"
 #include "Data/GameplayData.h"
+#include "Data/HardwareData.h"
 
 Balloon::Balloon(GameManager* gameManager) : AnimatedEntity(BalloonData::SPRITE_SIZE, BalloonData::INITIAL_ANIMATION)
 {
@@ -55,7 +55,7 @@ void Balloon::Update()
 void Balloon::BalloonIdleUpdate()
 {
 	MoveUpwards();
-	if (spriteRect->IsAbove(HardwareManager::screenRect))
+	if (spriteRect->IsAbove(HardwareData::screenRect))
 		OnGetAboveScreen();
 }
 void Balloon::MoveUpwards()
@@ -72,7 +72,7 @@ void Balloon::OnGetAboveScreen()
 
 void Balloon::BalloonBurstedUpdate()
 {
-	if (spriteRect->IsBelow(HardwareManager::screenRect))
+	if (spriteRect->IsBelow(HardwareData::screenRect))
 		Respawn();
 }
 
@@ -91,9 +91,9 @@ void Balloon::Respawn()
 
 void Balloon::SetPositionToRandomPoint()
 {
-	float maxPositionX = HardwareManager::screenRect->GetRightEdge() - colliderRect->GetUnpositionedRightEdge();
+	float maxPositionX = HardwareData::screenRect->GetRightEdge() - colliderRect->GetUnpositionedRightEdge();
 	position->x = MathDS::RandomInRange(colliderRect->GetUnpositionedLeftEdge(), maxPositionX);
 
-	position->y = HardwareManager::screenRect->GetBottomEdge() + colliderRect->GetUnpositionedTopEdge();
+	position->y = HardwareData::screenRect->GetBottomEdge() + colliderRect->GetUnpositionedTopEdge();
 	position->y += MathDS::RandomInRange(0, BalloonData::POSITION_Y_VARIATION_ON_SPAWN);
 }

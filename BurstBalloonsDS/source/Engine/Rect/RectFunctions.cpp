@@ -1,6 +1,6 @@
 #include "Engine/Rect.h"
 #include "Engine/MathDS.h"
-#include "Engine/HardwareManager.h"
+#include "Data/HardwareData.h"
 
 Rect::Rect(Vector2* position, Vector2* offset, float width, float height)
 {
@@ -29,7 +29,7 @@ bool Rect::IsOnTheLeft(Rect* rect)
 
 bool Rect::IsOutOfScreen()
 {
-	return !IsCollidingWith(HardwareManager::screenRect);
+	return !IsCollidingWith(HardwareData::screenRect);
 }
 bool Rect::IsCollidingWith(Vector2* point)
 {
