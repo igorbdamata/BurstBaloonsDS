@@ -2,7 +2,7 @@
 #include <nds/arm9/sprite.h>
 
 #include "Engine/HardwareManager.h"
-#include "Data.h"
+#include "Data/HardwareData.h"
 
 int HardwareManager::timeLoops = 0;
 float HardwareManager::lastMilliseconds = 0;
@@ -13,10 +13,10 @@ float HardwareManager::GetCurrentSeconds()
 }
 float HardwareManager::GetCurrentMilliseconds()
 {
-	float currentMilliseconds = cpuGetTiming() / CPU_CLOCK / 1024;
+	float currentMilliseconds = cpuGetTiming() / HardwareData::CPU_CLOCK / 1024;
 	if (currentMilliseconds < lastMilliseconds) timeLoops++;
 	lastMilliseconds = currentMilliseconds;
-	return currentMilliseconds + MILLISECONDS_PER_TIMER_LOOP * timeLoops;
+	return currentMilliseconds + HardwareData::MILLISECONDS_PER_TIMER_LOOP * timeLoops;
 }
 
 void HardwareManager::WaitForNextFrame()

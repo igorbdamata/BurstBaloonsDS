@@ -9,8 +9,8 @@
 #include "Engine/HardwareManager.h"
 #include "Engine/MathDS.h"
 
-#include "Data.h"
 #include "Data/BalloonData.h"
+#include "Data/GameplayData.h"
 
 Balloon::Balloon(GameManager* gameManager) : AnimatedEntity(BalloonData::SPRITE_SIZE, BalloonData::INITIAL_ANIMATION)
 {
@@ -60,6 +60,7 @@ void Balloon::BalloonIdleUpdate()
 }
 void Balloon::MoveUpwards()
 {
+	const int UP_DIRECTION = -1;
 	float speed = gameManager->GetDifficultFactor() * BalloonData::SPEED_ON_MAX_DIFFICULT;
 	velocity->y = UP_DIRECTION * speed;
 }
@@ -77,7 +78,7 @@ void Balloon::BalloonBurstedUpdate()
 
 void Balloon::ApplyPhysics()
 {
-	velocity->y += GRAVITY_FORCE;
+	velocity->y += GameplayData::GRAVITY_FORCE;
 	*position += *velocity;
 }
 

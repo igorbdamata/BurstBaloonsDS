@@ -138,6 +138,12 @@
     <ClCompile Include="source\Data\BackgroundSettings.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
+    <ClCompile Include="source\Data\HardwareData.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Data\GameplayData.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -176,9 +182,6 @@
     <ClInclude Include="include\Scenes\SceneManager.h">
       <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="include\Data.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="include\Scenes\TitleScreenScene.h">
       <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClInclude>
@@ -213,6 +216,12 @@
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\Data\BackgroundSettings.h">
+      <Filter>Arquivos de Cabeçalho\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data\HardwareData.h">
+      <Filter>Arquivos de Cabeçalho\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Data\GameplayData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
   </ItemGroup>

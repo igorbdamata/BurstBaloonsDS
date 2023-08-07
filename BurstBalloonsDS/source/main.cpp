@@ -11,8 +11,6 @@
 #include "Scenes/NewRecordScene.h"
 #include "Scenes/GameOverScene.h"
 
-#include"Data.h"
-
 #include"PressAnyKeyText0.h"
 #include"PressAnyKeyText1.h"
 #include"PressAnyKeyText2.h"
@@ -38,7 +36,7 @@ int main()
 
 	SceneManager* sceneManager = new SceneManager();
 
-	GameManager* gameManager = new GameManager(TOTAL_LIFE, SECONDS_TO_REACH_MAX_SPEED, sceneManager);
+	GameManager* gameManager = new GameManager(sceneManager);
 
 	TitleScreenScene* titleScreenScene = new TitleScreenScene(main, sub, sceneManager);
 	GameplayScene* gameplayScene = new GameplayScene(main, sub, gameManager);

@@ -6,7 +6,7 @@
 #include "Engine/HardwareManager.h"
 
 #include "Data/BackgroundSettings.h"
-#include "Data.h"
+#include "Data/HardwareData.h"
 
 GraphicsHandler::GraphicsHandler(Screen screen)
 {
@@ -65,7 +65,7 @@ void GraphicsHandler::AddPalette(const void* palette, std::string paletteName)
 {
 	int paletteIndex = GetAvailablePaletteIndex();
 	palettes.insert(std::make_pair(paletteName, paletteIndex));
-	dmaCopy(palette, palettesAddress + COLORS_PER_PALETTE * paletteIndex, COLORS_PER_PALETTE);
+	dmaCopy(palette, palettesAddress + HardwareData::COLORS_PER_PALETTE * paletteIndex, HardwareData::COLORS_PER_PALETTE);
 }
 int GraphicsHandler::GetPalette(std::string paletteName)
 {

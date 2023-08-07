@@ -4,7 +4,7 @@
 class GameManager
 {
 public:
-	GameManager(int totalLife, float secondsToReachMaxDifficult, SceneManager* sceneManager);
+	GameManager(SceneManager* sceneManager);
 
 	void AddToScore(int value);
 
@@ -21,11 +21,9 @@ private:
 	int score;
 	int highScore;
 
-	int totalLife;
 	int currentLife;
 
 	float gameplayStartSeconds;
-	float secondsToReachMaxDifficult;
 
 	SceneManager* sceneManager;
 

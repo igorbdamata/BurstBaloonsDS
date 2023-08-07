@@ -108,6 +108,8 @@
     <ClCompile Include="source\Data\BackgroundSettings.cpp" />
     <ClCompile Include="source\Data\BalloonData.cpp" />
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp" />
+    <ClCompile Include="source\Data\GameplayData.cpp" />
+    <ClCompile Include="source\Data\HardwareData.cpp" />
     <ClCompile Include="source\Data\PressAnyKeyTextData.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
     <ClCompile Include="source\Engine\Animation.cpp" />
@@ -136,10 +138,11 @@
     <ClInclude Include="include\Balloon.h" />
     <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h" />
     <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h" />
-    <ClInclude Include="include\Data.h" />
     <ClInclude Include="include\Data\BackgroundSettings.h" />
     <ClInclude Include="include\Data\BalloonData.h" />
     <ClInclude Include="include\Data\BurstBalloonsTextData.h" />
+    <ClInclude Include="include\Data\GameplayData.h" />
+    <ClInclude Include="include\Data\HardwareData.h" />
     <ClInclude Include="include\Data\PressAnyKeyTextData.h" />
     <ClInclude Include="include\Engine\AnimatedEntity.h" />
     <ClInclude Include="include\Engine\Animation.h" />

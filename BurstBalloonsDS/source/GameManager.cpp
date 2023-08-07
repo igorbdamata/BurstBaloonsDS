@@ -2,14 +2,13 @@
 #include <math.h>
 
 #include "GameManager.h"
+#include "Data/GameplayData.h"
 #include "Engine/SoundManager.h"
 #include "Engine/HardwareManager.h"
 
-GameManager::GameManager(int totalLife, float secondsToReachMaxDifficult, SceneManager* sceneManager)
+GameManager::GameManager( SceneManager* sceneManager)
 {
-	this->totalLife = totalLife;
-	currentLife = totalLife;
-	this->secondsToReachMaxDifficult = secondsToReachMaxDifficult;
+	currentLife = GameplayData::TOTAL_LIFE;
 	this->sceneManager = sceneManager;
 	highScore = 0;
 	score = 0;
@@ -56,7 +55,7 @@ void GameManager::OnRunOutOfLives()
 float GameManager::GetDifficultFactor()
 {
 	float secondsSinceGameplayStart = HardwareManager::GetCurrentSeconds() - gameplayStartSeconds;
-	float timePercent = secondsSinceGameplayStart / secondsToReachMaxDifficult;
+	float timePercent = secondsSinceGameplayStart / GameplayData::SECONDS_TO_REACH_MAX_SPEED;
 
 	if (timePercent >= 1) return 1;
 
@@ -67,7 +66,7 @@ float GameManager::GetDifficultFactor()
 
 void GameManager::ResetGameplayData()
 {
-	currentLife = totalLife;
+	currentLife = GameplayData::TOTAL_LIFE;
 	score = 0;
 	gameplayStartSeconds = HardwareManager::GetCurrentSeconds();
 }

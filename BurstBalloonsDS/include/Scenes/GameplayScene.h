@@ -3,7 +3,7 @@
 #include "SceneManager.h"
 #include "../Balloon.h"
 #include "../GameManager.h"
-#include "../Data.h"
+#include "../Data/GameplayData.h"
 
 class GameplayScene : public Scene
 {
@@ -15,7 +15,7 @@ public:
 	void InputLoop() override;
 	void GameLoop() override;
 private:
-	Balloon* balloons[BALLOONS_COUNT];
+	Balloon* balloons[GameplayData::BALLOONS_COUNT];
 	Entity* balloonsUI[3];
 	GameManager* gameManager;
 
