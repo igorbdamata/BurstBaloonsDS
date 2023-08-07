@@ -1,6 +1,4 @@
 #include "Engine/Rect.h"
-#include "Engine/MathDS.h"
-#include "Engine/HardwareManager.h"
 
 float Rect::GetLeftEdge()
 {

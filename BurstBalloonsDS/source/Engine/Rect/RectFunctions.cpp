@@ -1,5 +1,5 @@
 #include "Engine/Rect.h"
-#include "Engine/MathDS.h"
+#include "Engine/Math.h"
 #include "Data/HardwareData.h"
 
 Rect::Rect(Vector2* position, Vector2* offset, float width, float height)
@@ -33,8 +33,8 @@ bool Rect::IsOutOfScreen()
 }
 bool Rect::IsCollidingWith(Vector2* point)
 {
-	bool isBetweenHorizontalEdges = MathDS::InRange(GetLeftEdge(), GetRightEdge(), point->x);
-	bool isBetweenVerticalEdges = MathDS::InRange(GetTopEdge(), GetBottomEdge(), point->y);
+	bool isBetweenHorizontalEdges = Math::InRange(GetLeftEdge(), GetRightEdge(), point->x);
+	bool isBetweenVerticalEdges = Math::InRange(GetTopEdge(), GetBottomEdge(), point->y);
 	return  isBetweenHorizontalEdges && isBetweenVerticalEdges;
 }
 

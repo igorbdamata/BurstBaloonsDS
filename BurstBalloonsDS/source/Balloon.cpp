@@ -6,7 +6,7 @@
 #include <soundbank.h>
 
 #include "Engine/SoundManager.h"
-#include "Engine/MathDS.h"
+#include "Engine/Math.h"
 
 #include "Data/BalloonData.h"
 #include "Data/GameplayData.h"
@@ -92,8 +92,8 @@ void Balloon::Respawn()
 void Balloon::SetPositionToRandomPoint()
 {
 	float maxPositionX = HardwareData::screenRect->GetRightEdge() - colliderRect->GetUnpositionedRightEdge();
-	position->x = MathDS::RandomInRange(colliderRect->GetUnpositionedLeftEdge(), maxPositionX);
+	position->x = Math::RandomInRange(colliderRect->GetUnpositionedLeftEdge(), maxPositionX);
 
 	position->y = HardwareData::screenRect->GetBottomEdge() + colliderRect->GetUnpositionedTopEdge();
-	position->y += MathDS::RandomInRange(0, BalloonData::POSITION_Y_VARIATION_ON_SPAWN);
+	position->y += Math::RandomInRange(0, BalloonData::POSITION_Y_VARIATION_ON_SPAWN);
 }

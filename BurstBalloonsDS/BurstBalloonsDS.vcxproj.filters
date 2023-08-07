@@ -126,7 +126,7 @@
     <ClCompile Include="source\Data\BalloonData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
-    <ClCompile Include="source\Engine\MathDS.cpp">
+    <ClCompile Include="source\Engine\Math.cpp">
       <Filter>Arquivos de Origem\Engine</Filter>
     </ClCompile>
     <ClCompile Include="source\Engine\Rect\RectEdges.cpp">
@@ -212,7 +212,7 @@
     <ClInclude Include="include\Engine\Rect.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="include\Engine\MathDS.h">
+    <ClInclude Include="include\Engine\Math.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\Data\BackgroundSettings.h">
