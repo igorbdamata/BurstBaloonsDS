@@ -1,24 +1,22 @@
-#include "Engine/HardwareManager.h"
 #include <nds.h>
+#include <nds/arm9/sprite.h>
 
-const double CPU_CLOCK = 33.514;
-const int MILLISECONDS_PER_CYCLE = 125000;
-int timeCycles = 0;
-float lastMilliseconds = 0;
+#include "Engine/HardwareManager.h"
+#include "Data.h"
 
-Rect* HardwareManager::screenRect = new Rect(new Vector2(0, 0), new Vector2(0, 0), SCREEN_WIDTH, SCREEN_HEIGHT);
+int HardwareManager::timeLoops = 0;
+float HardwareManager::lastMilliseconds = 0;
 
 float HardwareManager::GetCurrentSeconds()
 {
 	return HardwareManager::GetCurrentMilliseconds() / 1000;
 }
-
 float HardwareManager::GetCurrentMilliseconds()
 {
 	float currentMilliseconds = cpuGetTiming() / CPU_CLOCK / 1024;
-	if (currentMilliseconds < lastMilliseconds) timeCycles++;
+	if (currentMilliseconds < lastMilliseconds) timeLoops++;
 	lastMilliseconds = currentMilliseconds;
-	return currentMilliseconds + MILLISECONDS_PER_CYCLE * timeCycles;
+	return currentMilliseconds + MILLISECONDS_PER_TIMER_LOOP * timeLoops;
 }
 
 void HardwareManager::WaitForNextFrame()
@@ -31,4 +29,17 @@ void HardwareManager::ClearScreens()
 	oamClear(&oamSub, 0, 0);
 	oamClear(&oamMain, 0, 0);
 	consoleClear();
+}
+
+int HardwareManager::GetSubBackground3ID()
+{
+	return subBackground3ID;
+}
+int HardwareManager::GetMainBackground3ID()
+{
+	return mainBackground3ID;
+}
+int HardwareManager::GetMainBackground2ID()
+{
+	return mainBackground2ID;
 }

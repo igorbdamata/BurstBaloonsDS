@@ -1,32 +1,33 @@
-#include "Engine/HardwareManager.h"
-#include "Engine/SoundManager.h"
-#include "Data/BackgroundSettings.h"
 #include <nds.h>
 #include <nds/arm9/sprite.h>
 #include <maxmod9.h>
-#include <soundbank.h>
 #include <soundbank_bin.h>
-#include<nds/arm9/background.h>
-#include<nds/arm9/console.h>
+#include <nds/arm9/background.h>
 
-int HardwareManager::background2SubID = -1;
-int HardwareManager::background3SubID = -1;
-int HardwareManager::background2MainID = -1;
-int HardwareManager::background3MainID = -1;
+#include "Engine/HardwareManager.h"
+#include "Engine/SoundManager.h"
+#include "Data/BackgroundSettings.h"
 
+int HardwareManager::subBackground3ID = -1;
+int HardwareManager::mainBackground2ID = -1;
+int HardwareManager::mainBackground3ID = -1;
+
+Rect* HardwareManager::screenRect = new Rect(new Vector2(0, 0), new Vector2(0, 0), SCREEN_WIDTH, SCREEN_HEIGHT);
 PrintConsole* HardwareManager::printConsole = NULL;
 
 void HardwareManager::InitAndSetEverything()
 {
-	HardwareManager::PowerOnConsole();
-	HardwareManager::InitVideo();
+	HardwareManager::PowerConsoleOn();
 	HardwareManager::InitAudio();
+	HardwareManager::InitVideo();
+
 	HardwareManager::SetBackgrounds();
 	HardwareManager::SetPrintConsole();
+
 	HardwareManager::StartMillisecondsTimer();
 }
 
-void HardwareManager::PowerOnConsole()
+void HardwareManager::PowerConsoleOn()
 {
 	powerOn(POWER_ALL_2D);
 }
@@ -48,23 +49,31 @@ void HardwareManager::InitVideo()
 }
 void HardwareManager::SetVRAM()
 {
-	vramSetMainBanks(VRAM_A_MAIN_BG, VRAM_B_MAIN_BG, VRAM_C_SUB_BG, VRAM_D_SUB_SPRITE);
+	vramSetBankA(VRAM_A_MAIN_BG);
+	vramSetBankB(VRAM_B_MAIN_BG);
+	vramSetBankC(VRAM_C_SUB_BG);
+	vramSetBankD(VRAM_D_SUB_SPRITE);
 	vramSetBankE(VRAM_E_MAIN_SPRITE);
 }
 
 void HardwareManager::SetBackgrounds()
 {
-	HardwareManager::background3MainID = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 1, 0);
-	HardwareManager::background2MainID = bgInit(2, BgType_Bmp16, BgSize_B16_128x128, 8, 0);
-	HardwareManager::background3SubID = bgInitSub(3, BgType_Bmp16, BgSize_B16_256x256, 0, 0);
+	HardwareManager::mainBackground3ID = bgInit(3, BgType_Bmp16, BgSize_B16_256x256,
+												BackgroundSettings::BACKGROUND3_MAIN_MAP_BASE, 0);
+	HardwareManager::mainBackground2ID = bgInit(2, BgType_Bmp16, BgSize_B16_128x128,
+												BackgroundSettings::BACKGROUND2_MAIN_MAP_BASE, 0);
+
+	HardwareManager::subBackground3ID = bgInitSub(3, BgType_Bmp16, BgSize_B16_256x256,
+												  BackgroundSettings::BACKGROUND3_SUB_MAP_BASE, 0);
 }
 void HardwareManager::SetPrintConsole()
 {
 	delete printConsole;
+	const bool useMainDisplay = true;
 	printConsole = consoleInit(NULL, BackgroundSettings::FONT_LAYER,
 							   BgType_Text4bpp, BgSize_T_256x256,
 							   BackgroundSettings::FONT_MAP_BASE, 0,
-							   true, false);
+							   useMainDisplay, false);
 }
 
 void HardwareManager::StartMillisecondsTimer()

@@ -1,34 +1,43 @@
 #pragma once
 #if !defined(HARDWARE_MANAGER_H) 
-#define HARDWARE_MANAGER_H 1
+#define HARDWARE_MANAGER_H true
+
+#include <nds/arm9/console.h>
 #include "Rect.h"
-#include<nds/arm9/console.h>
 
 class HardwareManager
 {
 public:
 	static void InitAndSetEverything();
-	static void PowerOnConsole();
+	
+	static void PowerConsoleOn();
 	static void InitVideo();
 	static void InitAudio();
 	static void SetVRAM();
 	static void SetBackgrounds();
-	static PrintConsole *printConsole;
 	static void SetPrintConsole();
-		
 	static void StartMillisecondsTimer();
 
-	static float GetCurrentMilliseconds();
 	static float GetCurrentSeconds();
+	static float GetCurrentMilliseconds();
 
 	static void WaitForNextFrame();
 	static void ClearScreens();
 
-	static int background2SubID;
-	static int background3SubID;
-	static int background2MainID;
-	static int background3MainID;
+	static int GetSubBackground3ID();
+	static int GetMainBackground3ID();
+	static int GetMainBackground2ID();
+
 	static Rect* screenRect;
+	static PrintConsole *printConsole;
+
+private:
+	static int subBackground3ID;
+	static int mainBackground2ID;
+	static int mainBackground3ID;
+
+	static int timeLoops;
+	static float lastMilliseconds;
 };
 
 #endif  

@@ -11,4 +11,6 @@ const float SECONDS_TO_REACH_MAX_SPEED = 120.0f;
 const float GRAVITY_FORCE = 0.1f;
 const int UP_DIRECTION = -1;
 const int COLORS_PER_PALETTE = 16;
+const double CPU_CLOCK = 33.514;
+const int MILLISECONDS_PER_TIMER_LOOP = 125000;
 #endif 
