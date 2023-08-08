@@ -9,10 +9,6 @@ TitleScreenIdleCodedAnimation::TitleScreenIdleCodedAnimation(Entity* pressAnyKey
 		this->burstBalloonsText[i] = burstBalloonsText[i];
 }
 
-void TitleScreenIdleCodedAnimation::Start()
-{
-}
-
 void TitleScreenIdleCodedAnimation::Update()
 {
 	UpdateText(pressAnyKeyText);
