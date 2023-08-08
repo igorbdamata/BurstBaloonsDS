@@ -15,6 +15,7 @@
 #include"PressAnyKeyText1.h"
 #include"PressAnyKeyText2.h"
 #include"PressAnyKeyText3.h"
+#include"font.h"
 
 void InitPressAnyKeyText(GraphicsHandler* engine)
 {
@@ -33,6 +34,7 @@ int main()
 	GraphicsHandler* sub = new GraphicsHandler(Screen::BOTTOM);
 
 	InitPressAnyKeyText(sub);
+	main->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
 
 	SceneManager* sceneManager = new SceneManager();
 

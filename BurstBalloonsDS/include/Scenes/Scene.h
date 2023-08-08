@@ -11,9 +11,10 @@ public:
 
 	virtual void InputLoop();
 	virtual void GameLoop();
+
 	void SetMainBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen);
 	void SetSubBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen);
-
+	void PlotBackgroundsOnScreen();
 protected:
 	GraphicsHandler* mainEngine;
 	GraphicsHandler* subEngine;

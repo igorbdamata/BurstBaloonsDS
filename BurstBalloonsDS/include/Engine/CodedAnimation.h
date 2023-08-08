@@ -1,6 +1,6 @@
 #pragma once
 #if !defined(CODED_ANIMATION_H)
-#define CODED_ANIMATION_H 1
+#define CODED_ANIMATION_H true
 class CodedAnimation
 {
 public:

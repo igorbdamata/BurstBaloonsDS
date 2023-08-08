@@ -1,7 +1,7 @@
 #include "Scenes/Scene.h"
-#include <nds/arm9/input.h>
-#include "font.h"
 #include "Engine/SoundManager.h"
+
+#include <nds/arm9/input.h>
 
 Scene::Scene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine)
 {
@@ -11,9 +11,7 @@ Scene::Scene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine)
 
 void Scene::Load()
 {
-	mainEngine->SetBackgroundTo(mainBackgroundTiles, mainBackgroundTilesLen);
-	subEngine->SetBackgroundTo(subBackgroundTiles, subBackgroundTilesLen);
-	subEngine->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
+	PlotBackgroundsOnScreen();
 	SoundManager::StopAllSFXs();
 }
 
@@ -32,4 +30,10 @@ void Scene::SetSubBackgroundTo(const void* backgroundTiles, uint32 backgroundTil
 {
 	subBackgroundTiles = (void*)backgroundTiles;
 	subBackgroundTilesLen = backgroundTilesLen;
+}
+
+void Scene::PlotBackgroundsOnScreen()
+{
+	mainEngine->SetBackgroundTo(mainBackgroundTiles, mainBackgroundTilesLen);
+	subEngine->SetBackgroundTo(subBackgroundTiles, subBackgroundTilesLen);
 }

@@ -118,7 +118,6 @@
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerInitialization.cpp" />
     <ClCompile Include="source\Engine\HardwareManager\HardwareManagerUtilities.cpp" />
     <ClCompile Include="source\Engine\Math.cpp" />
-    <ClCompile Include="source\Engine\MetaTileAssembler.cpp" />
     <ClCompile Include="source\Engine\GraphicsHandler.cpp" />
     <ClCompile Include="source\Engine\Rect\RectEdges.cpp" />
     <ClCompile Include="source\Engine\Rect\RectFunctions.cpp" />

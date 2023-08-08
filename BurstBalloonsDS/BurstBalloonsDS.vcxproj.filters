@@ -114,9 +114,6 @@
     <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp">
       <Filter>Arquivos de Origem\CodedAnimations</Filter>
     </ClCompile>
-    <ClCompile Include="source\Engine\MetaTileAssembler.cpp">
-      <Filter>Arquivos de Origem\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
