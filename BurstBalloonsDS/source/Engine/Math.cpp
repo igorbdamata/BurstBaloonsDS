@@ -1,5 +1,8 @@
 #include <iostream>
+#include <cmath>
+
 #include "Engine/Math.h"
+#include "Engine/HardwareManager.h"
 
 int Math::RandomInRange(int lowestInclusiveValue, int highestExclusiveValue)
 {
@@ -9,4 +12,9 @@ int Math::RandomInRange(int lowestInclusiveValue, int highestExclusiveValue)
 bool Math::InRange(float lowestValue, float highestValue, float valueToCheck)
 {
 	return (valueToCheck - highestValue) * (valueToCheck - lowestValue) <= 0;
+}
+
+float Math::GetMovementAmountFromWaveWith(float frequency, float amplitude)
+{
+	return sin(HardwareManager::GetCurrentSeconds() * frequency) * amplitude;
 }

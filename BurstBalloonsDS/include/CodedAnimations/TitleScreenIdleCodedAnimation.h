@@ -8,11 +8,12 @@ class TitleScreenIdleCodedAnimation : public CodedAnimation
 {
 public:
 	TitleScreenIdleCodedAnimation(Entity* pressAnyKeyText[4], Entity* burstBalloonsText[2]);
+	
 	void Start() override;
 	void Update() override;
 private:
 	Entity* pressAnyKeyText[4];
 	Entity* burstBalloonsText[2];
-	void UpdatePressAnyKey();
-	void UpdateBurstBalloonsText();
+
+	void UpdateText(Entity* entities[]);
 };

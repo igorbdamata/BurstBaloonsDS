@@ -1,40 +1,31 @@
-#include<cmath>
-
 #include "CodedAnimations/TitleScreenIdleCodedAnimation.h"
-#include "Engine/HardwareManager.h"
+#include "Engine/Math.h"
 
 TitleScreenIdleCodedAnimation::TitleScreenIdleCodedAnimation(Entity* pressAnyKeyText[4], Entity* burstBalloonsText[2])
 {
 	for (int i = 0; i < 4; i++)
-	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
-	}
 	for (int i = 0; i < 2; i++)
-	{
 		this->burstBalloonsText[i] = burstBalloonsText[i];
-	}
 }
+
 void TitleScreenIdleCodedAnimation::Start()
 {
 }
+
 void TitleScreenIdleCodedAnimation::Update()
 {
-	UpdatePressAnyKey();
-	UpdateBurstBalloonsText();
+	UpdateText(pressAnyKeyText);
+	UpdateText(burstBalloonsText);
 }
-void TitleScreenIdleCodedAnimation::UpdatePressAnyKey()
+void TitleScreenIdleCodedAnimation::UpdateText(Entity* text[])
 {
+	const float MOVEMENT_FREQUENCY = 1.0f;
+	const float MOVEMENT_AMPLITUDE = 0.5f;
+	int entitiesLength = sizeof(text) / sizeof(Entity*);
 	for (int i = 0; i < 4; i++)
 	{
-		this->pressAnyKeyText[i]->position->y += sin(HardwareManager::GetCurrentMilliseconds() / 930) / 2;
-		pressAnyKeyText[i]->Render();
-	}
-}
-void TitleScreenIdleCodedAnimation::UpdateBurstBalloonsText()
-{
-	for (int i = 0; i < 2; i++)
-	{
-		this->burstBalloonsText[i]->position->y += sin((HardwareManager::GetCurrentMilliseconds()) / 930) / 2;
-		burstBalloonsText[i]->Render();
+		text[i]->position->y += Math::GetMovementAmountFromWaveWith(MOVEMENT_FREQUENCY, MOVEMENT_AMPLITUDE);
+		text[i]->Render();
 	}
 }
