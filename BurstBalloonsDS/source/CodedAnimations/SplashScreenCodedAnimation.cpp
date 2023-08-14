@@ -1,78 +1,72 @@
 #include "CodedAnimations/SplashScreenCodedAnimation.h"
+#include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"
 #include "Background1.h"
-#include "Engine/Vector2.h"
-#include "Engine/Entity.h"
-#include<nds/arm9/background.h>
-#include "BackgroundAnimation2.h";
-#include "BackgroundAnimation3.h";
-#include "BackgroundAnimation4.h";
-#include "BackgroundAnimation5.h";
-#include "BackgroundAnimation6.h";
-#include "BackgroundAnimation7.h";
+#include "Data/SplashScreenData.h";
+#include "Data/PressAnyKeyTextData.h";
 
-SplashScreenCodedAnimation::SplashScreenCodedAnimation(Entity* pressAnyKeyText[4])
+GraphicsHandler* SplashScreenCodedAnimation::sub = NULL;
+GraphicsHandler* SplashScreenCodedAnimation::main = NULL;
+
+SplashScreenCodedAnimation::SplashScreenCodedAnimation(Entity * pressAnyKeyText[PressAnyKeyTextData::TILES_LENGTH], 
+													   GraphicsHandler* main, GraphicsHandler* sub)
 {
+	SplashScreenCodedAnimation::sub = sub;
+	SplashScreenCodedAnimation::main = main;
+
 	for (int i = 0; i < 4; i++)
-	{
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
-	}
-
-	float pressAnyKeyTextPositionX = SCREEN_WIDTH / 2 - 64 * 2 + 24;
-	float pressAnyKeyTextPositionY = SCREEN_HEIGHT / 2 + 80;
-	pressAnyKeyInitialPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY * 2);
-	pressAnyKeyFinalPosition = new Vector2(pressAnyKeyTextPositionX, pressAnyKeyTextPositionY);
-
-	splashScreenWasFinished = false;
 
 	std::vector<void*> splashScreenFrames;
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation3Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation4Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation5Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation6Bitmap);
-	splashScreenFrames.insert(splashScreenFrames.end(), (void*) BackgroundAnimation7Bitmap);
-	splashScreenFadeOutAnimation = new Animation(0.3f, 5, false, splashScreenFrames, [](void* newSprite) { dmaCopyHalfWords(3, newSprite, BG_BMP_RAM(1), Background1BitmapLen); });
-	splashScreenFadeOutAnimation->Start();
-	splashScreenSeconds = 3;
-	startedSplashScreenFadeOut = false;
+	for (int i = 0; i < SplashScreenData::FRAMES_COUNT; i++)
+		splashScreenFrames.insert(splashScreenFrames.end(),(void*)SplashScreenData::FRAMES[i]);
+	fadeOutAnimation = new Animation(SplashScreenData::INTERVAL_BETWEEN_FRAMES, SplashScreenData::FRAMES_COUNT, 
+												 SplashScreenData::HAVE_LOOP , splashScreenFrames, 
+												 [](void* newSprite) { SetBackgroundTo(newSprite); });
+	startedFadeOut = false;
+}
+void SplashScreenCodedAnimation::SetBackgroundTo(void* newSprite)
+{
+	main->SetBackgroundTo(newSprite, Background1BitmapLen);
 }
 
 void SplashScreenCodedAnimation::Start()
 {
 	CodedAnimation::Start();
-	splashScreenStartTime = HardwareManager::GetCurrentSeconds();
+	animationStartTime = HardwareManager::GetCurrentSeconds();
 }
 
 void SplashScreenCodedAnimation::Update()
 {
-	bool isTimeToStartFadeOut = HardwareManager::GetCurrentSeconds() - splashScreenStartTime >= splashScreenSeconds;
-	if (!isTimeToStartFadeOut) return;
+	bool inFadeOut = HardwareManager::GetCurrentSeconds() - animationStartTime >= SplashScreenData::SECONDS_TO_START_FADE_OUT;
+	if (!inFadeOut) return;
+	if (!startedFadeOut) StartFadeOut();
 	UpdateFadeOut();
-	if (splashScreenFadeOutAnimation->HaveFinishedExecution())FinishSplashScreenAnimation();
+	if (fadeOutAnimation->HaveFinishedExecution()) FinishSplashScreenAnimation();
+}
+void SplashScreenCodedAnimation::StartFadeOut()
+{
+	fadeOutStartTime = HardwareManager::GetCurrentSeconds();
+	fadeOutAnimation->Start();
+	startedFadeOut = true;
 }
 
 void SplashScreenCodedAnimation::UpdateFadeOut()
 {
-	if (!startedSplashScreenFadeOut) StartFadeOut();
-	splashScreenFadeOutAnimation->Update();
+	fadeOutAnimation->Update();
 	LerpPressAnyKeyText();
 }
-
-void SplashScreenCodedAnimation::StartFadeOut()
-{
-	splashScreenFadeOutStartSeconds = HardwareManager::GetCurrentSeconds();
-	splashScreenFadeOutAnimation->Start();
-	startedSplashScreenFadeOut = true;
-}
-
 void SplashScreenCodedAnimation::LerpPressAnyKeyText()
 {
+	float timeSinceFadeOutStarted = HardwareManager::GetCurrentSeconds() - fadeOutStartTime;
+	const float FADE_OUT_TOTAL_TIME = SplashScreenData::INTERVAL_BETWEEN_FRAMES * SplashScreenData::FRAMES_COUNT;
+	float fadeOutPercent = timeSinceFadeOutStarted / FADE_OUT_TOTAL_TIME;
+
 	for (int i = 0; i < 4; i++)
 	{
-		float timeSinceFadeOutStarted = HardwareManager::GetCurrentSeconds() - splashScreenFadeOutStartSeconds;
-		float fadeOutTotalTime = 0.3f * 5;
-		float fadeOutPercent = timeSinceFadeOutStarted / fadeOutTotalTime;
-		this->pressAnyKeyText[i]->position->Lerp(pressAnyKeyInitialPosition, pressAnyKeyFinalPosition, fadeOutPercent);
+		this->pressAnyKeyText[i]->position->Lerp(SplashScreenData::pressAnyKeyInitialPosition, 
+												 SplashScreenData::pressAnyKeyFinalPosition, 
+												 fadeOutPercent);
 		this->pressAnyKeyText[i]->position->x += 64 * i;
 		pressAnyKeyText[i]->Render();
 	}
@@ -80,13 +74,7 @@ void SplashScreenCodedAnimation::LerpPressAnyKeyText()
 
 void SplashScreenCodedAnimation::FinishSplashScreenAnimation()
 {
-	this->Stop();
-	splashScreenWasFinished = true;
-	dmaCopyHalfWords(3, Background1Bitmap, BG_BMP_RAM(1), Background1BitmapLen);
-}
-
-
-bool SplashScreenCodedAnimation::HaveFinished()
-{
-	return splashScreenWasFinished;
+	isPlaying = false;
+	animationHaveFinished = true;
+	main->SetBackgroundTo(Background1Bitmap, Background1BitmapLen);
 }

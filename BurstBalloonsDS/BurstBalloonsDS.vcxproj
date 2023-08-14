@@ -111,6 +111,7 @@
     <ClCompile Include="source\Data\GameplayData.cpp" />
     <ClCompile Include="source\Data\HardwareData.cpp" />
     <ClCompile Include="source\Data\PressAnyKeyTextData.cpp" />
+    <ClCompile Include="Source\Data\SplashScreenData.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
     <ClCompile Include="source\Engine\Animation.cpp" />
     <ClCompile Include="source\Engine\CodedAnimation.cpp" />
@@ -143,6 +144,7 @@
     <ClInclude Include="include\Data\GameplayData.h" />
     <ClInclude Include="include\Data\HardwareData.h" />
     <ClInclude Include="include\Data\PressAnyKeyTextData.h" />
+    <ClInclude Include="include\Data\SplashScreenData.h" />
     <ClInclude Include="include\Engine\AnimatedEntity.h" />
     <ClInclude Include="include\Engine\Animation.h" />
     <ClInclude Include="include\Engine\CodedAnimation.h" />

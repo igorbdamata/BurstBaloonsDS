@@ -59,7 +59,7 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 	}
 	#pragma endregion
 
-	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText);
+	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText, mainEngine, subEngine);
 	titleScreenIdleCodedAnimation = new TitleScreenIdleCodedAnimation(pressAnyKeyText, burstBalloonsText);
 }
 

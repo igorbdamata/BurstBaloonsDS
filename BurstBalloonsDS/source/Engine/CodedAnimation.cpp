@@ -3,12 +3,9 @@
 void CodedAnimation::Start() 
 {
 	isPlaying = true;
-}
-void CodedAnimation::Stop() 
-{
-	isPlaying = false;
+	animationHaveFinished = false;
 }
 
 void CodedAnimation::Update() {}
-bool CodedAnimation::HaveFinished() { return false; }
+bool CodedAnimation::HaveFinished() { return animationHaveFinished; }
 bool CodedAnimation::IsPlaying() { return isPlaying; }

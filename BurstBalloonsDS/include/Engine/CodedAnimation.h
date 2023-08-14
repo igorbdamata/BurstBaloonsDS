@@ -6,10 +6,10 @@ class CodedAnimation
 public:
 	virtual void Start();
 	virtual void Update();
-	virtual void Stop();
 	virtual bool HaveFinished();
 	virtual bool IsPlaying();
-private:
+protected:
 	bool isPlaying;
+	bool animationHaveFinished;
 };
 #endif
