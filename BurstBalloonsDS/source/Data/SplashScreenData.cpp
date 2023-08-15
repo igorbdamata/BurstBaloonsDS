@@ -9,9 +9,8 @@
 #include "BackgroundAnimation7.h";
 
 const float SplashScreenData::INTERVAL_BETWEEN_FRAMES = 0.3f;
-const float SplashScreenData::SECONDS_TO_START_FADE_OUT = 3.0f;
-const int SplashScreenData::FRAMES_COUNT = 5;
-const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_COUNT] =
+const int SplashScreenData::FRAMES_AMOUNT = 5;
+const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_AMOUNT] =
 {
 	BackgroundAnimation3Bitmap,
 	BackgroundAnimation4Bitmap,
@@ -19,6 +18,8 @@ const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_COUNT] =
 	BackgroundAnimation6Bitmap,
 	BackgroundAnimation7Bitmap
 };
+
+const float SplashScreenData::SECONDS_TO_START_FADE_OUT = 3.0f;
 
 Vector2* SplashScreenData::pressAnyKeyInitialPosition = new Vector2(PressAnyKeyTextData::CENTERED_POSITION_X, 
 												 PressAnyKeyTextData::CENTERED_POSITION_Y * 2);

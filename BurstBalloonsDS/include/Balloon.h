@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+
 #include "Engine/Rect.h"
 #include "Engine/AnimatedEntity.h"
 #include "GameManager.h"
@@ -6,7 +8,7 @@
 class Balloon : public AnimatedEntity
 {
 public:
-	Balloon(GameManager* gameManager);
+	Balloon(GameManager* gameManager, std::vector<void*> flyAnimationFrames, std::vector<void*> burstAnimationFrames);
 	
 	bool IsCollidingWith(Vector2* touchPosition);
 

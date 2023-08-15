@@ -16,9 +16,14 @@ public:
 	void GameLoop() override;
 private:
 	Balloon* balloons[GameplayData::BALLOONS_COUNT];
-	Entity* balloonsUI[3];
+	Entity* lifeIcons[GameplayData::TOTAL_LIFE];
 	GameManager* gameManager;
 
-	touchPosition touch;
-	Vector2 touchVector2 = Vector2(0, 0);
+	Vector2 vector2TouchPosition = Vector2(0, 0);
+
+	void UpdateTouchPosition();
+	void BurstTouchedBalloons();
+
+	void UpdateBalloons();
+	void UpdateHUD();
 };

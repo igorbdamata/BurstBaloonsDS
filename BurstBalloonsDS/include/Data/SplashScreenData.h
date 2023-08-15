@@ -8,8 +8,10 @@ class SplashScreenData
 public:
 	static const float INTERVAL_BETWEEN_FRAMES;
 	static const void* FRAMES[];
-	static const int FRAMES_COUNT;
+	static const int FRAMES_AMOUNT;
+
 	static const bool HAVE_LOOP = false;
+
 	static const float SECONDS_TO_START_FADE_OUT;
 
 	static Vector2* pressAnyKeyInitialPosition;

@@ -9,8 +9,5 @@ public:
 	static const float SECONDS_TO_REACH_MAX_SPEED;
 	
 	static const float GRAVITY_FORCE;
-
-	static const int DISTANCE_BETWEEN_UI_BALLOONS = 20;
-	static const int UI_BALLOON_ALIGNMENT = -3;
 };
 #endif

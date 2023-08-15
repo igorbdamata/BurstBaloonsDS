@@ -18,9 +18,9 @@ SplashScreenCodedAnimation::SplashScreenCodedAnimation(Entity * pressAnyKeyText[
 		this->pressAnyKeyText[i] = pressAnyKeyText[i];
 
 	std::vector<void*> splashScreenFrames;
-	for (int i = 0; i < SplashScreenData::FRAMES_COUNT; i++)
+	for (int i = 0; i < SplashScreenData::FRAMES_AMOUNT; i++)
 		splashScreenFrames.insert(splashScreenFrames.end(),(void*)SplashScreenData::FRAMES[i]);
-	fadeOutAnimation = new Animation(SplashScreenData::INTERVAL_BETWEEN_FRAMES, SplashScreenData::FRAMES_COUNT, 
+	fadeOutAnimation = new Animation(SplashScreenData::INTERVAL_BETWEEN_FRAMES, SplashScreenData::FRAMES_AMOUNT, 
 												 SplashScreenData::HAVE_LOOP , splashScreenFrames, 
 												 [](void* newSprite) { SetBackgroundTo(newSprite); });
 	startedFadeOut = false;
@@ -59,7 +59,7 @@ void SplashScreenCodedAnimation::UpdateFadeOut()
 void SplashScreenCodedAnimation::LerpPressAnyKeyText()
 {
 	float timeSinceFadeOutStarted = HardwareManager::GetCurrentSeconds() - fadeOutStartTime;
-	const float FADE_OUT_TOTAL_TIME = SplashScreenData::INTERVAL_BETWEEN_FRAMES * SplashScreenData::FRAMES_COUNT;
+	const float FADE_OUT_TOTAL_TIME = SplashScreenData::INTERVAL_BETWEEN_FRAMES * SplashScreenData::FRAMES_AMOUNT;
 	float fadeOutPercent = timeSinceFadeOutStarted / FADE_OUT_TOTAL_TIME;
 
 	for (int i = 0; i < 4; i++)

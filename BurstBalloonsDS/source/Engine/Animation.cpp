@@ -3,10 +3,10 @@
 #include "Engine/Animation.h"
 #include "Engine/HardwareManager.h"
 
-Animation::Animation(float intervalBetweenFrames, int framesCount, bool haveLoop, std::vector<void*> frames, std::function<void(void* newSprite)> setSpriteTo)
+Animation::Animation(float intervalBetweenFrames, int framesAmount, bool haveLoop, std::vector<void*> frames, std::function<void(void* newSprite)> setSpriteTo)
 {
 	this->intervalBetweenFrames = intervalBetweenFrames;
-	this->framesCount = framesCount;
+	this->framesAmount = framesAmount;
 	this->haveLoop = haveLoop;
 	this->frames = frames;
 	this->setSpriteTo = setSpriteTo;
@@ -38,7 +38,7 @@ void Animation::ChangeCurrentFrame()
 	lastFrameChangeTime = HardwareManager::GetCurrentSeconds();
 
 	currentFrame++;
-	if (currentFrame >= framesCount) ResetCurrentFrame();
+	if (currentFrame >= framesAmount) ResetCurrentFrame();
 }
 void Animation::ResetCurrentFrame()
 {
@@ -50,7 +50,7 @@ void Animation::ResetCurrentFrame()
 void Animation::FinishAnimation()
 {
 	haveFinishedExecution = true;
-	currentFrame = framesCount - 1;
+	currentFrame = framesAmount - 1;
 }
 
 bool Animation::HaveFinishedExecution()

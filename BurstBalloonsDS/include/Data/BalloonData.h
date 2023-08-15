@@ -17,10 +17,11 @@ public:
 	static const int COLLIDER_HEIGHT = 27;
 
 	static const SpriteSize SPRITE_SIZE = SpriteSize_64x64;
-	
-	static const float SPEED_ON_MAX_DIFFICULT;
-	static const char* INITIAL_ANIMATION ;
 
-	static const int POSITION_Y_VARIATION_ON_SPAWN= 100;
+	static const float SPEED_ON_MAX_DIFFICULT;
+	static const char* INITIAL_ANIMATION;
+
+	static const int POSITION_Y_VARIATION_ON_SPAWN = 100;
+	static const int SPRITE_SHEET_OFFSET= 512;
 };
 #endif

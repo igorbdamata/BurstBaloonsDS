@@ -9,10 +9,14 @@
 #include "Engine/Math.h"
 
 #include "Data/BalloonData.h"
+#include "Data/FlyAnimationData.h"
+#include "Data/BurstAnimationData.h"
+
 #include "Data/GameplayData.h"
 #include "Data/HardwareData.h"
 
-Balloon::Balloon(GameManager* gameManager) : AnimatedEntity(BalloonData::SPRITE_SIZE, BalloonData::INITIAL_ANIMATION)
+Balloon::Balloon(GameManager* gameManager, std::vector<void*> flyAnimationFrames, std::vector<void*> burstAnimationFrames) 
+	: AnimatedEntity(BalloonData::SPRITE_SIZE, BalloonData::INITIAL_ANIMATION)
 {
 	this->gameManager = gameManager;
 
@@ -26,6 +30,19 @@ Balloon::Balloon(GameManager* gameManager) : AnimatedEntity(BalloonData::SPRITE_
 	delete spriteRect;
 	Vector2* spriteOffset = new Vector2(BalloonData::SPRITE_OFFSET_X, BalloonData::SPRITE_OFFSET_Y);
 	spriteRect = new Rect(this->position, spriteOffset, BalloonData::SPRITE_WIDTH, BalloonData::SPRITE_HEIGHT);
+
+	Animation* flyAnimation = new Animation(FlyAnimationData::INTERVAL_BETWEEN_FRAMES,
+											FlyAnimationData::FRAMES_AMOUNT,
+											FlyAnimationData::HAS_LOOP,
+											flyAnimationFrames, 
+											[this](void* newSprite) {SetSpriteTo(newSprite); });
+	Animation* burstAnimation = new Animation(BurstAnimationData::INTERVAL_BETWEEN_FRAMES,
+											  BurstAnimationData::FRAMES_AMOUNT,
+											  BurstAnimationData::HAS_LOOP,
+											  burstAnimationFrames, 
+											  [this](void* newSprite) {SetSpriteTo(newSprite); });
+	AddAnimation("fly", flyAnimation);
+	AddAnimation("burst", burstAnimation);
 
 	SetPositionToRandomPoint();
 }
@@ -46,10 +63,13 @@ void Balloon::Burst()
 
 void Balloon::Update()
 {
-	if (!wasBursted)BalloonIdleUpdate();
+	if (!wasBursted) BalloonIdleUpdate();
 	else BalloonBurstedUpdate();
 
 	ApplyPhysics();
+
+	Render();
+	UpdateAnimation();
 }
 
 void Balloon::BalloonIdleUpdate()
