@@ -150,6 +150,9 @@
     <ClCompile Include="source\Data\BurstAnimationData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
+    <ClCompile Include="source\Scenes\EndOfLevelScene.cpp">
+      <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine\AnimatedEntity.h">
@@ -241,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="include\Data\BurstAnimationData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scenes\EndOfLevelScene.h">
+      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
