@@ -101,10 +101,9 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="include\Scenes\GameOverScene.h" />
     <ClCompile Include="source\Balloon.cpp" />
     <ClCompile Include="source\CodedAnimations\SplashScreenCodedAnimation.cpp" />
-    <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp" />
+    <ClCompile Include="source\CodedAnimations\MenuIdleCodedAnimation.cpp" />
     <ClCompile Include="source\Data\BackgroundSettings.cpp" />
     <ClCompile Include="source\Data\BalloonData.cpp" />
     <ClCompile Include="source\Data\BurstAnimationData.cpp" />
@@ -130,9 +129,7 @@
     <ClCompile Include="source\GameManager.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Scenes\EndOfLevelScene.cpp" />
-    <ClCompile Include="source\Scenes\GameOverScene.cpp" />
     <ClCompile Include="source\Scenes\GameplayScene.cpp" />
-    <ClCompile Include="source\Scenes\NewRecordScene.cpp" />
     <ClCompile Include="source\Scenes\Scene.cpp" />
     <ClCompile Include="source\Scenes\SceneManager.cpp" />
     <ClCompile Include="source\Scenes\TitleScreenScene.cpp" />
@@ -140,7 +137,7 @@
   <ItemGroup>
     <ClInclude Include="include\Balloon.h" />
     <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h" />
-    <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h" />
+    <ClInclude Include="include\CodedAnimations\MenuIdleCodedAnimation.h" />
     <ClInclude Include="include\Data\BackgroundSettings.h" />
     <ClInclude Include="include\Data\BalloonData.h" />
     <ClInclude Include="include\Data\BurstAnimationData.h" />
@@ -165,7 +162,6 @@
     <ClInclude Include="include\GameManager.h" />
     <ClInclude Include="include\Scenes\EndOfLevelScene.h" />
     <ClInclude Include="include\Scenes\GameplayScene.h" />
-    <ClInclude Include="include\Scenes\NewRecordScene.h" />
     <ClInclude Include="include\Scenes\Scene.h" />
     <ClInclude Include="include\Scenes\SceneManager.h" />
     <ClInclude Include="include\Scenes\TitleScreenScene.h" />

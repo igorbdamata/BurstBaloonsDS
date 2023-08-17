@@ -12,25 +12,25 @@
 class SplashScreenCodedAnimation : public CodedAnimation
 {
 public:
-	SplashScreenCodedAnimation(Entity* pressAnyKeyText[PressAnyKeyTextData::TILES_LENGTH], 
+	SplashScreenCodedAnimation(std::vector<Entity*> pressAnyKeyText,
 							   GraphicsHandler* main, GraphicsHandler* sub);
 	void Start() override;
 	void Update() override;
 
 private:
-	static GraphicsHandler* main;
-	static GraphicsHandler* sub;
+	GraphicsHandler* main;
+	GraphicsHandler* sub;
 
 	Animation* fadeOutAnimation;
 
-	Entity* pressAnyKeyText[PressAnyKeyTextData::TILES_LENGTH];
+	std::vector<Entity*> pressAnyKeyText;
 
 	float animationStartTime;
 	float fadeOutStartTime;
-	
+
 	bool startedFadeOut;
 
-	static void SetBackgroundTo(void* newSprite);
+	void SetBackgroundTo(void* newSprite);
 
 	void StartFadeOut();
 	void UpdateFadeOut();

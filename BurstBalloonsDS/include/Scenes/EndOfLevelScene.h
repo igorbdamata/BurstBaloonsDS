@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "SceneManager.h"
 #include "../GameManager.h"
+#include "../CodedAnimations/MenuIdleCodedAnimation.h"
 
 class EndOfLevelScene : public Scene
 {
@@ -14,8 +15,7 @@ public:
 	void GameLoop() override;
 private:
 	SceneManager* sceneManager;
+	MenuIdleCodedAnimation* idleCodedAnimation;
 
-	Entity* pressAnyKeyText[4];
-	Entity* titleText[4];
 	int sfxToPlayOnLoad;
 };

@@ -1,6 +1,7 @@
 #include<nds.h>
 #include<nds/arm9/input.h>
 #include<string>
+#include<vector>
 #include<soundbank.h>
 
 #include "Scenes/TitleScreenScene.h"
@@ -17,50 +18,49 @@
 TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
 {
 	this->sceneManager = sceneManager;
-	
+
 	SetMainBackgroundTo(BackgroundAnimation2Bitmap, BackgroundAnimation2BitmapLen);
 	SetSubBackgroundTo(BackgroundBitmap, BackgroundBitmapLen);
 
 	#pragma region PressAnyKeyTextInit
-	Entity* pressAnyKeyText[4] =
-	{
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(0), 64,64, new Vector2(0,0), SpriteSize_64x64),
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(1), 64,64, new Vector2(0,0), SpriteSize_64x64),
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(2), 64,64, new Vector2(0,0), SpriteSize_64x64),
-		new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(3), 64,64, new Vector2(0,0), SpriteSize_64x64)
-	};
-
+	std::vector<Entity*> pressAnyKeyText;
 	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
 	{
-		subEngine->InitEntity(pressAnyKeyText[i]);
-		pressAnyKeyText[i]->SetPaletteTo(subEngine->GetPalette(PressAnyKeyTextData::GetName()));
-		pressAnyKeyText[i]->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
+		Entity* entity = new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(i),
+									PressAnyKeyTextData::TILE_WIDTH, PressAnyKeyTextData::TILE_HEIGHT,
+									new Vector2(0, 0), SpriteSize_64x64);
+
+		subEngine->InitEntity(entity);
+		entity->SetPaletteTo(subEngine->GetPalette(PressAnyKeyTextData::GetName()));
+		entity->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
+
+		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);
 	}
 	#pragma endregion
 
 	#pragma region BurstBalloonsTextInit
 	mainEngine->AddPalette(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName());
 
-	Entity* burstBalloonsText[2] =
-	{
-		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(0), 64,64, new Vector2(0,0), SpriteSize_64x64),
-		new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(1), 64,64, new Vector2(0,0), SpriteSize_64x64)
-	};
-
-
+	std::vector<Entity*> burstBalloonsText;
 	for (int i = 0; i < BurstBalloonsTextData::TILES_LENGTH; i++)
 	{
+		Entity* entity = new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(i),
+									BurstBalloonsTextData::TILE_WIDTH, BurstBalloonsTextData::TILE_HEIGHT,
+									new Vector2(0, 0), SpriteSize_64x64);
 		std::string spriteName = BurstBalloonsTextData::GetName() + std::to_string(i);
 		mainEngine->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
-		
-		mainEngine->InitEntity(burstBalloonsText[i]);
-		burstBalloonsText[i]->SetPaletteTo(mainEngine->GetPalette(BurstBalloonsTextData::GetName()));
-		burstBalloonsText[i]->SetSpriteTo(mainEngine->GetSprite(spriteName));
+
+		mainEngine->InitEntity(entity);
+		entity->SetPaletteTo(mainEngine->GetPalette(BurstBalloonsTextData::GetName()));
+		entity->SetSpriteTo(mainEngine->GetSprite(spriteName));
+
+		burstBalloonsText.insert(burstBalloonsText.end(), entity);
 	}
+
 	#pragma endregion
 
 	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText, mainEngine, subEngine);
-	titleScreenIdleCodedAnimation = new TitleScreenIdleCodedAnimation(pressAnyKeyText, burstBalloonsText);
+	idleCodedAnimation = new MenuIdleCodedAnimation(pressAnyKeyText, burstBalloonsText);
 }
 
 void TitleScreenScene::Load()
@@ -85,8 +85,8 @@ void TitleScreenScene::GameLoop()
 		splashScreenCodedAnimation->Update();
 		return;
 	}
-	
-	if (!titleScreenIdleCodedAnimation->IsPlaying())
-		titleScreenIdleCodedAnimation->Start();
-	titleScreenIdleCodedAnimation->Update();
+
+	if (!idleCodedAnimation->IsPlaying())
+		idleCodedAnimation->Start();
+	idleCodedAnimation->Update();
 }

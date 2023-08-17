@@ -15,7 +15,7 @@ Vector2::Vector2(float x, float y)
 void Vector2::Lerp(Vector2* pointA, Vector2* pointB, float percent)
 {
 	float x = pointA->x + (pointB->x - pointA->x) * percent;
-	float y =pointA->y + (pointB->x- pointA->y) * percent;
+	float y =pointA->y + (pointB->y - pointA->y) * percent;
 	this->x = x;
 	this->y = y;
 }

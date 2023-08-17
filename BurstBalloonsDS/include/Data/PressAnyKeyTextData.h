@@ -14,7 +14,7 @@ public:
 	static const int TILE_HEIGHT = 64;
 
 	static const int CENTERED_POSITION_X = SCREEN_WIDTH / 2 - TILE_WIDTH * TILES_LENGTH / 2 + 24;
-	static const int CENTERED_POSITION_Y = SCREEN_HEIGHT / 2 + 80;
+	static const int CENTERED_POSITION_Y = SCREEN_HEIGHT / 2 + 80-100;
 
 	static const std::string GetName();
 	static Vector2* GetCenteredPositionForTile(int id);

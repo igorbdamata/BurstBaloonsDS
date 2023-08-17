@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "SceneManager.h"
 #include "../CodedAnimations/SplashScreenCodedAnimation.h"
-#include "../CodedAnimations/TitleScreenIdleCodedAnimation.h"
+#include "../CodedAnimations/MenuIdleCodedAnimation.h"
 
 class TitleScreenScene : public Scene
 {
@@ -17,5 +17,5 @@ private:
 	SceneManager* sceneManager;
 
 	SplashScreenCodedAnimation* splashScreenCodedAnimation;
-	TitleScreenIdleCodedAnimation* titleScreenIdleCodedAnimation;
+	MenuIdleCodedAnimation* idleCodedAnimation;
 };

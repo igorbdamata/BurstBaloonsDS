@@ -93,16 +93,7 @@
     <ClCompile Include="source\Scenes\GameplayScene.cpp">
       <Filter>Arquivos de Origem\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="source\Scenes\GameOverScene.cpp">
-      <Filter>Arquivos de Origem\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Scenes\GameOverScene.h">
-      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="source\Scenes\TitleScreenScene.cpp">
-      <Filter>Arquivos de Origem\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Scenes\NewRecordScene.cpp">
       <Filter>Arquivos de Origem\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="source\Engine\CodedAnimation.cpp">
@@ -111,7 +102,7 @@
     <ClCompile Include="source\CodedAnimations\SplashScreenCodedAnimation.cpp">
       <Filter>Arquivos de Origem\CodedAnimations</Filter>
     </ClCompile>
-    <ClCompile Include="source\CodedAnimations\TitleScreenIdleCodedAnimation.cpp">
+    <ClCompile Include="source\CodedAnimations\MenuIdleCodedAnimation.cpp">
       <Filter>Arquivos de Origem\CodedAnimations</Filter>
     </ClCompile>
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp">
@@ -194,16 +185,13 @@
     <ClInclude Include="include\Scenes\TitleScreenScene.h">
       <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="include\Scenes\NewRecordScene.h">
-      <Filter>Arquivos de Cabeçalho\Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="include\Engine\CodedAnimation.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h">
       <Filter>Arquivos de Cabeçalho\CodedAnimations</Filter>
     </ClInclude>
-    <ClInclude Include="include\CodedAnimations\TitleScreenIdleCodedAnimation.h">
+    <ClInclude Include="include\CodedAnimations\MenuIdleCodedAnimation.h">
       <Filter>Arquivos de Cabeçalho\CodedAnimations</Filter>
     </ClInclude>
     <ClInclude Include="include\Data\BurstBalloonsTextData.h">
