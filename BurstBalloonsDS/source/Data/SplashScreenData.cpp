@@ -21,7 +21,7 @@ const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_AMOUNT] =
 
 const float SplashScreenData::SECONDS_TO_START_FADE_OUT = 3.0f;
 
-Vector2* SplashScreenData::pressAnyKeyInitialPosition = new Vector2(PressAnyKeyTextData::CENTERED_POSITION_X, 
-												 PressAnyKeyTextData::CENTERED_POSITION_Y * 2);
-Vector2* SplashScreenData::pressAnyKeyFinalPosition = new Vector2(PressAnyKeyTextData::CENTERED_POSITION_X,  
+Vector2* SplashScreenData::pressAnyKeyInitialPosition = new Vector2(PressAnyKeyTextData::CENTERED_POSITION_X,
+																	SCREEN_HEIGHT + PressAnyKeyTextData::TILE_HEIGHT);
+Vector2* SplashScreenData::pressAnyKeyFinalPosition = new Vector2(PressAnyKeyTextData::CENTERED_POSITION_X,
 																  PressAnyKeyTextData::CENTERED_POSITION_Y);

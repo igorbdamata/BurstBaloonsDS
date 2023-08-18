@@ -13,11 +13,17 @@ class MenuIdleCodedAnimation : public CodedAnimation
 {
 public:
 	MenuIdleCodedAnimation(std::vector<Entity*> titleText, std::vector<Entity*> pressAnyKeyText);
+	void Start() override;
 	void Update() override;
 private:
 	std::vector<Entity*> titleText;
 	std::vector<Entity*> pressAnyKeyText;
-	void UpdateText(std::vector<Entity*> text);
+
+	float initialTime;
+	float titleTextInitialPositionY;
+	float pressAnyKeyTextInitialPositionY;
+
+	void UpdateText(std::vector<Entity*> text, float initialPosition);
 };
 
 #endif
