@@ -19,7 +19,7 @@ private:
 	std::vector<Entity*> titleText;
 	std::vector<Entity*> pressAnyKeyText;
 
-	float initialTime;
+	float animationStartTime;
 	float titleTextInitialPositionY;
 	float pressAnyKeyTextInitialPositionY;
 

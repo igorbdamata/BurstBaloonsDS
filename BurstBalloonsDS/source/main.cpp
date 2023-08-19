@@ -68,8 +68,8 @@ int main()
 
 	TitleScreenScene* titleScreenScene = new TitleScreenScene(main, sub, sceneManager);
 	GameplayScene* gameplayScene = new GameplayScene(main, sub, gameManager);
-	EndOfLevelScene* newRecordScene = new EndOfLevelScene(main, sub, sceneManager, "NewRecordText", SFX_PASSRECORD, BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen);
-	EndOfLevelScene* gameOverScene = new EndOfLevelScene(main, sub, sceneManager, "GameOverText", SFX_GAMEOVER, BackgroundGameOverBitmap, BackgroundGameOverBitmapLen);
+	EndOfLevelScene* newRecordScene = new EndOfLevelScene(main, sub, sceneManager, SFX_PASSRECORD, "NewRecordText", BackgroundPassRecordBitmap, BackgroundPassRecordBitmapLen, 4, new Vector2(24, 76));
+	EndOfLevelScene* gameOverScene = new EndOfLevelScene(main, sub, sceneManager, SFX_GAMEOVER, "GameOverText", BackgroundGameOverBitmap, BackgroundGameOverBitmapLen, 4, new Vector2(24, 76));
 
 	sceneManager->AddScene("TitleScreen", titleScreenScene);
 	sceneManager->AddScene("Gameplay", gameplayScene);

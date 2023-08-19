@@ -236,5 +236,8 @@
     <ClInclude Include="include\Scenes\EndOfLevelScene.h">
       <Filter>Arquivos de Cabeçalho\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="include\Data\GeneralTitleData.h">
+      <Filter>Arquivos de Cabeçalho\Data</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

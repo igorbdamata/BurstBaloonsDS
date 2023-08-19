@@ -1,6 +1,6 @@
 #pragma once
 #if !defined(BURST_BALLOONS_TEXT_DATA_H)
-#define BURST_BALLOONS_TEXT_DATA_H 1
+#define BURST_BALLOONS_TEXT_DATA_H true
 #include<nds/arm9/video.h>
 #include<string>
 #include"Engine/Vector2.h"

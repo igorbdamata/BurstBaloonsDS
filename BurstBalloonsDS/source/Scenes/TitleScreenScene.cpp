@@ -28,7 +28,8 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 	{
 		Entity* entity = new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(i),
 									PressAnyKeyTextData::TILE_WIDTH, PressAnyKeyTextData::TILE_HEIGHT,
-									new Vector2(0, 0), SpriteSize_64x64);
+									new Vector2(PressAnyKeyTextData::OFFSET_X, PressAnyKeyTextData::OFFSET_Y), 
+									PressAnyKeyTextData::SPRITE_SIZE);
 
 		subEngine->InitEntity(entity);
 		entity->SetPaletteTo(subEngine->GetPalette(PressAnyKeyTextData::GetName()));

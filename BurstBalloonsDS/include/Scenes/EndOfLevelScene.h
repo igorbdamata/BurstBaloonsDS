@@ -7,7 +7,7 @@
 class EndOfLevelScene : public Scene
 {
 public:
-	EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, std::string titleSuffix, int sfxToPlayOnLoad, const void* backgroundTiles, uint32 backgroundTilesLen);
+	EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, int titleTilesAmount, Vector2* titleCenteredPosition);
 
 	void Load() override;
 
