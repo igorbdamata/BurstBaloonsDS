@@ -9,14 +9,14 @@
 class Animation
 {
 public:
-	Animation(float intervalBetweenFrames, int framesAmount, bool haveLoop, std::vector<void*> frames, std::function<void(void* newSprite)> setSpriteTo);
+	Animation(float intervalBetweenFrames, int framesCount, bool haveLoop, std::vector<void*> frames, std::function<void(void* newSprite)> setSpriteTo);
 
 	void Start();
 	void Update();
 	bool HaveFinishedExecution();
 private:
 	int currentFrame;
-	int framesAmount;
+	int framesCount;
 
 	float intervalBetweenFrames;
 	float lastFrameChangeTime;

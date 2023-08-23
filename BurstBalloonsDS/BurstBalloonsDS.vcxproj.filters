@@ -123,7 +123,7 @@
     <ClCompile Include="source\Engine\Rect\RectFunctions.cpp">
       <Filter>Arquivos de Origem\Engine\Rect</Filter>
     </ClCompile>
-    <ClCompile Include="source\Data\BackgroundSettings.cpp">
+    <ClCompile Include="source\Data\BackgroundData.cpp">
       <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
     <ClCompile Include="source\Data\HardwareData.cpp">
@@ -143,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="source\Scenes\EndOfLevelScene.cpp">
       <Filter>Arquivos de Origem\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Data\GeneralTitleData.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Data\LifeIconData.cpp">
+      <Filter>Arquivos de Origem\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -212,7 +218,7 @@
     <ClInclude Include="include\Engine\Math.h">
       <Filter>Arquivos de Cabeçalho\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="include\Data\BackgroundSettings.h">
+    <ClInclude Include="include\Data\BackgroundData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
     <ClInclude Include="include\Data\HardwareData.h">

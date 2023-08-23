@@ -6,7 +6,7 @@
 
 #include "Engine/HardwareManager.h"
 #include "Engine/SoundManager.h"
-#include "Data/BackgroundSettings.h"
+#include "Data/BackgroundData.h"
 
 int HardwareManager::subBackground3ID = -1;
 int HardwareManager::mainBackground2ID = -1;
@@ -58,20 +58,20 @@ void HardwareManager::SetVRAM()
 void HardwareManager::SetBackgrounds()
 {
 	HardwareManager::mainBackground3ID = bgInit(3, BgType_Bmp16, BgSize_B16_256x256,
-												BackgroundSettings::BACKGROUND3_MAIN_MAP_BASE, 0);
+												BackgroundData::BACKGROUND3_MAIN_MAP_BASE, 0);
 	HardwareManager::mainBackground2ID = bgInit(2, BgType_Bmp16, BgSize_B16_128x128,
-												BackgroundSettings::BACKGROUND2_MAIN_MAP_BASE, 0);
+												BackgroundData::BACKGROUND2_MAIN_MAP_BASE, 0);
 
 	HardwareManager::subBackground3ID = bgInitSub(3, BgType_Bmp16, BgSize_B16_256x256,
-												  BackgroundSettings::BACKGROUND3_SUB_MAP_BASE, 0);
+												  BackgroundData::BACKGROUND3_SUB_MAP_BASE, 0);
 }
 void HardwareManager::SetPrintConsole()
 {
 	delete printConsole;
 	const bool useMainDisplay = true;
-	printConsole = consoleInit(NULL, BackgroundSettings::FONT_LAYER,
+	printConsole = consoleInit(NULL, BackgroundData::FONT_LAYER,
 							   BgType_Text4bpp, BgSize_T_256x256,
-							   BackgroundSettings::FONT_MAP_BASE, 0,
+							   BackgroundData::FONT_MAP_BASE, 0,
 							   useMainDisplay, false);
 }
 

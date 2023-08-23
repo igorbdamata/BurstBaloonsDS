@@ -14,7 +14,7 @@ bool Math::InRange(float lowestValue, float highestValue, float valueToCheck)
 	return (valueToCheck - highestValue) * (valueToCheck - lowestValue) <= 0;
 }
 
-float Math::GetMovementAmountFromWaveWith(float frequency, float amplitude, float offset)
+float Math::GetMovementCountFromWaveWith(float frequency, float amplitude, float offset)
 {
 	return sin((HardwareManager::GetCurrentSeconds() + offset) * frequency) * amplitude;
 }

@@ -30,7 +30,7 @@ void MenuIdleCodedAnimation::UpdateText(std::vector<Entity*> text, float initial
 	for (int i = 0; i <(int)text.size(); i++)
 	{
 		text[i]->position->y = initialPosition;
-		text[i]->position->y -= Math::GetMovementAmountFromWaveWith(MOVEMENT_FREQUENCY, MOVEMENT_AMPLITUDE, -animationStartTime);
+		text[i]->position->y -= Math::GetMovementCountFromWaveWith(MOVEMENT_FREQUENCY, MOVEMENT_AMPLITUDE, -animationStartTime);
 		text[i]->Render();
 	}
 }

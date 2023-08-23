@@ -8,7 +8,7 @@ class SplashScreenData
 public:
 	static const float INTERVAL_BETWEEN_FRAMES;
 	static const void* FRAMES[];
-	static const int FRAMES_AMOUNT;
+	static const int FRAMES_COUNT = 5;
 
 	static const bool HAVE_LOOP = false;
 

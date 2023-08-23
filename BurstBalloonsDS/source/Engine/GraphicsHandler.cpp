@@ -5,7 +5,7 @@
 #include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"
 
-#include "Data/BackgroundSettings.h"
+#include "Data/BackgroundData.h"
 #include "Data/HardwareData.h"
 
 GraphicsHandler::GraphicsHandler(Screen screen)
@@ -18,9 +18,9 @@ GraphicsHandler::GraphicsHandler(Screen screen)
 	
 	backgroundAddress[0] = NULL;
 	backgroundAddress[1] = NULL;
-	backgroundAddress[2] = (uint16*) (screen == TOP ? BackgroundSettings::BACKGROUND2_MAIN_RAM : NULL);
-	backgroundAddress[3] = (uint16*) (screen == TOP ? BackgroundSettings::BACKGROUND3_MAIN_RAM : 
-													  BackgroundSettings::BACKGROUND3_SUB_RAM);
+	backgroundAddress[2] = (uint16*) (screen == TOP ? BackgroundData::BACKGROUND2_MAIN_RAM : NULL);
+	backgroundAddress[3] = (uint16*) (screen == TOP ? BackgroundData::BACKGROUND3_MAIN_RAM : 
+													  BackgroundData::BACKGROUND3_SUB_RAM);
 	availableOamIndex = 0;
 	availablePaletteIndex = 0;
 

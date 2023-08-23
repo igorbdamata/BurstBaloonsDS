@@ -6,11 +6,11 @@
 #include "Data/PressAnyKeyTextData.h"
 #include "Data/GeneralTitleData.h"
 
-EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, int titleTilesAmount, Vector2* titleCenteredPosition) : Scene(mainEngine, subEngine)
+EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, int titleTilesCount, Vector2* titleCenteredPosition) : Scene(mainEngine, subEngine)
 {
 	#pragma region InitPressAnyKeyText
 	std::vector<Entity*> pressAnyKeyText;
-	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
+	for (int i = 0; i < PressAnyKeyTextData::TILES_COUNT; i++)
 	{
 		Entity* entity = new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(i),
 									PressAnyKeyTextData::TILE_WIDTH, PressAnyKeyTextData::TILE_HEIGHT,
@@ -25,7 +25,7 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 
 	#pragma region InitTitleText
 	std::vector<Entity*> titleText;
-	for (int i = 0; i < titleTilesAmount; i++)
+	for (int i = 0; i < titleTilesCount; i++)
 	{
 		Vector2* position = new Vector2(titleCenteredPosition->x + GeneralTitleData::TILE_WIDTH * i, titleCenteredPosition->y);
 		Entity* entity = new Entity(position, GeneralTitleData::TILE_WIDTH, GeneralTitleData::TILE_HEIGHT,

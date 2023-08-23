@@ -32,12 +32,12 @@ Balloon::Balloon(GameManager* gameManager, std::vector<void*> flyAnimationFrames
 	spriteRect = new Rect(this->position, spriteOffset, BalloonData::SPRITE_WIDTH, BalloonData::SPRITE_HEIGHT);
 
 	Animation* flyAnimation = new Animation(FlyAnimationData::INTERVAL_BETWEEN_FRAMES,
-											FlyAnimationData::FRAMES_AMOUNT,
+											FlyAnimationData::FRAMES_COUNT,
 											FlyAnimationData::HAS_LOOP,
 											flyAnimationFrames, 
 											[this](void* newSprite) {SetSpriteTo(newSprite); });
 	Animation* burstAnimation = new Animation(BurstAnimationData::INTERVAL_BETWEEN_FRAMES,
-											  BurstAnimationData::FRAMES_AMOUNT,
+											  BurstAnimationData::FRAMES_COUNT,
 											  BurstAnimationData::HAS_LOOP,
 											  burstAnimationFrames, 
 											  [this](void* newSprite) {SetSpriteTo(newSprite); });

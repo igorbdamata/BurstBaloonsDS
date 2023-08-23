@@ -32,7 +32,7 @@ GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEn
 	#pragma region InitBalloon
 	#pragma region InitFlyAnimation
 	std::vector<void*> flyAnimationFrames;
-	for (int i = 0; i < FlyAnimationData::FRAMES_AMOUNT; i++)
+	for (int i = 0; i < FlyAnimationData::FRAMES_COUNT; i++)
 	{
 		std::string spriteName = "balloonFly" + i;
 		const void* tiles = BalloonSpriteTiles + (BalloonData::SPRITE_SHEET_OFFSET) *i;
@@ -42,9 +42,9 @@ GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEn
 	#pragma endregion
 	#pragma region InitBurstAnimation
 	std::vector<void*> burstAnimationFrames;
-	for (int i = FlyAnimationData::FRAMES_AMOUNT; i < FlyAnimationData::FRAMES_AMOUNT + BurstAnimationData::FRAMES_AMOUNT; i++)
+	for (int i = FlyAnimationData::FRAMES_COUNT; i < FlyAnimationData::FRAMES_COUNT + BurstAnimationData::FRAMES_COUNT; i++)
 	{
-		std::string spriteName = "balloonBurst" + (i - FlyAnimationData::FRAMES_AMOUNT);
+		std::string spriteName = "balloonBurst" + (i - FlyAnimationData::FRAMES_COUNT);
 		const void* tiles = BalloonSpriteTiles + (BalloonData::SPRITE_SHEET_OFFSET) *i;
 		subEngine->AddSprite(spriteName, tiles, BalloonData::SPRITE_SIZE);
 		burstAnimationFrames.insert(burstAnimationFrames.end(), subEngine->GetSprite(spriteName));

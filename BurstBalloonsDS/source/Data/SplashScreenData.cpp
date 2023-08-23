@@ -9,8 +9,7 @@
 #include "BackgroundAnimation7.h";
 
 const float SplashScreenData::INTERVAL_BETWEEN_FRAMES = 0.3f;
-const int SplashScreenData::FRAMES_AMOUNT = 5;
-const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_AMOUNT] =
+const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_COUNT] =
 {
 	BackgroundAnimation3Bitmap,
 	BackgroundAnimation4Bitmap,

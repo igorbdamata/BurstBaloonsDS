@@ -24,7 +24,7 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 
 	#pragma region PressAnyKeyTextInit
 	std::vector<Entity*> pressAnyKeyText;
-	for (int i = 0; i < PressAnyKeyTextData::TILES_LENGTH; i++)
+	for (int i = 0; i < PressAnyKeyTextData::TILES_COUNT; i++)
 	{
 		Entity* entity = new Entity(PressAnyKeyTextData::GetCenteredPositionForTile(i),
 									PressAnyKeyTextData::TILE_WIDTH, PressAnyKeyTextData::TILE_HEIGHT,
@@ -43,11 +43,12 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 	mainEngine->AddPalette(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName());
 
 	std::vector<Entity*> burstBalloonsText;
-	for (int i = 0; i < BurstBalloonsTextData::TILES_LENGTH; i++)
+	for (int i = 0; i < BurstBalloonsTextData::TILES_COUNT; i++)
 	{
 		Entity* entity = new Entity(BurstBalloonsTextData::GetCenteredPositionForTile(i),
 									BurstBalloonsTextData::TILE_WIDTH, BurstBalloonsTextData::TILE_HEIGHT,
-									new Vector2(0, 0), SpriteSize_64x64);
+									new Vector2(BurstBalloonsTextData::OFFSET_X, BurstBalloonsTextData::OFFSET_Y), 
+									BurstBalloonsTextData::SPRITE_SIZE);
 		std::string spriteName = BurstBalloonsTextData::GetName() + std::to_string(i);
 		mainEngine->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
 
