@@ -101,6 +101,7 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\AssetsInitializer.cpp" />
     <ClCompile Include="source\Balloon.cpp" />
     <ClCompile Include="source\CodedAnimations\SplashScreenCodedAnimation.cpp" />
     <ClCompile Include="source\CodedAnimations\MenuIdleCodedAnimation.cpp" />
@@ -110,9 +111,7 @@
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp" />
     <ClCompile Include="source\Data\FlyAnimationData.cpp" />
     <ClCompile Include="source\Data\GameplayData.cpp" />
-    <ClCompile Include="source\Data\GeneralTitleData.cpp" />
     <ClCompile Include="source\Data\HardwareData.cpp" />
-    <ClCompile Include="source\Data\LifeIconData.cpp" />
     <ClCompile Include="source\Data\PressAnyKeyTextData.cpp" />
     <ClCompile Include="Source\Data\SplashScreenData.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
@@ -137,6 +136,7 @@
     <ClCompile Include="source\Scenes\TitleScreenScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\AssetsInitializer.h" />
     <ClInclude Include="include\Balloon.h" />
     <ClInclude Include="include\CodedAnimations\SplashScreenCodedAnimation.h" />
     <ClInclude Include="include\CodedAnimations\MenuIdleCodedAnimation.h" />

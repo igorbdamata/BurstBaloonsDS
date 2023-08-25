@@ -32,7 +32,7 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 									PressAnyKeyTextData::SPRITE_SIZE);
 
 		subEngine->InitEntity(entity);
-		entity->SetPaletteTo(subEngine->GetPalette(PressAnyKeyTextData::GetName()));
+		entity->SetPaletteTo(subEngine->GetPalette("Text"));
 		entity->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 
 		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);

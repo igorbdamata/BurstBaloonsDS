@@ -144,11 +144,8 @@
     <ClCompile Include="source\Scenes\EndOfLevelScene.cpp">
       <Filter>Arquivos de Origem\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="source\Data\GeneralTitleData.cpp">
-      <Filter>Arquivos de Origem\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Data\LifeIconData.cpp">
-      <Filter>Arquivos de Origem\Data</Filter>
+    <ClCompile Include="source\AssetsInitializer.cpp">
+      <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="include\Data\GeneralTitleData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AssetsInitializer.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

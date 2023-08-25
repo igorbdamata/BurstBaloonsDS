@@ -4,9 +4,8 @@
 #include "Engine/SoundManager.h"
 #include<soundbank.h>
 #include "Data/PressAnyKeyTextData.h"
-#include "Data/GeneralTitleData.h"
 
-EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, int titleTilesCount, Vector2* titleCenteredPosition) : Scene(mainEngine, subEngine)
+EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, Vector2* titleCenteredPosition, const void* titleTiles[GeneralTitleData::TITLES_COUNT]) : Scene(mainEngine, subEngine)
 {
 	#pragma region InitPressAnyKeyText
 	std::vector<Entity*> pressAnyKeyText;
@@ -17,7 +16,7 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 									new Vector2(PressAnyKeyTextData::OFFSET_X, PressAnyKeyTextData::OFFSET_Y),
 									PressAnyKeyTextData::SPRITE_SIZE);
 		subEngine->InitEntity(entity);
-		entity->SetPaletteTo(subEngine->GetPalette("PressAnyKeyText"));
+		entity->SetPaletteTo(subEngine->GetPalette("Text"));
 		entity->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText" + std::to_string(i)));
 		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);
 	}
@@ -25,16 +24,19 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 
 	#pragma region InitTitleText
 	std::vector<Entity*> titleText;
-	for (int i = 0; i < titleTilesCount; i++)
+	for (int i = 0; i < GeneralTitleData::TITLES_COUNT; i++)
 	{
+		std::string currentTileName = titlePrefix + std::to_string(i);
+		mainEngine->AddSprite(currentTileName, titleTiles[i], SpriteSize_64x64);
+
 		Vector2* position = new Vector2(titleCenteredPosition->x + GeneralTitleData::TILE_WIDTH * i, titleCenteredPosition->y);
 		Entity* entity = new Entity(position, GeneralTitleData::TILE_WIDTH, GeneralTitleData::TILE_HEIGHT,
 									new Vector2(GeneralTitleData::OFFSET_X, GeneralTitleData::OFFSET_Y),
 									GeneralTitleData::SPRITE_SIZE);
 
 		mainEngine->InitEntity(entity);
-		entity->SetPaletteTo(mainEngine->GetPalette(titlePrefix));
-		entity->SetSpriteTo(mainEngine->GetSprite(titlePrefix + std::to_string(i)));
+		entity->SetPaletteTo(mainEngine->GetPalette("Text"));
+		entity->SetSpriteTo(mainEngine->GetSprite(currentTileName ));
 		titleText.insert(titleText.end(), entity);
 	}
 	#pragma endregion
