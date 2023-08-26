@@ -13,7 +13,7 @@ const void* GameOverTitleData::TILES[4]
 	GameOverText3Tiles
 };
 
-const float GameOverTitleData::CENTERED_POSITION_X = 24.0f;
+const float GameOverTitleData::CENTERED_POSITION_X = 28.0f;
 const float GameOverTitleData::CENTERED_POSITION_Y = 76.0f;
 
 Vector2* GameOverTitleData::GetCenteredPosition()

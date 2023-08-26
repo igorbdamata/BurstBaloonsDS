@@ -14,8 +14,8 @@ public:
 	static const int TILE_WIDTH = 64;
 	static const int TILE_HEIGHT = 64;
 
-	static const int OFFSET_X = 24;
-	static const int OFFSET_Y = -20;
+	static const int OFFSET_X = 26;
+	static const int OFFSET_Y = -10;
 
 	static const SpriteSize SPRITE_SIZE = SpriteSize_64x64;
 

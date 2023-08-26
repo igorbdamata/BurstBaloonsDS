@@ -13,7 +13,7 @@ const void* NewRecordTitleData::TILES[4]
 	TextPassRecord3Tiles
 };
 
-const float NewRecordTitleData::CENTERED_POSITION_X = 24.0f;
+const float NewRecordTitleData::CENTERED_POSITION_X = 16.0f;
 const float NewRecordTitleData::CENTERED_POSITION_Y = 76.0f;
 
 Vector2* NewRecordTitleData::GetCenteredPosition()
