@@ -110,8 +110,10 @@
     <ClCompile Include="source\Data\BurstAnimationData.cpp" />
     <ClCompile Include="source\Data\BurstBalloonsTextData.cpp" />
     <ClCompile Include="source\Data\FlyAnimationData.cpp" />
+    <ClCompile Include="source\Data\GameOverTitleData.cpp" />
     <ClCompile Include="source\Data\GameplayData.cpp" />
     <ClCompile Include="source\Data\HardwareData.cpp" />
+    <ClCompile Include="source\Data\NewRecordTitleData.cpp" />
     <ClCompile Include="source\Data\PressAnyKeyTextData.cpp" />
     <ClCompile Include="Source\Data\SplashScreenData.cpp" />
     <ClCompile Include="source\Engine\AnimatedEntity.cpp" />
@@ -145,10 +147,12 @@
     <ClInclude Include="include\Data\BurstAnimationData.h" />
     <ClInclude Include="include\Data\BurstBalloonsTextData.h" />
     <ClInclude Include="include\Data\FlyAnimationData.h" />
+    <ClInclude Include="include\Data\GameOverTitleData.h" />
     <ClInclude Include="include\Data\GameplayData.h" />
     <ClInclude Include="include\Data\GeneralTitleData.h" />
     <ClInclude Include="include\Data\HardwareData.h" />
     <ClInclude Include="include\Data\LifeIconData.h" />
+    <ClInclude Include="include\Data\NewRecordTitleData.h" />
     <ClInclude Include="include\Data\PressAnyKeyTextData.h" />
     <ClInclude Include="include\Data\SplashScreenData.h" />
     <ClInclude Include="include\Engine\AnimatedEntity.h" />

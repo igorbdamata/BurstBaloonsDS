@@ -1,13 +1,9 @@
-#include<nds/arm9/sprite.h>
-#include<soundbank.h>
-
 #include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"
-
 #include "GameManager.h"
-#include "AssetsInitializer.h"
-
 #include "Scenes/SceneManager.h"
+
+#include "AssetsInitializer.h"
 
 int main()
 {
@@ -20,7 +16,8 @@ int main()
 	GameManager* gameManager = new GameManager(sceneManager);
 	
 	AssetsInitializer* assetsInitializer = new AssetsInitializer(main, sub, sceneManager, gameManager);
-	assetsInitializer->InitializeGlobalAssets();
+	assetsInitializer->InitializeGlobalGraphics();
+	assetsInitializer->InitializeScenes();
 	delete assetsInitializer;
 
 	sceneManager->ChangeSceneTo("TitleScreen");

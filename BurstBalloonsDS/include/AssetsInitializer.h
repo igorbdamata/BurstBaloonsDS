@@ -10,7 +10,8 @@ class AssetsInitializer
 {
 public:
 	AssetsInitializer(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, GameManager* gameManager);
-	void InitializeGlobalAssets();
+	void InitializeScenes();
+	void InitializeGlobalGraphics();
 private:
 	GraphicsHandler* mainEngine;
 	GraphicsHandler* subEngine;
