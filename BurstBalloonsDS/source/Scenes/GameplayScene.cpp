@@ -21,7 +21,7 @@
 
 #include<soundbank.h>
 
-GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, GameManager* gameManager) : Scene(mainEngine, subEngine)
+GameplayScene::GameplayScene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, GameManager* gameManager) : Scene(topGraphicsHandler, bottomGraphicsHandler)
 {
 	this->gameManager = gameManager;
 	vector2TouchPosition = Vector2(0, 0);
@@ -36,8 +36,8 @@ GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEn
 	{
 		std::string spriteName = "balloonFly" + i;
 		const void* tiles = BalloonSpriteTiles + (BalloonData::SPRITE_SHEET_OFFSET) *i;
-		subEngine->AddSprite(spriteName, tiles, BalloonData::SPRITE_SIZE);
-		flyAnimationFrames.insert(flyAnimationFrames.end(), subEngine->GetSprite(spriteName));
+		bottomGraphicsHandler->AddSprite(spriteName, tiles, BalloonData::SPRITE_SIZE);
+		flyAnimationFrames.insert(flyAnimationFrames.end(), bottomGraphicsHandler->GetSprite(spriteName));
 	}
 	#pragma endregion
 	#pragma region InitBurstAnimation
@@ -46,24 +46,24 @@ GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEn
 	{
 		std::string spriteName = "balloonBurst" + (i - FlyAnimationData::FRAMES_COUNT);
 		const void* tiles = BalloonSpriteTiles + (BalloonData::SPRITE_SHEET_OFFSET) *i;
-		subEngine->AddSprite(spriteName, tiles, BalloonData::SPRITE_SIZE);
-		burstAnimationFrames.insert(burstAnimationFrames.end(), subEngine->GetSprite(spriteName));
+		bottomGraphicsHandler->AddSprite(spriteName, tiles, BalloonData::SPRITE_SIZE);
+		burstAnimationFrames.insert(burstAnimationFrames.end(), bottomGraphicsHandler->GetSprite(spriteName));
 	}
 	#pragma endregion
 
-	subEngine->AddPalette(BalloonSpritePal, "balloon");
+	bottomGraphicsHandler->AddPalette(BalloonSpritePal, "balloon");
 
 	for (int i = 0; i < GameplayData::BALLOONS_COUNT; i++)
 	{
 		balloons[i] = new Balloon(gameManager, flyAnimationFrames, burstAnimationFrames);
-		subEngine->InitEntity(balloons[i]);
-		balloons[i]->SetPaletteTo(subEngine->GetPalette("balloon"));
+		bottomGraphicsHandler->InitEntity(balloons[i]);
+		balloons[i]->SetPaletteTo(bottomGraphicsHandler->GetPalette("balloon"));
 	}
 	#pragma endregion
 
 	#pragma region LifeIconsInit
-	mainEngine->AddSprite("balloonUI", BalloonUITiles, LifeIconData::SPRITE_SIZE);
-	mainEngine->AddPalette(BalloonUIPal, "balloonUI");
+	topGraphicsHandler->AddSprite("balloonUI", BalloonUITiles, LifeIconData::SPRITE_SIZE);
+	topGraphicsHandler->AddPalette(BalloonUIPal, "balloonUI");
 
 	for (int i = 0; i < GameplayData::TOTAL_LIFE; i++)
 	{
@@ -73,9 +73,9 @@ GameplayScene::GameplayScene(GraphicsHandler* mainEngine, GraphicsHandler* subEn
 										LifeIconData::SPRITE_WIDTH, LifeIconData::SPRITE_HEIGHT,
 										new Vector2(LifeIconData::SPRITE_OFFSET_X, LifeIconData::SPRITE_OFFSET_Y),
 										LifeIconData::SPRITE_SIZE);
-		mainEngine->InitEntity(lifeIcons[i]);
-		lifeIcons[i]->SetSpriteTo(mainEngine->GetSprite("balloonUI"));
-		lifeIcons[i]->SetPaletteTo(mainEngine->GetPalette("balloonUI"));
+		topGraphicsHandler->InitEntity(lifeIcons[i]);
+		lifeIcons[i]->SetSpriteTo(topGraphicsHandler->GetSprite("balloonUI"));
+		lifeIcons[i]->SetPaletteTo(topGraphicsHandler->GetPalette("balloonUI"));
 	}
 	#pragma endregion
 }

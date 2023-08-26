@@ -6,10 +6,10 @@
 #include "Data/PressAnyKeyTextData.h";
 
 SplashScreenCodedAnimation::SplashScreenCodedAnimation(std::vector<Entity*> pressAnyKeyText,
-													   GraphicsHandler* main, GraphicsHandler* sub)
+													   GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler)
 {
-	this->sub = sub;
-	this->main = main;
+	this->bottomGraphicsHandler = bottomGraphicsHandler;
+	this->topGraphicsHandler = topGraphicsHandler;
 
 	this->pressAnyKeyText = pressAnyKeyText;
 
@@ -23,7 +23,7 @@ SplashScreenCodedAnimation::SplashScreenCodedAnimation(std::vector<Entity*> pres
 }
 void SplashScreenCodedAnimation::SetBackgroundTo(void* newSprite)
 {
-	main->SetBackgroundTo(newSprite, Background1BitmapLen);
+	topGraphicsHandler->SetBackgroundTo(newSprite, Background1BitmapLen);
 }
 
 void SplashScreenCodedAnimation::Start()
@@ -72,5 +72,5 @@ void SplashScreenCodedAnimation::FinishSplashScreenAnimation()
 {
 	isPlaying = false;
 	animationHaveFinished = true;
-	main->SetBackgroundTo(Background1Bitmap, Background1BitmapLen);
+	topGraphicsHandler->SetBackgroundTo(Background1Bitmap, Background1BitmapLen);
 }

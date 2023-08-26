@@ -9,12 +9,12 @@
 class AssetsInitializer
 {
 public:
-	AssetsInitializer(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, GameManager* gameManager);
+	AssetsInitializer(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager, GameManager* gameManager);
 	void InitializeScenes();
 	void InitializeGlobalGraphics();
 private:
-	GraphicsHandler* mainEngine;
-	GraphicsHandler* subEngine;
+	GraphicsHandler* topGraphicsHandler;
+	GraphicsHandler* bottomGraphicsHandler;
 	SceneManager* sceneManager;
 	GameManager* gameManager;
 

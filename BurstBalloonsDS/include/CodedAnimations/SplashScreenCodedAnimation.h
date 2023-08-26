@@ -13,13 +13,13 @@ class SplashScreenCodedAnimation : public CodedAnimation
 {
 public:
 	SplashScreenCodedAnimation(std::vector<Entity*> pressAnyKeyText,
-							   GraphicsHandler* main, GraphicsHandler* sub);
+							   GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler);
 	void Start() override;
 	void Update() override;
 
 private:
-	GraphicsHandler* main;
-	GraphicsHandler* sub;
+	GraphicsHandler* topGraphicsHandler;
+	GraphicsHandler* bottomGraphicsHandler;
 
 	Animation* fadeOutAnimation;
 

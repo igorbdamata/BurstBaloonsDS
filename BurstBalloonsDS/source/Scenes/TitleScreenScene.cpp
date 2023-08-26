@@ -15,7 +15,7 @@
 #include "BackgroundAnimation2.h"
 #include "Background.h"
 
-TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager) : Scene(mainEngine, subEngine)
+TitleScreenScene::TitleScreenScene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager) : Scene(topGraphicsHandler, bottomGraphicsHandler)
 {
 	this->sceneManager = sceneManager;
 
@@ -31,16 +31,16 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 									new Vector2(PressAnyKeyTextData::OFFSET_X, PressAnyKeyTextData::OFFSET_Y), 
 									PressAnyKeyTextData::SPRITE_SIZE);
 
-		subEngine->InitEntity(entity);
-		entity->SetPaletteTo(subEngine->GetPalette("text"));
-		entity->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
+		bottomGraphicsHandler->InitEntity(entity);
+		entity->SetPaletteTo(bottomGraphicsHandler->GetPalette("text"));
+		entity->SetSpriteTo(bottomGraphicsHandler->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 
 		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);
 	}
 	#pragma endregion
 
 	#pragma region BurstBalloonsTextInit
-	mainEngine->AddPalette(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName());
+	topGraphicsHandler->AddPalette(BurstBalloonsText0Pal, BurstBalloonsTextData::GetName());
 
 	std::vector<Entity*> burstBalloonsText;
 	for (int i = 0; i < BurstBalloonsTextData::TILES_COUNT; i++)
@@ -50,18 +50,18 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 									new Vector2(BurstBalloonsTextData::OFFSET_X, BurstBalloonsTextData::OFFSET_Y), 
 									BurstBalloonsTextData::SPRITE_SIZE);
 		std::string spriteName = BurstBalloonsTextData::GetName() + std::to_string(i);
-		mainEngine->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
+		topGraphicsHandler->AddSprite(spriteName, BurstBalloonsTextData::GetTile(i), SpriteSize_64x64);
 
-		mainEngine->InitEntity(entity);
-		entity->SetPaletteTo(mainEngine->GetPalette(BurstBalloonsTextData::GetName()));
-		entity->SetSpriteTo(mainEngine->GetSprite(spriteName));
+		topGraphicsHandler->InitEntity(entity);
+		entity->SetPaletteTo(topGraphicsHandler->GetPalette(BurstBalloonsTextData::GetName()));
+		entity->SetSpriteTo(topGraphicsHandler->GetSprite(spriteName));
 
 		burstBalloonsText.insert(burstBalloonsText.end(), entity);
 	}
 
 	#pragma endregion
 
-	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText, mainEngine, subEngine);
+	splashScreenCodedAnimation = new SplashScreenCodedAnimation(pressAnyKeyText, topGraphicsHandler, bottomGraphicsHandler);
 	idleCodedAnimation = new MenuIdleCodedAnimation(pressAnyKeyText, burstBalloonsText);
 }
 

@@ -5,7 +5,7 @@
 #include<soundbank.h>
 #include "Data/PressAnyKeyTextData.h"
 
-EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, Vector2* titleCenteredPosition, const void* titleTiles[GeneralTitleData::TITLES_COUNT]) : Scene(mainEngine, subEngine)
+EndOfLevelScene::EndOfLevelScene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, Vector2* titleCenteredPosition, const void* titleTiles[GeneralTitleData::TITLES_COUNT]) : Scene(topGraphicsHandler, bottomGraphicsHandler)
 {
 	#pragma region InitPressAnyKeyText
 	std::vector<Entity*> pressAnyKeyText;
@@ -15,9 +15,9 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 									PressAnyKeyTextData::TILE_WIDTH, PressAnyKeyTextData::TILE_HEIGHT,
 									new Vector2(PressAnyKeyTextData::OFFSET_X, PressAnyKeyTextData::OFFSET_Y),
 									PressAnyKeyTextData::SPRITE_SIZE);
-		subEngine->InitEntity(entity);
-		entity->SetPaletteTo(subEngine->GetPalette("text"));
-		entity->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
+		bottomGraphicsHandler->InitEntity(entity);
+		entity->SetPaletteTo(bottomGraphicsHandler->GetPalette("text"));
+		entity->SetSpriteTo(bottomGraphicsHandler->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);
 	}
 	#pragma endregion
@@ -27,16 +27,16 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 	for (int i = 0; i < GeneralTitleData::TITLES_COUNT; i++)
 	{
 		std::string currentTileName = titlePrefix + std::to_string(i);
-		mainEngine->AddSprite(currentTileName, titleTiles[i], SpriteSize_64x64);
+		topGraphicsHandler->AddSprite(currentTileName, titleTiles[i], SpriteSize_64x64);
 
 		Vector2* position = new Vector2(titleCenteredPosition->x + GeneralTitleData::TILE_WIDTH * i, titleCenteredPosition->y);
 		Entity* entity = new Entity(position, GeneralTitleData::TILE_WIDTH, GeneralTitleData::TILE_HEIGHT,
 									new Vector2(GeneralTitleData::OFFSET_X, GeneralTitleData::OFFSET_Y),
 									GeneralTitleData::SPRITE_SIZE);
 
-		mainEngine->InitEntity(entity);
-		entity->SetPaletteTo(mainEngine->GetPalette("text"));
-		entity->SetSpriteTo(mainEngine->GetSprite(currentTileName));
+		topGraphicsHandler->InitEntity(entity);
+		entity->SetPaletteTo(topGraphicsHandler->GetPalette("text"));
+		entity->SetSpriteTo(topGraphicsHandler->GetSprite(currentTileName));
 		titleText.insert(titleText.end(), entity);
 	}
 	#pragma endregion

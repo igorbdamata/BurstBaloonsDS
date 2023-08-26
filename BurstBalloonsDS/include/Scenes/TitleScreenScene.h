@@ -7,7 +7,7 @@
 class TitleScreenScene : public Scene
 {
 public:
-	TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager);
+	TitleScreenScene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager);
 
 	void Load() override;
 

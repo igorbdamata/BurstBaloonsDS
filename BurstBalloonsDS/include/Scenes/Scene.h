@@ -5,7 +5,7 @@
 class Scene
 {
 public:
-	Scene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine);
+	Scene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler);
 
 	virtual void Load();
 
@@ -16,8 +16,8 @@ public:
 	void SetSubBackgroundTo(const void* backgroundTiles, uint32 backgroundTilesLen);
 	void PlotBackgroundsOnScreen();
 protected:
-	GraphicsHandler* mainEngine;
-	GraphicsHandler* subEngine;
+	GraphicsHandler* topGraphicsHandler;
+	GraphicsHandler* bottomGraphicsHandler;
 private:
 	void* mainBackgroundTiles;
 	uint32 mainBackgroundTilesLen;

@@ -3,10 +3,10 @@
 
 #include <nds/arm9/input.h>
 
-Scene::Scene(GraphicsHandler* mainEngine, GraphicsHandler* subEngine)
+Scene::Scene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler)
 {
-	this->mainEngine = mainEngine;
-	this->subEngine = subEngine;
+	this->topGraphicsHandler = topGraphicsHandler;
+	this->bottomGraphicsHandler = bottomGraphicsHandler;
 }
 
 void Scene::Load()
@@ -34,6 +34,6 @@ void Scene::SetSubBackgroundTo(const void* backgroundTiles, uint32 backgroundTil
 
 void Scene::PlotBackgroundsOnScreen()
 {
-	mainEngine->SetBackgroundTo(mainBackgroundTiles, mainBackgroundTilesLen);
-	subEngine->SetBackgroundTo(subBackgroundTiles, subBackgroundTilesLen);
+	topGraphicsHandler->SetBackgroundTo(mainBackgroundTiles, mainBackgroundTilesLen);
+	bottomGraphicsHandler->SetBackgroundTo(subBackgroundTiles, subBackgroundTilesLen);
 }

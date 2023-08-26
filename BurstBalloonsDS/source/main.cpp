@@ -9,13 +9,13 @@ int main()
 {
 	HardwareManager::InitAndSetEverything();
 
-	GraphicsHandler* main = new GraphicsHandler(Screen::TOP);
-	GraphicsHandler* sub = new GraphicsHandler(Screen::BOTTOM);
+	GraphicsHandler* topGraphicsHandler = new GraphicsHandler(Screen::TOP);
+	GraphicsHandler* bottomGraphicsHandler = new GraphicsHandler(Screen::BOTTOM);
 
 	SceneManager* sceneManager = new SceneManager();
 	GameManager* gameManager = new GameManager(sceneManager);
 	
-	AssetsInitializer* assetsInitializer = new AssetsInitializer(main, sub, sceneManager, gameManager);
+	AssetsInitializer* assetsInitializer = new AssetsInitializer(topGraphicsHandler, bottomGraphicsHandler, sceneManager, gameManager);
 	assetsInitializer->InitializeGlobalGraphics();
 	assetsInitializer->InitializeScenes();
 	delete assetsInitializer;
@@ -29,8 +29,8 @@ int main()
 		sceneManager->GetCurrentScene()->InputLoop();
 		sceneManager->GetCurrentScene()->GameLoop();
 
-		main->Update();
-		sub->Update();
+		topGraphicsHandler->Update();
+		bottomGraphicsHandler->Update();
 
 		HardwareManager::WaitForNextFrame();
 	}

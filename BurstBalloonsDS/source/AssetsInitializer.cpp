@@ -26,22 +26,22 @@
 
 #include"font.h"
 
-AssetsInitializer::AssetsInitializer(GraphicsHandler* mainEngine, GraphicsHandler* subEngine, SceneManager* sceneManager, GameManager* gameManager)
+AssetsInitializer::AssetsInitializer(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager, GameManager* gameManager)
 {
-	this->mainEngine = mainEngine;
-	this->subEngine = subEngine;
+	this->topGraphicsHandler = topGraphicsHandler;
+	this->bottomGraphicsHandler = bottomGraphicsHandler;
 	this->sceneManager = sceneManager;
 	this->gameManager = gameManager;
 }
 
 void AssetsInitializer::InitializeScenes()
 {
-	TitleScreenScene* titleScreenScene = new TitleScreenScene(mainEngine, subEngine, sceneManager);
-	GameplayScene* gameplayScene = new GameplayScene(mainEngine, subEngine, gameManager);
+	TitleScreenScene* titleScreenScene = new TitleScreenScene(topGraphicsHandler, bottomGraphicsHandler, sceneManager);
+	GameplayScene* gameplayScene = new GameplayScene(topGraphicsHandler, bottomGraphicsHandler, gameManager);
 
 	EndOfLevelScene* newRecordScene = new EndOfLevelScene(
-		mainEngine,
-		subEngine,
+		topGraphicsHandler,
+		bottomGraphicsHandler,
 		sceneManager,
 		SFX_PASSRECORD,
 		"newRecordText",
@@ -51,8 +51,8 @@ void AssetsInitializer::InitializeScenes()
 		NewRecordTitleData::TILES);
 
 	EndOfLevelScene* gameOverScene = new EndOfLevelScene(
-		mainEngine,
-		subEngine,
+		topGraphicsHandler,
+		bottomGraphicsHandler,
 		sceneManager,
 		SFX_GAMEOVER,
 		"gameOverText",
@@ -69,17 +69,17 @@ void AssetsInitializer::InitializeScenes()
 
 void AssetsInitializer::InitializeGlobalGraphics()
 {
-	mainEngine->AddPalette(PressAnyKeyText0Pal, "text");
-	subEngine->AddPalette(PressAnyKeyText0Pal, "text");
-	mainEngine->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
+	topGraphicsHandler->AddPalette(PressAnyKeyText0Pal, "text");
+	bottomGraphicsHandler->AddPalette(PressAnyKeyText0Pal, "text");
+	topGraphicsHandler->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
 
 	InitPressAnyKeyText();
 }
 
 void AssetsInitializer::InitPressAnyKeyText()
 {
-	subEngine->AddSprite("pressAnyKeyText0", PressAnyKeyText0Tiles, PressAnyKeyTextData::SPRITE_SIZE);
-	subEngine->AddSprite("pressAnyKeyText1", PressAnyKeyText1Tiles, PressAnyKeyTextData::SPRITE_SIZE);
-	subEngine->AddSprite("pressAnyKeyText2", PressAnyKeyText2Tiles, PressAnyKeyTextData::SPRITE_SIZE);
-	subEngine->AddSprite("pressAnyKeyText3", PressAnyKeyText3Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	bottomGraphicsHandler->AddSprite("pressAnyKeyText0", PressAnyKeyText0Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	bottomGraphicsHandler->AddSprite("pressAnyKeyText1", PressAnyKeyText1Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	bottomGraphicsHandler->AddSprite("pressAnyKeyText2", PressAnyKeyText2Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	bottomGraphicsHandler->AddSprite("pressAnyKeyText3", PressAnyKeyText3Tiles, PressAnyKeyTextData::SPRITE_SIZE);
 }
