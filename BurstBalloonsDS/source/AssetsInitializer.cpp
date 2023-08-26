@@ -44,7 +44,7 @@ void AssetsInitializer::InitializeScenes()
 		subEngine,
 		sceneManager,
 		SFX_PASSRECORD,
-		"NewRecordText",
+		"newRecordText",
 		BackgroundPassRecordBitmap,
 		BackgroundPassRecordBitmapLen,
 		NewRecordTitleData::GetCenteredPosition(),
@@ -55,22 +55,22 @@ void AssetsInitializer::InitializeScenes()
 		subEngine,
 		sceneManager,
 		SFX_GAMEOVER,
-		"GameOverText",
+		"gameOverText",
 		BackgroundGameOverBitmap,
 		BackgroundGameOverBitmapLen,
 		GameOverTitleData::GetCenteredPosition(),
 		GameOverTitleData::TILES);
 
-	sceneManager->AddScene("TitleScreen", titleScreenScene);
-	sceneManager->AddScene("Gameplay", gameplayScene);
-	sceneManager->AddScene("NewRecord", newRecordScene);
-	sceneManager->AddScene("GameOver", gameOverScene);
+	sceneManager->AddScene("titleScreen", titleScreenScene);
+	sceneManager->AddScene("gameplay", gameplayScene);
+	sceneManager->AddScene("newRecord", newRecordScene);
+	sceneManager->AddScene("gameOver", gameOverScene);
 }
 
 void AssetsInitializer::InitializeGlobalGraphics()
 {
-	mainEngine->AddPalette(PressAnyKeyText0Pal, "Text");
-	subEngine->AddPalette(PressAnyKeyText0Pal, "Text");
+	mainEngine->AddPalette(PressAnyKeyText0Pal, "text");
+	subEngine->AddPalette(PressAnyKeyText0Pal, "text");
 	mainEngine->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
 
 	InitPressAnyKeyText();
@@ -78,8 +78,8 @@ void AssetsInitializer::InitializeGlobalGraphics()
 
 void AssetsInitializer::InitPressAnyKeyText()
 {
-	subEngine->AddSprite("PressAnyKeyText0", PressAnyKeyText0Tiles, PressAnyKeyTextData::SPRITE_SIZE);
-	subEngine->AddSprite("PressAnyKeyText1", PressAnyKeyText1Tiles, PressAnyKeyTextData::SPRITE_SIZE);
-	subEngine->AddSprite("PressAnyKeyText2", PressAnyKeyText2Tiles, PressAnyKeyTextData::SPRITE_SIZE);
-	subEngine->AddSprite("PressAnyKeyText3", PressAnyKeyText3Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	subEngine->AddSprite("pressAnyKeyText0", PressAnyKeyText0Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	subEngine->AddSprite("pressAnyKeyText1", PressAnyKeyText1Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	subEngine->AddSprite("pressAnyKeyText2", PressAnyKeyText2Tiles, PressAnyKeyTextData::SPRITE_SIZE);
+	subEngine->AddSprite("pressAnyKeyText3", PressAnyKeyText3Tiles, PressAnyKeyTextData::SPRITE_SIZE);
 }

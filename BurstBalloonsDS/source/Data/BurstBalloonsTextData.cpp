@@ -17,7 +17,7 @@ const void* BurstBalloonsTextData::GetTile(int tileID)
 
 const std::string BurstBalloonsTextData::GetName()
 {
-	return "BurstBalloonsText";
+	return "burstBalloonsText";
 }
 
 Vector2* BurstBalloonsTextData::GetCenteredPositionForTile(int id)

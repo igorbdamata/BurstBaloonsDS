@@ -16,8 +16,8 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 									new Vector2(PressAnyKeyTextData::OFFSET_X, PressAnyKeyTextData::OFFSET_Y),
 									PressAnyKeyTextData::SPRITE_SIZE);
 		subEngine->InitEntity(entity);
-		entity->SetPaletteTo(subEngine->GetPalette("Text"));
-		entity->SetSpriteTo(subEngine->GetSprite("PressAnyKeyText" + std::to_string(i)));
+		entity->SetPaletteTo(subEngine->GetPalette("text"));
+		entity->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);
 	}
 	#pragma endregion
@@ -35,8 +35,8 @@ EndOfLevelScene::EndOfLevelScene(GraphicsHandler* mainEngine, GraphicsHandler* s
 									GeneralTitleData::SPRITE_SIZE);
 
 		mainEngine->InitEntity(entity);
-		entity->SetPaletteTo(mainEngine->GetPalette("Text"));
-		entity->SetSpriteTo(mainEngine->GetSprite(currentTileName ));
+		entity->SetPaletteTo(mainEngine->GetPalette("text"));
+		entity->SetSpriteTo(mainEngine->GetSprite(currentTileName));
 		titleText.insert(titleText.end(), entity);
 	}
 	#pragma endregion
@@ -63,7 +63,7 @@ void EndOfLevelScene::InputLoop()
 	Scene::InputLoop();
 
 	if (keysDown())
-		sceneManager->ChangeSceneTo("Gameplay");
+		sceneManager->ChangeSceneTo("gameplay");
 }
 
 void EndOfLevelScene::GameLoop()

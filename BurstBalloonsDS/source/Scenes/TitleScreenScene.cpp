@@ -32,7 +32,7 @@ TitleScreenScene::TitleScreenScene(GraphicsHandler* mainEngine, GraphicsHandler*
 									PressAnyKeyTextData::SPRITE_SIZE);
 
 		subEngine->InitEntity(entity);
-		entity->SetPaletteTo(subEngine->GetPalette("Text"));
+		entity->SetPaletteTo(subEngine->GetPalette("text"));
 		entity->SetSpriteTo(subEngine->GetSprite(PressAnyKeyTextData::GetName() + std::to_string(i)));
 
 		pressAnyKeyText.insert(pressAnyKeyText.end(), entity);
@@ -78,7 +78,7 @@ void TitleScreenScene::InputLoop()
 
 	Scene::InputLoop();
 	if (keysDown())
-		sceneManager->ChangeSceneTo("Gameplay");
+		sceneManager->ChangeSceneTo("gameplay");
 }
 void TitleScreenScene::GameLoop()
 {

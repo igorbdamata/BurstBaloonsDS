@@ -20,7 +20,7 @@ int main()
 	assetsInitializer->InitializeScenes();
 	delete assetsInitializer;
 
-	sceneManager->ChangeSceneTo("TitleScreen");
+	sceneManager->ChangeSceneTo("titleScreen");
 
 	while (true)
 	{

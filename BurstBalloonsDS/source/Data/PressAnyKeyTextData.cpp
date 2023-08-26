@@ -7,7 +7,7 @@
 
 const std::string PressAnyKeyTextData::GetName()
 {
-	return "PressAnyKeyText";
+	return "pressAnyKeyText";
 }
 
 Vector2* PressAnyKeyTextData::GetCenteredPositionForTile(int id)

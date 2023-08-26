@@ -43,11 +43,11 @@ void GameManager::RemoveLife()
 }
 void GameManager::OnRunOutOfLives()
 {
-	const char* sceneToLoad = "GameOver";
+	const char* sceneToLoad = "gameOver";
 	if (score > highScore)
 	{
 		highScore = score;
-		sceneToLoad = "NewRecord";
+		sceneToLoad = "newRecord";
 	}
 	sceneManager->ChangeSceneTo(sceneToLoad);
 }

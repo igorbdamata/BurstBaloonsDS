@@ -11,46 +11,46 @@
 
 enum Screen
 {
-    BOTTOM,
-    TOP
+	BOTTOM,
+	TOP
 };
 
 class GraphicsHandler
 {
 public:
 
-    GraphicsHandler(Screen screen);
+	GraphicsHandler(Screen screen);
 
-    void Update();
+	void Update();
 
-    void SetBackgroundTo(const void *backgroundBitmap, uint32 backgroundSize, int layer=3);
-    void SetTextFontTo(void *fontTiles, void *fontPalette, u16 fontPaletteLength);
+	void SetBackgroundTo(const void* backgroundBitmap, uint32 backgroundSize, int layer = 3);
+	void SetTextFontTo(void* fontTiles, void* fontPalette, u16 fontPaletteLength);
 
-    void AddSprite(std::string spriteName, const void *tiles, SpriteSize spriteSize);
-    void *GetSprite(std::string spriteName);
+	void AddSprite(std::string spriteName, const void* tiles, SpriteSize spriteSize);
+	void* GetSprite(std::string spriteName);
 
-    void AddPalette(const void* palette, std::string pallateName);
-    int GetPalette( std::string paletteName);
+	void AddPalette(const void* palette, std::string pallateName);
+	int GetPalette(std::string paletteName);
 
-    void InitEntity(Entity *entity);
+	void InitEntity(Entity* entity);
 
-    Screen GetScreen();
+	Screen GetScreen();
 private:
-    Screen screen;
+	Screen screen;
 
-    int availableOamIndex;
-    int availablePaletteIndex;
+	int availableOamIndex;
+	int availablePaletteIndex;
 
-    std::map<std::string, int> palettes;
-    std::map<std::string, void *> sprites;
+	std::map<std::string, int> palettes;
+	std::map<std::string, void*> sprites;
 
-    u16 *oamAddress;
-    u16 *palettesAddress;
-    u16 *backgroundAddress[4];
-    OamState *oamState;
+	u16* oamAddress;
+	u16* palettesAddress;
+	u16* backgroundAddress[4];
+	OamState* oamState;
 
-    int GetAvailableOamIndex();
-    int GetAvailablePaletteIndex();
+	int GetAvailableOamIndex();
+	int GetAvailablePaletteIndex();
 };
 
 #endif
