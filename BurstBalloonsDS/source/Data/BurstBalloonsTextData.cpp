@@ -1,7 +1,9 @@
+#include <nds/arm9/sassert.h>
+
 #include "Data/BurstBalloonsTextData.h"
+
 #include "BurstBalloonsText0.h"
 #include "BurstBalloonsText1.h"
-#include<nds/arm9/sassert.h>
 
 const void* BurstBalloonsTextData::TILES[] = { BurstBalloonsText0Tiles, BurstBalloonsText1Tiles };
 

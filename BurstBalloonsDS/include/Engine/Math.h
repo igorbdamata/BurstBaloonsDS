@@ -1,6 +1,6 @@
+#pragma once
 #if !defined(MATH_H)
 #define MATH true
-#pragma once
 
 class Math
 {

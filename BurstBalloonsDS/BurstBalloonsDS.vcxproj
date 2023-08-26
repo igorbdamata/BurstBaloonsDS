@@ -161,7 +161,6 @@
     <ClInclude Include="include\Engine\Entity.h" />
     <ClInclude Include="include\Engine\HardwareManager.h" />
     <ClInclude Include="include\Engine\Math.h" />
-    <ClInclude Include="include\Engine\MetaTileAssembler.h" />
     <ClInclude Include="include\Engine\GraphicsHandler.h" />
     <ClInclude Include="include\Engine\Rect.h" />
     <ClInclude Include="include\Engine\SoundManager.h" />

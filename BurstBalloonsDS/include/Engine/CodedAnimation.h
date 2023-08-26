@@ -1,6 +1,7 @@
 #pragma once
 #if !defined(CODED_ANIMATION_H)
 #define CODED_ANIMATION_H true
+
 class CodedAnimation
 {
 public:
@@ -12,4 +13,5 @@ protected:
 	bool isPlaying;
 	bool animationHaveFinished;
 };
+
 #endif

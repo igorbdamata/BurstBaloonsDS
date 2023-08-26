@@ -20,4 +20,5 @@ private:
 
 	void InitPressAnyKeyText();
 };
+
 #endif

@@ -1,6 +1,7 @@
+#include <maxmod9.h>
+#include <soundbank.h>
+
 #include "Engine/SoundManager.h"
-#include<maxmod9.h>
-#include<soundbank.h>
 
 int SoundManager::currentSong = -1;
 

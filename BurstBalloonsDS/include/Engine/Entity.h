@@ -1,6 +1,6 @@
+#pragma once
 #if !defined(ENTITY_H)
 #define ENTITY_H true
-#pragma once
 
 #include <nds/arm9/sprite.h>
 #include "Vector2.h"

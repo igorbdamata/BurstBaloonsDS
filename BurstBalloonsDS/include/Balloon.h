@@ -1,4 +1,7 @@
 #pragma once
+#if !defined(BALLOON_H)
+#define BALLOON_H true
+
 #include <vector>
 
 #include "Engine/Rect.h"
@@ -9,17 +12,17 @@ class Balloon : public AnimatedEntity
 {
 public:
 	Balloon(GameManager* gameManager, std::vector<void*> flyAnimationFrames, std::vector<void*> burstAnimationFrames);
-	
+
 	bool IsCollidingWith(Vector2* touchPosition);
 
 	void Update();
-	
+
 	void Burst();
 	void Respawn();
 
 private:
 	GameManager* gameManager;
-	
+
 	Rect* colliderRect;
 	Vector2* velocity;
 
@@ -35,3 +38,5 @@ private:
 
 	void SetPositionToRandomPoint();
 };
+
+#endif

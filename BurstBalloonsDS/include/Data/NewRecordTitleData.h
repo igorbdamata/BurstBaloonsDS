@@ -1,6 +1,7 @@
 #pragma once
 #if !defined (NEW_RECORD_TITLE_DATA_H)
 #define NEW_RECORD_TITLE_DATA_H true
+
 #include "../Engine/Vector2.h"
 
 class NewRecordTitleData

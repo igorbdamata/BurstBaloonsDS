@@ -1,6 +1,7 @@
 #pragma once
 #if !defined(HARDWARE_DATA)
 #define HARDWARE_DATA true
+
 #include "../Engine/Rect.h"
 
 class HardwareData

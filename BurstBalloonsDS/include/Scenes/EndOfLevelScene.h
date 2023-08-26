@@ -1,4 +1,7 @@
 #pragma once
+#if !defined(END_OF_LEVEL_SCENE_H)
+#define END_OF_LEVEL_SCENE_H true;
+
 #include "Scene.h"
 #include "SceneManager.h"
 #include "../GameManager.h"
@@ -20,3 +23,5 @@ private:
 
 	int sfxToPlayOnLoad;
 };
+
+#endif

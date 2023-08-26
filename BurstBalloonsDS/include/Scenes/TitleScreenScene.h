@@ -1,4 +1,8 @@
 #pragma once
+#if !defined(TITLE_SCREEN_SCENE_H)
+#define TITLE_SCREEN_SCENE_H true
+
+
 #include "Scene.h"
 #include "SceneManager.h"
 #include "../CodedAnimations/SplashScreenCodedAnimation.h"
@@ -19,3 +23,5 @@ private:
 	SplashScreenCodedAnimation* splashScreenCodedAnimation;
 	MenuIdleCodedAnimation* idleCodedAnimation;
 };
+
+#endif

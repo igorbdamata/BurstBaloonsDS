@@ -9,4 +9,5 @@ public:
 	static const int FRAMES_COUNT = 4;
 	static const bool HAS_LOOP = false;
 };
+
 #endif

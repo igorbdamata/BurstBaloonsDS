@@ -1,6 +1,9 @@
-#include <string>
 #include <nds/arm9/sprite.h>
 #include <nds/arm9/input.h>
+
+#include <string>
+
+#include<soundbank.h>
 
 #include "Scenes/GameplayScene.h"
 
@@ -18,8 +21,6 @@
 #include "BalloonUI.h"
 #include "Background.h"
 #include "Background1.h"
-
-#include<soundbank.h>
 
 GameplayScene::GameplayScene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, GameManager* gameManager) : Scene(topGraphicsHandler, bottomGraphicsHandler)
 {

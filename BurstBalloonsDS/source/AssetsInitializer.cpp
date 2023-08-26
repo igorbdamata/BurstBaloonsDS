@@ -1,6 +1,6 @@
-#include "AssetsInitializer.h"
-
 #include<soundbank.h>
+
+#include "AssetsInitializer.h"
 
 #include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"

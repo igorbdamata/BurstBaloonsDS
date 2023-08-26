@@ -1,4 +1,7 @@
 #pragma once
+#if !defined(GAMEPLAY_SCENE_H)
+#define GAMEPLAY_SCENE_H true
+
 #include "Scene.h"
 #include "SceneManager.h"
 #include "../Balloon.h"
@@ -27,3 +30,5 @@ private:
 	void UpdateBalloons();
 	void UpdateHUD();
 };
+
+#endif

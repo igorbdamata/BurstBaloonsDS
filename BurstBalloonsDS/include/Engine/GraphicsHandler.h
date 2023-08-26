@@ -1,6 +1,7 @@
+#pragma once
 #if !defined(GRAPHICS_HANDLER_H)
 #define GRAPHICS_HANDLER_H true
-#pragma once
+
 #include <nds.h>
 #include <nds/arm9/console.h>
 

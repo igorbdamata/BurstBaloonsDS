@@ -1,9 +1,11 @@
+#include <soundbank.h>
+
 #include "Scenes/EndOfLevelScene.h"
-#include <nds/arm9/input.h>
 
 #include "Engine/SoundManager.h"
-#include<soundbank.h>
 #include "Data/PressAnyKeyTextData.h"
+
+#include <nds/arm9/input.h>
 
 EndOfLevelScene::EndOfLevelScene(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager, int sfxToPlayOnLoad, std::string titlePrefix, const void* backgroundTiles, uint32 backgroundTilesLen, Vector2* titleCenteredPosition, const void* titleTiles[GeneralTitleData::TITLES_COUNT]) : Scene(topGraphicsHandler, bottomGraphicsHandler)
 {

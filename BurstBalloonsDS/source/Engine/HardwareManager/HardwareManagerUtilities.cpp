@@ -2,6 +2,7 @@
 #include <nds/arm9/sprite.h>
 
 #include "Engine/HardwareManager.h"
+
 #include "Data/HardwareData.h"
 
 int HardwareManager::timeLoops = 0;

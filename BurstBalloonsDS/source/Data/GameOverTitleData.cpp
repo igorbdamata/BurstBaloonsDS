@@ -1,9 +1,9 @@
 #include "Data/GameOverTitleData.h"
 
-#include"GameOverText0.h"
-#include"GameOverText1.h"
-#include"GameOverText2.h"
-#include"GameOverText3.h"
+#include "GameOverText0.h"
+#include "GameOverText1.h"
+#include "GameOverText2.h"
+#include "GameOverText3.h"
 
 const void* GameOverTitleData::TILES[4]
 {

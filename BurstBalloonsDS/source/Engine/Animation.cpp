@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 
 #include "Engine/Animation.h"
 #include "Engine/HardwareManager.h"

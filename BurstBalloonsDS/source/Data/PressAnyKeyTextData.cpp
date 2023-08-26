@@ -1,9 +1,9 @@
 #include "Data/PressAnyKeyTextData.h"
+
 #include "PressAnyKeyText0.h"
 #include "PressAnyKeyText1.h"
 #include "PressAnyKeyText2.h"
 #include "PressAnyKeyText3.h"
-#include<nds/arm9/sassert.h>
 
 const std::string PressAnyKeyTextData::GetName()
 {

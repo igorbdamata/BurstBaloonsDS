@@ -1,6 +1,6 @@
-#include "Engine/Vector2.h"
-
 #include <math.h>
+
+#include "Engine/Vector2.h"
 
 Vector2::Vector2()
 {

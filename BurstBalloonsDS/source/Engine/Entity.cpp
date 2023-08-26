@@ -1,8 +1,10 @@
-#include "Engine/Entity.h"
-#include "Engine/HardwareManager.h"
-#include "Engine/Vector2.h"
 #include <nds.h>
 #include <string>
+
+#include "Engine/Entity.h"
+
+#include "Engine/Vector2.h"
+#include "Engine/HardwareManager.h"
 
 Entity::Entity() {};
 Entity::Entity(Vector2* position, int width, int height, Vector2* spriteOffset, SpriteSize spriteSize)

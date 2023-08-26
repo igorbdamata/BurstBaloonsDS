@@ -1,4 +1,7 @@
 #pragma once
+#if !defined(GAME_MANAGER_H)
+#define GAME_MANAGER_H true
+
 #include "Scenes/SceneManager.h"
 
 class GameManager
@@ -29,3 +32,5 @@ private:
 
 	void OnRunOutOfLives();
 };
+
+#endif

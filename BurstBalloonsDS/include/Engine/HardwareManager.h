@@ -8,7 +8,7 @@ class HardwareManager
 {
 public:
 	static void InitAndSetEverything();
-	
+
 	static void PowerConsoleOn();
 	static void InitVideo();
 	static void InitAudio();
@@ -27,7 +27,7 @@ public:
 	static int GetMainBackground3ID();
 	static int GetMainBackground2ID();
 
-	static PrintConsole *printConsole;
+	static PrintConsole* printConsole;
 
 private:
 	static int subBackground3ID;

@@ -9500,185 +9500,185 @@ ARM.exidx       0x0234da54      0x278
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000   0x10defd
+.debug_info     0x00000000   0x10c897
  *(.debug_info)
- .debug_info    0x00000000    0x10889 AssetsInitializer.o
- .debug_info    0x00010889    0x12ebd Balloon.o
- .debug_info    0x00023746     0x6241 GameManager.o
- .debug_info    0x00029987     0xd41b main.o
- .debug_info    0x00036da2      0x15c BackgroundData.o
- .debug_info    0x00036efe      0x1f8 BalloonData.o
- .debug_info    0x000370f6       0x90 BurstAnimationData.o
- .debug_info    0x00037186     0x5eae BurstBalloonsTextData.o
- .debug_info    0x0003d034       0x90 FlyAnimationData.o
- .debug_info    0x0003d0c4      0x429 GameOverTitleData.o
- .debug_info    0x0003d4ed       0x97 GameplayData.o
- .debug_info    0x0003d584      0x745 HardwareData.o
- .debug_info    0x0003dcc9      0x429 NewRecordTitleData.o
- .debug_info    0x0003e0f2     0x5d51 PressAnyKeyTextData.o
- .debug_info    0x00043e43     0x2056 SplashScreenData.o
- .debug_info    0x00045e99    0x13a15 AnimatedEntity.o
- .debug_info    0x000598ae     0x684b Animation.o
- .debug_info    0x000600f9      0x1b2 CodedAnimation.o
- .debug_info    0x000602ab     0x3292 Entity.o
- .debug_info    0x0006353d    0x1abce GraphicsHandler.o
- .debug_info    0x0007e10b     0x2242 Math.o
- .debug_info    0x0008034d      0x34d SoundManager.o
- .debug_info    0x0008069a     0x2151 Vector2Methods.o
- .debug_info    0x000827eb      0x8c7 Vector2Operators.o
- .debug_info    0x000830b2      0x79e RectEdges.o
- .debug_info    0x00083850      0xb92 RectFunctions.o
- .debug_info    0x000843e2     0x21ab HardwareManagerInitialization.o
- .debug_info    0x0008658d     0x1296 HardwareManagerUtilities.o
- .debug_info    0x00087823    0x17342 EndOfLevelScene.o
- .debug_info    0x0009eb65    0x1bef3 GameplayScene.o
- .debug_info    0x000baa58     0xaa41 Scene.o
- .debug_info    0x000c5499     0xa7a3 SceneManager.o
- .debug_info    0x000cfc3c    0x17c05 TitleScreenScene.o
- .debug_info    0x000e7841     0x71fe MenuIdleCodedAnimation.o
- .debug_info    0x000eea3f    0x13fa8 SplashScreenCodedAnimation.o
- .debug_info    0x001029e7      0xa9c C:/devkitPro/libnds/lib\libnds9.a(background.o)
- .debug_info    0x00103483      0x793 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
- .debug_info    0x00103c16      0x329 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
- .debug_info    0x00103f3f     0x1cb1 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
- .debug_info    0x00105bf0      0xa76 C:/devkitPro/libnds/lib\libnds9.a(system.o)
- .debug_info    0x00106666     0x26ac C:/devkitPro/libnds/lib\libnds9.a(console.o)
- .debug_info    0x00108d12      0xd00 C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
- .debug_info    0x00109a12      0x43b C:/devkitPro/libnds/lib\libnds9.a(keys.o)
- .debug_info    0x00109e4d     0x113e C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
- .debug_info    0x0010af8b       0x5a C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
- .debug_info    0x0010afe5      0x45c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
- .debug_info    0x0010b441      0x68d C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
- .debug_info    0x0010bace      0x367 C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
- .debug_info    0x0010be35     0x183f C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
- .debug_info    0x0010d674       0x23 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
- .debug_info    0x0010d697       0x23 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
- .debug_info    0x0010d6ba       0x23 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
- .debug_info    0x0010d6dd       0x24 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
- .debug_info    0x0010d701       0x25 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
- .debug_info    0x0010d726       0x23 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
- .debug_info    0x0010d749       0x24 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
- .debug_info    0x0010d76d      0x790 C:/devkitPro/libnds/lib\libnds9.a(video.o)
+ .debug_info    0x00000000    0x10886 AssetsInitializer.o
+ .debug_info    0x00010886    0x12ebb Balloon.o
+ .debug_info    0x00023741     0x4c13 GameManager.o
+ .debug_info    0x00028354     0xd41b main.o
+ .debug_info    0x0003576f      0x15c BackgroundData.o
+ .debug_info    0x000358cb      0x1f8 BalloonData.o
+ .debug_info    0x00035ac3       0x90 BurstAnimationData.o
+ .debug_info    0x00035b53     0x5eae BurstBalloonsTextData.o
+ .debug_info    0x0003ba01       0x90 FlyAnimationData.o
+ .debug_info    0x0003ba91      0x429 GameOverTitleData.o
+ .debug_info    0x0003beba       0x97 GameplayData.o
+ .debug_info    0x0003bf51      0x745 HardwareData.o
+ .debug_info    0x0003c696      0x429 NewRecordTitleData.o
+ .debug_info    0x0003cabf     0x5d51 PressAnyKeyTextData.o
+ .debug_info    0x00042810     0x2056 SplashScreenData.o
+ .debug_info    0x00044866    0x13a15 AnimatedEntity.o
+ .debug_info    0x0005827b     0x684b Animation.o
+ .debug_info    0x0005eac6      0x1b2 CodedAnimation.o
+ .debug_info    0x0005ec78     0x3292 Entity.o
+ .debug_info    0x00061f0a    0x1abce GraphicsHandler.o
+ .debug_info    0x0007cad8     0x2242 Math.o
+ .debug_info    0x0007ed1a      0x34d SoundManager.o
+ .debug_info    0x0007f067     0x2151 Vector2Methods.o
+ .debug_info    0x000811b8      0x8c7 Vector2Operators.o
+ .debug_info    0x00081a7f      0x79e RectEdges.o
+ .debug_info    0x0008221d      0xb94 RectFunctions.o
+ .debug_info    0x00082db1     0x219e HardwareManagerInitialization.o
+ .debug_info    0x00084f4f     0x1296 HardwareManagerUtilities.o
+ .debug_info    0x000861e5    0x17342 EndOfLevelScene.o
+ .debug_info    0x0009d527    0x1bef3 GameplayScene.o
+ .debug_info    0x000b941a     0xaa41 Scene.o
+ .debug_info    0x000c3e5b     0xa7a5 SceneManager.o
+ .debug_info    0x000ce600    0x17c05 TitleScreenScene.o
+ .debug_info    0x000e6205     0x71d4 MenuIdleCodedAnimation.o
+ .debug_info    0x000ed3d9    0x13fa8 SplashScreenCodedAnimation.o
+ .debug_info    0x00101381      0xa9c C:/devkitPro/libnds/lib\libnds9.a(background.o)
+ .debug_info    0x00101e1d      0x793 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+ .debug_info    0x001025b0      0x329 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+ .debug_info    0x001028d9     0x1cb1 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+ .debug_info    0x0010458a      0xa76 C:/devkitPro/libnds/lib\libnds9.a(system.o)
+ .debug_info    0x00105000     0x26ac C:/devkitPro/libnds/lib\libnds9.a(console.o)
+ .debug_info    0x001076ac      0xd00 C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+ .debug_info    0x001083ac      0x43b C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+ .debug_info    0x001087e7     0x113e C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+ .debug_info    0x00109925       0x5a C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
+ .debug_info    0x0010997f      0x45c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+ .debug_info    0x00109ddb      0x68d C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+ .debug_info    0x0010a468      0x367 C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+ .debug_info    0x0010a7cf     0x183f C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+ .debug_info    0x0010c00e       0x23 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
+ .debug_info    0x0010c031       0x23 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
+ .debug_info    0x0010c054       0x23 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
+ .debug_info    0x0010c077       0x24 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
+ .debug_info    0x0010c09b       0x25 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
+ .debug_info    0x0010c0c0       0x23 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
+ .debug_info    0x0010c0e3       0x24 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
+ .debug_info    0x0010c107      0x790 C:/devkitPro/libnds/lib\libnds9.a(video.o)
 
-.debug_abbrev   0x00000000    0x11f69
+.debug_abbrev   0x00000000    0x11f6e
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0xbf6 AssetsInitializer.o
- .debug_abbrev  0x00000bf6      0xf9d Balloon.o
- .debug_abbrev  0x00001b93      0x8b5 GameManager.o
- .debug_abbrev  0x00002448      0xa54 main.o
- .debug_abbrev  0x00002e9c       0xac BackgroundData.o
- .debug_abbrev  0x00002f48       0xdf BalloonData.o
- .debug_abbrev  0x00003027       0x7f BurstAnimationData.o
- .debug_abbrev  0x000030a6      0x9f5 BurstBalloonsTextData.o
- .debug_abbrev  0x00003a9b       0x7f FlyAnimationData.o
- .debug_abbrev  0x00003b1a      0x1d9 GameOverTitleData.o
- .debug_abbrev  0x00003cf3       0x85 GameplayData.o
- .debug_abbrev  0x00003d78      0x1f8 HardwareData.o
- .debug_abbrev  0x00003f70      0x1d9 NewRecordTitleData.o
- .debug_abbrev  0x00004149      0x959 PressAnyKeyTextData.o
- .debug_abbrev  0x00004aa2      0x4a5 SplashScreenData.o
- .debug_abbrev  0x00004f47      0xe7d AnimatedEntity.o
- .debug_abbrev  0x00005dc4      0xa2c Animation.o
- .debug_abbrev  0x000067f0      0x11e CodedAnimation.o
- .debug_abbrev  0x0000690e      0x629 Entity.o
- .debug_abbrev  0x00006f37      0xf28 GraphicsHandler.o
- .debug_abbrev  0x00007e5f      0x4ee Math.o
- .debug_abbrev  0x0000834d      0x206 SoundManager.o
- .debug_abbrev  0x00008553      0x3a3 Vector2Methods.o
- .debug_abbrev  0x000088f6      0x1d7 Vector2Operators.o
- .debug_abbrev  0x00008acd      0x179 RectEdges.o
- .debug_abbrev  0x00008c46      0x250 RectFunctions.o
- .debug_abbrev  0x00008e96      0x550 HardwareManagerInitialization.o
- .debug_abbrev  0x000093e6      0x41d HardwareManagerUtilities.o
- .debug_abbrev  0x00009803      0xee3 EndOfLevelScene.o
- .debug_abbrev  0x0000a6e6      0xe59 GameplayScene.o
- .debug_abbrev  0x0000b53f      0xa11 Scene.o
- .debug_abbrev  0x0000bf50      0xbe6 SceneManager.o
- .debug_abbrev  0x0000cb36      0xf02 TitleScreenScene.o
- .debug_abbrev  0x0000da38      0xa81 MenuIdleCodedAnimation.o
- .debug_abbrev  0x0000e4b9      0xf21 SplashScreenCodedAnimation.o
- .debug_abbrev  0x0000f3da      0x366 C:/devkitPro/libnds/lib\libnds9.a(background.o)
- .debug_abbrev  0x0000f740      0x26e C:/devkitPro/libnds/lib\libnds9.a(trig.o)
- .debug_abbrev  0x0000f9ae      0x157 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
- .debug_abbrev  0x0000fb05      0x3b5 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
- .debug_abbrev  0x0000feba      0x31f C:/devkitPro/libnds/lib\libnds9.a(system.o)
- .debug_abbrev  0x000101d9      0x5b3 C:/devkitPro/libnds/lib\libnds9.a(console.o)
- .debug_abbrev  0x0001078c      0x3de C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
- .debug_abbrev  0x00010b6a      0x1a7 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
- .debug_abbrev  0x00010d11      0x3e1 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
- .debug_abbrev  0x000110f2       0x47 C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
- .debug_abbrev  0x00011139      0x21e C:/devkitPro/libnds/lib\libnds9.a(timers.o)
- .debug_abbrev  0x00011357      0x2da C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
- .debug_abbrev  0x00011631      0x1ad C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
- .debug_abbrev  0x000117de      0x4bb C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
- .debug_abbrev  0x00011c99       0x12 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
- .debug_abbrev  0x00011cab       0x12 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
- .debug_abbrev  0x00011cbd       0x12 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
- .debug_abbrev  0x00011ccf       0x14 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
- .debug_abbrev  0x00011ce3       0x14 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
- .debug_abbrev  0x00011cf7       0x12 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
- .debug_abbrev  0x00011d09       0x14 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
- .debug_abbrev  0x00011d1d      0x24c C:/devkitPro/libnds/lib\libnds9.a(video.o)
+ .debug_abbrev  0x00000000      0xbf7 AssetsInitializer.o
+ .debug_abbrev  0x00000bf7      0xf9e Balloon.o
+ .debug_abbrev  0x00001b95      0x89e GameManager.o
+ .debug_abbrev  0x00002433      0xa54 main.o
+ .debug_abbrev  0x00002e87       0xac BackgroundData.o
+ .debug_abbrev  0x00002f33       0xdf BalloonData.o
+ .debug_abbrev  0x00003012       0x7f BurstAnimationData.o
+ .debug_abbrev  0x00003091      0x9f5 BurstBalloonsTextData.o
+ .debug_abbrev  0x00003a86       0x7f FlyAnimationData.o
+ .debug_abbrev  0x00003b05      0x1d9 GameOverTitleData.o
+ .debug_abbrev  0x00003cde       0x85 GameplayData.o
+ .debug_abbrev  0x00003d63      0x1f8 HardwareData.o
+ .debug_abbrev  0x00003f5b      0x1d9 NewRecordTitleData.o
+ .debug_abbrev  0x00004134      0x959 PressAnyKeyTextData.o
+ .debug_abbrev  0x00004a8d      0x4a5 SplashScreenData.o
+ .debug_abbrev  0x00004f32      0xe7d AnimatedEntity.o
+ .debug_abbrev  0x00005daf      0xa2c Animation.o
+ .debug_abbrev  0x000067db      0x11e CodedAnimation.o
+ .debug_abbrev  0x000068f9      0x629 Entity.o
+ .debug_abbrev  0x00006f22      0xf28 GraphicsHandler.o
+ .debug_abbrev  0x00007e4a      0x4ee Math.o
+ .debug_abbrev  0x00008338      0x206 SoundManager.o
+ .debug_abbrev  0x0000853e      0x3a3 Vector2Methods.o
+ .debug_abbrev  0x000088e1      0x1d7 Vector2Operators.o
+ .debug_abbrev  0x00008ab8      0x167 RectEdges.o
+ .debug_abbrev  0x00008c1f      0x24f RectFunctions.o
+ .debug_abbrev  0x00008e6e      0x551 HardwareManagerInitialization.o
+ .debug_abbrev  0x000093bf      0x432 HardwareManagerUtilities.o
+ .debug_abbrev  0x000097f1      0xee3 EndOfLevelScene.o
+ .debug_abbrev  0x0000a6d4      0xe59 GameplayScene.o
+ .debug_abbrev  0x0000b52d      0xa11 Scene.o
+ .debug_abbrev  0x0000bf3e      0xbfd SceneManager.o
+ .debug_abbrev  0x0000cb3b      0xf02 TitleScreenScene.o
+ .debug_abbrev  0x0000da3d      0xa81 MenuIdleCodedAnimation.o
+ .debug_abbrev  0x0000e4be      0xf21 SplashScreenCodedAnimation.o
+ .debug_abbrev  0x0000f3df      0x366 C:/devkitPro/libnds/lib\libnds9.a(background.o)
+ .debug_abbrev  0x0000f745      0x26e C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+ .debug_abbrev  0x0000f9b3      0x157 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+ .debug_abbrev  0x0000fb0a      0x3b5 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+ .debug_abbrev  0x0000febf      0x31f C:/devkitPro/libnds/lib\libnds9.a(system.o)
+ .debug_abbrev  0x000101de      0x5b3 C:/devkitPro/libnds/lib\libnds9.a(console.o)
+ .debug_abbrev  0x00010791      0x3de C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+ .debug_abbrev  0x00010b6f      0x1a7 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+ .debug_abbrev  0x00010d16      0x3e1 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+ .debug_abbrev  0x000110f7       0x47 C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
+ .debug_abbrev  0x0001113e      0x21e C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+ .debug_abbrev  0x0001135c      0x2da C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+ .debug_abbrev  0x00011636      0x1ad C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+ .debug_abbrev  0x000117e3      0x4bb C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+ .debug_abbrev  0x00011c9e       0x12 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
+ .debug_abbrev  0x00011cb0       0x12 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
+ .debug_abbrev  0x00011cc2       0x12 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
+ .debug_abbrev  0x00011cd4       0x14 C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
+ .debug_abbrev  0x00011ce8       0x14 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
+ .debug_abbrev  0x00011cfc       0x12 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
+ .debug_abbrev  0x00011d0e       0x14 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
+ .debug_abbrev  0x00011d22      0x24c C:/devkitPro/libnds/lib\libnds9.a(video.o)
 
-.debug_line     0x00000000    0x230e7
+.debug_line     0x00000000    0x230ba
  *(.debug_line)
  .debug_line    0x00000000     0x1663 AssetsInitializer.o
  .debug_line    0x00001663     0x1b36 Balloon.o
- .debug_line    0x00003199      0x781 GameManager.o
- .debug_line    0x0000391a      0x856 main.o
- .debug_line    0x00004170      0x1a7 BackgroundData.o
- .debug_line    0x00004317      0x11d BalloonData.o
- .debug_line    0x00004434       0xfa BurstAnimationData.o
- .debug_line    0x0000452e      0x810 BurstBalloonsTextData.o
- .debug_line    0x00004d3e       0xf6 FlyAnimationData.o
- .debug_line    0x00004e34      0x21b GameOverTitleData.o
- .debug_line    0x0000504f       0xee GameplayData.o
- .debug_line    0x0000513d      0x1b2 HardwareData.o
- .debug_line    0x000052ef      0x225 NewRecordTitleData.o
- .debug_line    0x00005514      0x724 PressAnyKeyTextData.o
- .debug_line    0x00005c38      0x576 SplashScreenData.o
- .debug_line    0x000061ae     0x2133 AnimatedEntity.o
- .debug_line    0x000082e1      0xb2b Animation.o
- .debug_line    0x00008e0c      0x130 CodedAnimation.o
- .debug_line    0x00008f3c      0x5de Entity.o
- .debug_line    0x0000951a     0x3410 GraphicsHandler.o
- .debug_line    0x0000c92a      0x4dc Math.o
- .debug_line    0x0000ce06      0x205 SoundManager.o
- .debug_line    0x0000d00b      0x5b5 Vector2Methods.o
- .debug_line    0x0000d5c0      0x2cb Vector2Operators.o
- .debug_line    0x0000d88b      0x1cc RectEdges.o
- .debug_line    0x0000da57      0x31a RectFunctions.o
- .debug_line    0x0000dd71      0x909 HardwareManagerInitialization.o
- .debug_line    0x0000e67a      0x519 HardwareManagerUtilities.o
- .debug_line    0x0000eb93     0x2299 EndOfLevelScene.o
- .debug_line    0x00010e2c     0x39dd GameplayScene.o
- .debug_line    0x00014809      0x725 Scene.o
- .debug_line    0x00014f2e     0x14db SceneManager.o
- .debug_line    0x00016409     0x25bc TitleScreenScene.o
- .debug_line    0x000189c5     0x11ac MenuIdleCodedAnimation.o
- .debug_line    0x00019b71     0x17a1 SplashScreenCodedAnimation.o
- .debug_line    0x0001b312      0x725 C:/devkitPro/libnds/lib\libnds9.a(background.o)
- .debug_line    0x0001ba37      0x837 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
- .debug_line    0x0001c26e      0x2d4 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
- .debug_line    0x0001c542     0x1736 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
- .debug_line    0x0001dc78      0x4dc C:/devkitPro/libnds/lib\libnds9.a(system.o)
- .debug_line    0x0001e154     0x1414 C:/devkitPro/libnds/lib\libnds9.a(console.o)
- .debug_line    0x0001f568      0x74e C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
- .debug_line    0x0001fcb6      0x399 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
- .debug_line    0x0002004f      0x597 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
- .debug_line    0x000205e6       0x8f C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
- .debug_line    0x00020675      0x46c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
- .debug_line    0x00020ae1      0x54c C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
- .debug_line    0x0002102d      0x23b C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
- .debug_line    0x00021268     0x14f5 C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
- .debug_line    0x0002275d       0x96 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
- .debug_line    0x000227f3       0xe8 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
- .debug_line    0x000228db       0x74 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
- .debug_line    0x0002294f       0x5c C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
- .debug_line    0x000229ab       0x80 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
- .debug_line    0x00022a2b      0x1b0 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
- .debug_line    0x00022bdb       0x57 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
- .debug_line    0x00022c32      0x4b5 C:/devkitPro/libnds/lib\libnds9.a(video.o)
+ .debug_line    0x00003199      0x764 GameManager.o
+ .debug_line    0x000038fd      0x856 main.o
+ .debug_line    0x00004153      0x1a7 BackgroundData.o
+ .debug_line    0x000042fa      0x11d BalloonData.o
+ .debug_line    0x00004417       0xfa BurstAnimationData.o
+ .debug_line    0x00004511      0x812 BurstBalloonsTextData.o
+ .debug_line    0x00004d23       0xf6 FlyAnimationData.o
+ .debug_line    0x00004e19      0x21b GameOverTitleData.o
+ .debug_line    0x00005034       0xee GameplayData.o
+ .debug_line    0x00005122      0x1b2 HardwareData.o
+ .debug_line    0x000052d4      0x225 NewRecordTitleData.o
+ .debug_line    0x000054f9      0x724 PressAnyKeyTextData.o
+ .debug_line    0x00005c1d      0x576 SplashScreenData.o
+ .debug_line    0x00006193     0x2133 AnimatedEntity.o
+ .debug_line    0x000082c6      0xb2b Animation.o
+ .debug_line    0x00008df1      0x130 CodedAnimation.o
+ .debug_line    0x00008f21      0x5de Entity.o
+ .debug_line    0x000094ff     0x3410 GraphicsHandler.o
+ .debug_line    0x0000c90f      0x4dc Math.o
+ .debug_line    0x0000cdeb      0x205 SoundManager.o
+ .debug_line    0x0000cff0      0x5b5 Vector2Methods.o
+ .debug_line    0x0000d5a5      0x2cb Vector2Operators.o
+ .debug_line    0x0000d870      0x1cc RectEdges.o
+ .debug_line    0x0000da3c      0x31a RectFunctions.o
+ .debug_line    0x0000dd56      0x909 HardwareManagerInitialization.o
+ .debug_line    0x0000e65f      0x519 HardwareManagerUtilities.o
+ .debug_line    0x0000eb78     0x2299 EndOfLevelScene.o
+ .debug_line    0x00010e11     0x39dc GameplayScene.o
+ .debug_line    0x000147ed      0x725 Scene.o
+ .debug_line    0x00014f12     0x14db SceneManager.o
+ .debug_line    0x000163ed     0x25bc TitleScreenScene.o
+ .debug_line    0x000189a9     0x1199 MenuIdleCodedAnimation.o
+ .debug_line    0x00019b42     0x17a3 SplashScreenCodedAnimation.o
+ .debug_line    0x0001b2e5      0x725 C:/devkitPro/libnds/lib\libnds9.a(background.o)
+ .debug_line    0x0001ba0a      0x837 C:/devkitPro/libnds/lib\libnds9.a(trig.o)
+ .debug_line    0x0001c241      0x2d4 C:/devkitPro/libnds/lib\libnds9.a(touch.o)
+ .debug_line    0x0001c515     0x1736 C:/devkitPro/libnds/lib\libnds9.a(sprite_alloc.o)
+ .debug_line    0x0001dc4b      0x4dc C:/devkitPro/libnds/lib\libnds9.a(system.o)
+ .debug_line    0x0001e127     0x1414 C:/devkitPro/libnds/lib\libnds9.a(console.o)
+ .debug_line    0x0001f53b      0x74e C:/devkitPro/libnds/lib\libnds9.a(sprite.o)
+ .debug_line    0x0001fc89      0x399 C:/devkitPro/libnds/lib\libnds9.a(keys.o)
+ .debug_line    0x00020022      0x597 C:/devkitPro/libnds/lib\libnds9.a(initSystem.o)
+ .debug_line    0x000205b9       0x8f C:/devkitPro/libnds/lib\libnds9.a(securearea.o)
+ .debug_line    0x00020648      0x46c C:/devkitPro/libnds/lib\libnds9.a(timers.o)
+ .debug_line    0x00020ab4      0x54c C:/devkitPro/libnds/lib\libnds9.a(interrupts.o)
+ .debug_line    0x00021000      0x23b C:/devkitPro/libnds/lib\libnds9.a(libnds_exit.arm.o)
+ .debug_line    0x0002123b     0x14f5 C:/devkitPro/libnds/lib\libnds9.a(fifosystem.o)
+ .debug_line    0x00022730       0x96 C:/devkitPro/libnds/lib\libnds9.a(dcache.o)
+ .debug_line    0x000227c6       0xe8 C:/devkitPro/libnds/lib\libnds9.a(mpu_setup.o)
+ .debug_line    0x000228ae       0x74 C:/devkitPro/libnds/lib\libnds9.a(IntrWait.o)
+ .debug_line    0x00022922       0x5c C:/devkitPro/libnds/lib\libnds9.a(cpu_clock.o)
+ .debug_line    0x0002297e       0x80 C:/devkitPro/libnds/lib\libnds9.a(interruptDispatcher.o)
+ .debug_line    0x000229fe      0x1b0 C:/devkitPro/libnds/lib\libnds9.a(biosCalls.o)
+ .debug_line    0x00022bae       0x57 C:/devkitPro/libnds/lib\libnds9.a(swiSoftReset.o)
+ .debug_line    0x00022c05      0x4b5 C:/devkitPro/libnds/lib\libnds9.a(video.o)
 
 .debug_frame    0x00000000     0x24c4
  *(.debug_frame)
@@ -9733,47 +9733,47 @@ ARM.exidx       0x0234da54      0x278
                               0x1d12f (size before relaxing)
  .debug_str     0x0001c97f     0xc728 Balloon.o
                               0x1a1a5 (size before relaxing)
- .debug_str     0x000290a7      0xdda GameManager.o
-                               0x79cc (size before relaxing)
- .debug_str     0x00029e81      0x6b8 main.o
+ .debug_str     0x000290a7      0x46d GameManager.o
+                               0x702e (size before relaxing)
+ .debug_str     0x00029514      0x6b8 main.o
                               0x1ce63 (size before relaxing)
- .debug_str     0x0002a539      0x26f BackgroundData.o
+ .debug_str     0x00029bcc      0x26f BackgroundData.o
                                 0x3d7 (size before relaxing)
- .debug_str     0x0002a7a8      0x332 BalloonData.o
+ .debug_str     0x00029e3b      0x332 BalloonData.o
                                 0x564 (size before relaxing)
- .debug_str     0x0002aada      0x128 BurstAnimationData.o
+ .debug_str     0x0002a16d      0x128 BurstAnimationData.o
                                 0x1ec (size before relaxing)
- .debug_str     0x0002ac02      0x32d BurstBalloonsTextData.o
+ .debug_str     0x0002a295      0x32d BurstBalloonsTextData.o
                                0x71ed (size before relaxing)
- .debug_str     0x0002af2f       0xf0 FlyAnimationData.o
+ .debug_str     0x0002a5c2       0xf0 FlyAnimationData.o
                                 0x1e2 (size before relaxing)
- .debug_str     0x0002b01f      0x111 GameOverTitleData.o
+ .debug_str     0x0002a6b2      0x111 GameOverTitleData.o
                                 0x526 (size before relaxing)
- .debug_str     0x0002b130      0x13c GameplayData.o
+ .debug_str     0x0002a7c3      0x13c GameplayData.o
                                 0x208 (size before relaxing)
- .debug_str     0x0002b26c      0x183 HardwareData.o
+ .debug_str     0x0002a8ff      0x183 HardwareData.o
                                 0x860 (size before relaxing)
- .debug_str     0x0002b3ef      0x11c NewRecordTitleData.o
+ .debug_str     0x0002aa82      0x11c NewRecordTitleData.o
                                 0x534 (size before relaxing)
- .debug_str     0x0002b50b      0x221 PressAnyKeyTextData.o
+ .debug_str     0x0002ab9e      0x221 PressAnyKeyTextData.o
                                0x7149 (size before relaxing)
- .debug_str     0x0002b72c      0x293 SplashScreenData.o
+ .debug_str     0x0002adbf      0x293 SplashScreenData.o
                                0x10a4 (size before relaxing)
- .debug_str     0x0002b9bf     0x6c45 AnimatedEntity.o
+ .debug_str     0x0002b052     0x6c45 AnimatedEntity.o
                               0x19d1d (size before relaxing)
- .debug_str     0x00032604     0x1144 Animation.o
+ .debug_str     0x00031c97     0x1144 Animation.o
                                0x58d6 (size before relaxing)
- .debug_str     0x00033748      0x136 CodedAnimation.o
+ .debug_str     0x00032ddb      0x136 CodedAnimation.o
                                 0x246 (size before relaxing)
- .debug_str     0x0003387e      0x107 Entity.o
+ .debug_str     0x00032f11      0x107 Entity.o
                                0x1abf (size before relaxing)
- .debug_str     0x00033985     0xa68e GraphicsHandler.o
+ .debug_str     0x00033018     0xa68e GraphicsHandler.o
                               0x238c1 (size before relaxing)
- .debug_str     0x0003e013      0x4a6 Math.o
+ .debug_str     0x0003d6a6      0x4b7 Math.o
                                0x1471 (size before relaxing)
- .debug_str     0x0003e4b9      0x13c SoundManager.o
+ .debug_str     0x0003db5d      0x13c SoundManager.o
                                 0x3d8 (size before relaxing)
- .debug_str     0x0003e5f5      0x1e8 Vector2Methods.o
+ .debug_str     0x0003dc99      0xb44 Vector2Methods.o
                                0x106e (size before relaxing)
  .debug_str     0x0003e7dd       0x83 Vector2Operators.o
                                 0x42a (size before relaxing)
@@ -9796,7 +9796,7 @@ ARM.exidx       0x0234da54      0x278
  .debug_str     0x00047e31      0x25f TitleScreenScene.o
                               0x21ff4 (size before relaxing)
  .debug_str     0x00048090      0xb9e MenuIdleCodedAnimation.o
-                               0x5da4 (size before relaxing)
+                               0x5d93 (size before relaxing)
  .debug_str     0x00048c2e      0x9c4 SplashScreenCodedAnimation.o
                               0x1fd13 (size before relaxing)
  .debug_str     0x000495f2      0x447 C:/devkitPro/libnds/lib\libnds9.a(background.o)

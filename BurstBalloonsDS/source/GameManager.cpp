@@ -1,7 +1,7 @@
 #include <soundbank.h>
-#include <math.h>
 
 #include "GameManager.h"
+
 #include "Data/GameplayData.h"
 #include "Engine/SoundManager.h"
 #include "Engine/HardwareManager.h"

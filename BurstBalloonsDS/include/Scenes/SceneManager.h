@@ -1,6 +1,9 @@
 #pragma once
-#include "Scene.h"
+#if !defined(SCENE_MANAGER_H)
+#define SCENE_MANAGER_H true
+
 #include <map>
+#include "Scene.h"
 
 class SceneManager
 {
@@ -13,3 +16,5 @@ private:
 	std::map<const char*, Scene*> scenes;
 	const char* currentScene;
 };
+
+#endif

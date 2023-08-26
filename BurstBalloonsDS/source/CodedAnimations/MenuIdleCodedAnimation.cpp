@@ -1,7 +1,7 @@
 #include "CodedAnimations/MenuIdleCodedAnimation.h"
+
 #include "Engine/HardwareManager.h"
 #include "Engine/Math.h"
-#include<cmath>
 
 MenuIdleCodedAnimation::MenuIdleCodedAnimation(std::vector<Entity*> titleText, std::vector<Entity*> pressAnyKeyText)
 {

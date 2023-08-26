@@ -1,7 +1,9 @@
 #include<nds.h>
 #include<nds/arm9/input.h>
+
 #include<string>
 #include<vector>
+
 #include<soundbank.h>
 
 #include "Scenes/TitleScreenScene.h"

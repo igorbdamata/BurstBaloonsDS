@@ -1,4 +1,5 @@
 #include "Data/SplashScreenData.h"
+
 #include "Data/PressAnyKeyTextData.h";
 
 #include "BackgroundAnimation2.h";

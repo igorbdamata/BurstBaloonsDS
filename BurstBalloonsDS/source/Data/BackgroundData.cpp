@@ -1,4 +1,5 @@
 #include <nds/arm9/background.h>
+
 #include "Data/BackgroundData.h"
 
 const u16* BackgroundData::BACKGROUND3_MAIN_RAM = BG_BMP_RAM(BackgroundData::BACKGROUND3_MAIN_MAP_BASE);

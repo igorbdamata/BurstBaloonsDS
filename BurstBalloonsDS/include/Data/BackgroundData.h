@@ -1,7 +1,9 @@
+#pragma once
 #if !defined(BACKGROUND_SETTINGS)	
 #define BACKGROUND_SETTINGS true
-#pragma once
+
 #include <nds/arm9/background.h>
+
 class BackgroundData
 {
 public:
@@ -17,4 +19,5 @@ public:
 	static const u16* BACKGROUND2_MAIN_RAM;
 	static const u16* BACKGROUND3_SUB_RAM;
 };
-#endif;
+
+#endif

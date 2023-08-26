@@ -1,9 +1,9 @@
-#include "Balloon.h"
-
 #include <nds.h>
 #include <string>
 
 #include <soundbank.h>
+
+#include "Balloon.h"
 
 #include "Engine/SoundManager.h"
 #include "Engine/Math.h"

@@ -1,6 +1,6 @@
-#if !defined(VECTOR2_H)
-#define VECTOR2_H 1
 #pragma once
+#if !defined(VECTOR2_H)
+#define VECTOR2_H true
 
 struct Vector2
 {

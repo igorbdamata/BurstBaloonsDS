@@ -1,10 +1,10 @@
+#pragma once
 #if !defined(ANIMATION_H)
 #define ANIMATION_H true
-#pragma once
 
-#include<nds.h>
-#include<vector>
-#include<functional>
+#include <nds.h>
+#include <vector>
+#include <functional>
 
 class Animation
 {
@@ -34,4 +34,5 @@ private:
 	void ResetCurrentFrame();
 	void FinishAnimation();
 };
+
 #endif

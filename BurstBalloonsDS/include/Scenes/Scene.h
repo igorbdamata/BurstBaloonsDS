@@ -1,6 +1,9 @@
 #pragma once
-#include<nds.h>
-#include"../Engine/GraphicsHandler.h"
+#if !defined(SCENE_H)
+#define SCENE_H true
+
+#include <nds.h>
+#include "../Engine/GraphicsHandler.h"
 
 class Scene
 {
@@ -25,3 +28,5 @@ private:
 	void* subBackgroundTiles;
 	uint32 subBackgroundTilesLen;
 };
+
+#endif

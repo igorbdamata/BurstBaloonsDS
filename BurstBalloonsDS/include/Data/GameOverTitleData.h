@@ -1,6 +1,7 @@
 #pragma once
 #if !defined (GAME_OVER_TITLE_DATA_H)
 #define GAME_OVER_TITLE_DATA_H true
+
 #include "../Engine/Vector2.h"
 
 class GameOverTitleData

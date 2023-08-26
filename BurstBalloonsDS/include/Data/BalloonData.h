@@ -1,8 +1,10 @@
 #pragma once
 #if !defined(BALLOON_DATA_H)
 #define BALLOON_DATA_H true
-#include"../Engine/Vector2.h"
-#include<nds/arm9/sprite.h>
+
+#include <nds/arm9/sprite.h>
+#include "../Engine/Vector2.h"
+
 class BalloonData
 {
 public:
@@ -22,6 +24,7 @@ public:
 	static const char* INITIAL_ANIMATION;
 
 	static const int POSITION_Y_VARIATION_ON_SPAWN = 100;
-	static const int SPRITE_SHEET_OFFSET= 512;
+	static const int SPRITE_SHEET_OFFSET = 512;
 };
+
 #endif

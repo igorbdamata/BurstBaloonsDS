@@ -1,10 +1,12 @@
 #pragma once
-#if !defined(PRESS_ANY_KEY_TEXT_DATA_H )
-#define PRESS_ANY_KEY_TEXT_DATA_H 1
-#include<nds/arm9/video.h>
-#include<nds/arm9/sprite.h>
-#include<string>
-#include"Engine/Vector2.h"
+#if !defined(PRESS_ANY_KEY_TEXT_DATA_H)
+#define PRESS_ANY_KEY_TEXT_DATA_H true
+
+#include <nds/arm9/video.h>
+#include <nds/arm9/sprite.h>
+#include <string>
+
+#include "Engine/Vector2.h"
 
 class PressAnyKeyTextData
 {
@@ -25,4 +27,5 @@ public:
 	static const std::string GetName();
 	static Vector2* GetCenteredPositionForTile(int id);
 };
+
 #endif

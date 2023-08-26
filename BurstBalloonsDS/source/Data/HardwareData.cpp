@@ -1,4 +1,5 @@
 #include <nds/arm9/video.h>
+
 #include "Data/HardwareData.h"
 
 const double HardwareData::CPU_CLOCK = 33.514;

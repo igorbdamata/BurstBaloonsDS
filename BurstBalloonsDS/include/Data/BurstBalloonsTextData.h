@@ -1,10 +1,12 @@
 #pragma once
 #if !defined(BURST_BALLOONS_TEXT_DATA_H)
 #define BURST_BALLOONS_TEXT_DATA_H true
-#include<nds/arm9/video.h>
-#include<nds/arm9/sprite.h>
-#include<string>
-#include"Engine/Vector2.h"
+
+#include <nds/arm9/video.h>
+#include <nds/arm9/sprite.h>
+#include <string>
+
+#include "Engine/Vector2.h"
 
 class BurstBalloonsTextData
 {
@@ -28,4 +30,5 @@ public:
 private:
 	static const void* TILES[];
 };
+
 #endif

@@ -1,6 +1,7 @@
 #pragma once
 #if !defined(SPLASH_SCREEN_DATA_H)
 #define SPLASH_SCREEN_DATA_H true
+
 #include "../Engine/Vector2.h"
 
 class SplashScreenData
@@ -17,4 +18,5 @@ public:
 	static Vector2* pressAnyKeyInitialPosition;
 	static Vector2* pressAnyKeyFinalPosition;
 };
+
 #endif

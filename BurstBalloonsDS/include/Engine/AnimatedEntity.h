@@ -1,6 +1,6 @@
+#pragma once
 #if !defined(ANIMATED_ENTITY_H)
 #define ANIMATED_ENTITY_H true
-#pragma once
 
 #include <map>
 #include <string>

@@ -1,10 +1,12 @@
 #include <nds.h>
 #include <nds/arm9/sprite.h>
-#include <maxmod9.h>
-#include <soundbank_bin.h>
 #include <nds/arm9/background.h>
 
+#include <maxmod9.h>
+#include <soundbank_bin.h>
+
 #include "Engine/HardwareManager.h"
+
 #include "Engine/SoundManager.h"
 #include "Data/BackgroundData.h"
 

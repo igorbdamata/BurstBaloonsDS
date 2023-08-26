@@ -1,7 +1,9 @@
 #pragma once
 #if !defined(RECT_H)
 #define RECT_H true
-#include"Vector2.h"
+
+#include "Vector2.h"
+
 struct Rect
 {
 public:
@@ -32,4 +34,5 @@ private:
 	float width;
 	float height;
 };
+
 #endif

@@ -1,9 +1,12 @@
 #include "CodedAnimations/SplashScreenCodedAnimation.h"
+
 #include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"
-#include "Background1.h"
+
 #include "Data/SplashScreenData.h";
 #include "Data/PressAnyKeyTextData.h";
+
+#include "Background1.h"
 
 SplashScreenCodedAnimation::SplashScreenCodedAnimation(std::vector<Entity*> pressAnyKeyText,
 													   GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler)

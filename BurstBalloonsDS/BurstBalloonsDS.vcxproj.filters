@@ -206,9 +206,6 @@
     <ClInclude Include="include\Data\BurstBalloonsTextData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
-    <ClInclude Include="include\Engine\MetaTileAssembler.h">
-      <Filter>Arquivos de Cabeçalho\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="include\Data\PressAnyKeyTextData.h">
       <Filter>Arquivos de Cabeçalho\Data</Filter>
     </ClInclude>
