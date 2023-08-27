@@ -3,8 +3,8 @@
 #include "Engine/GraphicsHandler.h"
 #include "Engine/HardwareManager.h"
 
-#include "Data/SplashScreenData.h";
-#include "Data/PressAnyKeyTextData.h";
+#include "Data/SplashScreenData.h"
+#include "Data/PressAnyKeyTextData.h"
 
 #include "Background1.h"
 

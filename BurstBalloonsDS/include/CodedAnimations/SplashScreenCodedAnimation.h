@@ -7,7 +7,7 @@
 #include "../Engine/CodedAnimation.h"
 #include "../Engine/Vector2.h"
 #include "../Engine/Animation.h"
-#include "../Data/PressAnyKeyTextData.h";
+#include "../Data/PressAnyKeyTextData.h"
 
 class SplashScreenCodedAnimation : public CodedAnimation
 {

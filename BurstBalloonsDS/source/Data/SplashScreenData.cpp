@@ -1,13 +1,13 @@
 #include "Data/SplashScreenData.h"
 
-#include "Data/PressAnyKeyTextData.h";
+#include "Data/PressAnyKeyTextData.h"
 
-#include "BackgroundAnimation2.h";
-#include "BackgroundAnimation3.h";
-#include "BackgroundAnimation4.h";
-#include "BackgroundAnimation5.h";
-#include "BackgroundAnimation6.h";
-#include "BackgroundAnimation7.h";
+#include "BackgroundAnimation2.h"
+#include "BackgroundAnimation3.h"
+#include "BackgroundAnimation4.h"
+#include "BackgroundAnimation5.h"
+#include "BackgroundAnimation6.h"
+#include "BackgroundAnimation7.h"
 
 const float SplashScreenData::INTERVAL_BETWEEN_FRAMES = 0.3f;
 const void* SplashScreenData::FRAMES[SplashScreenData::FRAMES_COUNT] =
