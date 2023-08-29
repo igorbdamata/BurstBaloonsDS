@@ -24,7 +24,7 @@
 #include"Data/NewRecordTitleData.h"
 #include"Data/GameOverTitleData.h"
 
-#include"font.h"
+#include"Font.h"
 
 AssetsInitializer::AssetsInitializer(GraphicsHandler* topGraphicsHandler, GraphicsHandler* bottomGraphicsHandler, SceneManager* sceneManager, GameManager* gameManager)
 {
@@ -71,7 +71,7 @@ void AssetsInitializer::InitializeGlobalGraphics()
 {
 	topGraphicsHandler->AddPalette(PressAnyKeyText0Pal, "text");
 	bottomGraphicsHandler->AddPalette(PressAnyKeyText0Pal, "text");
-	topGraphicsHandler->SetTextFontTo((void*) fontTiles, (void*) fontPal, fontPalLen);
+	topGraphicsHandler->SetTextFontTo((void*) FontTiles, (void*) FontPal, FontPalLen);
 
 	InitPressAnyKeyText();
 }
