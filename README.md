@@ -15,8 +15,9 @@ The game was developed using C++ and libnds library. The libnds source code is a
 ![](https://github.com/igorbdamata/BurstBaloonsDS/blob/main/Project/GIFs/GIF4.gif)
 
 ## Credits
+The game was made for Ludos Aurum
 - The game was programmed by Igor B. da Mata
 - The song was made by Igor B. da Mata
-- The SFX was made by Luciano Ramos
+- The SFXs was made by Luciano Ramos
 - All graphics were drawn by Luciano Ramos
 - The game design was made by Igor B. da Mata and Luciano Ramos
