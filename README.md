@@ -1,4 +1,4 @@
-# BurstBaloonsDS
+# Burst Baloons DS
 ## About the game
 The gameplay is very simple. Your objective is to get the highest score possible. To do so, you must pop as many balloons as possible before you lose all your three lives. When a balloon gets out of the screen, you lose a life.
 
