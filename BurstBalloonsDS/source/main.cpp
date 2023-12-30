@@ -25,7 +25,7 @@ int main()
 	while (true)
 	{
 		HardwareManager::ClearScreens();
-
+		
 		sceneManager->GetCurrentScene()->InputLoop();
 		sceneManager->GetCurrentScene()->GameLoop();
 

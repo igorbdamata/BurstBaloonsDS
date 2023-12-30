@@ -1,1 +1,0 @@
-Necessário converter arquivos MIDI para .MOD (por meio de algum site como https://midi2mod-1.powerturkradio.repl.co/) para que eles possam ser carregados na memória

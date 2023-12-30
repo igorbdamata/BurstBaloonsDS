@@ -26,7 +26,7 @@ INCLUDES := include include/Data include/Engine source/Scenes include/CodedAnima
 DATA     :=
 GRAPHICS := gfx/sprites gfx/backgrounds gfx/backgrounds/TitleScreenBackgroundAnimation gfx/texts gfx/texts/TextPassRecord gfx/texts/PressAnyKeyText gfx/texts/GameOverText gfx/texts/BurstBalloonsText gfx/texts/BurstBalloonsTextT
 AUDIO    := audio
-ICON     := icon.bmp
+ICON     := 
 
 # specify a directory which contains the nitro filesystem
 # this is relative to the Makefile
@@ -34,8 +34,8 @@ NITRO    :=
 
 # These set the information text in the nds file
 GAME_TITLE     := Burst Balloons
-GAME_SUBTITLE1 := built with devkitARM
-GAME_SUBTITLE2 := http://devitpro.org
+GAME_SUBTITLE1 :=  
+GAME_SUBTITLE2 :=  
 
 #---------------------------------------------------------------------------------
 # options for code generation

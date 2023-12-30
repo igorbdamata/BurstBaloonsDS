@@ -43,7 +43,7 @@ void HardwareManager::InitAudio()
 void HardwareManager::InitVideo()
 {
 	HardwareManager::SetVRAM();
-	videoSetMode(MODE_5_2D | DISPLAY_BG3_ACTIVE | DISPLAY_BG2_ACTIVE);
+	videoSetMode(MODE_5_2D );
 	videoSetModeSub(MODE_5_2D | DISPLAY_BG3_ACTIVE);
 	oamInit(&oamMain, SpriteMapping_1D_128, false);
 	oamInit(&oamSub, SpriteMapping_1D_128, false);
@@ -51,7 +51,6 @@ void HardwareManager::InitVideo()
 void HardwareManager::SetVRAM()
 {
 	vramSetBankA(VRAM_A_MAIN_BG);
-	vramSetBankB(VRAM_B_MAIN_BG);
 	vramSetBankC(VRAM_C_SUB_BG);
 	vramSetBankD(VRAM_D_SUB_SPRITE);
 	vramSetBankE(VRAM_E_MAIN_SPRITE);
