@@ -9,3 +9,5 @@
 .x68 linguist-detectable=false
 .nasm linguist-detectable=false
 .c linguist-detectable=false
+.h linguist-detectable=false
+.s linguist-detectable=false
