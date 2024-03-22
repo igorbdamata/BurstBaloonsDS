@@ -1,4 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 .asm linguist-detectable=false
+.a51 linguist-detectable=false
+.i linguist-detectable=false
+.inc linguist-detectable=false
+.nas linguist-detectable=false
+.nasm linguist-detectable=false
 .c linguist-detectable=false
