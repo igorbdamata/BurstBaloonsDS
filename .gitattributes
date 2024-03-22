@@ -5,5 +5,8 @@
 .i linguist-detectable=false
 .inc linguist-detectable=false
 .nas linguist-detectable=false
+.c
+.x86
+.x68
 .nasm linguist-detectable=false
 .c linguist-detectable=false
